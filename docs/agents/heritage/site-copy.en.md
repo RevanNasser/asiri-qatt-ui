@@ -243,11 +243,11 @@ Same keys as `site-copy.ar.md`. `{…}` = placeholder. Facts on the About page a
 | key | Text |
 |---|---|
 | `docs.props.button.variant` | Visual style. qatt, qatt-outline and painted are Qatt additions. |
-| `docs.props.button.tone` | Pigment for variant=painted only. Green forces bold text. |
+| `docs.props.button.tone` | Pigment for variant=painted only: red, blue, ink or yellow. There is no green, because button text on green does not reach 4.5:1. |
 | `docs.props.button.size` | Height: default h-9, sm h-8, lg h-10. |
 | `docs.props.button.render` | Base UI composition (instead of asChild). |
 | `docs.button.rtl` | Place icons with data-icon="inline-start" or "inline-end"; arrow icons flip automatically in RTL. |
-| `docs.button.a11y` | Solid, visible focus outline; loading is announced with aria-busy plus a spinner; minimum target 24px. Green painted is only for bold text at 14px or larger. |
+| `docs.button.a11y` | Solid, visible focus outline; loading is announced with aria-busy plus a spinner; minimum target 24px. Every painted tone keeps labels at 4.5:1 or more at rest and on hover, in light and dark mode. |
 | `docs.props.badge.variant` | qatt = yellow paint with charcoal text; pigment takes its colour from tone. |
 | `docs.props.badge.tone` | Pigment for variant=pigment. No green: it fails 4.5:1 for small text. |
 | `docs.props.badge.render` | Render as another element, e.g. a link. |
@@ -313,3 +313,391 @@ Same keys as `site-copy.ar.md`. `{…}` = placeholder. Facts on the About page a
 | `docs.props.qatt-divider.className` | Extra classes; the band colour follows currentColor (text-*). |
 | `docs.breadcrumb.more` | More |
 | `docs.pagination.more` | More pages |
+
+## Batch 3 — ornaments and blocks
+
+Key index: `ar-copy-batch3.md`. Demo content is under `blocks.<id>.*`; doc pages are under `docs.<id>.*`; props are under `docs.props.<id>.*`; motif labels are under `docs.motifs.*`. Names, quotes, prices and figures in the demos are **fictional**.
+
+### Labels — motifs (motifs.json)
+
+| key | text |
+|---|---|
+| `docs.motifs.kaff.name` | Kaff (base band) |
+| `docs.motifs.kaff.desc` | A broad band along the foot of the wall, with a thin line above it. |
+| `docs.motifs.qatt-lines.name` | Qatt (stacked strokes) |
+| `docs.motifs.qatt-lines.desc` | Parallel horizontal stripes in alternating colours, running beneath the main panel. |
+| `docs.motifs.mathalith-makhamis.name` | Al-Mathalith wal-Makhamis (triple / quintuple lines) |
+| `docs.motifs.mathalith-makhamis.desc` | Three thin parallel lines, or five. |
+| `docs.motifs.rukun.name` | Rukun (triangle row) |
+| `docs.motifs.rukun.desc` | A row of upright triangles in two alternating colours. |
+| `docs.motifs.banat.name` | Banat (small triangles with sprigs) |
+| `docs.motifs.banat.desc` | Small triangles topped with plant sprigs. |
+| `docs.motifs.banat.note` | The sprig always stays plant-like: no dot or head above it, and it is never drawn, animated or described as a figure. |
+| `docs.motifs.balsanah.name` | Balsanah (rhombus chain) |
+| `docs.motifs.balsanah.desc` | A chain of rhombuses, each with a smaller rhombus inside. |
+| `docs.motifs.amshat.name` | Amshat (comb teeth) |
+| `docs.motifs.amshat.desc` | Upright parallel strokes like the teeth of a comb. |
+| `docs.motifs.amshat.note` | The comb shape is our inference from the name and its definition; we found no documented drawing. |
+| `docs.motifs.taadheeq.name` | Taadheeq (triangle with three-point crown) |
+| `docs.motifs.taadheeq.desc` | A triangle crowned by three stalks with dots at their tips; some documenters liken them to corn stalks. |
+| `docs.motifs.mahareeb.name` | Mahareeb (niche arches) |
+| `docs.motifs.mahareeb.desc` | Pointed arches side by side, each with a smaller arch inside. |
+| `docs.motifs.sankroli.name` | Sankroli (nested niches) |
+| `docs.motifs.sankroli.desc` | Three arches nested one inside another. |
+| `docs.motifs.shabakah.name` | Shabakah (grid) |
+| `docs.motifs.shabakah.desc` | Single-colour squares alternating with the ground in a grid. |
+| `docs.motifs.hanash.name` | Hanash (serpentine zigzag) |
+| `docs.motifs.hanash.desc` | A zigzag line; its name refers to the snake. |
+| `docs.motifs.khatmah.name` | Khatmah (closing square) |
+| `docs.motifs.khatmah.desc` | A square that closes the end of a band, with a diamond and a small square inside. |
+| `docs.motifs.sawtooth.name` | Sawtooth |
+| `docs.motifs.sawtooth.desc` | A row of right triangles. The name is our description, and the motif never flips with direction. |
+| `docs.motifs.stepped.name` | Stepped |
+| `docs.motifs.stepped.desc` | Rising steps that recall Asir's farming terraces. Not part of Al-Qatt's vocabulary: a project extension. |
+| `docs.motifs.variant.5` | Makhamis (five lines) |
+| `docs.motifs.variant.alternate` | Alternating colours |
+| `docs.motifs.variant.lattice` | Diagonal lattice |
+| `docs.motifs.variant.wave` | Wave |
+| `docs.motifs.traditionalLabel` | Traditional name found in sources |
+| `docs.motifs.slots` | Colour slots |
+| `docs.motifs.defaultColors` | Default colours |
+| `docs.patterns.preset.full` | Wall recipe |
+| `docs.patterns.preset.fullNote` | A band order of the project's own making, from kaff at the bottom to hanash at the top. It does not depict any particular wall. |
+
+### Ornaments — doc pages and props
+
+| key | text |
+|---|---|
+| `docs.qatt-pattern.intro` | A decorative background that repeats one Qatt motif to fill a section, a band or a card. Every motif is our own original drawing, inspired by the geometric vocabulary of Al-Qatt Al-Asiri, never copied from a particular wall. |
+| `docs.qatt-pattern.usage` | Pick the motif with motif and colour its slots with colors. If you put text over a pattern, place it on a solid card; when the pattern has children it is dimmed automatically to 0.12 in light mode and 0.18 in dark mode. |
+| `docs.qatt-pattern.rtl` | Motifs do not flip with direction; most are symmetric anyway. Sawtooth keeps the same orientation in both directions. |
+| `docs.qatt-pattern.a11y` | The pattern is pure decoration: hidden from assistive technology, not clickable and carrying no information. Never let meaning depend on it. |
+| `docs.qatt-pattern.heritage` | On pages that present the heritage itself, use surface="gypsum" or label the dark rendering as our interpretation. Never attribute a meaning to a motif that no source documents. |
+| `docs.props.qatt-pattern.motif` | The repeated motif. Default balsanah. |
+| `docs.props.qatt-pattern.variant` | An alternate form of the motif, where one exists: 5, alternate, lattice or wave. |
+| `docs.props.qatt-pattern.colors` | Colours for the motif's slots, in order: pigment names (red, yellow, ink…) or any CSS colour. Defaults to the motif's colours in motifs.json. |
+| `docs.props.qatt-pattern.ground` | Ground colour behind the motif (slot 4). Transparent by default. |
+| `docs.props.qatt-pattern.scale` | Tile size: sm, md, lg, xl or a number. Default md. |
+| `docs.props.qatt-pattern.opacity` | Opacity from 0 to 1. Clamped to 0.12 (light) / 0.18 (dark) when the pattern has children. |
+| `docs.props.qatt-pattern.fade` | Edge fade that keeps the content edge clean: towards block-end, block-start or radial. |
+| `docs.props.qatt-pattern.as` | Wrapper element: div, section or span. |
+| `docs.props.qatt-pattern.surface` | gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself. |
+| `docs.props.qatt-pattern.preset` | full renders the wall recipe: a stack of bands of the project's own making, never including stepped. |
+| `docs.qatt-border.intro` | A decorative edge on one or more sides of your content: a band of motifs that can end in khatmah squares, the way bands are closed on the wall. |
+| `docs.qatt-border.usage` | Choose the sides with side. The top strip stands upright and the bottom strip is turned over, so the triangles point into the content. Keep at least the strip thickness plus 8px between the strip and the content. |
+| `docs.qatt-border.rtl` | Logical sides, end caps and the paint reveal all follow the page direction. The motif artwork itself never flips. |
+| `docs.qatt-border.a11y` | Pure decoration, hidden from assistive technology. The inner padding stops the strip from covering the focus outline of the elements inside. |
+| `docs.props.qatt-border.side` | Which sides: top, bottom, block (top and bottom), inline (both sides) or all. Default block. |
+| `docs.props.qatt-border.motif` | Strip motif. Default rukun. |
+| `docs.props.qatt-border.variant` | An alternate form of the motif, where one exists: 5, alternate, lattice or wave. |
+| `docs.props.qatt-border.colors` | Colours for the motif's slots, in order: pigment names (red, yellow, ink…) or any CSS colour. Defaults to the motif's colours in motifs.json. |
+| `docs.props.qatt-border.thickness` | Strip height: sm 12px, md 24px (default), lg 40px, or a number. |
+| `docs.props.qatt-border.caps` | Adds khatmah squares at both ends of each strip. Default false. |
+| `docs.props.qatt-border.inset` | Draws the strip inside the box (default) or outside it when false. |
+| `docs.props.qatt-border.animate` | Paints the ornament in from inline-start when it appears. Off when reduced motion is on. |
+| `docs.props.qatt-border.surface` | gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself. |
+| `docs.qatt-divider.intro` | A band that separates two sections, the way the qatt divides a majlis wall. Some documenters say the art takes its name from this belt, drawn crosswise to split the wall in two. |
+| `docs.qatt-divider.usage` | Use it between major page sections; pass label to centre a short title between two bands. For small breaks inside cards and lists, separator is enough. |
+| `docs.qatt-divider.rtl` | The band is symmetric, the label stays centred in both directions, and the reveal starts at inline-start. |
+| `docs.qatt-divider.a11y` | Decorative by default. If it separates content that differs in meaning, set decorative={false} so it is announced as a separator with aria-orientation. The label is ordinary readable text. |
+| `docs.props.qatt-divider.motif` | Band motif. Default qatt-lines; mathalith-makhamis, hanash, rukun, banat and kaff also suit it. |
+| `docs.props.qatt-divider.variant` | An alternate form of the motif, where one exists: 5, alternate, lattice or wave. |
+| `docs.props.qatt-divider.colors` | Colours for the motif's slots, in order: pigment names (red, yellow, ink…) or any CSS colour. Defaults to the motif's colours in motifs.json. |
+| `docs.props.qatt-divider.thickness` | Band height: sm 12px (default), md 24px, lg 40px, or a number. |
+| `docs.props.qatt-divider.orientation` | Horizontal (default) or vertical. |
+| `docs.props.qatt-divider.label` | A short label centred between two bands. |
+| `docs.props.qatt-divider.animate` | Paints the ornament in from inline-start when it appears. Off when reduced motion is on. |
+| `docs.props.qatt-divider.surface` | gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself. |
+| `docs.qatt-frame.intro` | A pointed-arch frame around an image or focal content, standing on a kaff band with khatmah squares at its corners. Its shape draws on the mahareeb motif and its nested arches. |
+| `docs.qatt-frame.nameNote` | In the interface we call it the arch frame: it is a general UI component, and the name describes its shape only. |
+| `docs.qatt-frame.usage` | Put an image with alt text, or short content, inside; the content is clipped to the inner arch. Use outline={3} for three nested arches in the manner of sankroli. The stepped shape is a project extension, so label it wherever you show it. |
+| `docs.qatt-frame.rtl` | The frame is symmetric; nothing flips. |
+| `docs.qatt-frame.a11y` | Built on figure and figcaption; the arch drawing is hidden from assistive technology. Give every image alt text, and put explanations in caption, not inside the image. |
+| `docs.props.qatt-frame.shape` | Arch shape: pointed (default), round, or stepped, which is a project extension. |
+| `docs.props.qatt-frame.outline` | Number of nested arch outlines: 1, 2 (default) or 3. |
+| `docs.props.qatt-frame.colors` | Colours in order: outer arch, inner arch, base. |
+| `docs.props.qatt-frame.base` | Base band motif, default kaff. Set false for no base. |
+| `docs.props.qatt-frame.caps` | Adds khatmah squares at the base corners. Default true. |
+| `docs.props.qatt-frame.ratio` | Aspect ratio of the content box. Default 3/4. |
+| `docs.props.qatt-frame.caption` | Caption rendered in figcaption below the frame. |
+| `docs.props.qatt-frame.animate` | Draws the arch stroke in when it appears. Off when reduced motion is on. |
+| `docs.props.qatt-frame.surface` | gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself. |
+| `docs.qatt-corner.intro` | A small ornament for the corner of a card or frame. Its default form is the khatmah, the square that closes a band. One source relates that the khatmah was where the painter showed her own touch. |
+| `docs.qatt-corner.usage` | Place it inside an element with position: relative and choose the corner with position. Repeat it four times for all four corners. |
+| `docs.qatt-corner.rtl` | Corners are logical: start-start is top-right in Arabic and top-left in English. |
+| `docs.qatt-corner.a11y` | Pure decoration, hidden from assistive technology and not clickable. Make sure it never covers text or a button. |
+| `docs.props.qatt-corner.position` | Logical corner (block, then inline): start-start, start-end, end-start or end-end. Default start-start. |
+| `docs.props.qatt-corner.motif` | Motif: khatmah (default), taadheeq or mahareeb. |
+| `docs.props.qatt-corner.colors` | Colours for the motif's slots, in order: pigment names (red, yellow, ink…) or any CSS colour. Defaults to the motif's colours in motifs.json. |
+| `docs.props.qatt-corner.size` | Size: sm 16px, md 24px (default), lg 32px, or a number. |
+| `docs.props.qatt-corner.offset` | Offset in px outwards; negative moves it inwards. Default 0. |
+
+### Blocks — demo content (1)
+
+| key | text |
+|---|---|
+| `blocks.sampleNote` | This content is a sample: the names, figures, prices and quotes are made up. Replace them with your own. |
+| `blocks.qatt-hero.eyebrow` | New: version 2.0 |
+| `blocks.qatt-hero.title` | Build your product on solid ground |
+| `blocks.qatt-hero.subtitle` | Clear tools that organise your work and save your time, from the first idea to launch day. |
+| `blocks.qatt-hero.primary` | Start for free |
+| `blocks.qatt-hero.secondary` | Watch the demo |
+| `blocks.qatt-hero.install.label` | Install with one command |
+| `blocks.qatt-hero.media.alt` | Illustrative screenshot of the dashboard |
+| `blocks.majlis-welcome.eyebrow` | Welcome |
+| `blocks.majlis-welcome.title` | Welcome, make yourselves at home |
+| `blocks.majlis-welcome.body` | In the homes of Asir, the guest room is given special care: the woman of the house paints its walls with qatt and invites her female relatives to paint with her, so guests are met by a wall made with affection. We prepared this space in that spirit: a place that receives you warmly and puts what you need within easy reach. |
+| `blocks.majlis-welcome.points.1.title` | Up and running in minutes |
+| `blocks.majlis-welcome.points.1.body` | No complicated setup and no extra steps: the place is ready before you arrive. |
+| `blocks.majlis-welcome.points.2.title` | Everything within reach |
+| `blocks.majlis-welcome.points.2.body` | What you need is close at hand and in its place, so you never search for long. |
+| `blocks.majlis-welcome.points.3.title` | We are close by |
+| `blocks.majlis-welcome.points.3.body` | Our support team answers in Arabic and stays with you until the job is done. |
+| `blocks.majlis-welcome.cta` | Please, come in |
+| `blocks.majlis-welcome.note` | The ornament is inspired by Al-Qatt Al-Asiri, the art of Asiri women decorating the interior walls of their homes. |
+| `blocks.majlis-welcome.media.alt` | A wall decorated with bands and triangles inspired by Al-Qatt Al-Asiri |
+| `blocks.qatt-feature-grid.title` | Features built for your work |
+| `blocks.qatt-feature-grid.subtitle` | Every feature here has a clear purpose; none is just for show. |
+| `blocks.qatt-feature-grid.f1.title` | Fast by nature |
+| `blocks.qatt-feature-grid.f1.body` | Light pages that open instantly, even on slow connections. |
+| `blocks.qatt-feature-grid.f2.title` | Your data stays safe |
+| `blocks.qatt-feature-grid.f2.body` | Encryption in transit and at rest, with fine-grained permissions for every team member. |
+| `blocks.qatt-feature-grid.f3.title` | Smooth teamwork |
+| `blocks.qatt-feature-grid.f3.body` | Share files, comment on them and follow changes together, in real time. |
+| `blocks.qatt-feature-grid.f4.title` | Reports you can read |
+| `blocks.qatt-feature-grid.f4.body` | Clear numbers and charts that answer your questions without effort. |
+| `blocks.qatt-feature-grid.f5.title` | Arabic from the ground up |
+| `blocks.qatt-feature-grid.f5.body` | A right-to-left interface, with dates and numbers shown the way you expect. |
+| `blocks.qatt-feature-grid.f6.title` | Works with your tools |
+| `blocks.qatt-feature-grid.f6.body` | Connect it to the services you use every day in a few steps. |
+| `blocks.qatt-feature-grid.more` | Learn more |
+| `blocks.qatt-stats.title` | Numbers that tell the story |
+| `blocks.qatt-stats.s1.label` | Active users |
+| `blocks.qatt-stats.s2.label` | Customer satisfaction |
+| `blocks.qatt-stats.s3.label` | Teams rely on us |
+| `blocks.qatt-stats.s4.label` | Service uptime |
+| `blocks.qatt-stats.sampleNote` | Sample figures for the demo. Replace them with your own. |
+| `blocks.qatt-testimonials.title` | What people who tried it say |
+| `blocks.qatt-testimonials.t1.quote` | “We moved over in one week and only needed support once. The Arabic interface feels natural, not forced.” |
+| `blocks.qatt-testimonials.t1.name` | Noura (sample name) |
+| `blocks.qatt-testimonials.t1.role` | Product manager, Example Co. |
+| `blocks.qatt-testimonials.t2.quote` | “Finally, tools that respect right-to-left without patches. It saved us days of fixes.” |
+| `blocks.qatt-testimonials.t2.name` | Fahad (sample name) |
+| `blocks.qatt-testimonials.t2.role` | Front-end developer, Sample Studio |
+| `blocks.qatt-testimonials.t3.quote` | “My whole team uses it every day, even the ones who dislike new tools.” |
+| `blocks.qatt-testimonials.t3.name` | Hind (sample name) |
+| `blocks.qatt-testimonials.t3.role` | Founder, Demo Store |
+| `blocks.qatt-testimonials.avatarAlt` | Photo of {name} |
+| `blocks.qatt-testimonials.sampleNote` | Made-up names and quotes for demo purposes; they do not belong to real people. |
+
+### Blocks — demo content (2)
+
+| key | text |
+|---|---|
+| `blocks.qatt-pricing.title` | Plans for every stage |
+| `blocks.qatt-pricing.subtitle` | Start for free and move up when you need to. Prices here are samples. |
+| `blocks.qatt-pricing.currency` | SAR |
+| `blocks.qatt-pricing.period.label` | Billing period |
+| `blocks.qatt-pricing.period.monthly` | Monthly |
+| `blocks.qatt-pricing.period.yearly` | Yearly |
+| `blocks.qatt-pricing.period.yearlyHint` | Save two months |
+| `blocks.qatt-pricing.perMonth` | per month |
+| `blocks.qatt-pricing.perYear` | per year |
+| `blocks.qatt-pricing.free` | Free |
+| `blocks.qatt-pricing.starter.name` | Starter |
+| `blocks.qatt-pricing.starter.description` | For individuals and first-timers. |
+| `blocks.qatt-pricing.starter.f1` | 1 project |
+| `blocks.qatt-pricing.starter.f2` | Up to 3 members |
+| `blocks.qatt-pricing.starter.f3` | 1 GB storage |
+| `blocks.qatt-pricing.starter.f4` | Email support |
+| `blocks.qatt-pricing.starter.cta` | Start for free |
+| `blocks.qatt-pricing.growth.name` | Growth |
+| `blocks.qatt-pricing.growth.description` | For small teams that are growing. |
+| `blocks.qatt-pricing.growth.f1` | Unlimited projects |
+| `blocks.qatt-pricing.growth.f2` | Up to 20 members |
+| `blocks.qatt-pricing.growth.f3` | 50 GB storage |
+| `blocks.qatt-pricing.growth.f4` | Advanced reports |
+| `blocks.qatt-pricing.growth.f5` | Priority support |
+| `blocks.qatt-pricing.growth.cta` | Choose this plan |
+| `blocks.qatt-pricing.growth.badge` | Most popular |
+| `blocks.qatt-pricing.enterprise.name` | Enterprise |
+| `blocks.qatt-pricing.enterprise.price` | Custom |
+| `blocks.qatt-pricing.enterprise.description` | For organisations with specific needs. |
+| `blocks.qatt-pricing.enterprise.f1` | Everything in Growth |
+| `blocks.qatt-pricing.enterprise.f2` | Unlimited members |
+| `blocks.qatt-pricing.enterprise.f3` | Single sign-on (SSO) |
+| `blocks.qatt-pricing.enterprise.f4` | Dedicated account manager |
+| `blocks.qatt-pricing.enterprise.f5` | Service-level agreement |
+| `blocks.qatt-pricing.enterprise.cta` | Contact us |
+| `blocks.qatt-pricing.ctaAria` | Choose the {plan} plan |
+| `blocks.qatt-pricing.included` | Included |
+| `blocks.qatt-pricing.notIncluded` | Not included |
+| `blocks.qatt-cta.title` | The door is open, come in |
+| `blocks.qatt-cta.body` | Start today for free and join teams that work calmly and clearly. |
+| `blocks.qatt-cta.primary` | Start for free |
+| `blocks.qatt-cta.secondary` | Talk to our team |
+| `blocks.qatt-footer.brand` | Your product |
+| `blocks.qatt-footer.tagline` | Arabic-first tools for teams that work with clarity. |
+| `blocks.qatt-footer.heritageNote` | The ornament is inspired by Al-Qatt Al-Asiri, the art of Asiri women inscribed on UNESCO's Intangible Cultural Heritage list in 2017. |
+| `blocks.qatt-footer.nav` | Footer links |
+| `blocks.qatt-footer.col.product` | Product |
+| `blocks.qatt-footer.link.features` | Features |
+| `blocks.qatt-footer.link.pricing` | Pricing |
+| `blocks.qatt-footer.link.updates` | Updates |
+| `blocks.qatt-footer.link.roadmap` | Roadmap |
+| `blocks.qatt-footer.col.company` | Company |
+| `blocks.qatt-footer.link.about` | About us |
+| `blocks.qatt-footer.link.careers` | Careers |
+| `blocks.qatt-footer.link.blog` | Blog |
+| `blocks.qatt-footer.link.contact` | Contact |
+| `blocks.qatt-footer.col.resources` | Resources |
+| `blocks.qatt-footer.link.docs` | Documentation |
+| `blocks.qatt-footer.link.help` | Help centre |
+| `blocks.qatt-footer.link.faq` | FAQ |
+| `blocks.qatt-footer.link.status` | Status |
+| `blocks.qatt-footer.col.legal` | Legal |
+| `blocks.qatt-footer.link.privacy` | Privacy policy |
+| `blocks.qatt-footer.link.terms` | Terms of use |
+| `blocks.qatt-footer.link.cookies` | Cookies |
+| `blocks.qatt-footer.copyright` | © {year} {brand}. All rights reserved. |
+| `blocks.qatt-footer.external` | (opens in a new tab) |
+| `blocks.qatt-login.title` | Sign in |
+| `blocks.qatt-login.description` | Welcome back. Enter your details to continue. |
+| `blocks.qatt-login.email.label` | Email |
+| `blocks.qatt-login.email.placeholder` | name@example.com |
+| `blocks.qatt-login.password.label` | Password |
+| `blocks.qatt-login.password.show` | Show password |
+| `blocks.qatt-login.password.hide` | Hide password |
+| `blocks.qatt-login.capsLock` | Caps Lock is on. |
+| `blocks.qatt-login.remember` | Remember me |
+| `blocks.qatt-login.forgot` | Forgot your password? |
+| `blocks.qatt-login.submit` | Sign in |
+| `blocks.qatt-login.submitting` | Signing in… |
+| `blocks.qatt-login.divider` | or |
+| `blocks.qatt-login.provider` | Continue with {provider} |
+| `blocks.qatt-login.noAccount` | Don't have an account? |
+| `blocks.qatt-login.signUp` | Create an account |
+| `blocks.qatt-login.panel.title` | Good to see you again |
+| `blocks.qatt-login.panel.body` | Everything is just as you left it. |
+| `blocks.qatt-login.error.email.required` | Enter your email. |
+| `blocks.qatt-login.error.email.invalid` | Enter a valid email, such as name@example.com. |
+| `blocks.qatt-login.error.password.required` | Enter your password. |
+| `blocks.qatt-login.error.password.short` | Your password must be at least {min} characters. |
+| `blocks.qatt-login.error.summary` | Couldn't sign you in |
+| `blocks.qatt-login.error.form.credentials` | The email or password is incorrect. Check them and try again. |
+| `blocks.qatt-login.error.form.network` | We couldn't connect. Check your network and try again. |
+| `blocks.qatt-login.error.form.tooMany` | Too many attempts. Wait a moment, then try again. |
+| `blocks.qatt-login.error.form.unknown` | Something went wrong. Please try again shortly. |
+| `blocks.qatt-login.success` | You're signed in. |
+| `blocks.qatt-404.code` | 404 |
+| `blocks.qatt-404.title` | Page not found |
+| `blocks.qatt-404.body` | Even in the mountains of Asir a walker can lose the path between the terraces. This page may have moved or its link changed, but the way home is close. |
+| `blocks.qatt-404.home` | Back to home |
+| `blocks.qatt-404.search` | Search the site |
+| `blocks.qatt-404.back` | Go back |
+| `blocks.qatt-404.report` | Report the broken link |
+
+### Blocks — doc pages and props
+
+| key | text |
+|---|---|
+| `docs.qatt-hero.intro` | The opening section of a page: a rukun band on top, then a main heading, a short subtitle, two buttons and an optional install command, closed by a qatt band. |
+| `docs.qatt-hero.usage` | Pass align="start" with media for a two-column hero: text at inline-start and the media in an arch frame at inline-end on large screens. Keep the subtitle to about 60 characters per line. |
+| `docs.qatt-hero.rtl` | Columns follow the page direction, the primary button's arrow flips, and the install command is always shown left-to-right. |
+| `docs.qatt-hero.a11y` | The title is the page's only h1. The animation is opt-in and stops under reduced motion, and the copy button announces “Copied”. |
+| `docs.props.qatt-hero.eyebrow` | Short line above the title, shown in a badge. |
+| `docs.props.qatt-hero.title` | Main heading, rendered as h1. |
+| `docs.props.qatt-hero.subtitle` | Short description below the title. |
+| `docs.props.qatt-hero.primaryCta` | Main button. A button with label, href and optional variant (qatt, default, outline or qatt-outline). |
+| `docs.props.qatt-hero.secondaryCta` | Secondary button. A button with label, href and optional variant (qatt, default, outline or qatt-outline). |
+| `docs.props.qatt-hero.install` | An install command shown left-to-right with a copy button, plus an optional label. |
+| `docs.props.qatt-hero.motif` | Top band motif. Default rukun. |
+| `docs.props.qatt-hero.align` | Content alignment: center (default) or start. |
+| `docs.props.qatt-hero.media` | Image or element shown in an arch frame at inline-end on large screens. |
+| `docs.props.qatt-hero.animate` | Paints the top band in; off under reduced motion. |
+| `docs.majlis-welcome.intro` | A welcome section that receives visitors the way a guest is received. In the homes of Asir, the woman of the house gives the guest room special care and paints its walls with qatt together with her female relatives. This block draws on that spirit: a banat frieze on top, a warm heading and three welcome points. |
+| `docs.majlis-welcome.usage` | Use it as the first thing people see after signing up, or as an introduction on your home page. Write like a host, not an advert: short sentences, plural address, and promises you keep. |
+| `docs.majlis-welcome.rtl` | Media sits at inline-end on large screens, points read from inline-start, and the banat frieze is symmetric so it does not flip. |
+| `docs.majlis-welcome.a11y` | The section is labelled by its heading, the points are a real list (ul), and the icons and frieze are hidden from assistive technology. |
+| `docs.majlis-welcome.heritage` | Banat sprigs always stay plant-like: never add a dot or head above them, and never animate them in a way that suggests a figure. Do not attribute meanings to the motifs that no source documents. |
+| `docs.majlis-welcome.copyNote` | If your copy mentions Al-Qatt Al-Asiri, say “inspired by” and stick to what is established: it is the art of Asiri women decorating the interior walls of their homes, especially guest rooms, and it was inscribed on UNESCO's Intangible Cultural Heritage list in 2017. Do not give a date for its origin; its origins are debated. |
+| `docs.props.majlis-welcome.title` | Section heading; the section is labelled by it via aria-labelledby. |
+| `docs.props.majlis-welcome.body` | Welcome text, one or two short paragraphs. |
+| `docs.props.majlis-welcome.points` | Up to three welcome points, each with a title, body and optional icon. |
+| `docs.props.majlis-welcome.media` | Image or element shown in an arch frame. |
+| `docs.props.majlis-welcome.cta` | Optional call to action. A button with label, href and optional variant (qatt, default, outline or qatt-outline). |
+| `docs.qatt-feature-grid.intro` | A grid of painted cards presenting your product's features, each with an icon in a coloured khatmah-like square, over a very faint shabakah background. |
+| `docs.qatt-feature-grid.usage` | Three columns suit six features; two suit four. Keep each title to two or three words and the body to one sentence. Giving a feature an href makes the whole card clickable through a single inner link. |
+| `docs.qatt-feature-grid.rtl` | The grid fills from inline-start; only directional icons flip. |
+| `docs.qatt-feature-grid.a11y` | Feature titles are h3 under the section heading; icons are decorative. A clickable card has one link, named by the feature title. |
+| `docs.props.qatt-feature-grid.title` | Section heading; the section is labelled by it via aria-labelledby. |
+| `docs.props.qatt-feature-grid.subtitle` | Intro line under the title. |
+| `docs.props.qatt-feature-grid.features` | Feature list: title and body, with optional icon and href. |
+| `docs.props.qatt-feature-grid.columns` | Columns on large screens: 2, 3 or 4. |
+| `docs.props.qatt-feature-grid.background` | Faint background motif, or false for none. Default shabakah at 0.06. |
+| `docs.qatt-stats.intro` | Bold figures that sum up your achievements in one row, over a faint balsanah background. |
+| `docs.qatt-stats.usage` | The figures in the demo are samples; replace them with real ones. Western digits are the default; numerals="arab" shows Arabic-Indic digits for decorative contexts. |
+| `docs.qatt-stats.rtl` | Each value is isolated in bdi so % and + stay in place. Write prefix and suffix as they read, e.g. 98%. |
+| `docs.qatt-stats.a11y` | The final value is in the DOM from the start, so assistive technology reads it even with the count-up, and the count-up stops under reduced motion. |
+| `docs.props.qatt-stats.title` | Optional section heading. |
+| `docs.props.qatt-stats.stats` | List of figures: value and label, with optional prefix and suffix. |
+| `docs.props.qatt-stats.numerals` | Digits: latn Western (default) or arab Arabic-Indic. |
+| `docs.props.qatt-stats.background` | Faint background motif, or false for none. Default balsanah at low opacity. |
+| `docs.props.qatt-stats.animate` | Optional count-up to the value; off under reduced motion. |
+| `docs.qatt-testimonials.intro` | Testimonials from people who tried your product, as a grid of cards or one large quote, with a decorative quote mark framed by sankroli. |
+| `docs.qatt-testimonials.usage` | The names and quotes in the demo are made up; do not publish them. Use real testimonials with permission. Wrap Arabic quotes in «…». |
+| `docs.qatt-testimonials.rtl` | The decorative quote mark sits at inline-start; English quotes inside Arabic text are isolated with bdi. |
+| `docs.qatt-testimonials.a11y` | Each testimonial is a figure with blockquote and figcaption. The large quote mark is decorative; avatars have alt text. |
+| `docs.props.qatt-testimonials.title` | Section heading; the section is labelled by it via aria-labelledby. |
+| `docs.props.qatt-testimonials.items` | Testimonials: quote and name, with optional role and avatar. |
+| `docs.props.qatt-testimonials.layout` | Layout: grid of cards, or single large quote. |
+| `docs.qatt-pricing.intro` | Pricing plans side by side; the recommended plan sits in a framed card crowned with a taadheeq ornament and a badge. |
+| `docs.qatt-pricing.usage` | Prices in the demo are samples. Pass period to show a monthly/yearly toggle. In Arabic the currency follows the number: 99 ر.س. |
+| `docs.qatt-pricing.rtl` | Price and currency are isolated in bdi with tabular digits. Check marks in feature lists do not flip. |
+| `docs.qatt-pricing.a11y` | Plan names are headings; the recommended plan is marked by a text badge, not colour alone. Each button's accessible name includes the plan, e.g. “Choose the Growth plan”. |
+| `docs.props.qatt-pricing.title` | Section heading; the section is labelled by it via aria-labelledby. |
+| `docs.props.qatt-pricing.subtitle` | Intro line under the title. |
+| `docs.props.qatt-pricing.currency` | Currency after the number. Default ر.س. |
+| `docs.props.qatt-pricing.period` | Monthly and yearly labels; providing them shows the toggle. |
+| `docs.props.qatt-pricing.plans` | Plans: name, price, features and cta, with optional description and badge; highlighted marks the recommended plan. |
+| `docs.qatt-cta.intro` | A closing band that invites the visitor to the next step, in one colour with a row of taadheeq ornaments. |
+| `docs.qatt-cta.usage` | Place it at the end of the page before the footer, with a short title, one clear call to action and a secondary button if needed. |
+| `docs.qatt-cta.rtl` | Buttons follow reading order: primary first, at inline-start. |
+| `docs.qatt-cta.a11y` | Text on red or ink bands is gypsum and passes contrast; the primary button switches to painted yellow to stay prominent. |
+| `docs.props.qatt-cta.title` | Section heading; the section is labelled by it via aria-labelledby. |
+| `docs.props.qatt-cta.body` | Short line under the title. |
+| `docs.props.qatt-cta.primary` | Primary button. A button with label, href and optional variant (qatt, default, outline or qatt-outline). |
+| `docs.props.qatt-cta.secondary` | Optional secondary button. A button with label, href and optional variant (qatt, default, outline or qatt-outline). |
+| `docs.props.qatt-cta.tone` | Band colour: ink (default), red or gypsum. |
+| `docs.props.qatt-cta.motif` | Ornament row motif. Default taadheeq. |
+| `docs.qatt-footer.intro` | A footer with brand, link columns and copyright, resting on a kaff band the way a wall rests on its base band. |
+| `docs.qatt-footer.usage` | Arrange links in three or four columns of no more than five links each. If you use Qatt ornaments, keep the inspiration note in heritageNote. |
+| `docs.qatt-footer.rtl` | The brand sits at inline-start with the columns after it. The external-link arrow does not flip. |
+| `docs.qatt-footer.a11y` | The footer is a landmark and column titles are real headings. Links that open a new tab say so to screen readers. |
+| `docs.props.qatt-footer.brand` | Brand: name or logo. |
+| `docs.props.qatt-footer.tagline` | One-line description under the brand. |
+| `docs.props.qatt-footer.heritageNote` | Small note crediting the ornament's inspiration. |
+| `docs.props.qatt-footer.columns` | Link columns: title and links; mark outside links with external. |
+| `docs.props.qatt-footer.bottom` | Bottom row content, such as copyright and theme toggle. |
+| `docs.props.qatt-footer.kaff` | Shows the kaff band at the bottom. Default true. |
+| `docs.qatt-login.intro` | A welcoming sign-in form: fields at inline-start and a decorative sankroli panel with an arch frame at inline-end. On mobile the panel hides and a rukun strip sits above the form. |
+| `docs.qatt-login.usage` | Pass onSubmit to receive email and password, and errors to show server errors. Arabic messages are ready; on a failed sign-in, never reveal which field was wrong. |
+| `docs.qatt-login.rtl` | Email and password inputs are left-to-right; their labels and error messages stay right-to-left. |
+| `docs.qatt-login.a11y` | Labels are always visible, each error is linked to its field with aria-describedby, and form-level errors are announced in a live region. The show-password button has aria-pressed and an accessible name; the submit button announces loading. |
+| `docs.props.qatt-login.title` | Form heading. Default “Sign in”. |
+| `docs.props.qatt-login.description` | Welcome line under the heading. |
+| `docs.props.qatt-login.onSubmit` | Called with email and password on submit; loading shows until it resolves. |
+| `docs.props.qatt-login.providers` | External sign-in providers: id, label and icon. |
+| `docs.props.qatt-login.forgotHref` | Link for “Forgot your password?”. |
+| `docs.props.qatt-login.signUpHref` | Link for “Create an account”. |
+| `docs.props.qatt-login.errors` | Error messages for email, password and the whole form. |
+| `docs.qatt-404.intro` | A gentle error page: the code 404 inside an arch frame, a title and short text, routes home and to search, and a row of mahareeb along the base. |
+| `docs.qatt-404.usage` | Keep the text short and kind, and never blame the visitor. Offer at least two ways out: home and search. |
+| `docs.qatt-404.rtl` | The 404 code is isolated in bdi and uses Western digits in both directions. |
+| `docs.qatt-404.a11y` | The h1 is the sentence, not the number, so screen readers state the problem at once. The code and frame are decorative. |
+| `docs.props.qatt-404.code` | Error code shown. Default 404. |
+| `docs.props.qatt-404.title` | Title, rendered as h1. |
+| `docs.props.qatt-404.body` | Short explanation. |
+| `docs.props.qatt-404.homeHref` | Home link. Default /. |
+| `docs.props.qatt-404.homeLabel` | Home button text. |
+| `docs.props.qatt-404.extra` | Extra links or elements, such as search. |
