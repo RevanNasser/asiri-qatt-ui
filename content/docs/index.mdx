@@ -1,0 +1,48 @@
+---
+title: البدء
+description: ثبِّتوا سمة قَطّ وأضيفوا أول مكوّن عربي إلى مشروع shadcn/ui في دقائق.
+---
+
+{/* Copy: docs/agents/heritage/site-copy.ar.md (docs.gettingStarted.*, seo.gettingStarted.description). Do not edit Arabic here without the Heritage agent. */}
+
+حيّاكم. «قَطّ» سجلٌّ متوافق مع shadcn/ui: لا حزمة تُثبَّت ثم تُنسى، بل شيفرةٌ تُضاف إلى مشروعكم فتملكونها. ابدأوا بتثبيت السمة، ثم أضيفوا ما شئتم من المكوّنات والكتل.
+
+المتطلبات: مشروعٌ مهيّأ بـ shadcn/ui وTailwind CSS.
+
+<Steps>
+<Step>
+
+### ثبِّتوا سمة قَطّ
+
+<InstallCommand item="qatt-theme" />
+
+{/* TODO(ar-copy): one sentence explaining the `registries` entry needed for the @qatt form. */}
+
+```json title="components.json"
+{
+  "registries": {
+    "@qatt": "https://qatt.dev/r/{name}.json"
+  }
+}
+```
+
+</Step>
+<Step>
+
+### اضبطوا اتجاه الصفحة بإضافة `dir="rtl"` و`lang="ar"` إلى وسم `html`
+
+```tsx title="app/layout.tsx"
+<html lang="ar" dir="rtl">
+```
+
+</Step>
+<Step>
+
+### أضيفوا أول مكوّن
+
+<InstallCommand item="qatt-divider" />
+
+</Step>
+</Steps>
+
+هذا كلّ شيء. على الرحب والسعة.

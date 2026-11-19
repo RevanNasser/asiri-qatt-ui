@@ -1,0 +1,53 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "qatt",
+  "homepage": "{{REGISTRY_URL}}",
+  "items": [
+    {
+      "name": "qatt-font",
+      "type": "registry:font",
+      "title": "Qatt Font",
+      "description": "IBM Plex Sans Arabic as --font-sans (Arabic + Latin). Placeholder until UX/UI picks the final face.",
+      "font": {
+        "family": "'IBM Plex Sans Arabic', sans-serif",
+        "provider": "google",
+        "import": "IBM_Plex_Sans_Arabic",
+        "variable": "--font-sans",
+        "weight": ["400", "500", "700"],
+        "subsets": ["arabic", "latin"],
+        "dependency": "@fontsource/ibm-plex-sans-arabic"
+      }
+    },
+    {
+      "name": "qatt-theme",
+      "type": "registry:theme",
+      "title": "Qatt Theme",
+      "description": "Al-Qatt Al-Asiri palette on a gypsum-white ground: light and dark tokens plus the Qatt Arabic font.",
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-font.json"],
+      "cssVars": {}
+    },
+    {
+      "name": "qatt-utils",
+      "type": "registry:lib",
+      "title": "Qatt Utils",
+      "description": "Shared helpers for Qatt UI items, including the typed motif registry.",
+      "files": [{ "path": "registry/qatt/lib/qatt-utils.ts", "type": "registry:lib" }]
+    },
+    {
+      "name": "use-direction",
+      "type": "registry:hook",
+      "title": "useDirection",
+      "description": "Reads the text direction (rtl/ltr) from the nearest DirectionProvider.",
+      "registryDependencies": ["direction"],
+      "files": [{ "path": "registry/qatt/hooks/use-direction.ts", "type": "registry:hook" }]
+    },
+    {
+      "name": "qatt-divider",
+      "type": "registry:ui",
+      "title": "Qatt Divider",
+      "description": "A horizontal zigzag band (hanash motif) that separates sections, drawn with currentColor.",
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [{ "path": "registry/qatt/ui/qatt-divider.tsx", "type": "registry:ui" }]
+    }
+  ]
+}

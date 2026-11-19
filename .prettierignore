@@ -1,0 +1,8 @@
+pnpm-lock.yaml
+public/r
+.registry
+.next
+docs/agents
+content/**/*.mdx
+playwright-report
+test-results

@@ -1,0 +1,41 @@
+---
+title: فاصل قَطّ
+description: شريطٌ أفقي يفصل بين الأقسام كما يقسم «القطّ» جدار المجلس.
+---
+
+{/* Component page template: preview, installation, usage, props. Copy from ar-glossary.md / site-copy.ar.md only. */}
+
+<ComponentPreview name="qatt-divider-demo" />
+
+## التثبيت
+
+<InstallCommand item="qatt-divider" />
+
+## الاستخدام
+
+```tsx
+import { QattDivider } from "@/components/ui/qatt-divider"
+
+<QattDivider />
+<QattDivider className="text-foreground" />
+```
+
+## الخصائص
+
+{/* TODO(ar-copy): Arabic prop descriptions from the Heritage agent; English placeholders below. */}
+
+<PropsTable
+  rows={[
+    {
+      name: "decorative",
+      type: "boolean",
+      default: "true",
+      description: <span lang="en" dir="ltr">Hide from assistive technology. Set to false to expose it as a separator.</span>,
+    },
+    {
+      name: "className",
+      type: "string",
+      description: <span lang="en" dir="ltr">Extra classes; the band colour follows currentColor (text-*).</span>,
+    },
+  ]}
+/>

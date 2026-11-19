@@ -1,0 +1,87 @@
+/*
+ * Qatt theme tokens: SINGLE SOURCE OF TRUTH.
+ *
+ * - The docs site imports this file directly (app/globals.css), so it dogfoods the theme.
+ * - scripts/registry-gen.ts parses the `:root` and `.dark` blocks below into
+ *   `cssVars.light` / `cssVars.dark` of the `qatt-theme` registry item.
+ * - Keep it to plain `--name: value;` declarations inside `:root { }` and `.dark { }`.
+ *
+ * TODO(ux-tokens): every value here is a PLACEHOLDER derived from the heritage palette
+ * (gypsum #F4EFE4 background, meshiga red #A8322A primary, charcoal #1F1B17 foreground).
+ * Replace with docs/agents/ux-ui/tokens.css once Phase 2 signs off (contrast-checked).
+ */
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.953 0.016 86.4);
+  --foreground: oklch(0.225 0.01 67.3);
+  --card: oklch(0.975 0.01 86.4);
+  --card-foreground: oklch(0.225 0.01 67.3);
+  --popover: oklch(0.975 0.01 86.4);
+  --popover-foreground: oklch(0.225 0.01 67.3);
+  --primary: oklch(0.494 0.155 28.1);
+  --primary-foreground: oklch(0.975 0.01 86.4);
+  --secondary: oklch(0.914 0.021 85.9);
+  --secondary-foreground: oklch(0.225 0.01 67.3);
+  --muted: oklch(0.914 0.021 85.9);
+  --muted-foreground: oklch(0.458 0.019 73.4);
+  --accent: oklch(0.914 0.021 85.9);
+  --accent-foreground: oklch(0.225 0.01 67.3);
+  --destructive: oklch(0.494 0.155 28.1);
+  --border: oklch(0.86 0.02 85.9);
+  --input: oklch(0.86 0.02 85.9);
+  --ring: oklch(0.494 0.155 28.1);
+  --chart-1: oklch(0.494 0.155 28.1);
+  --chart-2: oklch(0.749 0.142 82.9);
+  --chart-3: oklch(0.225 0.01 67.3);
+  --chart-4: oklch(0.587 0.147 32.9);
+  --chart-5: oklch(0.458 0.019 73.4);
+  --sidebar: oklch(0.935 0.018 86.4);
+  --sidebar-foreground: oklch(0.225 0.01 67.3);
+  --sidebar-primary: oklch(0.494 0.155 28.1);
+  --sidebar-primary-foreground: oklch(0.975 0.01 86.4);
+  --sidebar-accent: oklch(0.914 0.021 85.9);
+  --sidebar-accent-foreground: oklch(0.225 0.01 67.3);
+  --sidebar-border: oklch(0.86 0.02 85.9);
+  --sidebar-ring: oklch(0.494 0.155 28.1);
+  --qatt-jiss: oklch(0.953 0.016 86.4);
+  --qatt-red: oklch(0.494 0.155 28.1);
+  --qatt-black: oklch(0.225 0.01 67.3);
+}
+
+.dark {
+  --background: oklch(0.225 0.01 67.3);
+  --foreground: oklch(0.953 0.016 86.4);
+  --card: oklch(0.26 0.012 67.3);
+  --card-foreground: oklch(0.953 0.016 86.4);
+  --popover: oklch(0.26 0.012 67.3);
+  --popover-foreground: oklch(0.953 0.016 86.4);
+  --primary: oklch(0.587 0.147 32.9);
+  --primary-foreground: oklch(0.975 0.01 86.4);
+  --secondary: oklch(0.326 0.016 67.2);
+  --secondary-foreground: oklch(0.953 0.016 86.4);
+  --muted: oklch(0.326 0.016 67.2);
+  --muted-foreground: oklch(0.78 0.02 85.9);
+  --accent: oklch(0.326 0.016 67.2);
+  --accent-foreground: oklch(0.953 0.016 86.4);
+  --destructive: oklch(0.587 0.147 32.9);
+  --border: oklch(0.953 0.016 86.4 / 12%);
+  --input: oklch(0.953 0.016 86.4 / 16%);
+  --ring: oklch(0.587 0.147 32.9);
+  --chart-1: oklch(0.587 0.147 32.9);
+  --chart-2: oklch(0.749 0.142 82.9);
+  --chart-3: oklch(0.953 0.016 86.4);
+  --chart-4: oklch(0.494 0.155 28.1);
+  --chart-5: oklch(0.78 0.02 85.9);
+  --sidebar: oklch(0.2 0.01 67.3);
+  --sidebar-foreground: oklch(0.953 0.016 86.4);
+  --sidebar-primary: oklch(0.587 0.147 32.9);
+  --sidebar-primary-foreground: oklch(0.975 0.01 86.4);
+  --sidebar-accent: oklch(0.326 0.016 67.2);
+  --sidebar-accent-foreground: oklch(0.953 0.016 86.4);
+  --sidebar-border: oklch(0.953 0.016 86.4 / 12%);
+  --sidebar-ring: oklch(0.587 0.147 32.9);
+  --qatt-jiss: oklch(0.953 0.016 86.4);
+  --qatt-red: oklch(0.587 0.147 32.9);
+  --qatt-black: oklch(0.225 0.01 67.3);
+}
