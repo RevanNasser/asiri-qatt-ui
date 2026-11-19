@@ -43,7 +43,7 @@ function QattCta({
       aria-labelledby={id}
       data-slot="qatt-cta"
       data-tone={tone}
-      className={cn("w-full", TONES[tone], className)}
+      className={cn("@container w-full", TONES[tone], className)}
       {...props}
     >
       <QattBand motif={motif} thickness={24} colors={onPaint ? ["yellow", "white"] : undefined} />

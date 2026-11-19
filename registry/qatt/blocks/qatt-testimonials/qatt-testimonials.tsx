@@ -75,7 +75,12 @@ function QattTestimonials({
   const id = React.useId()
   const single = layout === "single"
   return (
-    <section aria-labelledby={id} data-slot="qatt-testimonials" className={cn("w-full", className)} {...props}>
+    <section
+      aria-labelledby={id}
+      data-slot="qatt-testimonials"
+      className={cn("@container w-full", className)}
+      {...props}
+    >
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-14 sm:px-6">
         <h2 id={id} className="font-heading text-3xl font-bold">
           {title}
@@ -87,7 +92,7 @@ function QattTestimonials({
             </div>
           )
         ) : (
-          <ul className="grid gap-5 md:grid-cols-3">
+          <ul className="grid gap-5 @2xl:grid-cols-3">
             {items.map((item, i) => (
               <li key={item.name}>
                 <Testimonial item={item} index={i} avatarAlt={avatarAlt} />

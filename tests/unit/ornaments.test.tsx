@@ -126,11 +126,11 @@ describe("paint reveal", () => {
     )
     const { container } = render(<QattDivider animate />)
     const band = container.querySelector('[data-slot="qatt-band"]')!
-    expect(band.className).toContain("[clip-path:inset(0_100%_0_0)]")
-    expect(band.className).toContain("motion-reduce:[clip-path:none]")
+    // motion-safe: users with prefers-reduced-motion never get the clip or the animation
+    expect(band.className).toContain("motion-safe:[clip-path:inset(0_100%_0_0)]")
     act(() => observers[0]!([{ isIntersecting: true } as IntersectionObserverEntry], {} as IntersectionObserver))
-    expect(band.className).toContain("animate-qatt-paint")
-    expect(band.className).toContain("rtl:animate-qatt-paint-rtl")
+    expect(band.className).toContain("motion-safe:animate-qatt-paint")
+    expect(band.className).toContain("motion-safe:rtl:animate-qatt-paint-rtl")
     vi.unstubAllGlobals()
   })
 })

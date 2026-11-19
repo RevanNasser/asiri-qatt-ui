@@ -36,6 +36,6 @@ export function useReveal<T extends Element>(ref: React.RefObject<T | null>, ena
 export function revealClasses(animate: boolean, shown: boolean): string | undefined {
   if (!animate) return undefined
   return shown
-    ? "animate-qatt-paint rtl:animate-qatt-paint-rtl motion-reduce:animate-none"
-    : "[clip-path:inset(0_100%_0_0)] rtl:[clip-path:inset(0_0_0_100%)] motion-reduce:[clip-path:none]"
+    ? "motion-safe:animate-qatt-paint motion-safe:rtl:animate-qatt-paint-rtl"
+    : "motion-safe:[clip-path:inset(0_100%_0_0)] motion-safe:rtl:[clip-path:inset(0_0_0_100%)]"
 }

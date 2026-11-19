@@ -24,12 +24,12 @@ export interface MajlisWelcomeProps extends Omit<React.ComponentProps<"section">
 function MajlisWelcome({ eyebrow, title, body, points, media, cta, note, className, ...props }: MajlisWelcomeProps) {
   const id = React.useId()
   return (
-    <section aria-labelledby={id} data-slot="majlis-welcome" className={cn("w-full", className)} {...props}>
+    <section aria-labelledby={id} data-slot="majlis-welcome" className={cn("@container w-full", className)} {...props}>
       <QattDivider motif="banat" thickness="md" className="my-0" />
       <div
         className={cn(
           "mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6",
-          media && "lg:grid-cols-[minmax(0,1fr)_minmax(0,20rem)] lg:items-center",
+          media && "@4xl:grid-cols-[minmax(0,1fr)_minmax(0,20rem)] @4xl:items-center",
         )}
       >
         <div className="flex flex-col items-start gap-5 text-start">
@@ -39,7 +39,7 @@ function MajlisWelcome({ eyebrow, title, body, points, media, cta, note, classNa
           </h2>
           <p className="max-w-[65ch] text-lg text-muted-foreground">{body}</p>
           {points && points.length > 0 && (
-            <ul className="grid w-full gap-4 sm:grid-cols-3">
+            <ul className="grid w-full gap-4 @xl:grid-cols-3">
               {points.slice(0, 3).map((point) => (
                 <li key={point.title} className="flex flex-col gap-1 rounded-lg border-2 border-qatt-ink bg-card p-4">
                   {point.icon && (

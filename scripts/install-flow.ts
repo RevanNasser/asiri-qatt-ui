@@ -61,7 +61,15 @@ function checkInstalled(pass: string) {
   const expectFile = (p: string) => {
     if (!fs.existsSync(path.join(APP_DIR, p))) throw new Error(`[${pass}] expected file ${p} was not installed`)
   }
-  const installed = ["lib/qatt-utils.ts", "hooks/use-direction.ts", ...UI_ITEMS.map((n) => `components/ui/${n}.tsx`)]
+  const installed = [
+    "lib/qatt-utils.ts",
+    "lib/qatt-motifs.ts",
+    "hooks/use-direction.ts",
+    "hooks/use-reveal.ts",
+    ...UI_ITEMS.map((n) => `components/ui/${n}.tsx`),
+    ...BLOCKS.map((n) => `app/qatt/${n}/page.tsx`),
+    ...BLOCKS.map((n) => `components/${n}.tsx`),
+  ]
   for (const f of [...installed, "components/ui/direction.tsx"]) expectFile(f)
   // overrides really replaced the upstream shadcn files
   if (!read("components/ui/button.tsx").includes('"qatt-outline"'))
@@ -178,6 +186,7 @@ function add(pass: string, specs: string[]) {
 const ALL = generateRegistry(REGISTRY_URL).items
 const ITEMS = ALL.map((i) => i.name)
 const UI_ITEMS = ALL.filter((i) => i.type === "registry:ui").map((i) => i.name)
+const BLOCKS = ALL.filter((i) => i.type === "registry:block").map((i) => i.name)
 
 async function main() {
   let server: ReturnType<typeof spawn> | undefined

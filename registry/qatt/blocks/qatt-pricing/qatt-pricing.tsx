@@ -60,7 +60,7 @@ function QattPricing({
   const [billing, setBilling] = React.useState<"monthly" | "yearly">("monthly")
 
   return (
-    <section aria-labelledby={id} data-slot="qatt-pricing" className={cn("w-full", className)} {...props}>
+    <section aria-labelledby={id} data-slot="qatt-pricing" className={cn("@container w-full", className)} {...props}>
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-14 sm:px-6">
         <header className="flex flex-col items-center gap-3 text-center">
           <h2 id={id} className="font-heading text-3xl font-bold">
@@ -81,7 +81,7 @@ function QattPricing({
             </Tabs>
           )}
         </header>
-        <ul className="grid items-stretch gap-6 lg:grid-cols-3">
+        <ul className="grid items-stretch gap-6 @4xl:grid-cols-3">
           {plans.map((plan, index) => {
             const planId = `${id}-plan-${index}`
             const value = priceFor(plan.price, billing)
@@ -108,7 +108,7 @@ function QattPricing({
                     </div>
                     {plan.description && <p className="text-sm text-muted-foreground">{plan.description}</p>}
                     <p className="flex items-baseline gap-2">
-                      <bdi className="font-heading text-4xl font-bold tabular-nums">
+                      <bdi className="font-heading text-4xl font-bold whitespace-nowrap tabular-nums">
                         {typeof value === "number"
                           ? value === 0 && freeLabel
                             ? freeLabel

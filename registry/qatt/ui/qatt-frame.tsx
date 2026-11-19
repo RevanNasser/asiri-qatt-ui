@@ -105,12 +105,7 @@ function QattFrame({
               pathLength={1}
               strokeDasharray={animate ? 1 : undefined}
               data-qatt-motion={animate ? "" : undefined}
-              className={cn(
-                animate &&
-                  (shown
-                    ? "animate-qatt-draw motion-reduce:animate-none"
-                    : "[stroke-dashoffset:1] motion-reduce:[stroke-dashoffset:0]"),
-              )}
+              className={cn(animate && (shown ? "motion-safe:animate-qatt-draw" : "motion-safe:[stroke-dashoffset:1]"))}
             />
           ))}
         </svg>

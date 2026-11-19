@@ -39,15 +39,15 @@ function QattFooter({
   ...props
 }: QattFooterProps) {
   return (
-    <footer data-slot="qatt-footer" className={cn("w-full border-t bg-card", className)} {...props}>
+    <footer data-slot="qatt-footer" className={cn("@container w-full border-t bg-card", className)} {...props}>
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 pt-12 pb-8 sm:px-6">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,18rem)_1fr]">
+        <div className="grid gap-10 @4xl:grid-cols-[minmax(0,18rem)_1fr]">
           <div className="flex flex-col gap-3 text-start">
             <div className="font-heading text-2xl font-bold">{brand}</div>
             {tagline && <p className="text-muted-foreground">{tagline}</p>}
             {heritageNote && <p className="text-xs text-muted-foreground">{heritageNote}</p>}
           </div>
-          <nav aria-label={navLabel} className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+          <nav aria-label={navLabel} className="grid grid-cols-2 gap-8 @xl:grid-cols-4">
             {columns.map((col) => (
               <div key={col.title} className="flex flex-col gap-3">
                 <h2 className="text-sm font-semibold">{col.title}</h2>

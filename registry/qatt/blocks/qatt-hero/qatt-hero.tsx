@@ -78,12 +78,17 @@ function QattHero({
   const id = React.useId()
   const centered = align === "center"
   return (
-    <section aria-labelledby={id} data-slot="qatt-hero" className={cn("relative w-full", className)} {...props}>
+    <section
+      aria-labelledby={id}
+      data-slot="qatt-hero"
+      className={cn("@container relative w-full", className)}
+      {...props}
+    >
       <QattDivider motif={motif} thickness="md" animate={animate} className="my-0" />
       <div
         className={cn(
           "mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6",
-          !centered && media && "lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] lg:items-center",
+          !centered && media && "@4xl:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] @4xl:items-center",
         )}
       >
         <div className={cn("flex flex-col gap-5", centered ? "items-center text-center" : "items-start text-start")}>
@@ -120,7 +125,7 @@ function QattHero({
             </div>
           )}
         </div>
-        {!centered && media && <QattFrame className="hidden w-full lg:flex">{media}</QattFrame>}
+        {!centered && media && <QattFrame className="hidden w-full @4xl:flex">{media}</QattFrame>}
       </div>
       <QattDivider motif="qatt-lines" thickness="sm" className="my-0" />
     </section>

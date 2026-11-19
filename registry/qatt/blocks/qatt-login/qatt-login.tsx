@@ -104,9 +104,14 @@ function QattLogin({
   const errorText = "text-sm text-destructive"
 
   return (
-    <section aria-labelledby={`${id}-title`} data-slot="qatt-login" className={cn("w-full", className)} {...props}>
-      <QattDivider motif="rukun" thickness="sm" className="my-0 md:hidden" />
-      <div className="mx-auto grid max-w-5xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 md:items-center">
+    <section
+      aria-labelledby={`${id}-title`}
+      data-slot="qatt-login"
+      className={cn("@container w-full", className)}
+      {...props}
+    >
+      <QattDivider motif="rukun" thickness="sm" className="my-0 @2xl:hidden" />
+      <div className="mx-auto grid max-w-5xl gap-10 px-4 py-12 sm:px-6 @2xl:grid-cols-2 @2xl:items-center">
         <div className="flex flex-col gap-6">
           <header className="flex flex-col gap-2 text-start">
             <h2 id={`${id}-title`} className="font-heading text-3xl font-bold">
@@ -235,7 +240,7 @@ function QattLogin({
           )}
         </div>
 
-        <div aria-hidden="true" className="hidden md:block">
+        <div aria-hidden="true" className="hidden @2xl:block">
           <QattPattern motif="sankroli" scale="sm" className="rounded-lg p-8">
             <QattFrame outline={3} className="mx-auto w-48">
               <QattPattern motif="balsanah" className="size-full" />

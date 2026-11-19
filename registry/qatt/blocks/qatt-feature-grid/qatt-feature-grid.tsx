@@ -24,7 +24,11 @@ export interface QattFeatureGridProps extends Omit<React.ComponentProps<"section
   moreLabel?: string
 }
 
-const COLS = { 2: "sm:grid-cols-2", 3: "sm:grid-cols-2 lg:grid-cols-3", 4: "sm:grid-cols-2 lg:grid-cols-4" } as const
+const COLS = {
+  2: "@xl:grid-cols-2",
+  3: "@xl:grid-cols-2 @4xl:grid-cols-3",
+  4: "@xl:grid-cols-2 @4xl:grid-cols-4",
+} as const
 const TILES = ["bg-qatt-red", "bg-qatt-blue", "bg-qatt-black"] as const
 
 /** «شبكة المزايا»: painted cards with icons in khatmah-like pigment squares over a faint shabakah field. */
@@ -91,7 +95,12 @@ function QattFeatureGrid({
   )
 
   return (
-    <section aria-labelledby={id} data-slot="qatt-feature-grid" className={cn("w-full", className)} {...props}>
+    <section
+      aria-labelledby={id}
+      data-slot="qatt-feature-grid"
+      className={cn("@container w-full", className)}
+      {...props}
+    >
       {background ? (
         <QattPattern motif={background} opacity={0.06}>
           {grid}

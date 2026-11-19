@@ -19,6 +19,11 @@ test("component page and registry item are served", async ({ page, request }) =>
 })
 
 const COMPONENTS = [
+  "qatt-pattern",
+  "qatt-divider",
+  "qatt-border",
+  "qatt-frame",
+  "qatt-corner",
   "button",
   "badge",
   "card",
@@ -35,6 +40,38 @@ const COMPONENTS = [
   "avatar",
   "separator",
 ]
+
+const BLOCKS = [
+  "qatt-hero",
+  "majlis-welcome",
+  "qatt-feature-grid",
+  "qatt-stats",
+  "qatt-testimonials",
+  "qatt-pricing",
+  "qatt-cta",
+  "qatt-footer",
+  "qatt-login",
+  "qatt-404",
+]
+
+for (const name of BLOCKS) {
+  test(`docs page /docs/blocks/${name} renders RTL with a live preview`, async ({ page }) => {
+    await page.goto(`/docs/blocks/${name}`)
+    await expect(page.locator("html")).toHaveAttribute("dir", "rtl")
+    await expect(page.locator('[data-slot="component-preview"]').first()).toBeVisible()
+    expect((await page.request.get(`/r/${name}.json`)).ok()).toBe(true)
+  })
+}
+
+test("reduced motion: decorative bands render in their final state", async ({ browser }) => {
+  const context = await browser.newContext({ reducedMotion: "reduce" })
+  const page = await context.newPage()
+  await page.goto("/docs/components/qatt-divider")
+  const band = page.locator('[data-slot="component-preview"] [data-qatt-motion]').first()
+  await expect(band).toBeVisible()
+  expect(await band.evaluate((el) => getComputedStyle(el).clipPath)).toBe("none")
+  await context.close()
+})
 
 for (const name of COMPONENTS) {
   test(`docs page /docs/components/${name} renders RTL with a live preview`, async ({ page }) => {

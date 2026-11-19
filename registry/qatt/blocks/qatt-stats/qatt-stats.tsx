@@ -77,7 +77,7 @@ function QattStats({
           {title}
         </h2>
       )}
-      <dl className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <dl className="grid gap-6 @xl:grid-cols-2 @4xl:grid-cols-4">
         {stats.map((stat) => (
           <div key={stat.label} className="flex flex-col-reverse gap-1 border-s-4 border-primary ps-4">
             <dt className="text-muted-foreground">{stat.label}</dt>
@@ -94,7 +94,7 @@ function QattStats({
     <section
       aria-labelledby={title ? id : undefined}
       data-slot="qatt-stats"
-      className={cn("w-full", className)}
+      className={cn("@container w-full", className)}
       {...props}
     >
       {background ? (

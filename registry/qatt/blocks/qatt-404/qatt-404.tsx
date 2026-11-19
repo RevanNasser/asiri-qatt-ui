@@ -19,7 +19,7 @@ export interface Qatt404Props extends Omit<React.ComponentProps<"section">, "tit
 function Qatt404({ code = "404", title, body, homeHref = "/", homeLabel, extra, className, ...props }: Qatt404Props) {
   const id = React.useId()
   return (
-    <section aria-labelledby={id} data-slot="qatt-404" className={cn("w-full", className)} {...props}>
+    <section aria-labelledby={id} data-slot="qatt-404" className={cn("@container w-full", className)} {...props}>
       <div className="mx-auto flex max-w-xl flex-col items-center gap-6 px-4 py-14 text-center sm:px-6">
         <QattFrame aria-hidden="true" className="w-44" base={false} ratio={4 / 5}>
           <div className="grid size-full place-items-center bg-card">
