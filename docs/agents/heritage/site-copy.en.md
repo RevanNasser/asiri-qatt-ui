@@ -701,3 +701,16 @@ Key index: `ar-copy-batch3.md`. Demo content is under `blocks.<id>.*`; doc pages
 | `docs.props.qatt-404.homeHref` | Home link. Default /. |
 | `docs.props.qatt-404.homeLabel` | Home button text. |
 | `docs.props.qatt-404.extra` | Extra links or elements, such as search. |
+
+## Batch 4 — component ornament props
+
+Key index: `ar-copy-batch4.md`.
+
+| key | text |
+|---|---|
+| `docs.props.card.ornament` | A 12px decorative strip along the card's top edge, in any Qatt motif. Defaults to `false`, except with `framed`, where it is «al-banat» capped at both ends with «al-khatmah». `stepped` is a project extension. The strip is decorative and hidden from assistive technology. |
+| `docs.props.dialog.ornament` | A 20px decorative frieze along the dialog's top edge: `mahareeb` is a row of «al-mahareeb» pointed arches, and `rukun` is a row of «al-rukun» triangles. The close button moves down below the frieze. The frieze is decorative and hidden from assistive technology. |
+| `docs.props.sheet.ornament` | A 12px decorative strip on the sheet's inner edge (the edge facing the page), in any Qatt motif. A `start` sheet in Arabic opens from the right, so its strip sits on its left. The strip runs vertically on side sheets and horizontally on top and bottom sheets; the artwork itself never mirrors. `stepped` is a project extension. |
+| `docs.props.tabs.indicator` | How the active tab is marked, with the `qatt` variant only: `diamond` is a small painted diamond under the label on horizontal tabs, and `strip` is a 6px «al-balsanah» strip. Inactive tabs are muted. |
+| `docs.props.sonner.ornament` | `hanash` adds a 4px «al-hanash» zigzag on the toast's inline-start edge (the right in Arabic), coloured by type: red for error, blue for info, green for success, orange for warning, and ink otherwise. The icon and text still carry the type, so colour is never the only cue. |
+| `docs.props.separator.motif` | Replaces the triple rules with a 12px band of the chosen motif, horizontal or vertical, e.g. `motif="hanash"`. Works with the `qatt` variant only. `stepped` is a project extension, and «al-khatmah» belongs at ends, not in bands. |

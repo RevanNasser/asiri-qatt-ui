@@ -10,10 +10,10 @@ The identifier (`id`) stays in English as-is in code and commands. The display n
 | id | الاسم المعروض | وصف بسطر واحد |
 |---|---|---|
 | `qatt-theme` | سمة قَطّ | ألوانٌ مستوحاة من أصباغ عسير الطبيعية على أرضيّة الجصّ الأبيض، بوضعَين فاتح وداكن. |
-| `qatt-pattern` | نقش قَطّ | خلفيةٌ زخرفية متكرّرة من أشرطةٍ ومثلثاتٍ ومعيّنات، مستلهمة من مفردات القط العسيري. |
+| `qatt-pattern` | نقش قَطّ | خلفيةٌ زخرفية متكرّرة من أشرطةٍ ومثلثاتٍ ومعيّنات، مستلهمة من مفردات القطّ العسيري. |
 | `qatt-border` | إطار مُزخرف | حدٌّ زخرفي يحيط بالعناصر، بمثلثاته وخطوطه المتوازية. |
 | `qatt-divider` | فاصل قَطّ | شريطٌ أفقي يفصل بين الأقسام كما يقسم «القطّ» جدار المجلس. |
-| `qatt-frame` | إطار القوس | إطارٌ بقوسٍ مستلهم من «المحاريب» يحتضن الصور والمحتوى. |
+| `qatt-frame` | إطار القوس | إطارٌ على هيئة قوسٍ يحتضن الصور والمحتوى. |
 | `qatt-corner` | زاوية الختمة | زخرفةٌ مربّعة توضع في الزوايا والأطراف، على هيئة «الختمة» التي تُختم بها اللوحة. |
 
 ### المكوّنات الأساسية
@@ -58,7 +58,7 @@ The identifier (`id`) stays in English as-is in code and commands. The display n
 | `qatt-utils` | أدوات قَطّ | دوالّ مساعدة لدمج الأصناف وتنسيق الأرقام والتواريخ بالعربية. |
 | `use-direction` | خطّاف الاتجاه | خطّافٌ يكشف اتجاه الصفحة (يمين/يسار) لتتكيّف المكوّنات معه. |
 
-> **Note on `qatt-frame`:** the name «برواز المحراب» describes a shape (the arch), not a religious use. If the team would rather avoid any religious connotation in a UI component, use «إطار القوس».
+> **Note on `qatt-frame`:** D-006 settled the name as «إطار القوس». «المحاريب» is still used, with its source, as the name of the traditional *motif*; it is never the name of a UI component.
 
 ## (ب) مصطلحات الواجهة الموحّدة
 
@@ -124,7 +124,7 @@ The identifier (`id`) stays in English as-is in code and commands. The display n
 | Keyboard | لوحة المفاتيح | |
 | Customization | التخصيص | |
 | Colors | الألوان | |
-| Typography | الخطوط | |
+| Typography | الخطوط الطباعية | D-022: avoids confusion with painted lines (الخطوط) |
 | Spacing | المسافات | |
 | Dependencies | الاعتماديات | |
 | Command | الأمر | |

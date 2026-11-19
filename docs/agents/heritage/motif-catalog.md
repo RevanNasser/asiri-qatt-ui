@@ -88,7 +88,8 @@ The hex values are **approximate, project interpretation**: on-screen evocations
 - **Description:** small triangles, each topped by a little tree-like sprig. Aramco World quotes a practitioner: "The triangles in the paintings with the little trees are called banat" [S9].
 - **Geometry:** tile `16×24`, repeat `x`.
   - `polygon 2,24 8,12 14,24` → slot A
-  - Sprig in slot B, stroke width 1.5, round caps: `line 8,12 → 8,4`, `line 8,8 → 5,5`, `line 8,8 → 11,5`.
+  - Sprig in slot B, stroke width 1.25, round caps: `line 8,12 → 8,4`, `line 8,9.5 → 5.5,7`, `line 8,9.5 → 10.5,7`, `line 8,7 → 6,5`, `line 8,7 → 10,5`.
+  - *Revised in Phase 4 (phase4-review D1):* two branch pairs, so a single tile reads as a plant and never as a figure with raised arms (D-021). Never render a lone tile with one branch pair.
 - **Slots:** 2. Typical fill: A = red or yellow, B = green or black.
 - **Mirror-safe:** yes.
 - **Placement:** a fine-scale band. In the UI: the `badge` ornament, the `card` top edge, and `majlis-welcome`.
