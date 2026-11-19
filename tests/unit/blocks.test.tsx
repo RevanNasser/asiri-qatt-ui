@@ -4,6 +4,7 @@ import { axe } from "vitest-axe"
 
 import { examples } from "@/components/docs/examples"
 import { DirectionProvider } from "@/components/ui/direction"
+import { QattLogin } from "@/registry/qatt/blocks/qatt-login/qatt-login"
 import { generateRegistry } from "@/scripts/registry-lib"
 
 const DIRS = ["rtl", "ltr"] as const
@@ -92,5 +93,63 @@ describe("qatt-pricing", () => {
     const cta = screen.getByRole("link", { name: "اختر هذه الخطة" })
     expect(document.getElementById(cta.getAttribute("aria-describedby")!)).toHaveTextContent("النموّ")
     expect(screen.getByText("الأكثر اختيارًا")).toBeInTheDocument()
+  })
+})
+
+describe("qatt-cta", () => {
+  it("uses gypsum text and a yellow painted primary on the ink band", () => {
+    const { container } = inDir("rtl", demo("qatt-cta"))
+    expect(container.querySelector('[data-slot="qatt-cta"]')).toHaveClass("bg-qatt-black", "text-qatt-white")
+    expect(screen.getByRole("link", { name: "ابدأ مجانًا" })).toHaveClass("bg-qatt-yellow")
+  })
+})
+
+describe("qatt-footer", () => {
+  it("is a footer landmark with a named nav, real column headings and announced external links", () => {
+    inDir("rtl", demo("qatt-footer"))
+    expect(screen.getByRole("contentinfo")).toBeInTheDocument()
+    const nav = screen.getByRole("navigation", { name: "روابط التذييل" })
+    expect(within(nav).getAllByRole("heading", { level: 2 })).toHaveLength(4)
+    const external = within(nav).getByRole("link", { name: /حالة الخدمة/ })
+    expect(external).toHaveAttribute("target", "_blank")
+    expect(external).toHaveTextContent("(يُفتح في نافذةٍ جديدة)")
+    expect(external.querySelector("svg")!.getAttribute("class")).not.toMatch(/rtl:/) // D-014
+  })
+})
+
+describe("qatt-login", () => {
+  it("validates with linked Arabic errors, keeps email/password LTR and toggles password visibility", async () => {
+    inDir("rtl", demo("qatt-login"))
+    const email = screen.getByLabelText("البريد الإلكتروني")
+    const password = screen.getByLabelText("كلمة المرور")
+    expect(email).toHaveAttribute("dir", "ltr")
+    expect(password).toHaveAttribute("dir", "ltr")
+    await act(async () => screen.getByRole("button", { name: "دخول" }).click())
+    expect(email).toHaveAttribute("aria-invalid", "true")
+    expect(document.getElementById(email.getAttribute("aria-describedby")!)).toHaveTextContent(
+      "أدخلوا البريد الإلكتروني.",
+    )
+    const toggle = screen.getByRole("button", { name: "إظهار كلمة المرور" })
+    expect(toggle).toHaveAttribute("aria-pressed", "false")
+    act(() => toggle.click())
+    expect(password).toHaveAttribute("type", "text")
+    expect(screen.getByRole("button", { name: "إخفاء كلمة المرور" })).toHaveAttribute("aria-pressed", "true")
+  })
+
+  it("announces form errors in a live region without saying which field was wrong", () => {
+    render(
+      <QattLogin errors={{ form: "البريد الإلكتروني أو كلمة المرور غير صحيحة. تحقّقوا منهما وأعيدوا المحاولة." }} />,
+    )
+    expect(screen.getByRole("alert")).toHaveTextContent("تعذّر تسجيل الدخول")
+  })
+})
+
+describe("qatt-404", () => {
+  it("uses the sentence as h1 and keeps the code decorative and Western", () => {
+    const { container } = inDir("rtl", demo("qatt-404"))
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("الصفحة غير موجودة")
+    const code = container.querySelector("bdi")!
+    expect(code).toHaveTextContent("404")
+    expect(code.closest('[aria-hidden="true"]')).not.toBeNull()
   })
 })

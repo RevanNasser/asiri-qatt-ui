@@ -1,0 +1,50 @@
+---
+title: صفحة غير موجودة
+description: صفحة خطأ 404 لطيفة تعيد الزائر إلى الطريق.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-404.*, docs.props.qatt-404.*). */}
+
+صفحة خطأٍ لطيفة: الرمز 404 داخل «إطار القوس»، وعنوانٌ ووصفٌ موجز، وطريقٌ إلى الرئيسية والبحث، وصفٌّ من «المحاريب» عند القاعدة.
+
+<Callout>
+المحتوى هنا افتراضيٌّ للعرض: الأسماء والأرقام والأسعار والآراء مختلَقة، فاستبدلوها بمحتواكم.
+</Callout>
+
+<ComponentPreview name="qatt-404-demo" />
+
+## التثبيت
+
+<InstallCommand item="qatt-404" />
+
+## الاستخدام
+
+اجعلوا النص قصيرًا وودودًا، ولا تلوموا الزائر. وأعطوه مخرجين على الأقل: الرئيسية والبحث.
+
+```tsx
+import { Qatt404 } from "@/components/qatt-404"
+
+<Qatt404 title="…" homeLabel="…" />
+```
+
+
+## الخصائص
+
+<PropsTable
+  rows={[
+    {"name": "code", "type": "string", "default": "\"404\"", "description": <span>رمز الخطأ المعروض. والافتراضي «404».</span>},
+    {"name": "title", "type": "string", "description": <span>العنوان، ويُعرض في <code dir="ltr">h1</code>.</span>},
+    {"name": "body", "type": "string", "description": <span>وصفٌ موجز لما حدث.</span>},
+    {"name": "homeHref", "type": "string", "default": "\"/\"", "description": <span>رابط الرئيسية. والافتراضي <code dir="ltr">/</code>.</span>},
+    {"name": "homeLabel", "type": "string", "description": <span>نصّ زرّ العودة إلى الرئيسية.</span>},
+    {"name": "extra", "type": "ReactNode", "description": <span>روابط أو عناصر إضافية، كالبحث.</span>}
+  ]}
+/>
+
+## ملاحظات الاتجاه
+
+الرمز 404 معزولٌ في `bdi` ويُكتب بالأرقام الغربية في الاتجاهين.
+
+## سهولة الوصول
+
+العنوان `h1` هو الجملة لا الرقم، فيعرف قارئ الشاشة المشكلة فورًا. والرمز والإطار زخرفيان.

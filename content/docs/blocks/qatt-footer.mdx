@@ -1,0 +1,50 @@
+---
+title: تذييل الصفحة
+description: تذييلٌ بالروابط وحقوق النشر وشريط «الكفّ» الزخرفي.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-footer.*, docs.props.qatt-footer.*). */}
+
+تذييلٌ بالعلامة وأعمدة الروابط وحقوق النشر، يرتكز على شريط «الكفّ» كما يرتكز الجدار على شريطه السفلي.
+
+<Callout>
+المحتوى هنا افتراضيٌّ للعرض: الأسماء والأرقام والأسعار والآراء مختلَقة، فاستبدلوها بمحتواكم.
+</Callout>
+
+<ComponentPreview name="qatt-footer-demo" />
+
+## التثبيت
+
+<InstallCommand item="qatt-footer" />
+
+## الاستخدام
+
+رتّبوا الروابط في ثلاثة أعمدةٍ أو أربعة، ولا تزيدوا العمود على خمسة روابط. وإن استعملتم زخارف قَطّ فأبقوا ملاحظة الإلهام في `heritageNote`.
+
+```tsx
+import { QattFooter } from "@/components/qatt-footer"
+
+<QattFooter brand="…" columns={[{ title: "…", links: [{ label: "…", href: "#" }] }]} />
+```
+
+
+## الخصائص
+
+<PropsTable
+  rows={[
+    {"name": "brand", "type": "ReactNode", "description": <span>العلامة: اسمٌ أو شعار.</span>},
+    {"name": "tagline", "type": "string", "description": <span>سطرٌ يعرّف بالمنتج تحت العلامة.</span>},
+    {"name": "heritageNote", "type": "string", "description": <span>ملاحظةٌ صغيرة تنسب الزخرفة إلى إلهامها.</span>},
+    {"name": "columns", "type": "{ title, links: { label, href, external? }[] }[]", "description": <span>أعمدة الروابط: عنوانٌ وروابط، ويُعلَّم الرابط الخارجي بـ <code dir="ltr">external</code>.</span>},
+    {"name": "bottom", "type": "ReactNode", "description": <span>محتوى السطر الأخير، كحقوق النشر ومبدّل السمة.</span>},
+    {"name": "kaff", "type": "boolean", "default": "true", "description": <span>يعرض شريط «الكفّ» في الأسفل. والافتراضي <code dir="ltr">true</code>.</span>}
+  ]}
+/>
+
+## ملاحظات الاتجاه
+
+العلامة في بداية السطر والأعمدة بعدها. وسهم الروابط الخارجية لا ينقلب.
+
+## سهولة الوصول
+
+التذييل علامةٌ (`footer`)، وعناوين الأعمدة عناوين حقيقية. والروابط التي تُفتح في نافذةٍ جديدة تقول ذلك لقارئ الشاشة.

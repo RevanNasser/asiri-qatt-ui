@@ -26,6 +26,10 @@ import QattFeatureGridDemo from "@/registry/qatt/blocks/qatt-feature-grid/page"
 import QattStatsDemo from "@/registry/qatt/blocks/qatt-stats/page"
 import QattTestimonialsDemo from "@/registry/qatt/blocks/qatt-testimonials/page"
 import QattPricingDemo from "@/registry/qatt/blocks/qatt-pricing/page"
+import QattCtaDemo from "@/registry/qatt/blocks/qatt-cta/page"
+import QattFooterDemo from "@/registry/qatt/blocks/qatt-footer/page"
+import QattLoginDemo from "@/registry/qatt/blocks/qatt-login/page"
+import Qatt404Demo from "@/registry/qatt/blocks/qatt-404/page"
 
 /** Live examples rendered by <ComponentPreview name="..." />. `file` (relative to registry/) is shown in the code tab. */
 export const examples: Record<string, { component: ComponentType; file: string }> = {
@@ -55,4 +59,8 @@ export const examples: Record<string, { component: ComponentType; file: string }
   "qatt-stats-demo": { component: QattStatsDemo, file: "qatt/blocks/qatt-stats/page.tsx" },
   "qatt-testimonials-demo": { component: QattTestimonialsDemo, file: "qatt/blocks/qatt-testimonials/page.tsx" },
   "qatt-pricing-demo": { component: QattPricingDemo, file: "qatt/blocks/qatt-pricing/page.tsx" },
+  "qatt-cta-demo": { component: QattCtaDemo, file: "qatt/blocks/qatt-cta/page.tsx" },
+  "qatt-footer-demo": { component: QattFooterDemo, file: "qatt/blocks/qatt-footer/page.tsx" },
+  "qatt-login-demo": { component: QattLoginDemo, file: "qatt/blocks/qatt-login/page.tsx" },
+  "qatt-404-demo": { component: Qatt404Demo, file: "qatt/blocks/qatt-404/page.tsx" },
 }

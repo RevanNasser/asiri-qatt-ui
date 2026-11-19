@@ -584,6 +584,107 @@
           "target": "app/qatt/qatt-pricing/page.tsx"
         }
       ]
+    },
+    {
+      "name": "qatt-cta",
+      "type": "registry:block",
+      "title": "Qatt Cta",
+      "description": "Closing call-to-action band (ink, red or gypsum) with a taadheeq crest row.",
+      "categories": ["qatt"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/button.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+      ],
+      "files": [
+        {
+          "path": "registry/qatt/blocks/qatt-cta/qatt-cta.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/qatt/blocks/qatt-cta/page.tsx",
+          "type": "registry:page",
+          "target": "app/qatt/qatt-cta/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "qatt-footer",
+      "type": "registry:block",
+      "title": "Qatt Footer",
+      "description": "Footer with brand, link columns, heritage note and copyright line, resting on a kaff band.",
+      "categories": ["qatt"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json",
+        "{{REGISTRY_URL}}/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/qatt/blocks/qatt-footer/qatt-footer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/qatt/blocks/qatt-footer/page.tsx",
+          "type": "registry:page",
+          "target": "app/qatt/qatt-footer/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "qatt-login",
+      "type": "registry:block",
+      "title": "Qatt Login",
+      "description": "Sign-in form (LTR email/password, visible labels, linked errors, live form error, password toggle) with a decorative sankroli + arch panel.",
+      "categories": ["qatt"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/qatt-utils.json",
+        "{{REGISTRY_URL}}/r/button.json",
+        "{{REGISTRY_URL}}/r/input.json",
+        "{{REGISTRY_URL}}/r/qatt-divider.json",
+        "{{REGISTRY_URL}}/r/qatt-frame.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+      ],
+      "files": [
+        {
+          "path": "registry/qatt/blocks/qatt-login/qatt-login.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/qatt/blocks/qatt-login/page.tsx",
+          "type": "registry:page",
+          "target": "app/qatt/qatt-login/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "qatt-404",
+      "type": "registry:block",
+      "title": "Qatt 404",
+      "description": "Friendly 404: code in an arch frame, h1 sentence, home and search exits, mahareeb row.",
+      "categories": ["qatt"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/button.json",
+        "{{REGISTRY_URL}}/r/qatt-divider.json",
+        "{{REGISTRY_URL}}/r/qatt-frame.json"
+      ],
+      "files": [
+        {
+          "path": "registry/qatt/blocks/qatt-404/qatt-404.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/qatt/blocks/qatt-404/page.tsx",
+          "type": "registry:page",
+          "target": "app/qatt/qatt-404/page.tsx"
+        }
+      ]
     }
   ]
 }

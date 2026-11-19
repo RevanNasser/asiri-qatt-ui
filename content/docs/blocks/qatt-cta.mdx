@@ -1,0 +1,50 @@
+---
+title: دعوة إلى العمل
+description: شريطٌ ختامي يدعو الزائر إلى الخطوة التالية.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-cta.*, docs.props.qatt-cta.*). */}
+
+شريطٌ ختامي يدعو الزائر إلى الخطوة التالية، بلونٍ واحد وصفٍّ من زخارف «التعذيق».
+
+<Callout>
+المحتوى هنا افتراضيٌّ للعرض: الأسماء والأرقام والأسعار والآراء مختلَقة، فاستبدلوها بمحتواكم.
+</Callout>
+
+<ComponentPreview name="qatt-cta-demo" />
+
+## التثبيت
+
+<InstallCommand item="qatt-cta" />
+
+## الاستخدام
+
+ضعوه في آخر الصفحة قبل التذييل، بعنوانٍ قصير ودعوةٍ واحدة واضحة، وزرٍّ ثانوي إن لزم.
+
+```tsx
+import { QattCta } from "@/components/qatt-cta"
+
+<QattCta title="…" primary={{ label: "…", href: "#" }} />
+```
+
+
+## الخصائص
+
+<PropsTable
+  rows={[
+    {"name": "title", "type": "string", "description": <span>عنوان القسم، ويُربط به القسم عبر <code dir="ltr">aria-labelledby</code>.</span>},
+    {"name": "body", "type": "string", "description": <span>سطرٌ موجز تحت العنوان.</span>},
+    {"name": "primary", "type": "QattCta", "description": <span>الزرّ الرئيسي. زرٌّ بنصٍّ ورابط ونمطٍ اختياري (<code dir="ltr">qatt</code> أو <code dir="ltr">default</code> أو <code dir="ltr">outline</code> أو <code dir="ltr">qatt-outline</code>).</span>},
+    {"name": "secondary", "type": "QattCta", "description": <span>زرٌّ ثانوي اختياري. زرٌّ بنصٍّ ورابط ونمطٍ اختياري (<code dir="ltr">qatt</code> أو <code dir="ltr">default</code> أو <code dir="ltr">outline</code> أو <code dir="ltr">qatt-outline</code>).</span>},
+    {"name": "tone", "type": "\"red\" | \"ink\" | \"gypsum\"", "default": "\"ink\"", "description": <span>لون الشريط: <code dir="ltr">ink</code> (الافتراضي) أو <code dir="ltr">red</code> أو <code dir="ltr">gypsum</code>.</span>},
+    {"name": "motif", "type": "MotifId", "default": "\"taadheeq\"", "description": <span>نقش الصفّ الزخرفي. والافتراضي <code dir="ltr">taadheeq</code>.</span>}
+  ]}
+/>
+
+## ملاحظات الاتجاه
+
+الأزرار تتبع ترتيب القراءة: الرئيسي أولًا في بداية السطر.
+
+## سهولة الوصول
+
+النص على الشريط الأحمر أو الداكن بلون الجصّ ويتجاوز نسبة التباين المطلوبة، والزرّ الرئيسي يصير بالطلاء الأصفر ليبقى بارزًا.
