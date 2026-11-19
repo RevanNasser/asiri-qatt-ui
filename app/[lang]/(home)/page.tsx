@@ -4,7 +4,7 @@ import { BlocksIcon, LanguagesIcon, PaletteIcon } from "lucide-react"
 
 import { ComponentPreview } from "@/components/docs/component-preview"
 import { GalleryGrid } from "@/components/docs/gallery"
-import { QattWallComposition } from "@/components/site/qatt-wall-composition"
+import { AsiriThresholdComposition } from "@/components/site/asiri-threshold-composition"
 import { resolveRegistryUrl } from "@/lib/registry-url"
 import { pageMetadata } from "@/lib/seo"
 import { plain, t } from "@/lib/site-copy"
@@ -31,7 +31,7 @@ export default function HomePage() {
   return (
     <>
       <section aria-labelledby="home-title" data-qatt-surface="gypsum" className="relative overflow-hidden bg-qatt-jiss">
-        <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,25rem)] lg:items-center lg:gap-16">
+        <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(25rem,31rem)] lg:items-center lg:gap-16">
           <div className="flex min-w-0 flex-col items-start gap-5 text-start">
             <p className="font-mono text-xs tracking-[0.08em] text-qatt-red sm:text-sm">{t("home.hero.eyebrow")}</p>
             <h1 id="home-title" className="max-w-[13ch] font-heading text-4xl leading-[1.25] font-bold sm:text-6xl">
@@ -55,7 +55,7 @@ export default function HomePage() {
               </code>
             </div>
           </div>
-          <QattWallComposition className="mx-auto w-full max-w-md lg:max-w-none" />
+          <AsiriThresholdComposition className="mx-auto w-full max-w-xl lg:max-w-none" />
         </div>
         <QattDivider motif="mathalith-makhamis" thickness="sm" className="my-0" />
       </section>
