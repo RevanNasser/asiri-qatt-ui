@@ -108,6 +108,15 @@ Every factual claim on the "About" page is backed by a source from `heritage-bri
 | `about.asir.crafts.title` | الحرف اليدوية |
 | `about.asir.crafts.body` | [اقرأوا عن الحرف اليدوية في منطقة عسير عبر سعوديبيديا](https://saudipedia.com/%D9%82%D8%A7%D8%A6%D9%85%D8%A9-%D8%A7%D9%84%D8%AD%D8%B1%D9%81-%D8%A7%D9%84%D9%8A%D8%AF%D9%88%D9%8A%D8%A9-%D9%81%D9%8A-%D9%85%D9%86%D8%B7%D9%82%D8%A9-%D8%B9%D8%B3%D9%8A%D8%B1). |
 | `about.asir.note` | رسومات قَطّ في هذا الموقع من تصميم المشروع، ولا توثّق جدارًا أو فنانةً أو قريةً بعينها. |
+| `about.context.exterior.heading` | البيت من الخارج |
+| `about.context.exterior.body` | تصف الموجهات الرسمية لعمارة عسير الواجهات التقليدية بكتل حجرية متماسكة، وأسقف مستوية، وفتحات صغيرة مستطيلة أو مربعة، وإطارات فاتحة أو سواتر خشبية ملوّنة. لا نقدّم هذه العناصر بوصفها زخارف قطّ. |
+| `about.context.exterior.source` | [الموجهات التصميمية لعمارة إصدار عسير](https://architsaudi.dasc.gov.sa/sites/default/files/2026-03/010-ADG_AseerEscarpment_ARABIC_compressed_0.pdf) |
+| `about.context.interior.heading` | المجلس من الداخل |
+| `about.context.interior.body` | القطّ العسيري تزيينٌ للجدران الداخلية. لذلك يظهر في هذا الموقع داخل لوحة جصية أو حزامٍ محدد، لا على واجهة البيت ولا بوصفه شكلًا معماريًا. |
+| `about.context.interior.source` | [سجل اليونسكو للقط العسيري](https://ich.unesco.org/en/RL/al-qatt-al-asiri-female-traditional-interior-wall-decoration-01261) |
+| `about.context.clothing.heading` | الملبس له لغته |
+| `about.context.clothing.body` | من الأزياء النسائية الموثقة في عسير المُزَنَّد: ثوبٌ أسود من الحرير مزخرف بخيوط ذهبية وفضية، وقد تظهر فيه خيوط خضراء وحمراء وصفراء. هذا تطريزٌ وخامة، لا وصفةٌ لنقل ألوانه أو زخارفه إلى جدار القطّ. |
+| `about.context.clothing.source` | [سعوديبيديا: الأزياء الشعبية في منطقة عسير](https://saudipedia.com/%D8%A7%D9%84%D8%A3%D8%B2%D9%8A%D8%A7%D8%A1-%D8%A7%D9%84%D8%B4%D8%B9%D8%A8%D9%8A%D8%A9-%D9%81%D9%8A-%D9%85%D9%86%D8%B7%D9%82%D8%A9-%D8%B9%D8%B3%D9%8A%D8%B1) |
 
 ## docs — التوثيق
 

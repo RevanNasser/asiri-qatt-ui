@@ -41,7 +41,7 @@ function StorySection({ heading, children }: { heading: CopyKey; children: React
 export default function AboutPage() {
   return (
     <>
-      <QattPattern preset="full" surface="gypsum" className="min-h-24 sm:min-h-32" />
+      <QattPattern motif="mathalith-makhamis" surface="gypsum" scale="md" className="min-h-10 sm:min-h-12" />
       <article className="mx-auto flex w-full max-w-5xl flex-col gap-12 px-4 py-14 sm:px-6">
         <header className="max-w-3xl space-y-4 text-start">
           <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl">{t("about.title")}</h1>
@@ -55,6 +55,18 @@ export default function AboutPage() {
           <p><Copy k="about.what.name" /></p>
         </StorySection>
         <StorySection heading="about.where.heading"><p><Copy k="about.where.body" /></p></StorySection>
+        <StorySection heading="about.context.exterior.heading">
+          <p><Copy k="about.context.exterior.body" /></p>
+          <p className="text-sm"><Copy k="about.context.exterior.source" linkClassName="text-foreground underline underline-offset-4 hover:text-primary" /></p>
+        </StorySection>
+        <StorySection heading="about.context.interior.heading">
+          <p><Copy k="about.context.interior.body" /></p>
+          <p className="text-sm"><Copy k="about.context.interior.source" linkClassName="text-foreground underline underline-offset-4 hover:text-primary" /></p>
+        </StorySection>
+        <StorySection heading="about.context.clothing.heading">
+          <p><Copy k="about.context.clothing.body" /></p>
+          <p className="text-sm"><Copy k="about.context.clothing.source" linkClassName="text-foreground underline underline-offset-4 hover:text-primary" /></p>
+        </StorySection>
         <StorySection heading="about.who.heading"><p><Copy k="about.who.body" /></p></StorySection>
         <StorySection heading="about.how.heading">
           <p><Copy k="about.how.body" /></p>
