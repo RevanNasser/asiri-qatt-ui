@@ -53,3 +53,15 @@ Decisions and conflict resolutions: `docs/agents/decisions.md`.
 - Copy fixed (Base UI), 29 new copy keys added (ar + en). Pigment names marked as labels; blue's source flagged as disputed.
 - D-019…D-022 (renumbered: Developer had already used D-015…D-017). UX/UI applied non-blocking follow-ups (kaff dark default, banat rule, gypsum-surface rule, typography label).
 - UX/UI follow-ups done: kaff dark defaults (red band + ink line), banat rule, `--qatt-surface-gypsum` + `data-qatt-surface="gypsum"` scope (AA inside), «الخطوط الطباعية», `stepped` flagged `projectExtension`.
+
+### 2026-11-19 — Phase 4 track 1 committed (`51a1919`)
+- Final UX tokens + gypsum scope in `qatt-theme`; fonts split into `qatt-font`, `qatt-font-heading`, `qatt-font-mono`; 15 restyled shadcn components (base-nova API kept, D-011 focus outline, logical classes, RTL icon rules). 22 registry items.
+- Lint/typecheck/format clean; registry validate 22/22; unit 107/107 (axe rtl+ltr per demo); e2e 18/18.
+- Install-flow extended to all items but **NOT RUN**: disk fell to 270–400 MB from causes outside this project. Removed project `.next` cache; committed agent docs (`38ebfd1`).
+- **BLOCKED on disk** for track 2 builds and the install-flow. Asked owner.
+- In parallel (no disk needed): Heritage writing the missing `TODO(ar-copy)` keys; UX/UI reviewing the 15 built components against spec.
+
+### 2026-11-19 — Track 1 reviews in
+- UX/UI review (`docs/agents/ux-ui/phase4-track1-review.md`): 12/15 approved (some nits); fixes required on button (F1 drop green, F2 hover contrast), sonner (F3 focus), tooltip (F4 arrow sides). D-026.
+- Heritage wrote 71 batch-2 strings (props tables, rtl/a11y notes, sr labels) → `ar-copy-batch2.md` maps key → file:line. Found a11y bug: breadcrumb/pagination "more" sr-only text sits inside `aria-hidden`.
+- Owner freed disk again. Developer resumed: fixes + wire copy + run install-flow, then track 2 (ornaments + blocks).

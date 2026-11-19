@@ -161,7 +161,7 @@ Computed by [`tools/tokens.py`](./tools/tokens.py): OKLCH → OKLab → linear s
 | `qatt-orange` | `background` | 3.35 | 4.5:1 | large only |  |
 | `qatt-white` | `qatt-red` | 5.81 | 4.5:1 | PASS AA | label on red paint |
 | `qatt-white` | `qatt-blue` | 6.21 | 4.5:1 | PASS AA | label on blue paint |
-| `qatt-white` | `qatt-green` | 4.25 | 4.5:1 | large only | label on green paint |
+| `qatt-white` | `qatt-green` | 4.25 | 4.5:1 | large only | label on green paint → no green UI fills with text (button/badge/avatar; review 2026-11-19) |
 | `qatt-black` | `qatt-yellow` | 7.58 | 4.5:1 | PASS AA | label on yellow paint |
 | `qatt-black` | `qatt-orange` | 4.72 | 4.5:1 | PASS AA | label on orange paint |
 | `qatt-white` | `qatt-black` | 14.93 | 4.5:1 | PASS AA |  |

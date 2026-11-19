@@ -237,3 +237,79 @@ Same keys as `site-copy.ar.md`. `{…}` = placeholder. Facts on the About page a
 | `docs.patterns.extensionLabel` | Project extension — not documented in Al-Qatt Al-Asiri |
 | `docs.theme.darkNote` *(Heritage addition)* | Dark mode is our own interpretation: Al-Qatt Al-Asiri is painted on a white gypsum ground. |
 | `docs.theme.pigments.blueNote` *(Heritage addition)* | Sources disagree on the traditional source of the blue; the name is a label, not a claim. |
+
+## docs (Batch 2) — component props, direction and accessibility notes
+
+| key | Text |
+|---|---|
+| `docs.props.button.variant` | Visual style. qatt, qatt-outline and painted are Qatt additions. |
+| `docs.props.button.tone` | Pigment for variant=painted only. Green forces bold text. |
+| `docs.props.button.size` | Height: default h-9, sm h-8, lg h-10. |
+| `docs.props.button.render` | Base UI composition (instead of asChild). |
+| `docs.button.rtl` | Place icons with data-icon="inline-start" or "inline-end"; arrow icons flip automatically in RTL. |
+| `docs.button.a11y` | Solid, visible focus outline; loading is announced with aria-busy plus a spinner; minimum target 24px. Green painted is only for bold text at 14px or larger. |
+| `docs.props.badge.variant` | qatt = yellow paint with charcoal text; pigment takes its colour from tone. |
+| `docs.props.badge.tone` | Pigment for variant=pigment. No green: it fails 4.5:1 for small text. |
+| `docs.props.badge.render` | Render as another element, e.g. a link. |
+| `docs.badge.rtl` | The ornament sits at inline-start (the right in Arabic). |
+| `docs.badge.a11y` | The ornament is hidden from assistive technology. Never signal status by colour alone; include text. |
+| `docs.props.card.variant` | painted = 2px ink border + flat painted shadow. |
+| `docs.props.card.size` | Inner spacing. |
+| `docs.card.rtl` | The ornament strip is symmetric and its caps use logical sides, so nothing needs flipping. |
+| `docs.card.a11y` | The card stays a plain div. For a clickable card, use one inner link stretched with after:absolute after:inset-0, not a link wrapping the whole card. |
+| `docs.props.tabs.listVariant` | qatt marks the active tab with a painted diamond. |
+| `docs.props.tabs.value` | Base UI Tabs value (arrow keys follow the DirectionProvider). |
+| `docs.tabs.rtl` | Base UI maps arrow keys to the direction, so in Arabic the right arrow moves to the previous tab. The active indicator is positioned from inline-start. |
+| `docs.tabs.a11y` | Focus moves between tabs with the arrow keys (roving tabindex); the focus outline is drawn inside the list so it is not clipped. |
+| `docs.props.dialog.contentVariant` | qatt adds a 2px ink border. |
+| `docs.props.dialog.showCloseButton` | Close button at inline-end (the left in Arabic). |
+| `docs.props.dialog.closeLabel` | Accessible name of the close button. |
+| `docs.dialog.rtl` | The close button sits at inline-end. The footer keeps shadcn's order (cancel, then confirm) aligned to the end, so confirm lands on the left in Arabic, at the end of the reading path. |
+| `docs.dialog.a11y` | DialogTitle is required. Initial focus goes to the first field, or to the safe action when confirming something that cannot be undone. |
+| `docs.props.sheet.side` | start/end are logical: start opens from the right in RTL. Prefer them. |
+| `docs.props.sheet.showCloseButton` | Close button at inline-end (the left in Arabic). |
+| `docs.props.sheet.closeLabel` | Accessible name of the close button. |
+| `docs.sheet.rtl` | start and end resolve to a physical side from the page direction via useDirection(), and the slide animation follows it. |
+| `docs.sheet.a11y` | Same as Dialog: a title is required, and focus stays inside the sheet until it closes. |
+| `docs.props.accordion.variant` | qatt draws a 2px ink rule under each open trigger. |
+| `docs.props.accordion.value` | Open items (Base UI Accordion). |
+| `docs.accordion.rtl` | Trigger text starts at inline-start with the chevron at inline-end. The chevron points down and rotates 180° when open, so it is not flipped in RTL. |
+| `docs.accordion.a11y` | Base UI renders triggers inside headings, and each trigger carries aria-expanded. |
+| `docs.props.input.variant` | qatt = ruled line (2px bottom border, card fill). |
+| `docs.props.input.dir` | Inherited. Use ltr for email/URL/password, auto for free text. |
+| `docs.input.rtl` | Direction is inherited. Use dir="ltr" for email, URL and password fields; placeholder alignment is logical. |
+| `docs.input.a11y` | Always show a visible label; never use the placeholder as one. For errors, use aria-invalid with error text linked by aria-describedby. |
+| `docs.props.select.triggerVariant` | qatt = ruled line like Input. |
+| `docs.props.select.triggerSize` | Height h-9 / h-8. |
+| `docs.select.rtl` | The popup aligns to the trigger's inline-start, and the check mark sits at inline-start. |
+| `docs.select.a11y` | Base UI typeahead jumps to an option by its first letters, Arabic letters included. |
+| `docs.props.sonner.position` | Defaults to the bottom inline-end corner. |
+| `docs.props.sonner.dir` | Passed to sonner. |
+| `docs.sonner.rtl` | Toasts appear bottom-left in Arabic and bottom-right in English; dir is passed to Toaster. Swipe to dismiss towards inline-end. |
+| `docs.sonner.a11y` | Toasts are announced through a live region; the type is conveyed by icon and text, not by the stripe colour alone. |
+| `docs.props.tooltip.side` | Prefer inline-start / inline-end for direction-aware placement. |
+| `docs.props.tooltip.delay` | Open delay in ms. |
+| `docs.tooltip.rtl` | inline-start and inline-end resolve to right or left from the page direction. |
+| `docs.tooltip.a11y` | For supplementary information only; never put essential content in a tooltip. Triggers must be keyboard-focusable; the open delay is 300 ms. |
+| `docs.props.breadcrumb.separator` | Chevron flips in RTL; khatmah is a small diamond; avoid slash in Arabic. |
+| `docs.props.breadcrumb.ariaLabel` | Landmark name of the nav. |
+| `docs.breadcrumb.rtl` | The chevron flips to point left in Arabic. The slash does not flip and reads oddly in RTL, so we recommend chevron or khatmah for Arabic. |
+| `docs.breadcrumb.a11y` | The nav is labelled “Breadcrumb”, and the current page carries aria-current="page". |
+| `docs.props.pagination.variant` | qatt paints the active page red. |
+| `docs.props.pagination.navText` | Visible on sm+, screen-reader only below. |
+| `docs.props.pagination.isActive` | Sets aria-current=page. |
+| `docs.pagination.rtl` | Previous sits at inline-start (the right in Arabic) with its chevron pointing right. Digits are Western and tabular. |
+| `docs.pagination.a11y` | The nav is labelled “Pagination”; the active page carries aria-current="page"; icon-only buttons carry an aria-label. |
+| `docs.props.avatar.ring` | 2px primary ring with a 2px gap. |
+| `docs.props.avatar.size` | Size. |
+| `docs.props.avatar.fallbackTone` | Pigment fill with a contrast-safe text colour. |
+| `docs.avatar.rtl` | When avatars overlap, use the logical margin -ms-2 instead of -space-x-2. |
+| `docs.avatar.a11y` | Give AvatarImage alt text. Fallback contrast is checked per tone: yellow and orange use charcoal text. |
+| `docs.props.separator.variant` | qatt = three thin parallel rules (al-mathalith). |
+| `docs.props.separator.orientation` | Direction of the rule: horizontal or vertical. |
+| `docs.separator.rtl` | Symmetric; identical in both directions. |
+| `docs.separator.a11y` | Keeps Base UI Separator semantics: a decorative separator gets role="none" and is skipped by assistive technology. |
+| `docs.props.qatt-divider.decorative` | Hide from assistive technology. Set to false to expose it as a separator. |
+| `docs.props.qatt-divider.className` | Extra classes; the band colour follows currentColor (text-*). |
+| `docs.breadcrumb.more` | More |
+| `docs.pagination.more` | More pages |
