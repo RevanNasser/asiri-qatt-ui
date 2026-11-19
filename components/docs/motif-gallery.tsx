@@ -1,7 +1,7 @@
 import { t, type CopyKey } from "@/lib/site-copy"
 import { MOTIF_IDS, MOTIFS, type MotifId } from "@/registry/qatt/lib/qatt-motifs"
 import { Badge } from "@/registry/qatt/ui/badge"
-import { QattMotif, QattMotifTile } from "@/registry/qatt/ui/qatt-pattern"
+import { QattMotif, QattMotifTile, QattPattern } from "@/registry/qatt/ui/qatt-pattern"
 
 const k = (key: string) => t(key as CopyKey)
 const has = (key: string) => {
@@ -14,10 +14,17 @@ const has = (key: string) => {
 
 function Preview({ id }: { id: MotifId }) {
   const m = MOTIFS[id]
-  if (m.repeat === "none") return <QattMotifTile motif={id} className="size-16" />
+  // Heritage-presenting page: motifs sit on gypsum in both modes (D-019).
+  if (m.repeat === "none")
+    return (
+      <div data-qatt-surface="gypsum" className="w-fit rounded-sm p-2">
+        <QattMotifTile motif={id} className="size-16" />
+      </div>
+    )
   return (
     <div
-      className="h-16 w-full overflow-hidden rounded-sm border"
+      data-qatt-surface="gypsum"
+      className="w-full overflow-hidden rounded-sm border"
       style={{ height: m.repeat === "xy" ? 64 : m.height * 1.5 }}
     >
       <QattMotif motif={id} scale={1.5} />
@@ -74,5 +81,14 @@ export function MotifGallery() {
         )
       })}
     </ul>
+  )
+}
+
+/** «تركيبة الجدار»: the full wall recipe only, on gypsum (D-019). */
+export function WallRecipe() {
+  return (
+    <div className="not-prose my-6 overflow-hidden rounded-lg border">
+      <QattPattern preset="full" surface="gypsum" scale="md" className="h-56 w-full" />
+    </div>
   )
 }

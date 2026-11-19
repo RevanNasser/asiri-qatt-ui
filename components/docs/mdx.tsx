@@ -5,8 +5,9 @@ import type { MDXComponents } from "mdx/types"
 
 import { ComponentPreview } from "@/components/docs/component-preview"
 import { InstallCommand } from "@/components/docs/install-command"
-import { MotifGallery } from "@/components/docs/motif-gallery"
+import { MotifGallery, WallRecipe } from "@/components/docs/motif-gallery"
 import { PropsTable } from "@/components/docs/props-table"
+import { Copy } from "@/components/site/copy"
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
@@ -18,7 +19,9 @@ export function getMDXComponents(components?: MDXComponents) {
     ComponentPreview,
     InstallCommand,
     MotifGallery,
+    WallRecipe,
     PropsTable,
+    Copy,
     ...components,
   } satisfies MDXComponents
 }

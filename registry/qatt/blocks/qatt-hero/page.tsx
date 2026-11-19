@@ -18,7 +18,8 @@ export default function QattHeroPage() {
       }}
       align="start"
       media={
-        <QattPattern motif="balsanah" className="size-full" role="img" aria-label="لقطة شاشة توضيحية للوحة التحكّم" />
+        // Placeholder for your product image (decorative until you replace it with a real <img alt="…" />).
+        <QattPattern motif="balsanah" className="size-full" />
       }
       animate
     />

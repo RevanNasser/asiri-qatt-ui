@@ -179,7 +179,8 @@ function QattPattern({
             <span
               key={band.motif}
               className="block w-full shrink-0"
-              style={{ height: MOTIFS[band.motif].height * s, marginBlockStart: (band.gap ?? 0) * s }}
+              // flex-col-reverse: block-end margin sits below the band, i.e. between kaff and qatt-lines
+              style={{ height: MOTIFS[band.motif].height * s, marginBlockEnd: (band.gap ?? 0) * s }}
             >
               <QattMotif motif={band.motif} variant={band.variant} scale={s} />
             </span>

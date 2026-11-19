@@ -54,7 +54,10 @@ function QattFeatureGrid({
       <ul className={cn("grid gap-5", COLS[columns])}>
         {features.map((f, i) => (
           <li key={f.title} className="flex">
-            <Card variant="painted" className="relative w-full">
+            <Card
+              variant="painted"
+              className="relative w-full has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-ring"
+            >
               <CardHeader className="gap-3">
                 <span
                   aria-hidden="true"

@@ -191,7 +191,7 @@ function QattLogin({
                 </Button>
               </div>
               {capsLock && (
-                <p id={`${id}-caps`} className="text-sm text-muted-foreground">
+                <p id={`${id}-caps`} role="status" className="text-sm text-muted-foreground">
                   {L.capsLock}
                 </p>
               )}

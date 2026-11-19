@@ -40,14 +40,17 @@ function CopyCommand({
   const [copied, setCopied] = React.useState(false)
   return (
     <div dir="ltr" className="flex items-center gap-2 rounded-md border border-input bg-card py-1 ps-3 pe-1 text-start">
-      <code className="flex-1 overflow-x-auto font-mono text-sm whitespace-nowrap">{command}</code>
+      <code className="min-w-0 flex-1 overflow-x-auto font-mono text-sm whitespace-nowrap">{command}</code>
       {copyLabel && (
         <Button
           variant="ghost"
           size="icon-sm"
           aria-label={copyLabel}
           onClick={() => {
-            void navigator.clipboard?.writeText(command).then(() => setCopied(true))
+            void navigator.clipboard?.writeText(command).then(() => {
+              setCopied(true)
+              setTimeout(() => setCopied(false), 2000)
+            })
           }}
         >
           {copied ? <CheckIcon aria-hidden="true" /> : <CopyIcon aria-hidden="true" />}
@@ -91,7 +94,12 @@ function QattHero({
           !centered && media && "@4xl:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] @4xl:items-center",
         )}
       >
-        <div className={cn("flex flex-col gap-5", centered ? "items-center text-center" : "items-start text-start")}>
+        <div
+          className={cn(
+            "flex min-w-0 flex-col gap-5",
+            centered ? "items-center text-center" : "items-start text-start",
+          )}
+        >
           {eyebrow && <Badge variant="qatt">{eyebrow}</Badge>}
           <h1 id={id} className="font-heading text-4xl leading-tight font-bold sm:text-5xl">
             {title}

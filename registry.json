@@ -570,8 +570,7 @@
         "{{REGISTRY_URL}}/r/badge.json",
         "{{REGISTRY_URL}}/r/button.json",
         "{{REGISTRY_URL}}/r/card.json",
-        "{{REGISTRY_URL}}/r/qatt-pattern.json",
-        "{{REGISTRY_URL}}/r/tabs.json"
+        "{{REGISTRY_URL}}/r/qatt-pattern.json"
       ],
       "files": [
         {

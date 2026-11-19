@@ -161,7 +161,7 @@ export const MOTIFS: Record<MotifId, MotifDef> = {
     aboutVocabulary: true,
     uses: ["band", "border"],
     markup:
-      '<rect width="16" height="24" fill="var(--qatt-slot-4, transparent)"/><path d="M2 24 8 12l6 12z" fill="var(--qatt-slot-1, #A8322A)"/><path d="M8 12V4M8 8 5 5m3 3 3-3" fill="none" stroke="var(--qatt-slot-2, #1F1B17)" stroke-width="1.5" stroke-linecap="round"/>',
+      '<rect width="16" height="24" fill="var(--qatt-slot-4, transparent)"/><path d="M2 24 8 12l6 12z" fill="var(--qatt-slot-1, #A8322A)"/><path d="M8 12V4M8 9.5 5.5 7M8 9.5 10.5 7M8 7 6 5M8 7 10 5" fill="none" stroke="var(--qatt-slot-2, #1F1B17)" stroke-width="1.25" stroke-linecap="round"/>',
     variants: [],
   },
   balsanah: {

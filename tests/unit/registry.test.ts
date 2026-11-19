@@ -34,8 +34,12 @@ describe("registry generation", () => {
 describe("site copy", () => {
   it("only uses Arabic strings that exist verbatim in site-copy.ar.md", () => {
     const md = fs.readFileSync(path.join(process.cwd(), "docs/agents/heritage/site-copy.ar.md"), "utf8")
+    const catalog = fs.readFileSync(path.join(process.cwd(), "docs/agents/heritage/motif-catalog.md"), "utf8")
+    const rows = new Set(md.split("\n").map((l) => l.replace(/^(\| `[^`]+`)\s*\*\([^)]*\)\*/, "$1")))
     for (const [key, value] of Object.entries(ar)) {
-      expect(md, key).toContain(`| \`${key}\` | ${value} |`)
+      // pigment labels come from motif-catalog.md §Palette (Heritage)
+      if (key.startsWith("docs.theme.pigment.")) expect(catalog, key).toContain(value)
+      else expect(rows.has(`| \`${key}\` | ${value} |`), key).toBe(true)
     }
   })
 })

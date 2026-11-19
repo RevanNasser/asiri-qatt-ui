@@ -20,8 +20,9 @@ export interface QattCtaProps extends Omit<React.ComponentProps<"section">, "tit
 }
 
 const TONES = {
-  ink: "bg-qatt-black text-qatt-white",
-  red: "bg-qatt-red text-qatt-white dark:text-background",
+  // focus ring overridden on paint bands: blue would be 1.02:1 on red / 2.61:1 on ink
+  ink: "bg-qatt-black text-qatt-white [--ring:var(--qatt-white)]",
+  red: "bg-qatt-red text-qatt-white dark:text-background [--ring:var(--qatt-white)] dark:[--ring:var(--background)]",
   gypsum: "bg-card text-foreground",
 } as const
 
@@ -69,7 +70,7 @@ function QattCta({
               href={secondary.href}
               className={cn(
                 buttonVariants({ variant: secondary.variant ?? "qatt-outline", size: "lg" }),
-                onPaint && "border-qatt-white text-inherit hover:bg-qatt-white/10",
+                onPaint && "border-current text-inherit hover:bg-qatt-white/10",
               )}
             >
               {secondary.label}

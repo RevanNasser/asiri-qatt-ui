@@ -36,7 +36,7 @@ export default function MajlisWelcomePage() {
           surface="gypsum"
           className="size-full"
           role="img"
-          aria-label="جدارٌ مزخرف بأشرطةٍ ومثلثاتٍ مستوحاة من القطّ العسيري"
+          aria-label="أشرطةٌ زخرفية من المثلثات والمعيّنات، مستوحاة من القطّ العسيري"
         />
       }
     />

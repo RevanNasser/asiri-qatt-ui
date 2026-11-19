@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
  * Qatt Button: shadcn base-nova Button (same exports, props, variants and sizes) plus
  * `qatt`, `qatt-outline` and `painted` (+ `tone`) variants. Solid 2px Nila-blue focus outline (D-011).
  */
-const buttonVariants = cva(
+const buttonVariantsBase = cva(
   "group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:outline-destructive motion-reduce:transition-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
@@ -78,13 +78,21 @@ const buttonVariants = cva(
   },
 )
 
+/**
+ * cva + tailwind-merge, so variant borders (e.g. `border-qatt-ink`) beat the base `border-transparent`
+ * when the classes are used on plain elements like <a>.
+ */
+function buttonVariants(props?: Parameters<typeof buttonVariantsBase>[0]) {
+  return cn(buttonVariantsBase(props))
+}
+
 function Button({
   className,
   variant = "default",
   size = "default",
   tone,
   ...props
-}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
+}: ButtonPrimitive.Props & VariantProps<typeof buttonVariantsBase>) {
   return (
     <ButtonPrimitive
       data-slot="button"

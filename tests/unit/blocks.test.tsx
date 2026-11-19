@@ -88,7 +88,7 @@ describe("qatt-pricing", () => {
   it("toggles the billing period, keeps currency after the number and names the plan for each CTA", async () => {
     const { container } = inDir("rtl", demo("qatt-pricing"))
     expect(container.textContent).toContain("99 ر.س")
-    act(() => screen.getByRole("tab", { name: /سنويًا/ }).click())
+    act(() => screen.getByRole("radio", { name: /سنويًا/ }).click())
     expect(container.textContent).toContain("990 ر.س")
     const cta = screen.getByRole("link", { name: "اختر هذه الخطة" })
     expect(document.getElementById(cta.getAttribute("aria-describedby")!)).toHaveTextContent("النموّ")

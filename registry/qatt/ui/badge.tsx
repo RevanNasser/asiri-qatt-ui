@@ -3,7 +3,7 @@ import { useRender } from "@base-ui/react/use-render"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
-import { QattMotifTile } from "@/registry/qatt/ui/qatt-pattern"
+import { QattBand } from "@/registry/qatt/ui/qatt-pattern"
 
 /**
  * Qatt Badge: shadcn base-nova Badge + `qatt` (yellow paint, charcoal text) and `pigment` (+ `tone`) variants.
@@ -63,7 +63,7 @@ function Badge({
         children:
           variant === "banat" ? (
             <>
-              <QattMotifTile motif="banat" className="h-3 w-2 shrink-0" />
+              <QattBand motif="banat" thickness={12} className="w-4 shrink-0" />
               {children}
             </>
           ) : (

@@ -1,99 +1,46 @@
 /**
- * UI strings. Arabic text is copied verbatim from docs/agents/heritage/site-copy.ar.md
- * (keys match that file). Never write new Arabic copy here; ask the Heritage agent.
+ * UI strings. All Arabic comes verbatim from Heritage files; never write Arabic here.
+ * - `arCopy` is generated from docs/agents/heritage/site-copy.ar.md (`pnpm copy:gen`).
+ * - `pigments` are the Arabic labels from docs/agents/heritage/motif-catalog.md §Palette. They are
+ *   labels after traditional materials, not sourcing claims (D-019 review; the blue is disputed).
+ * Values may contain inline markup (`code`, <bdi …>…</bdi>, [text](url)); render them with
+ * <Copy k="…" /> (components/site/copy.tsx), or use `plain()` for attributes and metadata.
  */
-export const ar = {
-  "nav.brand": "قَطّ",
-  "nav.docs": "التوثيق",
-  "nav.components": "المكوّنات",
-  "nav.search.placeholder": "ابحث في التوثيق…",
-  "nav.theme.light": "الوضع الفاتح",
-  "nav.theme.dark": "الوضع الداكن",
-  "nav.theme.system": "حسب النظام",
-  "nav.theme": "السمة",
-  "nav.menu.open": "افتح القائمة",
-  "nav.menu.close": "أغلق القائمة",
-  "nav.skip": "تخطَّ إلى المحتوى",
-  "nav.onThisPage": "في هذه الصفحة",
-  "nav.editPage": "حرِّر هذه الصفحة",
-  "nav.prev": "السابق",
-  "nav.next": "التالي",
-  "home.hero.eyebrow": "سجلّ مكوّنات مفتوح المصدر لـ shadcn/ui",
-  "home.hero.title": "واجهاتٌ عربية بروح القطّ العسيري",
-  "home.hero.subtitle":
-    "مكوّناتٌ وكتلٌ جاهزة تُكتب من اليمين إلى اليسار أولًا، ونقوشٌ أصيلة الإلهام مستوحاة من فنّ نساء عسير في تزيين جدران المجالس.",
-  "home.hero.cta.primary": "ابدأ الآن",
-  "home.hero.cta.secondary": "تصفّح المكوّنات",
-  "home.hero.install.label": "ثبِّت السمة بأمرٍ واحد",
-  "docs.tab.preview": "معاينة",
-  "docs.tab.code": "الشيفرة",
-  "docs.props.name": "الخاصية",
-  "docs.props.type": "النوع",
-  "docs.props.default": "الافتراضي",
-  "docs.props.description": "الوصف",
-  "docs.copy": "نسخ",
-  "docs.copied": "تم النسخ",
-  "docs.install.cli": "سطر الأوامر",
-  "docs.install.pm.label": "مدير الحزم",
-  "empty.search.title": "لم نجد ما تبحثون عنه",
-  "error.404.title": "الصفحة غير موجودة",
-  "error.404.cta": "العودة إلى الرئيسية",
-  "seo.home.title": "قَطّ — مكوّنات عربية لـ shadcn/ui مستوحاة من القط العسيري",
-  "seo.home.description":
-    "سجلّ مكوّنات وكتل مفتوح المصدر لـ shadcn/ui، عربيٌّ أولًا ومن اليمين إلى اليسار، بنقوشٍ أصيلة مستوحاة من فن القط العسيري.",
-  "docs.patterns.title": "النقوش",
-  "docs.patterns.intro":
-    "نقوشٌ أصيلة نرسمها بأنفسنا من مفردات القطّ العسيري: الركون والبلسنة والبنات والمحاريب وغيرها. وحيث لا نجد اسمًا تقليديًا موثّقًا نكتفي بوصف الشكل.",
-  "docs.patterns.descriptiveLabel": "اسمٌ وصفي، لا اسمٌ تقليدي",
-  "docs.patterns.extensionLabel": "إضافةٌ من المشروع، غير موثّقة في القطّ العسيري",
-  "docs.motifs.kaff.name": "الكَفّ",
-  "docs.motifs.kaff.desc": "شريطٌ عريض في أسفل الجدار، يعلوه خطٌّ رفيع.",
-  "docs.motifs.qatt-lines.name": "القَطّ",
-  "docs.motifs.qatt-lines.desc": "أشرطةٌ أفقية متوازية بألوانٍ متعاقبة، تمتدّ تحت اللوحة الرئيسية.",
-  "docs.motifs.mathalith-makhamis.name": "المثالث والمخامس",
-  "docs.motifs.mathalith-makhamis.desc": "ثلاثة خطوطٍ رفيعة متوازية، أو خمسة.",
-  "docs.motifs.rukun.name": "الرُّكون",
-  "docs.motifs.rukun.desc": "صفٌّ من المثلثات القائمة بلونين متعاقبين.",
-  "docs.motifs.banat.name": "البَنات",
-  "docs.motifs.banat.desc": "مثلثاتٌ صغيرة تعلوها أغصانٌ نباتية.",
-  "docs.motifs.banat.note":
-    "يبقى الغصن نباتيًا دائمًا: لا تُضاف فوقه نقطةٌ أو رأس، ولا يُرسم أو يُحرَّك أو يوصف على هيئة إنسان.",
-  "docs.motifs.balsanah.name": "البَلْسَنة",
-  "docs.motifs.balsanah.desc": "سلسلةٌ من المعيّنات، في داخل كلٍّ منها معيّنٌ أصغر.",
-  "docs.motifs.amshat.name": "الأمشاط",
-  "docs.motifs.amshat.desc": "خطوطٌ قائمة متوازية كأسنان المشط.",
-  "docs.motifs.amshat.note": "هيئة المشط استنتاجٌ منّا من الاسم والتعريف، فلم نجد رسمًا موثّقًا لها.",
-  "docs.motifs.taadheeq.name": "التَّعذيق",
-  "docs.motifs.taadheeq.desc": "مثلثٌ تعلوه ثلاثة أعوادٍ بنقاطٍ في أطرافها، يشبّهها بعض الموثّقين بأعواد الذرة.",
-  "docs.motifs.mahareeb.name": "المَحاريب",
-  "docs.motifs.mahareeb.desc": "أقواسٌ مدبّبة متجاورة، في داخل كلٍّ منها قوسٌ أصغر.",
-  "docs.motifs.sankroli.name": "سَنكرولي",
-  "docs.motifs.sankroli.desc": "ثلاثة أقواسٍ متداخلة، بعضها في جوف بعض.",
-  "docs.motifs.shabakah.name": "الشَّبَكة",
-  "docs.motifs.shabakah.desc": "مربّعاتٌ بلونٍ واحد تتناوب مع الأرضية على هيئة الشبكة.",
-  "docs.motifs.hanash.name": "الحَنَش",
-  "docs.motifs.hanash.desc": "خطٌّ متعرّج، ويشير اسمه إلى الحيّة.",
-  "docs.motifs.khatmah.name": "الخَتْمة",
-  "docs.motifs.khatmah.desc": "مربّعٌ تُختم به نهاية الشريط، في داخله معيّنٌ ومربّعٌ صغير.",
-  "docs.motifs.sawtooth.name": "المنشار",
-  "docs.motifs.sawtooth.desc": "صفٌّ من المثلثات القائمة الزاوية. والاسم وصفيٌّ منّا، ولا ينقلب النقش مع الاتجاه.",
-  "docs.motifs.stepped.name": "المدرّج",
-  "docs.motifs.stepped.desc":
-    "درجاتٌ متصاعدة تستحضر مدرّجات عسير الزراعية. ليس من مفردات القطّ العسيري، بل إضافةٌ من المشروع.",
-  "docs.motifs.variant.5": "المخامس (خمسة خطوط)",
-  "docs.motifs.variant.alternate": "بلونين متعاقبين",
-  "docs.motifs.variant.lattice": "شبكةٌ مائلة",
-  "docs.motifs.variant.wave": "موجة",
-  "docs.motifs.traditionalLabel": "اسمٌ تقليدي ورد في المصادر",
-  "docs.motifs.slots": "الخانات اللونية",
-  "docs.motifs.defaultColors": "الألوان الافتراضية",
-  "docs.patterns.preset.full": "تركيبة الجدار",
-  "docs.patterns.preset.fullNote":
-    "ترتيبٌ للأشرطة من اجتهاد المشروع، من «الكفّ» في الأسفل إلى «الحنش» في الأعلى، وليس صورةً لجدارٍ بعينه.",
+import { arCopy } from "@/lib/copy.ar.generated"
+
+const pigments = {
+  "docs.theme.pigment.white": "جصّ",
+  "docs.theme.pigment.red": "أحمر المَشقة",
+  "docs.theme.pigment.yellow": "أصفر",
+  "docs.theme.pigment.black": "أسود الفحم",
+  "docs.theme.pigment.blue": "أزرق النيلة",
+  "docs.theme.pigment.green": "أخضر البرسيم",
+  "docs.theme.pigment.orange": "برتقالي",
+  "docs.theme.pigment.brown": "بنّي الصمغ",
 } as const
+
+export const ar = { ...arCopy, ...pigments } as const
 
 export type CopyKey = keyof typeof ar
 
 export function t(key: CopyKey): string {
   return ar[key]
+}
+
+export function hasCopy(key: string): key is CopyKey {
+  return Object.prototype.hasOwnProperty.call(ar, key)
+}
+
+/** Copy with markup removed: tags dropped, `code` unwrapped, [text](url) -> text. For attributes/metadata. */
+export function plain(key: CopyKey, vars?: Record<string, string | number>): string {
+  return fill(t(key), vars)
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/<[^>]+>/g, "")
+    .replace(/`([^`]+)`/g, "$1")
+}
+
+/** Replace {name} placeholders. */
+export function fill(text: string, vars?: Record<string, string | number>): string {
+  if (!vars) return text
+  return text.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m))
 }

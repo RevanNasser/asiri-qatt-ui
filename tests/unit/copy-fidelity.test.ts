@@ -3,13 +3,13 @@ import path from "node:path"
 
 /**
  * Arabic text in demos, registry components and docs MDX must come verbatim from the Heritage copy
- * (site-copy.ar.md / ar-glossary.md). Every maximal run of Arabic words must appear in those files
+ * (site-copy.ar.md / ar-glossary.md; pigment labels from motif-catalog.md; in-situ corrections from phase4-review.md). Every maximal run of Arabic words must appear in those files
  * (markup like <bdi> is stripped on both sides).
  */
 const ROOT = process.cwd()
 const strip = (s: string) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ")
 const corpus = strip(
-  ["site-copy.ar.md", "ar-glossary.md"]
+  ["site-copy.ar.md", "ar-glossary.md", "motif-catalog.md", "phase4-review.md"]
     .map((f) => fs.readFileSync(path.join(ROOT, "docs/agents/heritage", f), "utf8"))
     .join("\n"),
 )
@@ -26,7 +26,8 @@ function files(dir: string, ext: RegExp): string[] {
 const targets = [
   ...files("registry/qatt", /\.(tsx|ts)$/),
   ...files("content/docs", /\.mdx$/),
-  "app/[lang]/(home)/page.tsx",
+  ...files("app", /\.tsx?$/),
+  ...files("components", /\.tsx?$/),
   "lib/site-copy.ts",
 ]
 

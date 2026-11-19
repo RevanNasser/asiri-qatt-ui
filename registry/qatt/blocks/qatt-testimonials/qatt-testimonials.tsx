@@ -94,7 +94,7 @@ function QattTestimonials({
         ) : (
           <ul className="grid gap-5 @2xl:grid-cols-3">
             {items.map((item, i) => (
-              <li key={item.name}>
+              <li key={`${i}-${item.name}`}>
                 <Testimonial item={item} index={i} avatarAlt={avatarAlt} />
               </li>
             ))}

@@ -9,7 +9,6 @@ import { Badge } from "@/registry/qatt/ui/badge"
 import { buttonVariants } from "@/registry/qatt/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/registry/qatt/ui/card"
 import { QattMotifTile } from "@/registry/qatt/ui/qatt-pattern"
-import { Tabs, TabsList, TabsTrigger } from "@/registry/qatt/ui/tabs"
 
 export type QattCta = { label: string; href: string; variant?: "qatt" | "default" | "outline" | "qatt-outline" }
 type Price = number | string | { monthly: number | string; yearly: number | string }
@@ -68,17 +67,28 @@ function QattPricing({
           </h2>
           {subtitle && <p className="max-w-2xl text-lg text-muted-foreground">{subtitle}</p>}
           {period && (
-            <Tabs value={billing} onValueChange={(v) => setBilling(v as "monthly" | "yearly")}>
-              <TabsList aria-label={period.label}>
-                <TabsTrigger value="monthly">{period.monthly}</TabsTrigger>
-                <TabsTrigger value="yearly">
-                  {period.yearly}
-                  {period.yearlyHint && (
-                    <span className="text-xs font-normal text-muted-foreground">({period.yearlyHint})</span>
-                  )}
-                </TabsTrigger>
-              </TabsList>
-            </Tabs>
+            // A native radio group: arrow keys move between periods; no tab panels to announce.
+            <fieldset className="m-0 inline-flex rounded-md border-0 bg-muted p-[3px]">
+              <legend className="sr-only">{period.label}</legend>
+              {(["monthly", "yearly"] as const).map((value) => (
+                <label key={value} className="relative">
+                  <input
+                    type="radio"
+                    name={`${id}-billing`}
+                    value={value}
+                    checked={billing === value}
+                    onChange={() => setBilling(value)}
+                    className="peer sr-only"
+                  />
+                  <span className="inline-flex h-8 cursor-pointer items-center gap-1 rounded-sm px-3 text-sm font-medium text-muted-foreground peer-checked:bg-background peer-checked:text-foreground peer-checked:shadow-painted peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ring">
+                    {value === "monthly" ? period.monthly : period.yearly}
+                    {value === "yearly" && period.yearlyHint && (
+                      <span className="text-xs font-normal text-muted-foreground">({period.yearlyHint})</span>
+                    )}
+                  </span>
+                </label>
+              ))}
+            </fieldset>
           )}
         </header>
         <ul className="grid items-stretch gap-6 @4xl:grid-cols-3">

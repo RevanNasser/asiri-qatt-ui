@@ -25,7 +25,8 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:install": "tsx scripts/install-flow.ts",
-    "motifs:gen": "tsx scripts/motifs-gen.ts && prettier --write registry/qatt/lib/qatt-motifs.ts"
+    "motifs:gen": "tsx scripts/motifs-gen.ts && prettier --write registry/qatt/lib/qatt-motifs.ts",
+    "copy:gen": "tsx scripts/copy-gen.ts && prettier --write lib/copy.ar.generated.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

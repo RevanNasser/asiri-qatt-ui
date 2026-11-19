@@ -10,7 +10,13 @@ export default function QattFrameDemo() {
       <QattFrame shape="round" outline={3}>
         <QattPattern motif="sankroli" scale="sm" className="size-full" />
       </QattFrame>
-      <QattFrame shape="stepped" outline={1} base="mathalith-makhamis" caps={false}>
+      <QattFrame
+        shape="stepped"
+        outline={1}
+        base="mathalith-makhamis"
+        caps={false}
+        caption="المدرّج: إضافةٌ من المشروع، غير موثّقة في القطّ العسيري"
+      >
         <QattPattern motif="shabakah" className="size-full" />
       </QattFrame>
     </div>

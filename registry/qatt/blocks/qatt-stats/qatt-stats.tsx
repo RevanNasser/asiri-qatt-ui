@@ -34,6 +34,8 @@ function StatValue({ stat, numerals, animate }: { stat: QattStat; numerals: Nume
   const [shown, setShown] = React.useState(animate ? 0 : stat.value)
   React.useEffect(() => {
     if (!animate || !inView) return
+    // reduced motion: the static final value is shown by CSS (motion-reduce:), so don't count at all
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return
     const start = performance.now()
     let raf = 0
     const tick = (now: number) => {
@@ -50,9 +52,15 @@ function StatValue({ stat, numerals, animate }: { stat: QattStat; numerals: Nume
     <span ref={ref} className="font-heading text-5xl font-bold tabular-nums">
       <bdi className={animate ? "sr-only" : undefined}>{fmt(stat.value)}</bdi>
       {animate && (
-        <bdi aria-hidden="true" data-qatt-motion="">
-          {fmt(stat.format?.maximumFractionDigits ? shown : Math.round(shown))}
-        </bdi>
+        <>
+          {/* reduced motion: the final value from the first frame (CSS, no JS wait) */}
+          <bdi aria-hidden="true" className="hidden motion-reduce:inline">
+            {fmt(stat.value)}
+          </bdi>
+          <bdi aria-hidden="true" data-qatt-motion="" className="motion-reduce:hidden">
+            {fmt(stat.format?.maximumFractionDigits ? shown : Math.round(shown))}
+          </bdi>
+        </>
       )}
     </span>
   )
