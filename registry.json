@@ -64,10 +64,14 @@
       "name": "qatt-utils",
       "type": "registry:lib",
       "title": "Qatt Utils",
-      "description": "Shared helpers for Qatt UI items, including the typed motif registry.",
+      "description": "Shared helpers: the typed Qatt motif registry (15 motifs, slot colours, data URIs) and Arabic-aware number/date formatting.",
       "files": [
         {
           "path": "registry/qatt/lib/qatt-utils.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/qatt/lib/qatt-motifs.ts",
           "type": "registry:lib"
         }
       ]
