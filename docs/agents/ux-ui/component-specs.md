@@ -161,7 +161,7 @@ Every item: same API as upstream base-nova + listed additions. "Painted" look = 
 | Component | Added variants / props (API preserved) | Visual changes | RTL | A11y notes |
 |---|---|---|---|---|
 | **button** | `variant`: + `"qatt"` (red fill, 2px ink border, `shadow-painted`, press sinks), `"painted"` (pigment fill chosen by `tone`), `"qatt-outline"` (2px ink border, transparent, hover `bg-secondary`). New optional `tone?: "red" \| "blue" \| "ink" \| "yellow"` for `painted` only (text colour auto, light: gypsum on red/blue/ink, charcoal on yellow; dark: `text-background` on red/blue/yellow, gypsum on ink — D-025). **No green tone** (review 2026-11-19: gypsum on green = 4.25:1 and a size rule cannot be enforced by the component). Painted hover = `color-mix(in oklch, <pigment>, var(--qatt-ink) 10%)` (never `/90` alpha: it drops dark-mode labels below 4.5:1). Sizes unchanged (`default h-9`, `sm h-8`, `lg h-10`, `icon size-9`, `icon-sm`, `icon-lg`). | `rounded-md`, no shadow except qatt; `font-medium`, no letter-spacing. `destructive` stays shadcn-v4 tinted (design-tokens §3.1). | Icon slot via `data-icon="inline-start" \| "inline-end"`; arrow icons flip. | Solid focus outline; `aria-busy` + spinner for loading; min target 24px. Every painted label ≥ 4.5:1 in rest **and hover** state, both modes (see phase4-track1-review.md). |
-| **badge** | `variant`: + `"qatt"` (yellow fill, charcoal text, 1px ink border), `"pigment"` with `tone` (`red \| blue \| ink \| yellow`; no green — D-025), `"banat"` (tiny banat ornament at inline-start, 8px; sprig stays plant-like, never a figure: D-021). | `rounded-sm`, `text-xs font-medium`, `px-2 py-0.5`. | Ornament at `inline-start`. | Ornament `aria-hidden`; never colour-only status (include text). |
+| **badge** | `variant`: + `"qatt"` (yellow fill, charcoal text, 1px ink border), `"pigment"` with `tone` (`red \| blue \| ink \| yellow`; no green — D-025), `"banat"` (tiny banat ornament at inline-start: at least two tiles, 16×12px, never a lone tile; sprig has two branch pairs and stays plant-like, never a figure: D-021, Heritage phase4-review D1). | `rounded-sm`, `text-xs font-medium`, `px-2 py-0.5`. | Ornament at `inline-start`. | Ornament `aria-hidden`; never colour-only status (include text). |
 | **card** | `variant?: "default" \| "painted" \| "framed"` (new prop, default "default"). `ornament?: MotifId \| false` (top edge strip, default false; `framed` defaults `"banat"`). | painted: 2px ink border + `shadow-painted`; framed: `qatt-border side="top"` strip + `khatmah` caps. No shadow on default. | Strip symmetric; caps logical. | Card stays a plain `div`; interactive cards use a single inner link with `after:absolute after:inset-0` (not a wrapping `<a>`). |
 | **tabs** | `TabsList variant`: upstream `"default" \| "line"` + `"qatt"`: active tab gets a 6px `balsanah` strip under it (or diamond indicator), inactive `text-muted-foreground`. | Indicator animates with Base UI `Tabs.Indicator` (150ms, off on reduced motion). | Base UI handles arrow keys with `dir`; indicator uses `inset-inline-start` / `--active-tab-left` variable — verify RTL. | Roving tabindex from Base UI; focus outline inside list (`outline-offset--2` to avoid clipping). |
 | **dialog** | `DialogContent` + `ornament?: "mahareeb" \| "rukun" \| false` (header frieze, default false). | `rounded-xl`, 2px border in qatt mode, backdrop `bg-foreground/40`, no blur. Close button at `end-3 top-3`. | Close at inline-end. Footer keeps shadcn DOM order (cancel, then confirm) with `justify-end`, so the confirm action lands at inline-end (left in RTL), the end of the reading path. | Title required (`DialogTitle`); initial focus on first field or the *safe* action for destructive confirms. |
@@ -243,7 +243,7 @@ Quotes use Arabic guillemets «…» in the text itself; a large decorative quot
 ### 3.6 `qatt-pricing` — جدول الأسعار
 ```ts
 interface QattPricingProps { title: string; subtitle?: string; currency?: string /* "ر.س" */
-  period?: { monthly: string; yearly: string }   // shows a Tabs/segmented toggle when provided
+  period?: { monthly: string; yearly: string; label?: string }   // shows a segmented toggle when provided: native radios in a <fieldset> (legend = label), NOT Tabs (no tabpanels; phase4-track2-review)
   plans: { name: string; price: number | string; description?: string; features: string[]
            cta: Cta; highlighted?: boolean; badge?: string }[] }
 ```
@@ -254,7 +254,7 @@ Highlighted plan: `card variant="framed"` + `taadheeq` crest centred on its top 
 interface QattCtaProps { title: string; body?: string; primary: Cta; secondary?: Cta
   tone?: "red" | "ink" | "gypsum"  /* band colour, default "ink" */; motif?: MotifId /* default "taadheeq" crest row */ }
 ```
-On `red`/`ink` bands text is gypsum (passes 5.8:1 / 14.9:1); buttons switch to `painted tone="yellow"` for the primary. Keys: `home.cta.*`.
+On `red`/`ink` bands text is gypsum (passes 5.8:1 / 14.9:1); buttons switch to `painted tone="yellow"` for the primary. On `red`/`ink` bands the focus ring is re-pointed so it stays ≥3:1: `--ring: var(--qatt-white)` (light red 5.8:1, ink 14.9:1 light / 7.6:1 dark) and `--ring: var(--background)` on dark red (4.8:1); the default blue ring is 1.0:1 on red. Keys: `home.cta.*`.
 
 ### 3.8 `qatt-footer` — تذييل الصفحة
 ```

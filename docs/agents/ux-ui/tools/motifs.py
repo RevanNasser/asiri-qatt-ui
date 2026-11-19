@@ -41,9 +41,10 @@ motif("rukun", "الرُّكون", "Triangle row", 48, 24, "x", 2, ["red", "ink"
 # 5 banat — small triangles with sprigs
 motif("banat", "البَنات", "Small triangles with sprigs", 16, 24, "x", 2, ["red", "green"], ["band", "border"],
       f'<path d="M2 24 8 12l6 12z" fill="{S(1)}"/>'
-      f'<path d="M8 12V4M8 8 5 5m3 3 3-3" fill="none" stroke="{S(2)}" stroke-width="1.5" stroke-linecap="round"/>',
-      note="D-021: the sprig stays plant-like (slot-2 green or yellow). Never add a dot or head above it; "
-           "never describe, stylise or animate it as a figure.")
+      # Phase 4 revision (heritage phase4-review D1): two branch pairs, so a lone tile reads as a plant, never a figure.
+      f'<path d="M8 12V4M8 9.5 5.5 7M8 9.5 10.5 7M8 7 6 5M8 7 10 5" fill="none" stroke="{S(2)}" stroke-width="1.25" stroke-linecap="round"/>',
+      note="D-021: the sprig stays plant-like (slot-2 green or yellow), two branch pairs (phase4-review D1). Never add a dot or head above it; "
+           "never describe, stylise or animate it as a figure; never render a lone tile with one branch pair (badge shows at least two tiles).")
 
 # 6 balsanah — rhombus chain
 motif("balsanah", "البَلْسَنة", "Rhombus chain", 24, 24, "xy", 2, ["blue", "yellow"], ["band", "background"],
