@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { AccessibilityIcon, BlocksIcon, GitFork, LanguagesIcon, PaletteIcon, SunMoonIcon } from "lucide-react"
+import { BlocksIcon, LanguagesIcon, PaletteIcon } from "lucide-react"
 
 import { ComponentPreview } from "@/components/docs/component-preview"
 import { GalleryGrid } from "@/components/docs/gallery"
-import { AsirLandscape } from "@/components/site/asir-landscape"
+import { QattWallComposition } from "@/components/site/qatt-wall-composition"
 import { resolveRegistryUrl } from "@/lib/registry-url"
 import { pageMetadata } from "@/lib/seo"
 import { plain, t } from "@/lib/site-copy"
@@ -12,25 +12,15 @@ import { source } from "@/lib/source"
 import { MajlisWelcome } from "@/registry/qatt/blocks/majlis-welcome/majlis-welcome"
 import { QattCta } from "@/registry/qatt/blocks/qatt-cta/qatt-cta"
 import { QattFeatureGrid } from "@/registry/qatt/blocks/qatt-feature-grid/qatt-feature-grid"
-import { QattHero } from "@/registry/qatt/blocks/qatt-hero/qatt-hero"
 import { buttonVariants } from "@/registry/qatt/ui/button"
 import { QattDivider } from "@/registry/qatt/ui/qatt-divider"
 import { QattPattern } from "@/registry/qatt/ui/qatt-pattern"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/qatt/ui/tabs"
 
 export const metadata: Metadata = pageMetadata({
   title: t("seo.home.title"),
   description: t("seo.home.description"),
   path: "/",
 })
-
-// Showcase tabs (site-ia §3): button, card, dialog, login. Labels are the glossary display names.
-const SHOWCASE = [
-  { example: "button-demo", item: "button" },
-  { example: "card-demo", item: "card" },
-  { example: "dialog-demo", item: "dialog" },
-  { example: "qatt-login-demo", item: "qatt-login" },
-] as const
 
 const HIGHLIGHT_BLOCKS = ["qatt-hero", "majlis-welcome", "qatt-pricing"]
 
@@ -40,35 +30,43 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero: rukun band, copy, install command; a motif wall in an arch frame (on gypsum, D-019). */}
-      <QattHero
-        eyebrow={t("home.hero.eyebrow")}
-        title={t("home.hero.title")}
-        subtitle={t("home.hero.subtitle")}
-        primaryCta={{ label: t("home.hero.cta.primary"), href: "/docs/getting-started" }}
-        secondaryCta={{ label: t("home.hero.cta.secondary"), href: "/docs/components" }}
-        install={{
-          label: t("home.hero.install.label"),
-          command: `pnpm dlx shadcn@latest add ${resolveRegistryUrl()}/r/qatt-theme.json`,
-          copyLabel: t("docs.copy.command"),
-          copiedLabel: t("docs.copied"),
-        }}
-        align="start"
-        media={<QattPattern preset="full" surface="gypsum" scale="sm" className="size-full" />}
-        animate
-      />
-      {/* The Asir horizon: escarpment, fog, terraces and tower houses (illustration, not a motif). */}
-      <AsirLandscape className="h-24 sm:h-32 lg:h-40" />
+      <section aria-labelledby="home-title" data-qatt-surface="gypsum" className="relative overflow-hidden bg-qatt-jiss">
+        <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,25rem)] lg:items-center lg:gap-16">
+          <div className="flex min-w-0 flex-col items-start gap-5 text-start">
+            <p className="font-mono text-xs tracking-[0.08em] text-qatt-red sm:text-sm">{t("home.hero.eyebrow")}</p>
+            <h1 id="home-title" className="max-w-[13ch] font-heading text-4xl leading-[1.25] font-bold sm:text-6xl">
+              {t("home.hero.title")}
+            </h1>
+            <p className="max-w-[56ch] text-lg text-muted-foreground">{t("home.hero.subtitle")}</p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/docs/getting-started" className={buttonVariants({ variant: "qatt", size: "lg" })}>
+                {t("home.hero.cta.primary")}
+              </Link>
+              <Link href="/docs/components" className={buttonVariants({ variant: "qatt-outline", size: "lg" })}>
+                {t("home.hero.cta.secondary")}
+              </Link>
+            </div>
+            <div dir="ltr" className="w-full max-w-xl border border-input bg-card px-3 py-2 text-start">
+              <p dir="rtl" className="mb-1 text-xs font-medium text-foreground">
+                {t("home.hero.install.label")}
+              </p>
+              <code className="block overflow-x-auto font-mono text-sm whitespace-nowrap">
+                {`pnpm dlx shadcn@latest add ${resolveRegistryUrl()}/r/qatt-theme.json`}
+              </code>
+            </div>
+          </div>
+          <QattWallComposition className="mx-auto w-full max-w-md lg:max-w-none" />
+        </div>
+        <QattDivider motif="mathalith-makhamis" thickness="sm" className="my-0" />
+      </section>
 
       <QattFeatureGrid
         title={t("home.value.title")}
+        background={false}
         features={[
           { title: t("home.value.rtl.title"), body: plain("home.value.rtl.body"), icon: <LanguagesIcon /> },
           { title: t("home.value.shadcn.title"), body: plain("home.value.shadcn.body"), icon: <BlocksIcon /> },
           { title: t("home.value.heritage.title"), body: plain("home.value.heritage.body"), icon: <PaletteIcon /> },
-          { title: t("home.value.a11y.title"), body: plain("home.value.a11y.body"), icon: <AccessibilityIcon /> },
-          { title: t("home.value.theme.title"), body: plain("home.value.theme.body"), icon: <SunMoonIcon /> },
-          { title: t("home.value.open.title"), body: plain("home.value.open.body"), icon: <GitFork /> },
         ]}
       />
 
@@ -79,20 +77,7 @@ export default function HomePage() {
           </h2>
           <p className="text-lg text-muted-foreground">{t("home.showcase.subtitle")}</p>
         </header>
-        <Tabs defaultValue={SHOWCASE[0].item} className="min-w-0">
-          <TabsList variant="qatt" indicator="strip" className="max-w-full flex-wrap">
-            {SHOWCASE.map((s) => (
-              <TabsTrigger key={s.item} value={s.item}>
-                {titleOf(s.item)}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          {SHOWCASE.map((s) => (
-            <TabsContent key={s.item} value={s.item} className="min-w-0">
-              <ComponentPreview name={s.example} item={s.item} title={titleOf(s.item)} />
-            </TabsContent>
-          ))}
-        </Tabs>
+        <ComponentPreview name="button-demo" item="button" title={titleOf("button")} />
         <QattDivider label={t("docs.blocks.title")} motif="mathalith-makhamis" />
         <p className="text-muted-foreground">{t("docs.blocks.intro")}</p>
         <GalleryGrid kind="blocks" only={HIGHLIGHT_BLOCKS} headingLevel={3} />
