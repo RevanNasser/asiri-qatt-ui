@@ -73,3 +73,10 @@ Decisions and conflict resolutions: `docs/agents/decisions.md`.
 
 ### 2026-11-19 — Session restart
 - Previous Claude Code session ended mid-task; Developer (track 2) and Heritage (batch 3) work had not landed (HEAD `7bd1f76`). Both agents resumed from saved transcripts with instructions to commit/write incrementally. Disk 5.3 GB free.
+
+### 2026-11-19 — Phase 4 build complete (`d60d86d`), reviews pending
+- 37 registry items: theme + 3 fonts, qatt-utils (generated motif registry, 15 motifs), use-direction, 5 ornaments, 15 restyled components (+ deferred ornament variants), 10 blocks (each ships a sample page `app/qatt/<id>`).
+- Evidence: install-flow — fresh app installed all 37 items via `@qatt` AND direct URL; tsc + `next build` green, 10 block pages prerendered. Unit 217/217, e2e 35/35, lint/typecheck/validate green. Orchestrator re-ran typecheck, unit (217/217) and registry check (37 OK).
+- Bugs fixed during track 2: reduced-motion reveal (now `motion-safe:` + e2e), blocks use container queries, duplicate pricing ids. D-027 (pricing CTA uses aria-describedby, WCAG 2.5.3).
+- Open: 6 `TODO(ar-copy)` prop rows. Phase 4 gate needs UX/UI review of track 2 + Heritage review of Arabic in situ.
+- Phase 5 (site pages) started in parallel with the reviews.
