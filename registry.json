@@ -58,7 +58,39 @@
         "{{REGISTRY_URL}}/r/qatt-font-heading.json",
         "{{REGISTRY_URL}}/r/qatt-font-mono.json"
       ],
-      "cssVars": {}
+      "cssVars": {
+        "theme": {
+          "animate-qatt-paint": "qatt-paint 600ms cubic-bezier(0.3, 0.7, 0.4, 1) both",
+          "animate-qatt-paint-rtl": "qatt-paint-rtl 600ms cubic-bezier(0.3, 0.7, 0.4, 1) both",
+          "animate-qatt-draw": "qatt-draw 700ms cubic-bezier(0.3, 0.7, 0.4, 1) both"
+        }
+      },
+      "css": {
+        "@keyframes qatt-paint": {
+          "from": {
+            "clip-path": "inset(0 100% 0 0)"
+          },
+          "to": {
+            "clip-path": "inset(0 0 0 0)"
+          }
+        },
+        "@keyframes qatt-paint-rtl": {
+          "from": {
+            "clip-path": "inset(0 0 0 100%)"
+          },
+          "to": {
+            "clip-path": "inset(0 0 0 0)"
+          }
+        },
+        "@keyframes qatt-draw": {
+          "from": {
+            "stroke-dashoffset": "1"
+          },
+          "to": {
+            "stroke-dashoffset": "0"
+          }
+        }
+      }
     },
     {
       "name": "qatt-utils",
@@ -90,14 +122,82 @@
       ]
     },
     {
+      "name": "use-reveal",
+      "type": "registry:hook",
+      "title": "useReveal",
+      "description": "Runs the Qatt paint-stroke reveal once, when an element first enters the viewport; honours prefers-reduced-motion.",
+      "files": [
+        {
+          "path": "registry/qatt/hooks/use-reveal.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "qatt-pattern",
+      "type": "registry:ui",
+      "title": "Qatt Pattern",
+      "description": "Repeating Qatt motif background (15 motifs, slot colours, fades, gypsum surface, wall preset).",
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/qatt-utils.json",
+        "{{REGISTRY_URL}}/r/use-reveal.json"
+      ],
+      "files": [
+        {
+          "path": "registry/qatt/ui/qatt-pattern.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "qatt-divider",
       "type": "registry:ui",
       "title": "Qatt Divider",
-      "description": "A horizontal zigzag band (hanash motif) that separates sections, drawn with currentColor.",
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "description": "A motif band between sections (default qatt-lines), with optional centred label and paint reveal.",
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-pattern.json"],
       "files": [
         {
           "path": "registry/qatt/ui/qatt-divider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "qatt-border",
+      "type": "registry:ui",
+      "title": "Qatt Border",
+      "description": "Decorated frame of motif strips on chosen logical sides, with optional khatmah caps.",
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-pattern.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/qatt-border.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "qatt-frame",
+      "type": "registry:ui",
+      "title": "Qatt Frame",
+      "description": "Arch frame (pointed, round or stepped) that clips images or content, with a kaff base and khatmah caps.",
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-pattern.json", "{{REGISTRY_URL}}/r/use-reveal.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/qatt-frame.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "qatt-corner",
+      "type": "registry:ui",
+      "title": "Qatt Corner",
+      "description": "Corner ornament (khatmah, taadheeq or mahareeb) placed on logical corners.",
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-pattern.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/qatt-corner.tsx",
           "type": "registry:ui"
         }
       ]

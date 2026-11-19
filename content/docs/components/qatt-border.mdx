@@ -1,0 +1,51 @@
+---
+title: إطار مُزخرف
+description: حدٌّ زخرفي يحيط بالعناصر، بمثلثاته وخطوطه المتوازية.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-border.*, docs.props.qatt-border.*). */}
+
+حدٌّ زخرفي يحيط بالمحتوى من جهةٍ أو أكثر، بشريطٍ من النقوش ينتهي إن شئتم بـ«الختمة» في طرفيه، كما تُختم الأشرطة على الجدار.
+
+<ComponentPreview name="qatt-border-demo" />
+
+## التثبيت
+
+<InstallCommand item="qatt-border" />
+
+## الاستخدام
+
+حدّدوا الجهة بالخاصية `side`. يُرسم الشريط العلوي قائمًا، والسفلي مقلوبًا فتتّجه رؤوس المثلثات نحو المحتوى. واتركوا بين الشريط ومحتوى العنصر مسافةً لا تقلّ عن سماكة الشريط وزيادة 8px.
+
+```tsx
+import { QattBorder } from "@/components/ui/qatt-border"
+
+<QattBorder side="block" caps>
+  …
+</QattBorder>
+```
+
+
+## الخصائص
+
+<PropsTable
+  rows={[
+    {"name": "side", "type": "\"top\" | \"bottom\" | \"block\" | \"inline\" | \"all\"", "default": "\"block\"", "description": <span>الجهة: <code dir="ltr">top</code> أو <code dir="ltr">bottom</code> أو <code dir="ltr">block</code> (أعلى وأسفل) أو <code dir="ltr">inline</code> (الجانبان) أو <code dir="ltr">all</code>. والافتراضي <code dir="ltr">block</code>.</span>},
+    {"name": "motif", "type": "MotifId", "default": "\"rukun\"", "description": <span>نقش الشريط. والافتراضي <code dir="ltr">rukun</code>.</span>},
+    {"name": "variant", "type": "MotifVariant", "description": <span>شكلٌ بديل للنقش إن وُجد: <code dir="ltr">5</code> أو <code dir="ltr">alternate</code> أو <code dir="ltr">lattice</code> أو <code dir="ltr">wave</code>.</span>},
+    {"name": "colors", "type": "QattColor[]", "description": <span>ألوان خانات النقش بالترتيب، بأسماء الأصباغ (<code dir="ltr">red</code> و<code dir="ltr">yellow</code> و<code dir="ltr">ink</code>…) أو بأيّ لونٍ في CSS. والافتراضي ألوان النقش في <code dir="ltr">motifs.json</code>.</span>},
+    {"name": "thickness", "type": "\"sm\" | \"md\" | \"lg\" | number", "default": "\"md\"", "description": <span>ارتفاع الشريط: <code dir="ltr">sm</code> بارتفاع 12px، و<code dir="ltr">md</code> بارتفاع 24px (الافتراضي)، و<code dir="ltr">lg</code> بارتفاع 40px، أو رقم.</span>},
+    {"name": "caps", "type": "boolean", "default": "false", "description": <span>يضع «الختمة» في طرفَي كلّ شريط. والافتراضي <code dir="ltr">false</code>.</span>},
+    {"name": "inset", "type": "boolean", "default": "true", "description": <span>يرسم الشريط داخل العنصر (الافتراضي)، أو خارجه حين يكون <code dir="ltr">false</code>.</span>},
+    {"name": "animate", "type": "boolean", "default": "false", "description": <span>رسمٌ متدرّج للزخرفة عند ظهورها، يبدأ من بداية السطر. ويتوقّف عند تفعيل تقليل الحركة.</span>},
+    {"name": "surface", "type": "\"default\" | \"gypsum\"", "default": "\"default\"", "description": <span>القيمة <code dir="ltr">gypsum</code> تعرض الزخرفة على أرضيةٍ بيضاء كالجصّ بألوانها الفاتحة في الوضعين. وهي لازمةٌ في الصفحات التي تعرض التراث نفسه.</span>}
+  ]}
+/>
+
+## ملاحظات الاتجاه
+
+الجهات المنطقية والختمات في الطرفين وحركة الرسم كلّها تتبع اتجاه الصفحة. أما رسم النقش نفسه فلا ينقلب.
+
+## سهولة الوصول
+
+زخرفةٌ خالصة مخفيّة عن التقنيات المساعدة. والمسافة الداخلية تمنع الشريط من تغطية إطار التركيز للعناصر داخله.

@@ -1,49 +1,80 @@
+"use client"
+
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import type { MotifId, MotifVariant, QattColor } from "@/registry/qatt/lib/qatt-motifs"
+import { QattBand } from "@/registry/qatt/ui/qatt-pattern"
 
-const TILE_WIDTH = 12
-const TILE_HEIGHT = 12
+const THICKNESS = { sm: 12, md: 24, lg: 40 } as const
 
-export interface QattDividerProps extends React.ComponentProps<"div"> {
-  /**
-   * When `true` (default) the band is purely decorative and hidden from
-   * assistive technology. Set to `false` to expose it as a separator.
-   */
+export interface QattDividerProps extends Omit<React.ComponentProps<"div">, "children"> {
+  /** Default "qatt-lines" (the dividing belt of the wall). */
+  motif?: MotifId
+  variant?: MotifVariant
+  colors?: QattColor[]
+  thickness?: keyof typeof THICKNESS | number
+  orientation?: "horizontal" | "vertical"
+  /** `true` (default): hidden from assistive technology (role="none"). `false`: a real separator. */
   decorative?: boolean
+  /** Optional centred label: band | label | band. */
+  label?: React.ReactNode
+  /** Paint reveal from inline-start on first view (off with prefers-reduced-motion). */
+  animate?: boolean
+  /** "gypsum" renders a light-theme island (D-019). */
+  surface?: "default" | "gypsum"
 }
 
 /**
- * A horizontal zigzag band (motif `hanash`) that separates sections.
- * Uses `currentColor`, so colour it with `text-*` utilities.
- * The motif is mirror-safe: it renders identically in RTL and LTR.
+ * A motif band between sections, like the «قطّ» belt that divides the majlis wall.
+ * Symmetric: nothing flips in RTL; the reveal grows from inline-start.
  */
-function QattDivider({ className, decorative = true, ...props }: QattDividerProps) {
-  const patternId = `qatt-divider-${React.useId().replace(/[^a-zA-Z0-9_-]/g, "")}`
+function QattDivider({
+  motif = "qatt-lines",
+  variant,
+  colors,
+  thickness = "sm",
+  orientation = "horizontal",
+  decorative = true,
+  label,
+  animate = false,
+  surface = "default",
+  className,
+  ...props
+}: QattDividerProps) {
+  const t = typeof thickness === "number" ? thickness : THICKNESS[thickness]
+  const vertical = orientation === "vertical"
+  const band = (
+    <QattBand
+      motif={motif}
+      variant={variant}
+      colors={colors}
+      thickness={t}
+      orientation={orientation}
+      animate={animate}
+    />
+  )
 
   return (
     <div
       data-slot="qatt-divider"
-      role={decorative ? "presentation" : "separator"}
-      aria-hidden={decorative ? true : undefined}
-      aria-orientation={decorative ? undefined : "horizontal"}
-      className={cn("my-6 h-3 w-full text-primary", className)}
+      data-orientation={orientation}
+      data-qatt-surface={surface === "gypsum" ? "gypsum" : undefined}
+      role={decorative ? "none" : "separator"}
+      aria-hidden={decorative && !label ? true : undefined}
+      aria-orientation={decorative ? undefined : orientation}
+      className={cn(vertical ? "self-stretch" : "my-6 w-full", className)}
       {...props}
     >
-      <svg className="block size-full" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
-        <defs>
-          <pattern id={patternId} width={TILE_WIDTH} height={TILE_HEIGHT} patternUnits="userSpaceOnUse">
-            <polyline
-              points="0,10 6,2 12,10"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2.5}
-              strokeLinejoin="miter"
-            />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill={`url(#${patternId})`} />
-      </svg>
+      {label && !vertical ? (
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+          {band}
+          <span className="text-sm text-muted-foreground">{label}</span>
+          {band}
+        </div>
+      ) : (
+        band
+      )}
     </div>
   )
 }

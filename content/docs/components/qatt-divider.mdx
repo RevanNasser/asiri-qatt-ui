@@ -3,7 +3,9 @@ title: فاصل قَطّ
 description: شريطٌ أفقي يفصل بين الأقسام كما يقسم «القطّ» جدار المجلس.
 ---
 
-{/* Component page template: preview, installation, usage, props. Copy from ar-glossary.md / site-copy.ar.md only. */}
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-divider.*, docs.props.qatt-divider.*). */}
+
+شريطٌ يفصل بين قسمين، كما يقسم «القطّ» جدار المجلس. ويذكر بعض الموثّقين أنّ اسم الفن مأخوذٌ من هذا الحزام الذي يُرسم عرضًا فيقسم الجدار نصفين.
 
 <ComponentPreview name="qatt-divider-demo" />
 
@@ -13,29 +15,37 @@ description: شريطٌ أفقي يفصل بين الأقسام كما يقسم 
 
 ## الاستخدام
 
+استعملوه بين أقسام الصفحة الكبيرة، ومرّروا `label` ليتوسّط الشريطين عنوانٌ قصير. أما الفواصل الصغيرة داخل البطاقات والقوائم فيكفيها مكوّن `separator`.
+
 ```tsx
 import { QattDivider } from "@/components/ui/qatt-divider"
 
 <QattDivider />
-<QattDivider className="text-foreground" />
+<QattDivider motif="rukun" thickness="md" label="…" />
 ```
+
 
 ## الخصائص
 
-{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
-
 <PropsTable
   rows={[
-    {
-      name: "decorative",
-      type: "boolean",
-      default: "true",
-      description: <span>يُخفيه عن التقنيات المساعدة. واجعلوه <code dir="ltr">false</code> ليُعلَن فاصلًا.</span>,
-    },
-    {
-      name: "className",
-      type: "string",
-      description: <span>أصنافٌ إضافية، ولون الشريط يتبع <code dir="ltr">currentColor</code>، أي أصناف <code dir="ltr">text-*</code>.</span>,
-    },
+    {"name": "motif", "type": "MotifId", "default": "\"qatt-lines\"", "description": <span>نقش الشريط. والافتراضي <code dir="ltr">qatt-lines</code>، ويناسبه أيضًا <code dir="ltr">mathalith-makhamis</code> و<code dir="ltr">hanash</code> و<code dir="ltr">rukun</code> و<code dir="ltr">banat</code> و<code dir="ltr">kaff</code>.</span>},
+    {"name": "variant", "type": "MotifVariant", "description": <span>شكلٌ بديل للنقش إن وُجد: <code dir="ltr">5</code> أو <code dir="ltr">alternate</code> أو <code dir="ltr">lattice</code> أو <code dir="ltr">wave</code>.</span>},
+    {"name": "colors", "type": "QattColor[]", "description": <span>ألوان خانات النقش بالترتيب، بأسماء الأصباغ (<code dir="ltr">red</code> و<code dir="ltr">yellow</code> و<code dir="ltr">ink</code>…) أو بأيّ لونٍ في CSS. والافتراضي ألوان النقش في <code dir="ltr">motifs.json</code>.</span>},
+    {"name": "thickness", "type": "\"sm\" | \"md\" | \"lg\" | number", "default": "\"sm\"", "description": <span>ارتفاع الشريط: <code dir="ltr">sm</code> بارتفاع 12px (الافتراضي)، و<code dir="ltr">md</code> بارتفاع 24px، و<code dir="ltr">lg</code> بارتفاع 40px، أو رقم.</span>},
+    {"name": "orientation", "type": "\"horizontal\" | \"vertical\"", "default": "\"horizontal\"", "description": <span>اتجاه الفاصل: أفقي (الافتراضي) أو عمودي.</span>},
+    {"name": "decorative", "type": "boolean", "default": "true", "description": <span>يُخفيه عن التقنيات المساعدة. واجعلوه <code dir="ltr">false</code> ليُعلَن فاصلًا.</span>},
+    {"name": "label", "type": "ReactNode", "description": <span>عنوانٌ قصير يتوسّط الشريطين.</span>},
+    {"name": "animate", "type": "boolean", "default": "false", "description": <span>رسمٌ متدرّج للزخرفة عند ظهورها، يبدأ من بداية السطر. ويتوقّف عند تفعيل تقليل الحركة.</span>},
+    {"name": "surface", "type": "\"default\" | \"gypsum\"", "default": "\"default\"", "description": <span>القيمة <code dir="ltr">gypsum</code> تعرض الزخرفة على أرضيةٍ بيضاء كالجصّ بألوانها الفاتحة في الوضعين. وهي لازمةٌ في الصفحات التي تعرض التراث نفسه.</span>},
+    {"name": "className", "type": "string", "description": <span>أصنافٌ إضافية، ولون الشريط يتبع <code dir="ltr">currentColor</code>، أي أصناف <code dir="ltr">text-*</code>.</span>}
   ]}
 />
+
+## ملاحظات الاتجاه
+
+الشريط متناظر، والعنوان يتوسّطه في الاتجاهين، وحركة الرسم تبدأ من بداية السطر.
+
+## سهولة الوصول
+
+زخرفيٌّ افتراضيًا. وإن كان يفصل بين محتويين مختلفين في المعنى فاجعلوا `decorative=\{false\}` ليُعلَن فاصلًا مع `aria-orientation`. والعنوان نصٌّ عادي يُقرأ.
