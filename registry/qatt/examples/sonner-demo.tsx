@@ -11,7 +11,7 @@ export default function SonnerDemo() {
       <Button variant="qatt-outline" onClick={() => toast.success("تم النسخ")}>
         نسخ
       </Button>
-      <Toaster />
+      <Toaster ornament="hanash" />
     </>
   )
 }

@@ -222,7 +222,7 @@
       "title": "Badge (Qatt)",
       "description": "Badge with qatt (yellow paint) and pigment (tone) variants.",
       "dependencies": ["@base-ui/react", "class-variance-authority"],
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json", "{{REGISTRY_URL}}/r/qatt-pattern.json"],
       "files": [
         {
           "path": "registry/qatt/ui/badge.tsx",
@@ -235,7 +235,7 @@
       "type": "registry:ui",
       "title": "Card (Qatt)",
       "description": "Card with a painted variant (2px ink border, flat painted shadow).",
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json", "{{REGISTRY_URL}}/r/qatt-pattern.json"],
       "files": [
         {
           "path": "registry/qatt/ui/card.tsx",
@@ -249,7 +249,7 @@
       "title": "Tabs (Qatt)",
       "description": "Tabs with a qatt list variant (painted diamond under the active tab).",
       "dependencies": ["@base-ui/react", "class-variance-authority"],
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json", "{{REGISTRY_URL}}/r/qatt-pattern.json"],
       "files": [
         {
           "path": "registry/qatt/ui/tabs.tsx",
@@ -263,7 +263,11 @@
       "title": "Dialog (Qatt)",
       "description": "Flat dialog, logical close button, qatt bordered variant.",
       "dependencies": ["@base-ui/react", "lucide-react"],
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json", "{{REGISTRY_URL}}/r/button.json"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/button.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+      ],
       "files": [
         {
           "path": "registry/qatt/ui/dialog.tsx",
@@ -280,7 +284,8 @@
       "registryDependencies": [
         "{{REGISTRY_URL}}/r/qatt-theme.json",
         "{{REGISTRY_URL}}/r/button.json",
-        "{{REGISTRY_URL}}/r/use-direction.json"
+        "{{REGISTRY_URL}}/r/use-direction.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json"
       ],
       "files": [
         {
@@ -295,7 +300,7 @@
       "title": "Accordion (Qatt)",
       "description": "Accordion with start-aligned triggers and a qatt variant.",
       "dependencies": ["@base-ui/react", "lucide-react"],
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json", "{{REGISTRY_URL}}/r/qatt-pattern.json"],
       "files": [
         {
           "path": "registry/qatt/ui/accordion.tsx",
@@ -337,7 +342,11 @@
       "title": "Toaster (sonner) (Qatt)",
       "description": "Toaster that follows the text direction (dir + default position).",
       "dependencies": ["sonner", "next-themes", "lucide-react"],
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json", "{{REGISTRY_URL}}/r/use-direction.json"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/use-direction.json",
+        "{{REGISTRY_URL}}/r/qatt-utils.json"
+      ],
       "files": [
         {
           "path": "registry/qatt/ui/sonner.tsx",
@@ -379,7 +388,11 @@
       "title": "Pagination (Qatt)",
       "description": "Pagination with Arabic defaults, RTL-aware chevrons and a qatt active page.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json", "{{REGISTRY_URL}}/r/button.json"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/button.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+      ],
       "files": [
         {
           "path": "registry/qatt/ui/pagination.tsx",
@@ -407,7 +420,7 @@
       "title": "Separator (Qatt)",
       "description": "Separator with a qatt variant (three thin parallel rules).",
       "dependencies": ["@base-ui/react"],
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json", "{{REGISTRY_URL}}/r/qatt-pattern.json"],
       "files": [
         {
           "path": "registry/qatt/ui/separator.tsx",

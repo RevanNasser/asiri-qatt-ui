@@ -13,7 +13,7 @@ export default function CardDemo() {
           والأرقام كلّها في مكانها.
         </CardContent>
       </Card>
-      <Card variant="painted">
+      <Card variant="framed">
         <CardHeader>
           <CardTitle>فاتحٌ وداكن</CardTitle>
           <CardDescription>لماذا قَطّ؟</CardDescription>

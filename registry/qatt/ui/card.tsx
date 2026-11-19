@@ -1,30 +1,55 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import type { MotifId } from "@/registry/qatt/lib/qatt-motifs"
+import { QattBand, QattMotifTile } from "@/registry/qatt/ui/qatt-pattern"
 
 /**
- * Qatt Card: shadcn base-nova Card (same parts and `size`) + `variant="painted"`
- * (2px ink border + flat painted shadow). No blurred shadows.
- * TODO(track-2-motifs): `variant="framed"` and `ornament` (motif strip + khatmah caps) land with the motif artwork.
+ * Qatt Card: shadcn base-nova Card (same parts and `size`) + `variant="painted"` (2px ink border + flat
+ * painted shadow) and `variant="framed"` (2px ink border + a motif strip on the top edge with khatmah caps).
+ * `ornament` adds a top-edge motif strip to any variant (framed defaults to "banat"). Decorative only.
  */
 function Card({
   className,
   size = "default",
   variant = "default",
+  ornament,
+  children,
   ...props
-}: React.ComponentProps<"div"> & { size?: "default" | "sm"; variant?: "default" | "painted" }) {
+}: React.ComponentProps<"div"> & {
+  size?: "default" | "sm"
+  variant?: "default" | "painted" | "framed"
+  ornament?: MotifId | false
+}) {
+  const strip = ornament ?? (variant === "framed" ? "banat" : false)
   return (
     <div
       data-slot="card"
       data-size={size}
       data-variant={variant}
+      data-ornament={strip || undefined}
       className={cn(
         "group/card flex flex-col gap-(--card-spacing) overflow-hidden rounded-lg bg-card py-(--card-spacing) text-sm text-card-foreground ring-1 ring-foreground/10 [--card-spacing:--spacing(4)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(3)] data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-lg *:[img:last-child]:rounded-b-lg",
         "data-[variant=painted]:border-2 data-[variant=painted]:border-qatt-ink data-[variant=painted]:shadow-[var(--shadow-painted)] data-[variant=painted]:ring-0",
+        "data-[variant=framed]:border-2 data-[variant=framed]:border-qatt-ink data-[variant=framed]:ring-0",
+        "relative data-ornament:pt-[calc(var(--card-spacing)+16px)]",
         className,
       )}
       {...props}
-    />
+    >
+      {strip && (
+        <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0">
+          <QattBand motif={strip} thickness={12} />
+          {variant === "framed" && (
+            <>
+              <QattMotifTile motif="khatmah" className="absolute start-0 top-0 size-3" />
+              <QattMotifTile motif="khatmah" className="absolute end-0 top-0 size-3" />
+            </>
+          )}
+        </span>
+      )}
+      {children}
+    </div>
   )
 }
 

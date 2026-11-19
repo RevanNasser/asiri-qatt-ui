@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/qatt/ui/tab
 export default function TabsDemo() {
   return (
     <Tabs defaultValue="rtl" className="w-full max-w-md">
-      <TabsList variant="qatt">
+      <TabsList variant="qatt" indicator="strip">
         <TabsTrigger value="rtl">العربية أولًا</TabsTrigger>
         <TabsTrigger value="shadcn">
           متوافق مع <bdi>shadcn/ui</bdi>

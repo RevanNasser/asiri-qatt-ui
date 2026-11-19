@@ -30,6 +30,8 @@ import { Tabs } from "@/components/ui/tabs"
 
 ## الخصائص
 
+{/* TODO(ar-copy): docs.props.tabs.indicator */}
+
 <PropsTable
   rows={[
   {
@@ -42,7 +44,8 @@ import { Tabs } from "@/components/ui/tabs"
     "name": "defaultValue / value",
     "type": "any",
     "description": <span>قيمة Tabs في Base UI، وأسهم لوحة المفاتيح تتبع اتجاه <code dir="ltr">DirectionProvider</code>.</span>
-  }
+  },
+  {"name": "TabsList indicator", "type": "\"diamond\" | \"strip\"", "default": "\"diamond\"", "description": <span lang="en" dir="ltr">qatt only: painted diamond or 6px balsanah strip.</span>}
 ]}
 />
 

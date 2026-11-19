@@ -4,12 +4,12 @@ import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion"
 import { ChevronDownIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { QattBand } from "@/registry/qatt/ui/qatt-pattern"
 
 /**
  * Qatt Accordion: shadcn base-nova Accordion + `variant="qatt"` on `Accordion`
- * (2px ink rule under each open trigger). Trigger is `text-start`, chevron at inline-end.
+ * (2px ink rule under each open trigger, with an amshat comb fringe hanging from it). Trigger is `text-start`, chevron at inline-end.
  * The chevron is ChevronDown and rotates when open; it is NOT mirrored in RTL.
- * TODO(track-2-motifs): amshat fringe under open triggers.
  */
 function Accordion({
   className,
@@ -45,6 +45,12 @@ function AccordionTrigger({ className, children, ...props }: AccordionPrimitive.
         {...props}
       >
         {children}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 -bottom-2.5 hidden h-2 group-data-[variant=qatt]/accordion:group-aria-expanded/accordion-trigger:block"
+        >
+          <QattBand motif="amshat" thickness={8} />
+        </span>
         <ChevronDownIcon
           data-slot="accordion-trigger-icon"
           aria-hidden="true"
@@ -64,7 +70,7 @@ function AccordionContent({ className, children, ...props }: AccordionPrimitive.
     >
       <div
         className={cn(
-          "h-(--accordion-panel-height) pt-2 pb-3 data-ending-style:h-0 data-starting-style:h-0 [&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
+          "h-(--accordion-panel-height) pt-2 pb-3 group-data-[variant=qatt]/accordion:pt-4 data-ending-style:h-0 data-starting-style:h-0 [&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
           className,
         )}
       >

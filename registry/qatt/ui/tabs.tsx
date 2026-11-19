@@ -4,11 +4,12 @@ import { Tabs as TabsPrimitive } from "@base-ui/react/tabs"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { QattBand } from "@/registry/qatt/ui/qatt-pattern"
 
 /**
  * Qatt Tabs: shadcn base-nova Tabs + `TabsList variant="qatt"`: the active tab carries a small painted
- * diamond under its label (inactive tabs are muted). Arrow keys follow the DirectionProvider (Base UI).
- * TODO(track-2-motifs): optional balsanah strip indicator.
+ * diamond under its label, or a 6px balsanah strip with `indicator="strip"` (inactive tabs are muted).
+ * Arrow keys follow the DirectionProvider (Base UI).
  */
 function Tabs({ className, orientation = "horizontal", ...props }: TabsPrimitive.Root.Props) {
   return (
@@ -40,19 +41,21 @@ const tabsListVariants = cva(
 function TabsList({
   className,
   variant = "default",
+  indicator = "diamond",
   ...props
-}: TabsPrimitive.List.Props & VariantProps<typeof tabsListVariants>) {
+}: TabsPrimitive.List.Props & VariantProps<typeof tabsListVariants> & { indicator?: "diamond" | "strip" }) {
   return (
     <TabsPrimitive.List
       data-slot="tabs-list"
       data-variant={variant}
+      data-indicator={indicator}
       className={cn(tabsListVariants({ variant }), className)}
       {...props}
     />
   )
 }
 
-function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
+function TabsTrigger({ className, children, ...props }: TabsPrimitive.Tab.Props) {
   return (
     <TabsPrimitive.Tab
       data-slot="tabs-trigger"
@@ -63,11 +66,20 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
         "after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-end-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
         // qatt: painted diamond indicator, centred under the active label (symmetric, no RTL handling needed)
         "group-data-[variant=qatt]/tabs-list:text-muted-foreground group-data-[variant=qatt]/tabs-list:data-active:text-foreground",
-        "before:pointer-events-none before:absolute before:start-1/2 before:size-2 before:rotate-45 before:bg-primary before:opacity-0 before:transition-opacity group-data-horizontal/tabs:before:-bottom-2 group-data-horizontal/tabs:before:-ms-1 group-data-vertical/tabs:before:hidden group-data-[variant=qatt]/tabs-list:data-active:before:opacity-100",
+        "before:pointer-events-none before:absolute before:start-1/2 before:size-2 before:rotate-45 before:bg-primary before:opacity-0 before:transition-opacity group-data-horizontal/tabs:before:-bottom-2 group-data-horizontal/tabs:before:-ms-1 group-data-vertical/tabs:before:hidden group-data-[variant=qatt]/tabs-list:group-data-[indicator=diamond]/tabs-list:data-active:before:opacity-100",
+        "group/tabs-trigger",
         className,
       )}
       {...props}
-    />
+    >
+      {children}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-1 -bottom-2 hidden h-1.5 group-data-[variant=qatt]/tabs-list:group-data-[indicator=strip]/tabs-list:group-data-active/tabs-trigger:block"
+      >
+        <QattBand motif="balsanah" thickness={6} />
+      </span>
+    </TabsPrimitive.Tab>
   )
 }
 

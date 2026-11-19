@@ -3,13 +3,14 @@ import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from "lucide-re
 
 import { cn } from "@/lib/utils"
 import { type Button, buttonVariants } from "@/registry/qatt/ui/button"
+import { QattBand } from "@/registry/qatt/ui/qatt-pattern"
 
 /**
  * Qatt Pagination: shadcn base-nova Pagination. Arabic defaults from site-copy: «السابق» / «التالي»
  * (nav.prev / nav.next) and `aria-label` «ترقيم الصفحات» (ar-glossary). Previous sits at inline-start with a
  * chevron pointing to inline-start (flips in RTL). Labels stay available to screen readers on small screens.
  * `variant="qatt"` on `Pagination`: the active page is a solid red paint chip. Western digits, tabular.
- * TODO(track-2-motifs): amshat underline under the active page.
+ * In the qatt variant an amshat (comb) fringe hangs under the active page (decorative).
  */
 function Pagination({
   className,
@@ -40,7 +41,7 @@ type PaginationLinkProps = {
 } & Pick<React.ComponentProps<typeof Button>, "size"> &
   React.ComponentProps<"a">
 
-function PaginationLink({ className, isActive, size = "icon", ...props }: PaginationLinkProps) {
+function PaginationLink({ className, isActive, size = "icon", children, ...props }: PaginationLinkProps) {
   // A real link (no role="button"): styled with buttonVariants instead of rendering <Button>.
   return (
     <a
@@ -49,11 +50,22 @@ function PaginationLink({ className, isActive, size = "icon", ...props }: Pagina
       data-active={isActive}
       className={cn(
         buttonVariants({ variant: isActive ? "outline" : "ghost", size }),
+        "relative",
         "group-data-[variant=qatt]/pagination:data-[active=true]:border-2 group-data-[variant=qatt]/pagination:data-[active=true]:border-qatt-ink group-data-[variant=qatt]/pagination:data-[active=true]:bg-primary group-data-[variant=qatt]/pagination:data-[active=true]:text-primary-foreground",
         className,
       )}
       {...props}
-    />
+    >
+      {children}
+      {isActive && (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-1 -bottom-2.5 hidden h-2 group-data-[variant=qatt]/pagination:block"
+        >
+          <QattBand motif="amshat" thickness={8} />
+        </span>
+      )}
+    </a>
   )
 }
 

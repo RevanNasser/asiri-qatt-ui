@@ -20,7 +20,7 @@ export default function SheetDemo() {
           <SheetTrigger render={<Button variant="qatt-outline" />}>
             فتح <bdi dir="ltr">{side}</bdi>
           </SheetTrigger>
-          <SheetContent side={side}>
+          <SheetContent side={side} ornament="kaff">
             <SheetHeader>
               <SheetTitle>لوحة جانبية</SheetTitle>
               <SheetDescription>لوحةٌ تنزلق من طرف الشاشة وتحترم اتجاه القراءة.</SheetDescription>

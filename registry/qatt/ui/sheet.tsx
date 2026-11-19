@@ -7,6 +7,8 @@ import { XIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/qatt/ui/button"
 import { useLogicalSide } from "@/registry/qatt/hooks/use-direction"
+import type { MotifId } from "@/registry/qatt/lib/qatt-motifs"
+import { QattBand } from "@/registry/qatt/ui/qatt-pattern"
 
 type PhysicalSide = "top" | "right" | "bottom" | "left"
 
@@ -14,7 +16,7 @@ type PhysicalSide = "top" | "right" | "bottom" | "left"
  * Qatt Sheet: shadcn base-nova Sheet + logical sides `side="start" | "end"` (resolved with useDirection,
  * so "start" opens from the right in RTL). Upstream default `"right"` is kept for API parity; prefer start/end.
  * Flat panel with a 2px border on its inner edge; `closeLabel` defaults to «إغلاق» (ar-glossary "Close").
- * TODO(track-2-motifs): `ornament` inner-edge strip.
+ * `ornament` (any motif) draws a strip along the inner edge (the edge facing the page). Decorative.
  */
 function Sheet({ ...props }: SheetPrimitive.Root.Props) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />
@@ -51,11 +53,13 @@ function SheetContent({
   side = "right",
   showCloseButton = true,
   closeLabel = "إغلاق",
+  ornament,
   ...props
 }: SheetPrimitive.Popup.Props & {
   side?: PhysicalSide | "start" | "end"
   showCloseButton?: boolean
   closeLabel?: string
+  ornament?: MotifId
 }) {
   const startSide = useLogicalSide("start")
   const endSide = useLogicalSide("end")
@@ -69,6 +73,15 @@ function SheetContent({
     right:
       "inset-y-0 [right:0] h-full w-3/4 [border-left-width:2px] data-ending-style:translate-x-10 data-starting-style:translate-x-10 sm:max-w-sm",
   }
+
+  // Inner edge = the edge facing the page; physical because `physical` is already direction-resolved.
+  const innerEdge: Record<PhysicalSide, React.CSSProperties> = {
+    right: { left: 0, top: 0, bottom: 0, width: 12 },
+    left: { right: 0, top: 0, bottom: 0, width: 12 },
+    top: { bottom: 0, left: 0, right: 0, height: 12 },
+    bottom: { top: 0, left: 0, right: 0, height: 12 },
+  }
+  const vertical = physical === "left" || physical === "right"
 
   return (
     <SheetPortal>
@@ -84,6 +97,11 @@ function SheetContent({
         )}
         {...props}
       >
+        {ornament && (
+          <span aria-hidden="true" className="pointer-events-none absolute" style={innerEdge[physical]}>
+            <QattBand motif={ornament} thickness={12} orientation={vertical ? "vertical" : "horizontal"} />
+          </span>
+        )}
         {children}
         {showCloseButton && (
           <SheetPrimitive.Close

@@ -38,7 +38,7 @@ import { Button } from "@/components/ui/button"
     "name": "tone",
     "type": "\"red\" | \"blue\" | \"ink\" | \"yellow\"",
     "default": "\"red\"",
-    "description": <span>لون الصبغة، ويسري على النمط <code dir="ltr">painted</code> وحده.</span>
+    "description": <span>لون الصبغة، ويسري على النمط <code dir="ltr">painted</code> وحده: <code dir="ltr">red</code> أو <code dir="ltr">blue</code> أو <code dir="ltr">ink</code> أو <code dir="ltr">yellow</code>. وليس فيه أخضر، لأنّ نصّ الزرّ على الأخضر لا يبلغ نسبة التباين 4.5:1.</span>
   },
   {
     "name": "size",
@@ -60,4 +60,4 @@ import { Button } from "@/components/ui/button"
 
 ## سهولة الوصول
 
-إطار التركيز صلبٌ ظاهر، وحالة التحميل تُعلَن عبر `aria-busy` مع مؤشّرٍ دوّار، وأدنى مساحةٍ للّمس 24px.
+إطار التركيز صلبٌ ظاهر، وحالة التحميل تُعلَن عبر `aria-busy` مع مؤشّرٍ دوّار، وأدنى مساحةٍ للّمس 24px. وكلّ ألوان النمط `painted` تحقّق نسبة تباينٍ لا تقلّ عن 4.5:1 في حالتَي السكون والمرور، وفي الوضعين الفاتح والداكن.

@@ -3,10 +3,11 @@ import { useRender } from "@base-ui/react/use-render"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { QattMotifTile } from "@/registry/qatt/ui/qatt-pattern"
 
 /**
  * Qatt Badge: shadcn base-nova Badge + `qatt` (yellow paint, charcoal text) and `pigment` (+ `tone`) variants.
- * TODO(track-2-motifs): `banat` ornament variant lands with the reviewed motif artwork.
+ * `banat`: an outline badge with a tiny banat ornament (8px) at inline-start; the ornament is aria-hidden.
  */
 const badgeVariants = cva(
   "group/badge inline-flex h-5 w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-sm border border-transparent px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring has-data-[icon=inline-end]:pe-1.5 has-data-[icon=inline-start]:ps-1.5 aria-invalid:border-destructive [&>svg]:pointer-events-none [&>svg]:size-3!",
@@ -21,6 +22,7 @@ const badgeVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         qatt: "border-qatt-ink bg-qatt-yellow text-qatt-black dark:text-background",
         pigment: "",
+        banat: "border-border ps-1.5 text-foreground",
       },
       tone: {
         red: "",
@@ -47,6 +49,7 @@ function Badge({
   variant = "default",
   tone,
   render,
+  children,
   ...props
 }: useRender.ComponentProps<"span"> & VariantProps<typeof badgeVariants>) {
   return useRender({
@@ -55,7 +58,18 @@ function Badge({
       {
         className: cn(badgeVariants({ variant, tone: variant === "pigment" ? (tone ?? "red") : undefined }), className),
       },
-      props,
+      {
+        ...props,
+        children:
+          variant === "banat" ? (
+            <>
+              <QattMotifTile motif="banat" className="h-3 w-2 shrink-0" />
+              {children}
+            </>
+          ) : (
+            children
+          ),
+      },
     ),
     render,
     state: {

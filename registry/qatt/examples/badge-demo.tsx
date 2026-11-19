@@ -6,6 +6,7 @@ export default function BadgeDemo() {
       <Badge variant="qatt">مفتوح المصدر</Badge>
       <Badge>مطلوب</Badge>
       <Badge variant="outline">اختياري</Badge>
+      <Badge variant="banat">مفتوح المصدر</Badge>
       <Badge variant="pigment" tone="blue">
         RTL
       </Badge>

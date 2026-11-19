@@ -306,3 +306,85 @@ describe("phase 4 track 1 review fixes", () => {
     }
   })
 })
+
+describe("track 2 ornament variants (D-024)", () => {
+  it("badge banat, card framed and separator motif render decorative motifs", () => {
+    const { container } = render(
+      <>
+        <Badge variant="banat">x</Badge>
+        <Card variant="framed" data-testid="card" />
+        <Separator variant="qatt" motif="hanash" data-testid="sep" />
+      </>,
+    )
+    expect(container.querySelector('[data-slot="badge"] [data-motif="banat"]')).toHaveAttribute("aria-hidden", "true")
+    const card = screen.getByTestId("card")
+    expect(card).toHaveAttribute("data-ornament", "banat")
+    expect(card.querySelectorAll('[data-motif="khatmah"]')).toHaveLength(2)
+    expect(screen.getByTestId("sep")).toHaveAttribute("data-motif", "hanash")
+  })
+
+  it("dialog frieze and sheet inner-edge strip", async () => {
+    inDir(
+      "rtl",
+      <Sheet defaultOpen>
+        <SheetContent side="start" ornament="kaff">
+          <SheetTitle>لوحة جانبية</SheetTitle>
+          <SheetDescription>لوحةٌ تنزلق من طرف الشاشة وتحترم اتجاه القراءة.</SheetDescription>
+        </SheetContent>
+      </Sheet>,
+    )
+    const sheet = await screen.findByRole("dialog")
+    // start = right in RTL, so the inner edge (facing the page) is the left one
+    const strip = sheet.querySelector('[data-motif="kaff"]')!.closest("span[style]")!.parentElement as HTMLElement
+    expect(strip.style.left).toBe("0px")
+    expect(await axe(document.body)).toHaveNoViolations()
+  })
+
+  it("dialog ornament", async () => {
+    inDir(
+      "ltr",
+      <Dialog defaultOpen>
+        <DialogContent ornament="rukun">
+          <DialogTitle>نافذة حوار</DialogTitle>
+          <DialogDescription>نافذةٌ تعلو الصفحة لتأكيد إجراءٍ أو إدخال بيانات.</DialogDescription>
+        </DialogContent>
+      </Dialog>,
+    )
+    const dialog = await screen.findByRole("dialog")
+    expect(dialog).toHaveAttribute("data-ornament", "rukun")
+    expect(dialog.querySelector('[data-motif="rukun"]')).not.toBeNull()
+  })
+
+  it("accordion and pagination qatt variants carry an amshat fringe", () => {
+    const { container } = render(
+      <>
+        <Accordion variant="qatt" defaultValue={["a"]}>
+          <AccordionItem value="a">
+            <AccordionTrigger>a</AccordionTrigger>
+            <AccordionContent>b</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+        <Pagination variant="qatt">
+          <PaginationContent>
+            <PaginationItem>
+              <a href="#" aria-current="page">
+                2
+              </a>
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
+      </>,
+    )
+    expect(container.querySelector('[data-slot="accordion-trigger"] [data-motif="amshat"]')).not.toBeNull()
+  })
+
+  it("sonner hanash stripe is opt-in", async () => {
+    inDir("rtl", <Toaster ornament="hanash" />)
+    act(() => {
+      toast("تم النسخ")
+    })
+    await screen.findByText("تم النسخ")
+    const t = document.querySelector("[data-sonner-toast]")!
+    expect(t.className).toContain("before:[mask-image:var(--qatt-toast-ornament)]")
+  })
+})

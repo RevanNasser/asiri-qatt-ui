@@ -16,7 +16,7 @@ export default function DialogDemo() {
   return (
     <Dialog>
       <DialogTrigger render={<Button variant="qatt-outline" />}>فتح</DialogTrigger>
-      <DialogContent variant="qatt">
+      <DialogContent variant="qatt" ornament="mahareeb">
         <DialogHeader>
           <DialogTitle>نافذة حوار</DialogTitle>
           <DialogDescription>نافذةٌ تعلو الصفحة لتأكيد إجراءٍ أو إدخال بيانات.</DialogDescription>

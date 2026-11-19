@@ -7,6 +7,8 @@ export default function SeparatorDemo() {
       <Separator />
       <p>المكوّنات</p>
       <Separator variant="qatt" />
+      <p>الكتل</p>
+      <Separator variant="qatt" motif="hanash" />
       <div className="flex h-6 items-center gap-4">
         <span>الكتل</span>
         <Separator orientation="vertical" variant="qatt" />

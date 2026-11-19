@@ -30,11 +30,13 @@ import { Card } from "@/components/ui/card"
 
 ## الخصائص
 
+{/* TODO(ar-copy): docs.props.card.ornament */}
+
 <PropsTable
   rows={[
   {
     "name": "variant",
-    "type": "\"default\" | \"painted\"",
+    "type": "\"default\" | \"painted\" | \"framed\"",
     "default": "\"default\"",
     "description": <span>النمط <code dir="ltr">painted</code> حدٌّ بلون الحبر بسماكة 2px وظلٌّ مرسومٌ مسطّح.</span>
   },
@@ -43,7 +45,8 @@ import { Card } from "@/components/ui/card"
     "type": "\"default\" | \"sm\"",
     "default": "\"default\"",
     "description": <span>المسافات الداخلية.</span>
-  }
+  },
+  {"name": "ornament", "type": "MotifId | false", "default": "false (framed: \"banat\")", "description": <span lang="en" dir="ltr">Top-edge motif strip.</span>}
 ]}
 />
 
