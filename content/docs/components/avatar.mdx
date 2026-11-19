@@ -1,0 +1,51 @@
+---
+title: صورة رمزية
+description: صورة المستخدم أو أحرفه الأولى في دائرةٍ أنيقة.
+---
+
+{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.avatar.rtl, docs.avatar.a11y, docs.props.avatar.* */}
+
+<ComponentPreview name="avatar-demo" />
+
+## التثبيت
+
+<InstallCommand item="avatar" />
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
+
+## الاستخدام
+
+```tsx
+import { Avatar } from "@/components/ui/avatar"
+
+<Avatar ring>
+  <AvatarImage src="…" alt="…" />
+  <AvatarFallback tone="red">…</AvatarFallback>
+</Avatar>
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+  {
+    "name": "Avatar ring",
+    "type": "boolean",
+    "default": "false",
+    "description": <span lang="en" dir="ltr">2px primary ring with a 2px gap.</span>
+  },
+  {
+    "name": "Avatar size",
+    "type": "\"default\" | \"sm\" | \"lg\"",
+    "default": "\"default\"",
+    "description": <span lang="en" dir="ltr">Size.</span>
+  },
+  {
+    "name": "AvatarFallback tone",
+    "type": "\"red\" | \"blue\" | \"ink\" | \"yellow\" | \"orange\"",
+    "description": <span lang="en" dir="ltr">Pigment fill with a contrast-safe text colour.</span>
+  }
+]}
+/>

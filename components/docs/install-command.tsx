@@ -2,6 +2,7 @@ import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock"
 import { Tab, Tabs } from "fumadocs-ui/components/tabs"
 
 import { resolveRegistryUrl } from "@/lib/registry-url"
+import { t } from "@/lib/site-copy"
 
 const RUNNERS = {
   pnpm: "pnpm dlx shadcn@latest",
@@ -23,7 +24,12 @@ export function InstallCommand({ item }: { item: string }) {
   const commands = installCommands(item)
   return (
     <div dir="ltr" className="text-start" data-slot="install-command">
-      <Tabs items={commands.map((c) => c.pm)} groupId="package-manager" persist>
+      <Tabs
+        items={commands.map((c) => c.pm)}
+        label={<span dir="rtl">{t("docs.install.pm.label")}</span>}
+        groupId="package-manager"
+        persist
+      >
         {commands.map((c) => (
           <Tab key={c.pm}>
             <p className="mb-1 font-mono text-xs text-muted-foreground">@qatt</p>

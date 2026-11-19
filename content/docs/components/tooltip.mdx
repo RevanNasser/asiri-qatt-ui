@@ -1,0 +1,48 @@
+---
+title: تلميح
+description: نصٌّ موجز يظهر عند المرور أو التركيز ليوضّح ما خفي.
+---
+
+{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.tooltip.rtl, docs.tooltip.a11y, docs.props.tooltip.* */}
+
+<ComponentPreview name="tooltip-demo" />
+
+## التثبيت
+
+<InstallCommand item="tooltip" />
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
+
+## الاستخدام
+
+```tsx
+import { Tooltip } from "@/components/ui/tooltip"
+
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger render={<Button />}>…</TooltipTrigger>
+    <TooltipContent>…</TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+  {
+    "name": "TooltipContent side",
+    "type": "\"top\" | \"bottom\" | \"inline-start\" | \"inline-end\" | \"left\" | \"right\"",
+    "default": "\"top\"",
+    "description": <span lang="en" dir="ltr">Prefer inline-start / inline-end for direction-aware placement.</span>
+  },
+  {
+    "name": "TooltipProvider delay",
+    "type": "number",
+    "default": "300",
+    "description": <span lang="en" dir="ltr">Open delay in ms.</span>
+  }
+]}
+/>

@@ -1,0 +1,47 @@
+---
+title: أكورديون
+description: أقسامٌ قابلة للطيّ والبسط، تُظهر ما تحتاجه حين تحتاجه.
+---
+
+{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.accordion.rtl, docs.accordion.a11y, docs.props.accordion.* */}
+
+<ComponentPreview name="accordion-demo" />
+
+## التثبيت
+
+<InstallCommand item="accordion" />
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
+
+## الاستخدام
+
+```tsx
+import { Accordion } from "@/components/ui/accordion"
+
+<Accordion variant="qatt">
+  <AccordionItem value="a">
+    <AccordionTrigger>…</AccordionTrigger>
+    <AccordionContent>…</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+  {
+    "name": "variant",
+    "type": "\"default\" | \"qatt\"",
+    "default": "\"default\"",
+    "description": <span lang="en" dir="ltr">qatt draws a 2px ink rule under open triggers.</span>
+  },
+  {
+    "name": "defaultValue / value",
+    "type": "any[]",
+    "description": <span lang="en" dir="ltr">Open items (Base UI Accordion).</span>
+  }
+]}
+/>

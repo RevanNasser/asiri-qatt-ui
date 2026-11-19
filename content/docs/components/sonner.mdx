@@ -1,0 +1,45 @@
+---
+title: إشعار منبثق
+description: تنبيهٌ قصير يظهر برفق ثم يمضي، ليُخبرك بما تمّ.
+---
+
+{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.sonner.rtl, docs.sonner.a11y, docs.props.sonner.* */}
+
+<ComponentPreview name="sonner-demo" />
+
+## التثبيت
+
+<InstallCommand item="sonner" />
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
+
+## الاستخدام
+
+```tsx
+import { Toaster } from "@/components/ui/sonner"
+
+<Toaster />
+
+toast.success("…")
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+  {
+    "name": "position",
+    "type": "ToasterProps[\"position\"]",
+    "default": "bottom-left (RTL) / bottom-right (LTR)",
+    "description": <span lang="en" dir="ltr">Defaults to the bottom inline-end corner.</span>
+  },
+  {
+    "name": "dir",
+    "type": "\"ltr\" | \"rtl\" | \"auto\"",
+    "default": "from useDirection()",
+    "description": <span lang="en" dir="ltr">Passed to sonner.</span>
+  }
+]}
+/>

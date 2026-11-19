@@ -34,6 +34,7 @@ export const ar = {
   "docs.copy": "نسخ",
   "docs.copied": "تم النسخ",
   "docs.install.cli": "سطر الأوامر",
+  "docs.install.pm.label": "مدير الحزم",
   "empty.search.title": "لم نجد ما تبحثون عنه",
   "error.404.title": "الصفحة غير موجودة",
   "error.404.cta": "العودة إلى الرئيسية",

@@ -1,0 +1,55 @@
+---
+title: ترقيم الصفحات
+description: تنقّلٌ بين صفحات المحتوى الطويل.
+---
+
+{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.pagination.rtl, docs.pagination.a11y, docs.props.pagination.* */}
+
+<ComponentPreview name="pagination-demo" />
+
+## التثبيت
+
+<InstallCommand item="pagination" />
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
+
+## الاستخدام
+
+```tsx
+import { Pagination } from "@/components/ui/pagination"
+
+<Pagination>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="#" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+  {
+    "name": "variant",
+    "type": "\"default\" | \"qatt\"",
+    "default": "\"default\"",
+    "description": <span lang="en" dir="ltr">qatt paints the active page red.</span>
+  },
+  {
+    "name": "PaginationPrevious / PaginationNext text",
+    "type": "string",
+    "default": "\"السابق\" / \"التالي\"",
+    "description": <span lang="en" dir="ltr">Visible on sm+, screen-reader only below.</span>
+  },
+  {
+    "name": "PaginationLink isActive",
+    "type": "boolean",
+    "default": "false",
+    "description": <span lang="en" dir="ltr">Sets aria-current=page.</span>
+  }
+]}
+/>

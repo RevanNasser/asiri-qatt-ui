@@ -1,87 +1,184 @@
 /*
- * Qatt theme tokens: SINGLE SOURCE OF TRUTH.
+ * Qatt theme tokens: SINGLE SOURCE OF TRUTH (decision D-016).
+ *
+ * Values copied from docs/agents/ux-ui/tokens.css (UX/UI, contrast-checked; see design-tokens.md §4).
+ * Do not hand-edit values without re-running the UX/UI contrast check.
  *
  * - The docs site imports this file directly (app/globals.css), so it dogfoods the theme.
  * - scripts/registry-gen.ts parses the `:root` and `.dark` blocks below into
  *   `cssVars.light` / `cssVars.dark` of the `qatt-theme` registry item.
  * - Keep it to plain `--name: value;` declarations inside `:root { }` and `.dark { }`.
+ *   (Slot vars are repeated in both blocks so a nested .dark subtree recomputes them.)
  *
- * TODO(ux-tokens): every value here is a PLACEHOLDER derived from the heritage palette
- * (gypsum #F4EFE4 background, meshiga red #A8322A primary, charcoal #1F1B17 foreground).
- * Replace with docs/agents/ux-ui/tokens.css once Phase 2 signs off (contrast-checked).
+ * Pigment values (--qatt-*) are approximate, project interpretation. Dark mode ("night majlis")
+ * is a UX/UI interpretation, not a heritage claim.
  */
 
 :root {
-  --radius: 0.5rem;
-  --background: oklch(0.953 0.016 86.4);
-  --foreground: oklch(0.225 0.01 67.3);
-  --card: oklch(0.975 0.01 86.4);
-  --card-foreground: oklch(0.225 0.01 67.3);
-  --popover: oklch(0.975 0.01 86.4);
-  --popover-foreground: oklch(0.225 0.01 67.3);
-  --primary: oklch(0.494 0.155 28.1);
-  --primary-foreground: oklch(0.975 0.01 86.4);
-  --secondary: oklch(0.914 0.021 85.9);
-  --secondary-foreground: oklch(0.225 0.01 67.3);
-  --muted: oklch(0.914 0.021 85.9);
-  --muted-foreground: oklch(0.458 0.019 73.4);
-  --accent: oklch(0.914 0.021 85.9);
-  --accent-foreground: oklch(0.225 0.01 67.3);
-  --destructive: oklch(0.494 0.155 28.1);
-  --border: oklch(0.86 0.02 85.9);
-  --input: oklch(0.86 0.02 85.9);
-  --ring: oklch(0.494 0.155 28.1);
-  --chart-1: oklch(0.494 0.155 28.1);
-  --chart-2: oklch(0.749 0.142 82.9);
-  --chart-3: oklch(0.225 0.01 67.3);
-  --chart-4: oklch(0.587 0.147 32.9);
-  --chart-5: oklch(0.458 0.019 73.4);
-  --sidebar: oklch(0.935 0.018 86.4);
-  --sidebar-foreground: oklch(0.225 0.01 67.3);
-  --sidebar-primary: oklch(0.494 0.155 28.1);
-  --sidebar-primary-foreground: oklch(0.975 0.01 86.4);
-  --sidebar-accent: oklch(0.914 0.021 85.9);
-  --sidebar-accent-foreground: oklch(0.225 0.01 67.3);
-  --sidebar-border: oklch(0.86 0.02 85.9);
-  --sidebar-ring: oklch(0.494 0.155 28.1);
-  --qatt-jiss: oklch(0.953 0.016 86.4);
+  --radius: 0.375rem;
+  --background: oklch(0.972 0.012 85);
+  --foreground: oklch(0.22 0.014 55);
+  --card: oklch(0.99 0.006 85);
+  --card-foreground: oklch(0.22 0.014 55);
+  --popover: oklch(0.99 0.006 85);
+  --popover-foreground: oklch(0.22 0.014 55);
+  --primary: oklch(0.5 0.163 31);
+  --primary-foreground: oklch(0.985 0.008 85);
+  --secondary: oklch(0.925 0.05 88);
+  --secondary-foreground: oklch(0.27 0.03 60);
+  --muted: oklch(0.935 0.014 80);
+  --muted-foreground: oklch(0.47 0.022 60);
+  --accent: oklch(0.93 0.028 250);
+  --accent-foreground: oklch(0.33 0.085 255);
+  --destructive: oklch(0.5 0.19 18);
+  --destructive-foreground: oklch(0.985 0.008 85);
+  --border: oklch(0.875 0.02 75);
+  --input: oklch(0.6 0.02 65);
+  --ring: oklch(0.48 0.12 252);
+  --chart-1: oklch(0.5 0.163 31);
+  --chart-2: oklch(0.47 0.11 252);
+  --chart-3: oklch(0.62 0.13 75);
+  --chart-4: oklch(0.52 0.11 135);
+  --chart-5: oklch(0.6 0.15 48);
+  --sidebar: oklch(0.952 0.015 82);
+  --sidebar-foreground: oklch(0.22 0.014 55);
+  --sidebar-primary: oklch(0.5 0.163 31);
+  --sidebar-primary-foreground: oklch(0.985 0.008 85);
+  --sidebar-accent: oklch(0.915 0.022 80);
+  --sidebar-accent-foreground: oklch(0.22 0.014 55);
+  --sidebar-border: oklch(0.875 0.02 75);
+  --sidebar-ring: oklch(0.48 0.12 252);
+  /* Qatt pigment evocations (approximate, project interpretation) */
+  --qatt-white: oklch(0.953 0.016 86.4);
   --qatt-red: oklch(0.494 0.155 28.1);
+  --qatt-yellow: oklch(0.749 0.142 82.9);
   --qatt-black: oklch(0.225 0.01 67.3);
+  --qatt-blue: oklch(0.46 0.096 252.7);
+  --qatt-green: oklch(0.539 0.11 137.2);
+  --qatt-orange: oklch(0.635 0.152 47.8);
+  --qatt-brown: oklch(0.589 0.078 68);
+  --qatt-jiss: var(--qatt-white);
+  /* role: structural line colour — charcoal on the day wall, lamplit gypsum on the night wall */
+  --qatt-ink: var(--qatt-black);
+  --shadow-painted: 0 3px 0 0 oklch(0.22 0.014 55 / 0.9);
+  /* Motif colour slots (slot-1 = catalog A, slot-2 = B, slot-3 = C, slot-4 = ground) */
+  --qatt-slot-1: var(--qatt-red);
+  --qatt-slot-2: var(--qatt-ink);
+  --qatt-slot-3: var(--qatt-yellow);
+  --qatt-slot-4: transparent;
+  /* Gypsum surface (heritage-presenting sections; same in both modes) */
+  --qatt-surface-gypsum: oklch(0.953 0.016 86.4);
+  --qatt-surface-gypsum-foreground: oklch(0.22 0.014 55);
+  --qatt-surface-gypsum-muted-foreground: oklch(0.47 0.022 60);
 }
 
 .dark {
-  --background: oklch(0.225 0.01 67.3);
-  --foreground: oklch(0.953 0.016 86.4);
-  --card: oklch(0.26 0.012 67.3);
-  --card-foreground: oklch(0.953 0.016 86.4);
-  --popover: oklch(0.26 0.012 67.3);
-  --popover-foreground: oklch(0.953 0.016 86.4);
-  --primary: oklch(0.587 0.147 32.9);
-  --primary-foreground: oklch(0.975 0.01 86.4);
-  --secondary: oklch(0.326 0.016 67.2);
-  --secondary-foreground: oklch(0.953 0.016 86.4);
-  --muted: oklch(0.326 0.016 67.2);
-  --muted-foreground: oklch(0.78 0.02 85.9);
-  --accent: oklch(0.326 0.016 67.2);
-  --accent-foreground: oklch(0.953 0.016 86.4);
-  --destructive: oklch(0.587 0.147 32.9);
-  --border: oklch(0.953 0.016 86.4 / 12%);
-  --input: oklch(0.953 0.016 86.4 / 16%);
-  --ring: oklch(0.587 0.147 32.9);
-  --chart-1: oklch(0.587 0.147 32.9);
-  --chart-2: oklch(0.749 0.142 82.9);
-  --chart-3: oklch(0.953 0.016 86.4);
-  --chart-4: oklch(0.494 0.155 28.1);
-  --chart-5: oklch(0.78 0.02 85.9);
-  --sidebar: oklch(0.2 0.01 67.3);
-  --sidebar-foreground: oklch(0.953 0.016 86.4);
-  --sidebar-primary: oklch(0.587 0.147 32.9);
-  --sidebar-primary-foreground: oklch(0.975 0.01 86.4);
-  --sidebar-accent: oklch(0.326 0.016 67.2);
-  --sidebar-accent-foreground: oklch(0.953 0.016 86.4);
-  --sidebar-border: oklch(0.953 0.016 86.4 / 12%);
-  --sidebar-ring: oklch(0.587 0.147 32.9);
-  --qatt-jiss: oklch(0.953 0.016 86.4);
-  --qatt-red: oklch(0.587 0.147 32.9);
+  --background: oklch(0.185 0.012 55);
+  --foreground: oklch(0.93 0.016 85);
+  --card: oklch(0.22 0.013 55);
+  --card-foreground: oklch(0.93 0.016 85);
+  --popover: oklch(0.245 0.014 55);
+  --popover-foreground: oklch(0.93 0.016 85);
+  --primary: oklch(0.68 0.15 33);
+  --primary-foreground: oklch(0.17 0.012 55);
+  --secondary: oklch(0.3 0.04 75);
+  --secondary-foreground: oklch(0.93 0.03 85);
+  --muted: oklch(0.265 0.012 55);
+  --muted-foreground: oklch(0.74 0.02 75);
+  --accent: oklch(0.3 0.045 250);
+  --accent-foreground: oklch(0.91 0.03 250);
+  --destructive: oklch(0.7 0.17 20);
+  --destructive-foreground: oklch(0.17 0.012 55);
+  --border: oklch(0.32 0.014 60);
+  --input: oklch(0.53 0.018 65);
+  --ring: oklch(0.72 0.11 245);
+  --chart-1: oklch(0.68 0.15 33);
+  --chart-2: oklch(0.7 0.1 245);
+  --chart-3: oklch(0.8 0.13 82);
+  --chart-4: oklch(0.72 0.12 135);
+  --chart-5: oklch(0.74 0.14 55);
+  --sidebar: oklch(0.205 0.013 55);
+  --sidebar-foreground: oklch(0.93 0.016 85);
+  --sidebar-primary: oklch(0.68 0.15 33);
+  --sidebar-primary-foreground: oklch(0.17 0.012 55);
+  --sidebar-accent: oklch(0.28 0.016 55);
+  --sidebar-accent-foreground: oklch(0.93 0.016 85);
+  --sidebar-border: oklch(0.32 0.014 60);
+  --sidebar-ring: oklch(0.72 0.11 245);
+  /* Qatt pigment evocations (approximate, project interpretation) */
+  --qatt-white: oklch(0.88 0.02 85);
+  --qatt-red: oklch(0.62 0.15 31);
+  --qatt-yellow: oklch(0.8 0.13 82);
+  --qatt-black: oklch(0.36 0.014 55);
+  --qatt-blue: oklch(0.62 0.1 250);
+  --qatt-green: oklch(0.66 0.11 135);
+  --qatt-orange: oklch(0.7 0.14 50);
+  --qatt-brown: oklch(0.64 0.07 70);
+  --qatt-jiss: var(--qatt-white);
+  /* role: structural line colour — charcoal on the day wall, lamplit gypsum on the night wall */
+  --qatt-ink: var(--qatt-white);
+  --shadow-painted: 0 3px 0 0 oklch(0 0 0 / 0.55);
+  /* Motif colour slots (slot-1 = catalog A, slot-2 = B, slot-3 = C, slot-4 = ground) */
+  --qatt-slot-1: var(--qatt-red);
+  --qatt-slot-2: var(--qatt-ink);
+  --qatt-slot-3: var(--qatt-yellow);
+  --qatt-slot-4: transparent;
+  /* Gypsum surface (heritage-presenting sections; same in both modes) */
+  --qatt-surface-gypsum: oklch(0.953 0.016 86.4);
+  --qatt-surface-gypsum-foreground: oklch(0.22 0.014 55);
+  --qatt-surface-gypsum-muted-foreground: oklch(0.47 0.022 60);
+}
+
+/* Light-theme island (UX/UI, Heritage D-019): sections scoped with data-qatt-surface="gypsum" keep the
+ * day-wall colours in both modes. Emitted into the qatt-theme item's `css` (@layer base) by registry-gen. */
+[data-qatt-surface="gypsum"] {
+  /* a light-theme island: shadcn tokens back to light so controls inside stay AA */
+  --background: oklch(0.972 0.012 85);
+  --foreground: oklch(0.22 0.014 55);
+  --card: oklch(0.99 0.006 85);
+  --card-foreground: oklch(0.22 0.014 55);
+  --popover: oklch(0.99 0.006 85);
+  --popover-foreground: oklch(0.22 0.014 55);
+  --primary: oklch(0.5 0.163 31);
+  --primary-foreground: oklch(0.985 0.008 85);
+  --secondary: oklch(0.925 0.05 88);
+  --secondary-foreground: oklch(0.27 0.03 60);
+  --muted: oklch(0.935 0.014 80);
+  --muted-foreground: oklch(0.47 0.022 60);
+  --accent: oklch(0.93 0.028 250);
+  --accent-foreground: oklch(0.33 0.085 255);
+  --destructive: oklch(0.5 0.19 18);
+  --destructive-foreground: oklch(0.985 0.008 85);
+  --border: oklch(0.875 0.02 75);
+  --input: oklch(0.6 0.02 65);
+  --ring: oklch(0.48 0.12 252);
+  --chart-1: oklch(0.5 0.163 31);
+  --chart-2: oklch(0.47 0.11 252);
+  --chart-3: oklch(0.62 0.13 75);
+  --chart-4: oklch(0.52 0.11 135);
+  --chart-5: oklch(0.6 0.15 48);
+  --sidebar: oklch(0.952 0.015 82);
+  --sidebar-foreground: oklch(0.22 0.014 55);
+  --sidebar-primary: oklch(0.5 0.163 31);
+  --sidebar-primary-foreground: oklch(0.985 0.008 85);
+  --sidebar-accent: oklch(0.915 0.022 80);
+  --sidebar-accent-foreground: oklch(0.22 0.014 55);
+  --sidebar-border: oklch(0.875 0.02 75);
+  --sidebar-ring: oklch(0.48 0.12 252);
+  --qatt-white: oklch(0.953 0.016 86.4);
+  --qatt-red: oklch(0.494 0.155 28.1);
+  --qatt-yellow: oklch(0.749 0.142 82.9);
   --qatt-black: oklch(0.225 0.01 67.3);
+  --qatt-blue: oklch(0.46 0.096 252.7);
+  --qatt-green: oklch(0.539 0.11 137.2);
+  --qatt-orange: oklch(0.635 0.152 47.8);
+  --qatt-brown: oklch(0.589 0.078 68);
+  --qatt-ink: var(--qatt-black);
+  --qatt-slot-1: var(--qatt-red);
+  --qatt-slot-2: var(--qatt-ink);
+  --qatt-slot-3: var(--qatt-yellow);
+  --qatt-slot-4: transparent;
+  background-color: var(--qatt-surface-gypsum);
+  color: var(--qatt-surface-gypsum-foreground);
+  color-scheme: light;
 }

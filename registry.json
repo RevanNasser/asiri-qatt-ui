@@ -7,23 +7,57 @@
       "name": "qatt-font",
       "type": "registry:font",
       "title": "Qatt Font",
-      "description": "IBM Plex Sans Arabic as --font-sans (Arabic + Latin). Placeholder until UX/UI picks the final face.",
+      "description": "IBM Plex Sans Arabic as --font-sans: body and UI text (Arabic + Latin). SIL OFL 1.1.",
       "font": {
         "family": "'IBM Plex Sans Arabic', sans-serif",
         "provider": "google",
         "import": "IBM_Plex_Sans_Arabic",
         "variable": "--font-sans",
-        "weight": ["400", "500", "700"],
+        "weight": ["400", "500", "600", "700"],
         "subsets": ["arabic", "latin"],
         "dependency": "@fontsource/ibm-plex-sans-arabic"
+      }
+    },
+    {
+      "name": "qatt-font-heading",
+      "type": "registry:font",
+      "title": "Qatt Heading Font",
+      "description": "Readex Pro as --font-heading: display and headings (Arabic + Latin). SIL OFL 1.1.",
+      "font": {
+        "family": "'Readex Pro', sans-serif",
+        "provider": "google",
+        "import": "Readex_Pro",
+        "variable": "--font-heading",
+        "weight": ["400", "500", "600", "700"],
+        "subsets": ["arabic", "latin"],
+        "dependency": "@fontsource-variable/readex-pro"
+      }
+    },
+    {
+      "name": "qatt-font-mono",
+      "type": "registry:font",
+      "title": "Qatt Mono Font",
+      "description": "IBM Plex Mono as --font-mono: code (always LTR). SIL OFL 1.1.",
+      "font": {
+        "family": "'IBM Plex Mono', monospace",
+        "provider": "google",
+        "import": "IBM_Plex_Mono",
+        "variable": "--font-mono",
+        "weight": ["400", "500"],
+        "subsets": ["latin"],
+        "dependency": "@fontsource/ibm-plex-mono"
       }
     },
     {
       "name": "qatt-theme",
       "type": "registry:theme",
       "title": "Qatt Theme",
-      "description": "Al-Qatt Al-Asiri palette on a gypsum-white ground: light and dark tokens plus the Qatt Arabic font.",
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-font.json"],
+      "description": "Al-Qatt Al-Asiri palette: gypsum-wall light mode, night-majlis dark mode, pigment and motif-slot tokens, gypsum surface scope, and the three Qatt fonts.",
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-font.json",
+        "{{REGISTRY_URL}}/r/qatt-font-heading.json",
+        "{{REGISTRY_URL}}/r/qatt-font-mono.json"
+      ],
       "cssVars": {}
     },
     {
@@ -31,7 +65,12 @@
       "type": "registry:lib",
       "title": "Qatt Utils",
       "description": "Shared helpers for Qatt UI items, including the typed motif registry.",
-      "files": [{ "path": "registry/qatt/lib/qatt-utils.ts", "type": "registry:lib" }]
+      "files": [
+        {
+          "path": "registry/qatt/lib/qatt-utils.ts",
+          "type": "registry:lib"
+        }
+      ]
     },
     {
       "name": "use-direction",
@@ -39,7 +78,12 @@
       "title": "useDirection",
       "description": "Reads the text direction (rtl/ltr) from the nearest DirectionProvider.",
       "registryDependencies": ["direction"],
-      "files": [{ "path": "registry/qatt/hooks/use-direction.ts", "type": "registry:hook" }]
+      "files": [
+        {
+          "path": "registry/qatt/hooks/use-direction.ts",
+          "type": "registry:hook"
+        }
+      ]
     },
     {
       "name": "qatt-divider",
@@ -47,7 +91,225 @@
       "title": "Qatt Divider",
       "description": "A horizontal zigzag band (hanash motif) that separates sections, drawn with currentColor.",
       "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
-      "files": [{ "path": "registry/qatt/ui/qatt-divider.tsx", "type": "registry:ui" }]
+      "files": [
+        {
+          "path": "registry/qatt/ui/qatt-divider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button (Qatt)",
+      "description": "Button with the base-nova API plus qatt, qatt-outline and painted (tone) variants.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge (Qatt)",
+      "description": "Badge with qatt (yellow paint) and pigment (tone) variants.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card (Qatt)",
+      "description": "Card with a painted variant (2px ink border, flat painted shadow).",
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs (Qatt)",
+      "description": "Tabs with a qatt list variant (painted diamond under the active tab).",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog (Qatt)",
+      "description": "Flat dialog, logical close button, qatt bordered variant.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json", "{{REGISTRY_URL}}/r/button.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet (Qatt)",
+      "description": "Sheet with logical sides (start/end) resolved from the text direction.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/button.json",
+        "{{REGISTRY_URL}}/r/use-direction.json"
+      ],
+      "files": [
+        {
+          "path": "registry/qatt/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion (Qatt)",
+      "description": "Accordion with start-aligned triggers and a qatt variant.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input (Qatt)",
+      "description": "Input with 3:1 boundary, solid focus outline and a qatt ruled-line variant.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select (Qatt)",
+      "description": "Select with logical padding, check at inline-start and a qatt trigger variant.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Toaster (sonner) (Qatt)",
+      "description": "Toaster that follows the text direction (dir + default position).",
+      "dependencies": ["sonner", "next-themes", "lucide-react"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json", "{{REGISTRY_URL}}/r/use-direction.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip (Qatt)",
+      "description": "Ink tooltip with logical inline-start/inline-end placement.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb (Qatt)",
+      "description": "Breadcrumb with an RTL-flipping chevron and chevron/slash/khatmah separators.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination (Qatt)",
+      "description": "Pagination with Arabic defaults, RTL-aware chevrons and a qatt active page.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json", "{{REGISTRY_URL}}/r/button.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar (Qatt)",
+      "description": "Avatar with a pigment ring and toned fallbacks; RTL-safe group overlap.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator (Qatt)",
+      "description": "Separator with a qatt variant (three thin parallel rules).",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

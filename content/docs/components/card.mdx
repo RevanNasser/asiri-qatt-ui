@@ -1,0 +1,48 @@
+---
+title: بطاقة
+description: حاويةٌ أنيقة تجمع العنوان والمحتوى والإجراءات في مكانٍ واحد.
+---
+
+{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.card.rtl, docs.card.a11y, docs.props.card.* */}
+
+<ComponentPreview name="card-demo" />
+
+## التثبيت
+
+<InstallCommand item="card" />
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
+
+## الاستخدام
+
+```tsx
+import { Card } from "@/components/ui/card"
+
+<Card variant="painted">
+  <CardHeader>
+    <CardTitle>…</CardTitle>
+  </CardHeader>
+  <CardContent>…</CardContent>
+</Card>
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+  {
+    "name": "variant",
+    "type": "\"default\" | \"painted\"",
+    "default": "\"default\"",
+    "description": <span lang="en" dir="ltr">painted = 2px ink border + flat painted shadow.</span>
+  },
+  {
+    "name": "size",
+    "type": "\"default\" | \"sm\"",
+    "default": "\"default\"",
+    "description": <span lang="en" dir="ltr">Inner spacing.</span>
+  }
+]}
+/>

@@ -1,6 +1,6 @@
 # Scaffold Proposal — Qatt UI (قَطّ)
 
-Date: 2026-11-19 · Author: Developer Agent (وكيل التطوير) · Status: **implemented in Phase 3 (see D-011…D-013)**
+Date: 2026-11-19 · Author: Developer Agent (وكيل التطوير) · Status: **implemented in Phase 3 (see D-015…D-017)**
 Companion: [`shadcn-research.md`](./shadcn-research.md) (sources, verified flags, gotchas).
 
 **Headline:** one Next.js 16 app hosts both the docs site (Fumadocs, Arabic/RTL at `/`, `/en` later) and the static registry (`shadcn build` → `public/r/*.json`, gitignored). Registry source lives in `registry/qatt/*`. Cross-item dependencies use absolute URLs generated from `REGISTRY_URL`. An install-flow script proves every item installs into a fresh RTL app before each deploy.
@@ -279,4 +279,4 @@ Output: `public/r/registry.json` + `public/r/<name>.json`, served at `https://qa
 9. **CLI churn**: shadcn ships monthly; pin in package.json, nightly job on `@latest`.
 10. **Open in v0** ignores cssVars/css → Qatt look lost there.
 
-> **Status update (Phase 3, 2026-11-19):** implemented. Deviations are logged in `decisions.md` D-011…D-013 and the verification results are in `shadcn-research.md` §14.
+> **Status update (Phase 3, 2026-11-19):** implemented. Deviations are logged in `decisions.md` D-015…D-017 and the verification results are in `shadcn-research.md` §14.

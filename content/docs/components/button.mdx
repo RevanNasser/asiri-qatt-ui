@@ -1,0 +1,55 @@
+---
+title: زر
+description: زرٌّ بأحجامٍ وأنماطٍ متعدّدة، يستجيب للمسة واللوحة والفأرة.
+---
+
+{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.button.rtl, docs.button.a11y, docs.props.button.* */}
+
+<ComponentPreview name="button-demo" />
+
+## التثبيت
+
+<InstallCommand item="button" />
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
+
+## الاستخدام
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+<Button variant="qatt">…</Button>
+<Button variant="painted" tone="blue">…</Button>
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+  {
+    "name": "variant",
+    "type": "\"default\" | \"outline\" | \"secondary\" | \"ghost\" | \"destructive\" | \"link\" | \"qatt\" | \"qatt-outline\" | \"painted\"",
+    "default": "\"default\"",
+    "description": <span lang="en" dir="ltr">Visual style. qatt / qatt-outline / painted are Qatt additions.</span>
+  },
+  {
+    "name": "tone",
+    "type": "\"red\" | \"blue\" | \"ink\" | \"yellow\" | \"green\"",
+    "default": "\"red\"",
+    "description": <span lang="en" dir="ltr">Pigment for variant=painted only. Green forces bold text.</span>
+  },
+  {
+    "name": "size",
+    "type": "\"default\" | \"xs\" | \"sm\" | \"lg\" | \"icon\" | \"icon-xs\" | \"icon-sm\" | \"icon-lg\"",
+    "default": "\"default\"",
+    "description": <span lang="en" dir="ltr">Height: default h-9, sm h-8, lg h-10.</span>
+  },
+  {
+    "name": "render",
+    "type": "ReactElement",
+    "description": <span lang="en" dir="ltr">Base UI composition (instead of asChild).</span>
+  }
+]}
+/>

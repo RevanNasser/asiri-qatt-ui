@@ -1,0 +1,53 @@
+---
+title: مسار التنقّل
+description: يُريك موضعك في الموقع ويعيدك إلى ما سبق بخطوة.
+---
+
+{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.breadcrumb.rtl, docs.breadcrumb.a11y, docs.props.breadcrumb.* */}
+
+<ComponentPreview name="breadcrumb-demo" />
+
+## التثبيت
+
+<InstallCommand item="breadcrumb" />
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
+
+## الاستخدام
+
+```tsx
+import { Breadcrumb } from "@/components/ui/breadcrumb"
+
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">…</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>…</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+  {
+    "name": "BreadcrumbSeparator separator",
+    "type": "\"chevron\" | \"slash\" | \"khatmah\"",
+    "default": "\"chevron\"",
+    "description": <span lang="en" dir="ltr">Chevron flips in RTL; khatmah is a small diamond; avoid slash in Arabic.</span>
+  },
+  {
+    "name": "aria-label",
+    "type": "string",
+    "default": "\"مسار التنقّل\"",
+    "description": <span lang="en" dir="ltr">Landmark name of the nav.</span>
+  }
+]}
+/>

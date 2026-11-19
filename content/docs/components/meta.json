@@ -1,4 +1,21 @@
 {
   "title": "المكوّنات",
-  "pages": ["qatt-divider"]
+  "pages": [
+    "qatt-divider",
+    "button",
+    "badge",
+    "card",
+    "tabs",
+    "dialog",
+    "sheet",
+    "accordion",
+    "input",
+    "select",
+    "sonner",
+    "tooltip",
+    "breadcrumb",
+    "pagination",
+    "avatar",
+    "separator"
+  ]
 }

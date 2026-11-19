@@ -1,0 +1,47 @@
+---
+title: تبويبات
+description: تنقّلٌ بين أقسامٍ متجاورة دون مغادرة الصفحة.
+---
+
+{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.tabs.rtl, docs.tabs.a11y, docs.props.tabs.* */}
+
+<ComponentPreview name="tabs-demo" />
+
+## التثبيت
+
+<InstallCommand item="tabs" />
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
+
+## الاستخدام
+
+```tsx
+import { Tabs } from "@/components/ui/tabs"
+
+<Tabs defaultValue="a">
+  <TabsList variant="qatt">
+    <TabsTrigger value="a">…</TabsTrigger>
+  </TabsList>
+  <TabsContent value="a">…</TabsContent>
+</Tabs>
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+  {
+    "name": "TabsList variant",
+    "type": "\"default\" | \"line\" | \"qatt\"",
+    "default": "\"default\"",
+    "description": <span lang="en" dir="ltr">qatt marks the active tab with a painted diamond.</span>
+  },
+  {
+    "name": "defaultValue / value",
+    "type": "any",
+    "description": <span lang="en" dir="ltr">Base UI Tabs value (arrow keys follow the DirectionProvider).</span>
+  }
+]}
+/>

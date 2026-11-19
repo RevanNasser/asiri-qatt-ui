@@ -1,0 +1,52 @@
+---
+title: لوحة جانبية
+description: لوحةٌ تنزلق من طرف الشاشة وتحترم اتجاه القراءة.
+---
+
+{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.sheet.rtl, docs.sheet.a11y, docs.props.sheet.* */}
+
+<ComponentPreview name="sheet-demo" />
+
+## التثبيت
+
+<InstallCommand item="sheet" />
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
+
+## الاستخدام
+
+```tsx
+import { Sheet } from "@/components/ui/sheet"
+
+<Sheet>
+  <SheetTrigger render={<Button />}>…</SheetTrigger>
+  <SheetContent side="start">…</SheetContent>
+</Sheet>
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+  {
+    "name": "SheetContent side",
+    "type": "\"start\" | \"end\" | \"top\" | \"right\" | \"bottom\" | \"left\"",
+    "default": "\"right\"",
+    "description": <span lang="en" dir="ltr">start/end are logical: start opens from the right in RTL. Prefer them.</span>
+  },
+  {
+    "name": "showCloseButton",
+    "type": "boolean",
+    "default": "true",
+    "description": <span lang="en" dir="ltr">Close button at inline-end.</span>
+  },
+  {
+    "name": "closeLabel",
+    "type": "string",
+    "default": "\"إغلاق\"",
+    "description": <span lang="en" dir="ltr">Accessible name of the close button.</span>
+  }
+]}
+/>

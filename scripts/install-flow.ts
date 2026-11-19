@@ -61,13 +61,11 @@ function checkInstalled(pass: string) {
   const expectFile = (p: string) => {
     if (!fs.existsSync(path.join(APP_DIR, p))) throw new Error(`[${pass}] expected file ${p} was not installed`)
   }
-  for (const f of [
-    "components/ui/qatt-divider.tsx",
-    "lib/qatt-utils.ts",
-    "hooks/use-direction.ts",
-    "components/ui/direction.tsx",
-  ])
-    expectFile(f)
+  const installed = ["lib/qatt-utils.ts", "hooks/use-direction.ts", ...UI_ITEMS.map((n) => `components/ui/${n}.tsx`)]
+  for (const f of [...installed, "components/ui/direction.tsx"]) expectFile(f)
+  // overrides really replaced the upstream shadcn files
+  if (!read("components/ui/button.tsx").includes('"qatt-outline"'))
+    throw new Error(`[${pass}] button.tsx was not overridden`)
 
   const css = read("app/globals.css")
   for (const v of ["--qatt-red:", "--qatt-jiss:", "--color-qatt-red"])
@@ -77,10 +75,13 @@ function checkInstalled(pass: string) {
   }
   if (!css.includes(`--primary: ${primary.light.primary}`))
     throw new Error(`[${pass}] globals.css --primary was not replaced by the Qatt value`)
-  if (!read("app/layout.tsx").includes("IBM_Plex_Sans_Arabic"))
-    throw new Error(`[${pass}] layout.tsx missing IBM_Plex_Sans_Arabic (qatt-font)`)
+  if (!css.includes('[data-qatt-surface="gypsum"]'))
+    throw new Error(`[${pass}] globals.css missing the gypsum surface scope`)
+  const layout = read("app/layout.tsx")
+  for (const font of ["IBM_Plex_Sans_Arabic", "Readex_Pro", "IBM_Plex_Mono"])
+    if (!layout.includes(font)) throw new Error(`[${pass}] layout.tsx missing ${font} (qatt-font items)`)
 
-  for (const f of ["components/ui/qatt-divider.tsx", "lib/qatt-utils.ts", "hooks/use-direction.ts"]) {
+  for (const f of installed) {
     const src = read(f)
     if (src.includes("@/registry/"))
       throw new Error(`[${pass}] ${f} still imports from @/registry (alias rewrite failed)`)
@@ -94,12 +95,67 @@ function writeConsumerPage() {
   const dir = path.join(APP_DIR, "app/qatt-check")
   fs.mkdirSync(dir, { recursive: true })
   fs.writeFileSync(
-    path.join(dir, "direction-badge.tsx"),
-    `"use client"\nimport { useDirection } from "@/hooks/use-direction"\nexport function DirectionBadge() {\n  const { dir, isRtl } = useDirection()\n  return <p data-dir={dir}>{isRtl ? "rtl" : "ltr"}</p>\n}\n`,
+    path.join(dir, "client.tsx"),
+    `"use client"
+import { useDirection } from "@/hooks/use-direction"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Separator } from "@/components/ui/separator"
+import { Toaster } from "@/components/ui/sonner"
+import { Button } from "@/components/ui/button"
+export function Client() {
+  const dir = useDirection()
+  return (
+    <TooltipProvider>
+      <p data-dir={dir}>{dir}</p>
+      <Tabs defaultValue="a"><TabsList variant="qatt"><TabsTrigger value="a">a</TabsTrigger></TabsList><TabsContent value="a">a</TabsContent></Tabs>
+      <Sheet><SheetTrigger render={<Button variant="qatt" />}>s</SheetTrigger><SheetContent side="start"><SheetTitle>s</SheetTitle></SheetContent></Sheet>
+      <Dialog><DialogTrigger render={<Button variant="painted" tone="blue" />}>d</DialogTrigger><DialogContent variant="qatt"><DialogTitle>d</DialogTitle></DialogContent></Dialog>
+      <Select items={[{ value: "a", label: "a" }]}><SelectTrigger variant="qatt"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="a">a</SelectItem></SelectContent></Select>
+      <Tooltip><TooltipTrigger render={<Button />}>t</TooltipTrigger><TooltipContent side="inline-end">t</TooltipContent></Tooltip>
+      <Accordion variant="qatt"><AccordionItem value="a"><AccordionTrigger>a</AccordionTrigger><AccordionContent>a</AccordionContent></AccordionItem></Accordion>
+      <Avatar ring><AvatarFallback tone="red">q</AvatarFallback></Avatar>
+      <Separator variant="qatt" />
+      <Toaster />
+    </TooltipProvider>
+  )
+}
+`,
   )
   fs.writeFileSync(
     path.join(dir, "page.tsx"),
-    `import { DirectionProvider } from "@/components/ui/direction"\nimport { QattDivider } from "@/components/ui/qatt-divider"\nimport { getMotif } from "@/lib/qatt-utils"\nimport { DirectionBadge } from "./direction-badge"\n\nexport default function Page() {\n  return (\n    <DirectionProvider direction="rtl">\n      <main dir="rtl" lang="ar" className="bg-qatt-jiss text-qatt-red p-4">\n        <QattDivider />\n        <DirectionBadge />\n        <p>{getMotif("hanash")?.id}</p>\n      </main>\n    </DirectionProvider>\n  )\n}\n`,
+    `import { DirectionProvider } from "@/components/ui/direction"
+import { QattDivider } from "@/components/ui/qatt-divider"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
+import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from "@/components/ui/pagination"
+import { formatNumber, getMotif } from "@/lib/qatt-utils"
+import { Client } from "./client"
+
+export default function Page() {
+  return (
+    <DirectionProvider direction="rtl">
+      <main dir="rtl" lang="ar" className="bg-qatt-jiss text-qatt-red p-4">
+        <QattDivider />
+        <Badge variant="qatt">b</Badge>
+        <Card variant="painted"><CardContent>{formatNumber(1234)}</CardContent></Card>
+        <Input variant="qatt" aria-label="i" />
+        <Breadcrumb><BreadcrumbList><BreadcrumbItem><BreadcrumbPage>p</BreadcrumbPage></BreadcrumbItem><BreadcrumbSeparator separator="khatmah" /></BreadcrumbList></Breadcrumb>
+        <Pagination variant="qatt"><PaginationContent><PaginationItem><PaginationPrevious href="#" /></PaginationItem><PaginationItem><PaginationNext href="#" /></PaginationItem></PaginationContent></Pagination>
+        <section data-qatt-surface="gypsum">{getMotif("hanash")?.id}</section>
+        <Client />
+      </main>
+    </DirectionProvider>
+  )
+}
+`,
   )
 }
 
@@ -119,7 +175,9 @@ function add(pass: string, specs: string[]) {
     throw new Error(`[${pass}] shadcn add prompted or failed`)
 }
 
-const ITEMS = generateRegistry(REGISTRY_URL).items.map((i) => i.name)
+const ALL = generateRegistry(REGISTRY_URL).items
+const ITEMS = ALL.map((i) => i.name)
+const UI_ITEMS = ALL.filter((i) => i.type === "registry:ui").map((i) => i.name)
 
 async function main() {
   let server: ReturnType<typeof spawn> | undefined

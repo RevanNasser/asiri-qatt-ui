@@ -1,0 +1,48 @@
+---
+title: شارة
+description: وسمٌ صغير يُبرز حالةً أو تصنيفًا بلمحةٍ واحدة.
+---
+
+{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.badge.rtl, docs.badge.a11y, docs.props.badge.* */}
+
+<ComponentPreview name="badge-demo" />
+
+## التثبيت
+
+<InstallCommand item="badge" />
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
+
+## الاستخدام
+
+```tsx
+import { Badge } from "@/components/ui/badge"
+
+<Badge variant="qatt">…</Badge>
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+  {
+    "name": "variant",
+    "type": "\"default\" | \"secondary\" | \"destructive\" | \"outline\" | \"ghost\" | \"link\" | \"qatt\" | \"pigment\"",
+    "default": "\"default\"",
+    "description": <span lang="en" dir="ltr">qatt = yellow paint with charcoal text; pigment uses tone.</span>
+  },
+  {
+    "name": "tone",
+    "type": "\"red\" | \"blue\" | \"ink\" | \"yellow\"",
+    "default": "\"red\"",
+    "description": <span lang="en" dir="ltr">Pigment for variant=pigment. No green: it fails 4.5:1 for small text.</span>
+  },
+  {
+    "name": "render",
+    "type": "ReactElement",
+    "description": <span lang="en" dir="ltr">Render as another element, e.g. a link.</span>
+  }
+]}
+/>

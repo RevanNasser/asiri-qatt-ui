@@ -3,11 +3,17 @@ title: البدء
 description: ثبِّتوا سمة قَطّ وأضيفوا أول مكوّن عربي إلى مشروع shadcn/ui في دقائق.
 ---
 
-{/* Copy: docs/agents/heritage/site-copy.ar.md (docs.gettingStarted.*, seo.gettingStarted.description). Do not edit Arabic here without the Heritage agent. */}
+{/* Copy: docs/agents/heritage/site-copy.ar.md (docs.gettingStarted.* incl. baseNote/overwriteWarning/namespace.*, seo.gettingStarted.description). Do not edit Arabic here without the Heritage agent. */}
 
 حيّاكم. «قَطّ» سجلٌّ متوافق مع shadcn/ui: لا حزمة تُثبَّت ثم تُنسى، بل شيفرةٌ تُضاف إلى مشروعكم فتملكونها. ابدأوا بتثبيت السمة، ثم أضيفوا ما شئتم من المكوّنات والكتل.
 
 المتطلبات: مشروعٌ مهيّأ بـ shadcn/ui وTailwind CSS.
+
+يدعم الإصدار الأول نمط <bdi>base-nova</bdi> المبنيّ على <bdi>Base UI</bdi> فقط. وقد يُضاف دعم <bdi>Radix</bdi> في إصدارٍ لاحق.
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
 
 <Steps>
 <Step>
@@ -16,7 +22,9 @@ description: ثبِّتوا سمة قَطّ وأضيفوا أول مكوّن ع�
 
 <InstallCommand item="qatt-theme" />
 
-{/* TODO(ar-copy): one sentence explaining the `registries` entry needed for the @qatt form. */}
+#### اختياري: إعداد النطاق <bdi dir="ltr">@qatt</bdi>
+
+أضيفوا سجلّ قَطّ إلى <bdi dir="ltr">components.json</bdi> لتكتبوا الأوامر بالاسم المختصر <bdi dir="ltr">@qatt/…</bdi> بدل الرابط الكامل. والروابط الكاملة تعمل في الحالتين.
 
 ```json title="components.json"
 {

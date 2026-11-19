@@ -154,6 +154,12 @@ Extra findings:
 - Fumadocs 16.19: `fumadocs-ui` is now installed as `npm:@fumadocs/base-ui@16.19.4` (a Base UI build, which matches D-002). `fumadocs-mdx@15` uses `defineDocs` from `fumadocs-mdx/macro` (no `source.config.ts` and no `.source/`). `RootProvider` takes `dir` and `i18n`. `createI18nMiddleware` works as Next 16 `proxy.ts`. `create-fumadocs-app` warns that Node ≥ 24.11 is wanted (we run 24.3; no runtime problem seen).
 - Playwright 1.65.1 needs chromium r1255; `playwright install --only-shell chromium` costs ~200 MB.
 
+## 15. Phase 4 findings (track 1)
+- Upstream base-nova sources (`shadcn view <name>`) import `cn` from the npm package `cn` and use placeholder classes (`cn-font-heading`, `cn-rtl-flip`, `cn-menu-target`) and `IconPlaceholder`. The CLI rewrites these per style and icon library. Our sources use `@/lib/utils`, plain `font-heading`, `rtl:rotate-180` and direct `lucide-react` imports.
+- Upstream base-nova still ships physical classes (`pl-*`, `right-2`, `text-left`) and relies on the CLI RTL transform. Ours are logical-only (registry-check enforces this).
+- Base UI `Button` with `nativeButton={false}` sets `role="button"` on `<a>`. Upstream `PaginationLink` therefore exposes links as buttons, so ours renders a plain `<a>`.
+- Base UI `DirectionProvider` cannot tell "no provider" from "ltr". `useDirection` therefore trusts provider `rtl`, else the DOM `dir`.
+
 ## Sources
 - https://ui.shadcn.com/docs/registry/getting-started
 - https://ui.shadcn.com/docs/registry/registry-json

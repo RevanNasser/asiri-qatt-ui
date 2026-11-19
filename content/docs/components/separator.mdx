@@ -1,0 +1,43 @@
+---
+title: فاصل
+description: خطٌّ رفيع يفصل بين العناصر أفقيًا أو عموديًا.
+---
+
+{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.separator.rtl, docs.separator.a11y, docs.props.separator.* */}
+
+<ComponentPreview name="separator-demo" />
+
+## التثبيت
+
+<InstallCommand item="separator" />
+
+<Callout type="warn">
+تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت.
+</Callout>
+
+## الاستخدام
+
+```tsx
+import { Separator } from "@/components/ui/separator"
+
+<Separator variant="qatt" />
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+  {
+    "name": "variant",
+    "type": "\"default\" | \"qatt\"",
+    "default": "\"default\"",
+    "description": <span lang="en" dir="ltr">qatt = three thin parallel rules (al-mathalith).</span>
+  },
+  {
+    "name": "orientation",
+    "type": "\"horizontal\" | \"vertical\"",
+    "default": "\"horizontal\"",
+    "description": <span lang="en" dir="ltr">Direction of the rule.</span>
+  }
+]}
+/>

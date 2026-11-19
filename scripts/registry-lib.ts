@@ -24,7 +24,25 @@ export function parseThemeCss(css: string): { light: Record<string, string>; dar
   return { light: block(":root"), dark: block(".dark") }
 }
 
-type Item = { name: string; type: string; cssVars?: Record<string, unknown>; [k: string]: unknown }
+/** Parse extra scoped rules (e.g. `[data-qatt-surface="gypsum"] { ... }`) into shadcn `css` (@layer base). */
+export function parseThemeScopes(css: string): Record<string, Record<string, string>> {
+  const stripped = css.replace(/\/\*[\s\S]*?\*\//g, "")
+  const scopes: Record<string, Record<string, string>> = {}
+  for (const m of stripped.matchAll(/(^|\n)(\[[^\]]+\])\s*\{([^}]*)\}/g)) {
+    const decls: Record<string, string> = {}
+    for (const d of m[3]!.matchAll(/([\w-]+)\s*:\s*([^;]+);/g)) decls[d[1]!] = d[2]!.trim()
+    scopes[m[2]!] = decls
+  }
+  return scopes
+}
+
+type Item = {
+  name: string
+  type: string
+  cssVars?: Record<string, unknown>
+  css?: Record<string, unknown>
+  [k: string]: unknown
+}
 export type Registry = { name: string; homepage: string; items: Item[]; [k: string]: unknown }
 
 export function generateRegistry(registryUrl = resolveRegistryUrl()): Registry {
@@ -32,6 +50,12 @@ export function generateRegistry(registryUrl = resolveRegistryUrl()): Registry {
   const registry = JSON.parse(template.split(URL_PLACEHOLDER).join(registryUrl)) as Registry
   const theme = registry.items.find((i) => i.name === "qatt-theme")
   if (!theme) throw new Error("registry.json: qatt-theme item missing")
-  theme.cssVars = { ...theme.cssVars, ...parseThemeCss(fs.readFileSync(THEME_CSS, "utf8")) }
+  const themeCss = fs.readFileSync(THEME_CSS, "utf8")
+  theme.cssVars = { ...theme.cssVars, ...parseThemeCss(themeCss) }
+  const scopes = parseThemeScopes(themeCss)
+  if (Object.keys(scopes).length) {
+    const css = (theme.css ?? {}) as Record<string, Record<string, unknown>>
+    theme.css = { ...css, "@layer base": { ...css["@layer base"], ...scopes } }
+  }
   return registry
 }

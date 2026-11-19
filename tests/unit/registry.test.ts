@@ -8,7 +8,11 @@ describe("registry generation", () => {
   it("injects REGISTRY_URL into intra-registry dependencies (D-003)", () => {
     const reg = generateRegistry("https://example.test")
     const theme = reg.items.find((i) => i.name === "qatt-theme")!
-    expect(theme.registryDependencies).toEqual(["https://example.test/r/qatt-font.json"])
+    expect(theme.registryDependencies).toEqual([
+      "https://example.test/r/qatt-font.json",
+      "https://example.test/r/qatt-font-heading.json",
+      "https://example.test/r/qatt-font-mono.json",
+    ])
     expect(JSON.stringify(reg)).not.toContain("{{REGISTRY_URL}}")
   })
 
