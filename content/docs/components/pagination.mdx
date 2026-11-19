@@ -3,7 +3,7 @@ title: ترقيم الصفحات
 description: تنقّلٌ بين صفحات المحتوى الطويل.
 ---
 
-{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.pagination.rtl, docs.pagination.a11y, docs.props.pagination.* */}
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
 
 <ComponentPreview name="pagination-demo" />
 
@@ -37,19 +37,27 @@ import { Pagination } from "@/components/ui/pagination"
     "name": "variant",
     "type": "\"default\" | \"qatt\"",
     "default": "\"default\"",
-    "description": <span lang="en" dir="ltr">qatt paints the active page red.</span>
+    "description": <span>النمط <code dir="ltr">qatt</code> يطلي الصفحة النشطة بالأحمر.</span>
   },
   {
     "name": "PaginationPrevious / PaginationNext text",
     "type": "string",
     "default": "\"السابق\" / \"التالي\"",
-    "description": <span lang="en" dir="ltr">Visible on sm+, screen-reader only below.</span>
+    "description": <span>ظاهرٌ من المقاس <code dir="ltr">sm</code> فما فوق، ولقارئ الشاشة وحده فيما دونه.</span>
   },
   {
     "name": "PaginationLink isActive",
     "type": "boolean",
     "default": "false",
-    "description": <span lang="en" dir="ltr">Sets aria-current=page.</span>
+    "description": <span>يضع <code dir="ltr">aria-current="page"</code> على الرابط.</span>
   }
 ]}
 />
+
+## ملاحظات الاتجاه
+
+يقع زرّ «السابق» في جهة بداية السطر، أي يمينًا في العربية، وسهمه يشير إلى اليمين. والأرقام غربيةٌ بعرضٍ ثابت.
+
+## سهولة الوصول
+
+يحمل عنصر `nav` الاسم «ترقيم الصفحات»، وتحمل الصفحة النشطة `aria-current="page"`، وتحمل الأزرار ذات الأيقونة وحدها `aria-label`.

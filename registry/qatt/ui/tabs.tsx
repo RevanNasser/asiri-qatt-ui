@@ -62,7 +62,7 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
         "data-active:text-foreground group-data-[variant=default]/tabs-list:data-active:bg-background dark:group-data-[variant=default]/tabs-list:data-active:border-input dark:group-data-[variant=default]/tabs-list:data-active:bg-input/30",
         "after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-end-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
         // qatt: painted diamond indicator, centred under the active label (symmetric, no RTL handling needed)
-        "group-data-[variant=qatt]/tabs-list:text-muted-foreground group-data-[variant=qatt]/tabs-list:data-active:font-semibold group-data-[variant=qatt]/tabs-list:data-active:text-foreground",
+        "group-data-[variant=qatt]/tabs-list:text-muted-foreground group-data-[variant=qatt]/tabs-list:data-active:text-foreground",
         "before:pointer-events-none before:absolute before:start-1/2 before:size-2 before:rotate-45 before:bg-primary before:opacity-0 before:transition-opacity group-data-horizontal/tabs:before:-bottom-2 group-data-horizontal/tabs:before:-ms-1 group-data-vertical/tabs:before:hidden group-data-[variant=qatt]/tabs-list:data-active:before:opacity-100",
         className,
       )}

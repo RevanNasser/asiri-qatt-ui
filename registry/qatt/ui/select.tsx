@@ -39,7 +39,7 @@ function SelectTrigger({
       data-variant={variant}
       className={cn(
         "flex w-fit items-center justify-between gap-1.5 rounded-md border border-input bg-transparent py-2 ps-3 pe-2 text-sm whitespace-nowrap transition-colors outline-none select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:outline-destructive data-placeholder:text-muted-foreground data-[size=default]:h-9 data-[size=sm]:h-8 data-[size=sm]:rounded-[min(var(--radius-md),10px)] *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-1.5 dark:bg-input/30 dark:hover:bg-input/50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-        "data-[variant=qatt]:rounded-b-none data-[variant=qatt]:border-0 data-[variant=qatt]:border-b-2 data-[variant=qatt]:bg-card",
+        "data-[variant=qatt]:rounded-b-none data-[variant=qatt]:border-0 data-[variant=qatt]:border-b-2 data-[variant=qatt]:bg-card dark:data-[variant=qatt]:bg-card",
         className,
       )}
       {...props}

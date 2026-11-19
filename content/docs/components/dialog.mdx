@@ -3,7 +3,7 @@ title: نافذة حوار
 description: نافذةٌ تعلو الصفحة لتأكيد إجراءٍ أو إدخال بيانات.
 ---
 
-{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.dialog.rtl, docs.dialog.a11y, docs.props.dialog.* */}
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
 
 <ComponentPreview name="dialog-demo" />
 
@@ -38,19 +38,27 @@ import { Dialog } from "@/components/ui/dialog"
     "name": "DialogContent variant",
     "type": "\"default\" | \"qatt\"",
     "default": "\"default\"",
-    "description": <span lang="en" dir="ltr">qatt adds a 2px ink border.</span>
+    "description": <span>النمط <code dir="ltr">qatt</code> يضيف حدًّا بلون الحبر بسماكة 2px.</span>
   },
   {
     "name": "showCloseButton",
     "type": "boolean",
     "default": "true",
-    "description": <span lang="en" dir="ltr">Close button at inline-end.</span>
+    "description": <span>زرّ إغلاقٍ في جهة نهاية السطر، أي يسارًا في العربية.</span>
   },
   {
     "name": "closeLabel",
     "type": "string",
     "default": "\"إغلاق\"",
-    "description": <span lang="en" dir="ltr">Accessible name of the close button.</span>
+    "description": <span>الاسم الذي تقرؤه التقنيات المساعدة لزرّ الإغلاق.</span>
   }
 ]}
 />
+
+## ملاحظات الاتجاه
+
+زرّ الإغلاق في جهة نهاية السطر. ويحافظ التذييل على ترتيب shadcn، الإلغاء ثم التأكيد، مع محاذاةٍ إلى النهاية، فيقع زرّ التأكيد يسارًا في العربية عند منتهى مسار القراءة.
+
+## سهولة الوصول
+
+العنوان `DialogTitle` مطلوب. ويذهب التركيز أولًا إلى أوّل حقل، أو إلى الإجراء الآمن حين يكون التأكيد لإجراءٍ يتعذّر التراجع عنه.

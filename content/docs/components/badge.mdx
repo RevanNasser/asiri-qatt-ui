@@ -3,7 +3,7 @@ title: شارة
 description: وسمٌ صغير يُبرز حالةً أو تصنيفًا بلمحةٍ واحدة.
 ---
 
-{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.badge.rtl, docs.badge.a11y, docs.props.badge.* */}
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
 
 <ComponentPreview name="badge-demo" />
 
@@ -31,18 +31,26 @@ import { Badge } from "@/components/ui/badge"
     "name": "variant",
     "type": "\"default\" | \"secondary\" | \"destructive\" | \"outline\" | \"ghost\" | \"link\" | \"qatt\" | \"pigment\"",
     "default": "\"default\"",
-    "description": <span lang="en" dir="ltr">qatt = yellow paint with charcoal text; pigment uses tone.</span>
+    "description": <span>النمط <code dir="ltr">qatt</code> طلاءٌ أصفر بنصٍّ فحمي، والنمط <code dir="ltr">pigment</code> يأخذ لونه من <code dir="ltr">tone</code>.</span>
   },
   {
     "name": "tone",
     "type": "\"red\" | \"blue\" | \"ink\" | \"yellow\"",
     "default": "\"red\"",
-    "description": <span lang="en" dir="ltr">Pigment for variant=pigment. No green: it fails 4.5:1 for small text.</span>
+    "description": <span>لون الصبغة للنمط <code dir="ltr">pigment</code>. وليس فيه أخضر، لأنه لا يبلغ نسبة التباين 4.5:1 في النص الصغير.</span>
   },
   {
     "name": "render",
     "type": "ReactElement",
-    "description": <span lang="en" dir="ltr">Render as another element, e.g. a link.</span>
+    "description": <span>يعرض الشارة بعنصرٍ آخر، كرابطٍ مثلًا.</span>
   }
 ]}
 />
+
+## ملاحظات الاتجاه
+
+تقع الزخرفة في جهة بداية السطر، أي يمينًا في العربية.
+
+## سهولة الوصول
+
+الزخرفة مخفيّةٌ عن التقنيات المساعدة. ولا تعتمدوا على اللون وحده للدلالة على الحالة، بل أضيفوا نصًّا.

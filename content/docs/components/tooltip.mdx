@@ -3,7 +3,7 @@ title: تلميح
 description: نصٌّ موجز يظهر عند المرور أو التركيز ليوضّح ما خفي.
 ---
 
-{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.tooltip.rtl, docs.tooltip.a11y, docs.props.tooltip.* */}
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
 
 <ComponentPreview name="tooltip-demo" />
 
@@ -36,13 +36,21 @@ import { Tooltip } from "@/components/ui/tooltip"
     "name": "TooltipContent side",
     "type": "\"top\" | \"bottom\" | \"inline-start\" | \"inline-end\" | \"left\" | \"right\"",
     "default": "\"top\"",
-    "description": <span lang="en" dir="ltr">Prefer inline-start / inline-end for direction-aware placement.</span>
+    "description": <span>قدِّموا <code dir="ltr">inline-start</code> و<code dir="ltr">inline-end</code> ليتبع موضع التلميح اتجاه الصفحة.</span>
   },
   {
     "name": "TooltipProvider delay",
     "type": "number",
     "default": "300",
-    "description": <span lang="en" dir="ltr">Open delay in ms.</span>
+    "description": <span>مهلة الظهور بالميلي ثانية.</span>
   }
 ]}
 />
+
+## ملاحظات الاتجاه
+
+تتحوّل القيمتان `inline-start` و`inline-end` إلى يمينٍ أو يسار بحسب اتجاه الصفحة.
+
+## سهولة الوصول
+
+التلميح للمعلومات التكميلية وحدها، فلا تضعوا فيه ما لا غنى عنه. ويجب أن يقبل العنصرُ المُشغِّل التركيزَ من لوحة المفاتيح، ومهلة الظهور 300 ميلي ثانية.

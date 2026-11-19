@@ -3,7 +3,7 @@ title: إشعار منبثق
 description: تنبيهٌ قصير يظهر برفق ثم يمضي، ليُخبرك بما تمّ.
 ---
 
-{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.sonner.rtl, docs.sonner.a11y, docs.props.sonner.* */}
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
 
 <ComponentPreview name="sonner-demo" />
 
@@ -33,13 +33,21 @@ toast.success("…")
     "name": "position",
     "type": "ToasterProps[\"position\"]",
     "default": "bottom-left (RTL) / bottom-right (LTR)",
-    "description": <span lang="en" dir="ltr">Defaults to the bottom inline-end corner.</span>
+    "description": <span>يظهر افتراضيًا في الركن السفلي من جهة نهاية السطر.</span>
   },
   {
     "name": "dir",
     "type": "\"ltr\" | \"rtl\" | \"auto\"",
     "default": "from useDirection()",
-    "description": <span lang="en" dir="ltr">Passed to sonner.</span>
+    "description": <span>يُمرَّر إلى sonner كما هو.</span>
   }
 ]}
 />
+
+## ملاحظات الاتجاه
+
+يظهر الإشعار في الركن السفلي الأيسر في العربية، والأيمن في الإنجليزية، ويُمرَّر `dir` إلى `Toaster`. والسحب للإغلاق يكون نحو جهة نهاية السطر.
+
+## سهولة الوصول
+
+يُعلَن الإشعار عبر منطقةٍ حيّة (live region)، ويُعرف نوعه بالأيقونة والنص معًا، لا بلون الشريط وحده.

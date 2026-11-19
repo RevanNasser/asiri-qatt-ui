@@ -3,7 +3,7 @@ title: حقل إدخال
 description: حقلٌ نصّي واضح يدعم الكتابة من اليمين إلى اليسار.
 ---
 
-{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.input.rtl, docs.input.a11y, docs.props.input.* */}
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
 
 <ComponentPreview name="input-demo" />
 
@@ -32,12 +32,20 @@ import { Input } from "@/components/ui/input"
     "name": "variant",
     "type": "\"default\" | \"qatt\"",
     "default": "\"default\"",
-    "description": <span lang="en" dir="ltr">qatt = ruled line (2px bottom border, card fill).</span>
+    "description": <span>النمط <code dir="ltr">qatt</code> يجعل الحقل سطرًا كسطور الدفتر: حدٌّ سفليّ بسماكة 2px وخلفيةٌ بلون البطاقة.</span>
   },
   {
     "name": "dir",
     "type": "\"ltr\" | \"rtl\" | \"auto\"",
-    "description": <span lang="en" dir="ltr">Inherited. Use ltr for email/URL/password, auto for free text.</span>
+    "description": <span>موروثٌ من الصفحة. استعملوا <code dir="ltr">ltr</code> للبريد الإلكتروني والروابط وكلمات المرور، و<code dir="ltr">auto</code> للنص الحرّ.</span>
   }
 ]}
 />
+
+## ملاحظات الاتجاه
+
+الاتجاه موروثٌ من الصفحة. اجعلوا `dir="ltr"` لحقول البريد الإلكتروني والروابط وكلمات المرور، ومحاذاة النص الإرشادي منطقية.
+
+## سهولة الوصول
+
+ضعوا تسميةً ظاهرةً دائمًا، ولا تكتفوا بالنص الإرشادي. ولحالة الخطأ استعملوا `aria-invalid` مع نصّ خطأٍ مربوطٍ عبر `aria-describedby`.

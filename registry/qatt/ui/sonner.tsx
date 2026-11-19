@@ -39,7 +39,15 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }
       toastOptions={{
         classNames: {
-          toast: "font-sans shadow-[var(--shadow-painted)]!",
+          // D-011: Sonner's own focus rings (rgba black) fail 3:1 and our painted shadow overrides them.
+          toast:
+            "font-sans shadow-[var(--shadow-painted)]! focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+          actionButton:
+            "focus-visible:shadow-none! focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+          cancelButton:
+            "focus-visible:shadow-none! focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+          closeButton:
+            "focus-visible:shadow-none! focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
         },
       }}
       {...props}

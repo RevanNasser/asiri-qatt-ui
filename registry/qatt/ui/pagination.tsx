@@ -87,18 +87,16 @@ function PaginationNext({
 
 function PaginationEllipsis({
   className,
-  label = "More pages",
+  label = "صفحاتٌ أخرى",
   ...props
 }: React.ComponentProps<"span"> & { label?: string }) {
   return (
     <span
-      aria-hidden
       data-slot="pagination-ellipsis"
       className={cn("flex size-9 items-center justify-center [&_svg:not([class*='size-'])]:size-4", className)}
       {...props}
     >
-      <MoreHorizontalIcon />
-      {/* TODO(ar-copy): Arabic default for this label (key: docs.pagination.more). */}
+      <MoreHorizontalIcon aria-hidden="true" />
       <span className="sr-only">{label}</span>
     </span>
   )

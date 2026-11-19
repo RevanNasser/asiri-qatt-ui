@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
  * `qatt`, `qatt-outline` and `painted` (+ `tone`) variants. Solid 2px Nila-blue focus outline (D-011).
  */
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:outline-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:outline-destructive motion-reduce:transition-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
@@ -33,7 +33,6 @@ const buttonVariants = cva(
         blue: "",
         ink: "",
         yellow: "",
-        green: "",
       },
       size: {
         default: "h-9 gap-1.5 px-3 has-data-[icon=inline-end]:pe-2.5 has-data-[icon=inline-start]:ps-2.5",
@@ -48,29 +47,28 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
-      // Text colours per design-tokens §4: gypsum on red/blue/ink/green, charcoal on yellow (light);
+      // Text colours per design-tokens §4: gypsum on red/blue/ink, charcoal on yellow (light);
       // in dark the pigments are lifted, so labels switch to the dark page colour (4.8:1+).
+      // Hover mixes toward ink, never alpha (D-026): alpha over the dark page drops labels below 4.5:1.
+      // No green tone (D-026): gypsum on green is 4.25:1 at 14px.
       {
         variant: "painted",
         tone: "red",
-        class: "bg-qatt-red text-qatt-white hover:bg-qatt-red/90 dark:text-background",
+        class:
+          "bg-qatt-red text-qatt-white hover:bg-[color-mix(in_oklch,var(--qatt-red),var(--qatt-ink)_10%)] dark:text-background",
       },
       {
         variant: "painted",
         tone: "blue",
-        class: "bg-qatt-blue text-qatt-white hover:bg-qatt-blue/90 dark:text-background",
+        class:
+          "bg-qatt-blue text-qatt-white hover:bg-[color-mix(in_oklch,var(--qatt-blue),var(--qatt-ink)_10%)] dark:text-background",
       },
       { variant: "painted", tone: "ink", class: "bg-qatt-black text-qatt-white hover:bg-qatt-black/90" },
       {
         variant: "painted",
         tone: "yellow",
-        class: "bg-qatt-yellow text-qatt-black hover:bg-qatt-yellow/90 dark:text-background",
-      },
-      // Green passes only as large/bold text (4.25:1): force bold.
-      {
-        variant: "painted",
-        tone: "green",
-        class: "bg-qatt-green font-bold text-qatt-white hover:bg-qatt-green/90 dark:text-background",
+        class:
+          "bg-qatt-yellow text-qatt-black hover:bg-[color-mix(in_oklch,var(--qatt-yellow),var(--qatt-ink)_10%)] dark:text-background",
       },
     ],
     defaultVariants: {

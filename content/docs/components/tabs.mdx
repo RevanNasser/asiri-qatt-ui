@@ -3,7 +3,7 @@ title: تبويبات
 description: تنقّلٌ بين أقسامٍ متجاورة دون مغادرة الصفحة.
 ---
 
-{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.tabs.rtl, docs.tabs.a11y, docs.props.tabs.* */}
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
 
 <ComponentPreview name="tabs-demo" />
 
@@ -36,12 +36,20 @@ import { Tabs } from "@/components/ui/tabs"
     "name": "TabsList variant",
     "type": "\"default\" | \"line\" | \"qatt\"",
     "default": "\"default\"",
-    "description": <span lang="en" dir="ltr">qatt marks the active tab with a painted diamond.</span>
+    "description": <span>النمط <code dir="ltr">qatt</code> يعلّم التبويب النشط بمعيّنٍ مرسوم.</span>
   },
   {
     "name": "defaultValue / value",
     "type": "any",
-    "description": <span lang="en" dir="ltr">Base UI Tabs value (arrow keys follow the DirectionProvider).</span>
+    "description": <span>قيمة Tabs في Base UI، وأسهم لوحة المفاتيح تتبع اتجاه <code dir="ltr">DirectionProvider</code>.</span>
   }
 ]}
 />
+
+## ملاحظات الاتجاه
+
+يتولّى Base UI أسهم لوحة المفاتيح بحسب الاتجاه، فالسهم الأيمن ينقل إلى التبويب السابق في العربية. ومؤشّر التبويب النشط يُحسب من بداية السطر.
+
+## سهولة الوصول
+
+يتنقّل التركيز بين التبويبات بالأسهم (roving tabindex)، وإطار التركيز يُرسم داخل القائمة كي لا يُقصّ.

@@ -18,6 +18,9 @@ function readDir(el: Element | null | undefined): Direction | null {
  * 2. otherwise the closest `[dir]` of `ref` (if given), then `<html dir>`;
  * 3. otherwise the provider value (Base UI defaults to `ltr`).
  *
+ * Limitation: Base UI cannot tell an explicit `<DirectionProvider direction="ltr">` from "no provider",
+ * so an LTR island inside an RTL document resolves `rtl` unless you pass a `ref` inside a `dir="ltr"` element.
+ *
  * Never reads `document` during render (SSR-safe: the first render returns the provider value),
  * and follows live changes of `dir` on `<html>` (e.g. the docs RTL/LTR toggle).
  */

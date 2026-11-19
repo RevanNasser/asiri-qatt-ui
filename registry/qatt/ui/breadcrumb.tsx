@@ -89,19 +89,16 @@ function BreadcrumbSeparator({
 
 function BreadcrumbEllipsis({
   className,
-  label = "More",
+  label = "المزيد",
   ...props
 }: React.ComponentProps<"span"> & { label?: string }) {
   return (
     <span
       data-slot="breadcrumb-ellipsis"
-      role="presentation"
-      aria-hidden="true"
       className={cn("flex size-5 items-center justify-center [&>svg]:size-4", className)}
       {...props}
     >
-      <MoreHorizontalIcon />
-      {/* TODO(ar-copy): Arabic default for this label (key: docs.breadcrumb.more). */}
+      <MoreHorizontalIcon aria-hidden="true" />
       <span className="sr-only">{label}</span>
     </span>
   )

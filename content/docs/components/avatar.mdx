@@ -3,7 +3,7 @@ title: صورة رمزية
 description: صورة المستخدم أو أحرفه الأولى في دائرةٍ أنيقة.
 ---
 
-{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.avatar.rtl, docs.avatar.a11y, docs.props.avatar.* */}
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
 
 <ComponentPreview name="avatar-demo" />
 
@@ -34,18 +34,26 @@ import { Avatar } from "@/components/ui/avatar"
     "name": "Avatar ring",
     "type": "boolean",
     "default": "false",
-    "description": <span lang="en" dir="ltr">2px primary ring with a 2px gap.</span>
+    "description": <span>حلقةٌ بلون <code dir="ltr">primary</code> بسماكة 2px، تفصلها عن الصورة فجوةٌ بالقدر نفسه.</span>
   },
   {
     "name": "Avatar size",
     "type": "\"default\" | \"sm\" | \"lg\"",
     "default": "\"default\"",
-    "description": <span lang="en" dir="ltr">Size.</span>
+    "description": <span>الحجم.</span>
   },
   {
     "name": "AvatarFallback tone",
     "type": "\"red\" | \"blue\" | \"ink\" | \"yellow\" | \"orange\"",
-    "description": <span lang="en" dir="ltr">Pigment fill with a contrast-safe text colour.</span>
+    "description": <span>لون الصبغة خلف الأحرف الأولى، مع لون نصٍّ يضمن التباين.</span>
   }
 ]}
 />
+
+## ملاحظات الاتجاه
+
+عند تراكب الصور الرمزية استعملوا الهامش المنطقي `-ms-2` بدل `-space-x-2`.
+
+## سهولة الوصول
+
+أعطوا `AvatarImage` نصًّا بديلًا في `alt`. وتباين الأحرف الأولى مضبوطٌ لكلّ صبغة، فالأصفر والبرتقالي بنصٍّ فحمي.

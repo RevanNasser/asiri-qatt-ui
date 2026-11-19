@@ -3,7 +3,7 @@ title: لوحة جانبية
 description: لوحةٌ تنزلق من طرف الشاشة وتحترم اتجاه القراءة.
 ---
 
-{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.sheet.rtl, docs.sheet.a11y, docs.props.sheet.* */}
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
 
 <ComponentPreview name="sheet-demo" />
 
@@ -34,19 +34,27 @@ import { Sheet } from "@/components/ui/sheet"
     "name": "SheetContent side",
     "type": "\"start\" | \"end\" | \"top\" | \"right\" | \"bottom\" | \"left\"",
     "default": "\"right\"",
-    "description": <span lang="en" dir="ltr">start/end are logical: start opens from the right in RTL. Prefer them.</span>
+    "description": <span>القيمتان <code dir="ltr">start</code> و<code dir="ltr">end</code> منطقيتان تتبعان اتجاه الصفحة، فالقيمة <code dir="ltr">start</code> تفتح اللوحة من اليمين في العربية. قدِّموهما على غيرهما.</span>
   },
   {
     "name": "showCloseButton",
     "type": "boolean",
     "default": "true",
-    "description": <span lang="en" dir="ltr">Close button at inline-end.</span>
+    "description": <span>زرّ إغلاقٍ في جهة نهاية السطر، أي يسارًا في العربية.</span>
   },
   {
     "name": "closeLabel",
     "type": "string",
     "default": "\"إغلاق\"",
-    "description": <span lang="en" dir="ltr">Accessible name of the close button.</span>
+    "description": <span>الاسم الذي تقرؤه التقنيات المساعدة لزرّ الإغلاق.</span>
   }
 ]}
 />
+
+## ملاحظات الاتجاه
+
+تتحوّل الجهتان `start` و`end` إلى جهةٍ فعلية بحسب اتجاه الصفحة عبر `useDirection()`، وتتبعها حركة الانزلاق.
+
+## سهولة الوصول
+
+كما في نافذة الحوار: العنوان مطلوب، والتركيز يبقى داخل اللوحة حتى تُغلق.

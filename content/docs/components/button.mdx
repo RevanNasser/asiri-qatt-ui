@@ -3,7 +3,7 @@ title: زر
 description: زرٌّ بأحجامٍ وأنماطٍ متعدّدة، يستجيب للمسة واللوحة والفأرة.
 ---
 
-{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.button.rtl, docs.button.a11y, docs.props.button.* */}
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
 
 <ComponentPreview name="button-demo" />
 
@@ -32,24 +32,32 @@ import { Button } from "@/components/ui/button"
     "name": "variant",
     "type": "\"default\" | \"outline\" | \"secondary\" | \"ghost\" | \"destructive\" | \"link\" | \"qatt\" | \"qatt-outline\" | \"painted\"",
     "default": "\"default\"",
-    "description": <span lang="en" dir="ltr">Visual style. qatt / qatt-outline / painted are Qatt additions.</span>
+    "description": <span>المظهر البصري للزر. والأنماط <code dir="ltr">qatt</code> و<code dir="ltr">qatt-outline</code> و<code dir="ltr">painted</code> إضافاتٌ من قَطّ.</span>
   },
   {
     "name": "tone",
-    "type": "\"red\" | \"blue\" | \"ink\" | \"yellow\" | \"green\"",
+    "type": "\"red\" | \"blue\" | \"ink\" | \"yellow\"",
     "default": "\"red\"",
-    "description": <span lang="en" dir="ltr">Pigment for variant=painted only. Green forces bold text.</span>
+    "description": <span>لون الصبغة، ويسري على النمط <code dir="ltr">painted</code> وحده.</span>
   },
   {
     "name": "size",
     "type": "\"default\" | \"xs\" | \"sm\" | \"lg\" | \"icon\" | \"icon-xs\" | \"icon-sm\" | \"icon-lg\"",
     "default": "\"default\"",
-    "description": <span lang="en" dir="ltr">Height: default h-9, sm h-8, lg h-10.</span>
+    "description": <span>ارتفاع الزر: <code dir="ltr">default</code> بارتفاع <code dir="ltr">h-9</code>، و<code dir="ltr">sm</code> بارتفاع <code dir="ltr">h-8</code>، و<code dir="ltr">lg</code> بارتفاع <code dir="ltr">h-10</code>.</span>
   },
   {
     "name": "render",
     "type": "ReactElement",
-    "description": <span lang="en" dir="ltr">Base UI composition (instead of asChild).</span>
+    "description": <span>تركيب العناصر على طريقة Base UI، بديلًا من <code dir="ltr">asChild</code>.</span>
   }
 ]}
 />
+
+## ملاحظات الاتجاه
+
+حدِّدوا موضع الأيقونة عبر `data-icon` بالقيمة `inline-start` أو `inline-end`، وأيقونات الأسهم تنقلب تلقائيًا من اليمين إلى اليسار.
+
+## سهولة الوصول
+
+إطار التركيز صلبٌ ظاهر، وحالة التحميل تُعلَن عبر `aria-busy` مع مؤشّرٍ دوّار، وأدنى مساحةٍ للّمس 24px.

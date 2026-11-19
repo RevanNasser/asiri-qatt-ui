@@ -39,7 +39,7 @@ function AccordionTrigger({ className, children, ...props }: AccordionPrimitive.
         data-slot="accordion-trigger"
         className={cn(
           "group/accordion-trigger relative flex flex-1 items-start justify-between gap-4 rounded-md border border-transparent py-3 text-start text-sm font-medium transition-all outline-none hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring aria-disabled:pointer-events-none aria-disabled:opacity-50",
-          "group-data-[variant=qatt]/accordion:aria-expanded:rounded-b-none group-data-[variant=qatt]/accordion:aria-expanded:border-b-2 group-data-[variant=qatt]/accordion:aria-expanded:border-b-qatt-ink",
+          "group-data-[variant=qatt]/accordion:rounded-b-none group-data-[variant=qatt]/accordion:border-b-2 group-data-[variant=qatt]/accordion:border-b-transparent group-data-[variant=qatt]/accordion:aria-expanded:border-b-qatt-ink",
           className,
         )}
         {...props}

@@ -9,17 +9,19 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Avatar, AvatarFallback } from "@/registry/qatt/ui/avatar"
 import { Badge } from "@/registry/qatt/ui/badge"
 import {
+  BreadcrumbEllipsis,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/registry/qatt/ui/breadcrumb"
-import { Button } from "@/registry/qatt/ui/button"
+import { Button, buttonVariants } from "@/registry/qatt/ui/button"
 import { Card } from "@/registry/qatt/ui/card"
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/registry/qatt/ui/dialog"
 import { Input } from "@/registry/qatt/ui/input"
 import {
+  PaginationEllipsis,
   Pagination,
   PaginationContent,
   PaginationItem,
@@ -123,7 +125,7 @@ describe("dialog", () => {
       </Dialog>,
     )
     const dialog = await screen.findByRole("dialog")
-    expect(within(dialog).getByRole("button", { name: "إغلاق" })).toHaveClass("end-2")
+    expect(within(dialog).getByRole("button", { name: "إغلاق" })).toHaveClass("end-3")
     expect(await axe(document.body)).toHaveNoViolations()
   })
 })
@@ -253,5 +255,54 @@ describe("avatar", () => {
     )
     expect(screen.getByTestId("av")).toHaveAttribute("data-ring", "true")
     expect(screen.getByText("ق")).toHaveClass("bg-qatt-yellow", "text-qatt-black")
+  })
+})
+
+describe("phase 4 track 1 review fixes", () => {
+  it("F1/F2: painted hover mixes toward ink and there is no green tone", () => {
+    const red = buttonVariants({ variant: "painted", tone: "red" })
+    expect(red).toContain("hover:bg-[color-mix(in_oklch,var(--qatt-red),var(--qatt-ink)_10%)]")
+    expect(red).not.toMatch(/qatt-red\/90/)
+    expect(buttonVariants({ variant: "painted" })).not.toMatch(/qatt-green/)
+  })
+
+  it("F3: toasts keep the D-011 focus outline", async () => {
+    inDir("rtl", <Toaster />)
+    act(() => {
+      toast("تم النسخ", { action: { label: "نسخ", onClick: () => {} } })
+    })
+    await screen.findByText("تم النسخ")
+    const toastEl = document.querySelector("[data-sonner-toast]")!
+    for (const cls of FOCUS) expect(toastEl).toHaveClass(cls)
+    expect(screen.getByRole("button", { name: "نسخ" })).toHaveClass(...FOCUS)
+  })
+
+  it("F4: the tooltip arrow is styled for physical sides", async () => {
+    inDir(
+      "ltr",
+      <TooltipProvider>
+        <Tooltip open>
+          <TooltipTrigger render={<Button />}>نسخ</TooltipTrigger>
+          <TooltipContent side="left">انسخ الشيفرة</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>,
+    )
+    await screen.findByText("انسخ الشيفرة")
+    const arrow = document.querySelector('[data-side="left"][class*="rotate-45"]')
+    expect(arrow?.getAttribute("class")).toContain("data-[side=left]:[right:-4px]")
+  })
+
+  it("ellipsis labels reach assistive technology", () => {
+    render(
+      <>
+        <BreadcrumbEllipsis />
+        <PaginationEllipsis />
+      </>,
+    )
+    // getByText ignores aria-hidden subtrees only via role queries; assert no hidden ancestor instead
+    for (const label of ["المزيد", "صفحاتٌ أخرى"]) {
+      const el = screen.getByText(label)
+      expect(el.closest('[aria-hidden="true"]')).toBeNull()
+    }
   })
 })

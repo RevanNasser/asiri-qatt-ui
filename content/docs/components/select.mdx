@@ -3,7 +3,7 @@ title: قائمة اختيار
 description: قائمةٌ منسدلة لاختيار قيمةٍ من بين خيارات.
 ---
 
-{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.select.rtl, docs.select.a11y, docs.props.select.* */}
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
 
 <ComponentPreview name="select-demo" />
 
@@ -36,13 +36,21 @@ import { Select } from "@/components/ui/select"
     "name": "SelectTrigger variant",
     "type": "\"default\" | \"qatt\"",
     "default": "\"default\"",
-    "description": <span lang="en" dir="ltr">qatt = ruled line like Input.</span>
+    "description": <span>النمط <code dir="ltr">qatt</code> سطرٌ كسطور الدفتر، كما في حقل الإدخال.</span>
   },
   {
     "name": "SelectTrigger size",
     "type": "\"default\" | \"sm\"",
     "default": "\"default\"",
-    "description": <span lang="en" dir="ltr">Height h-9 / h-8.</span>
+    "description": <span>الارتفاع: <code dir="ltr">h-9</code> أو <code dir="ltr">h-8</code>.</span>
   }
 ]}
 />
+
+## ملاحظات الاتجاه
+
+تنفتح القائمة محاذيةً لبداية الحقل، وتظهر علامة الاختيار في جهة بداية السطر.
+
+## سهولة الوصول
+
+يدعم Base UI القفز إلى الخيار بكتابة أوّل حروفه، ومنها الحروف العربية.

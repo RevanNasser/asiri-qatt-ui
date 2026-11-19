@@ -3,7 +3,7 @@ title: مسار التنقّل
 description: يُريك موضعك في الموقع ويعيدك إلى ما سبق بخطوة.
 ---
 
-{/* Copy: ar-glossary.md (title, description) and site-copy.ar.md only. TODO(ar-copy): docs.breadcrumb.rtl, docs.breadcrumb.a11y, docs.props.breadcrumb.* */}
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
 
 <ComponentPreview name="breadcrumb-demo" />
 
@@ -41,13 +41,21 @@ import { Breadcrumb } from "@/components/ui/breadcrumb"
     "name": "BreadcrumbSeparator separator",
     "type": "\"chevron\" | \"slash\" | \"khatmah\"",
     "default": "\"chevron\"",
-    "description": <span lang="en" dir="ltr">Chevron flips in RTL; khatmah is a small diamond; avoid slash in Arabic.</span>
+    "description": <span>ينقلب السهم في العربية، و<code dir="ltr">khatmah</code> معيّنٌ صغير. وتجنّبوا الشرطة المائلة في النص العربي.</span>
   },
   {
     "name": "aria-label",
     "type": "string",
     "default": "\"مسار التنقّل\"",
-    "description": <span lang="en" dir="ltr">Landmark name of the nav.</span>
+    "description": <span>اسم منطقة التنقّل كما تعلنه التقنيات المساعدة.</span>
   }
 ]}
 />
+
+## ملاحظات الاتجاه
+
+ينقلب السهم الفاصل فيشير إلى اليسار في العربية. أما الشرطة المائلة فلا تنقلب وتبدو غريبةً في النص العربي، لذا نوصي بالقيمة `chevron` أو `khatmah`.
+
+## سهولة الوصول
+
+يحمل عنصر `nav` الاسم «مسار التنقّل»، وتحمل الصفحة الحالية `aria-current="page"`.
