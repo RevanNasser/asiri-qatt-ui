@@ -1,0 +1,137 @@
+
+/* Motif colour slots. Every motif SVG paints with var(--qatt-slot-N, <fallback hex>).
+ * slot-1 = catalog "A", slot-2 = "B", slot-3 = "C", slot-4 = ground (transparent by default).
+ * Re-declared on .dark so a nested dark subtree recomputes them. Components override per instance
+ * via inline style, e.g. style={{ "--qatt-slot-1": "var(--qatt-blue)" }}. */
+:root,
+.dark {
+  --qatt-slot-1: var(--qatt-red);
+  --qatt-slot-2: var(--qatt-ink);
+  --qatt-slot-3: var(--qatt-yellow);
+  --qatt-slot-4: transparent;
+}
+
+@theme inline {
+  --font-sans: var(--font-plex-arabic), "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-readex), "Readex Pro", var(--font-plex-arabic), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-qatt-white: var(--qatt-white);
+  --color-qatt-jiss: var(--qatt-white);
+  --color-qatt-red: var(--qatt-red);
+  --color-qatt-yellow: var(--qatt-yellow);
+  --color-qatt-black: var(--qatt-black);
+  --color-qatt-ink: var(--qatt-ink);
+  --color-qatt-blue: var(--qatt-blue);
+  --color-qatt-green: var(--qatt-green);
+  --color-qatt-orange: var(--qatt-orange);
+  --color-qatt-brown: var(--qatt-brown);
+
+  --shadow-painted: var(--shadow-painted);
+
+  --animate-qatt-paint: qatt-paint 600ms cubic-bezier(0.3, 0.7, 0.4, 1) both;
+  @keyframes qatt-paint {
+    from { clip-path: inset(0 100% 0 0); } /* LTR: grows from the left (inline-start) */
+    to   { clip-path: inset(0 0 0 0); }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-size: 1rem;
+    line-height: 1.75; /* Arabic body: room for dots and marks above/below */
+    letter-spacing: 0; /* never track Arabic: it breaks joining */
+    font-feature-settings: "kern", "liga", "calt";
+  }
+  :where(h1, h2, h3, h4) {
+    @apply font-heading;
+    line-height: 1.35;
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+  :where(p, li) {
+    text-wrap: pretty;
+  }
+  :where(code, kbd, samp, pre) {
+    @apply font-mono;
+    line-height: 1.6;
+  }
+  /* Code is always left-to-right, even inside RTL pages */
+  :where(pre, .qatt-ltr) {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: start; /* = left, because direction is ltr */
+  }
+  :lang(en) {
+    line-height: 1.6;
+  }
+}
+
+/* Digits (D-008): Western 0-9 by default. Arabic-Indic is a formatting concern, not CSS —
+ * use formatNumber(n, { numerals: "arab" }) from qatt-utils. Use Tailwind `tabular-nums` in tables/stats. */
+
+/* Paint-stroke reveal for borders/dividers; inline-start origin in both directions */
+@utility qatt-paint-reveal {
+  animation: var(--animate-qatt-paint);
+  &:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) {
+    animation-name: qatt-paint-rtl;
+  }
+}
+@keyframes qatt-paint-rtl {
+  from { clip-path: inset(0 0 0 100%); } /* RTL: grows from the right (inline-start) */
+  to   { clip-path: inset(0 0 0 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qatt-paint-reveal,
+  [data-qatt-motion] {
+    animation: none !important;
+    transition: none !important;
+    clip-path: none !important;
+  }
+}

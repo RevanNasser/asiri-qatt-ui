@@ -1,0 +1,442 @@
+{
+  "$comment": "Qatt UI motif masters. Geometry = project interpretation (motif-catalog.md). markup is the SVG inner content for a tile with viewBox 0 0 width height. Colours: var(--qatt-slot-1..4); slot-1/2/3 = catalog A/B/C, slot-4 = ground. mirror = mirror-safe (identical under horizontal reflection). flipInRtl is false for every motif.",
+  "version": 1,
+  "slotFallbacks": {
+    "--qatt-slot-1": "#A8322A",
+    "--qatt-slot-2": "#1F1B17",
+    "--qatt-slot-3": "#D9A42B",
+    "--qatt-slot-4": "transparent"
+  },
+  "motifs": [
+    {
+      "id": "kaff",
+      "arabicName": "الكَفّ",
+      "englishName": "Base band",
+      "traditionalName": true,
+      "width": 8,
+      "height": 32,
+      "repeat": "x",
+      "slots": 2,
+      "defaultSlots": [
+        "red",
+        "ink"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "band",
+        "border"
+      ],
+      "markup": "<rect width=\"8\" height=\"32\" fill=\"var(--qatt-slot-4, transparent)\"/><rect y=\"8\" width=\"8\" height=\"24\" fill=\"var(--qatt-slot-1, #A8322A)\"/><rect y=\"2\" width=\"8\" height=\"3\" fill=\"var(--qatt-slot-2, #1F1B17)\"/>",
+      "variants": [],
+      "note": "",
+      "file": "motifs/kaff.svg"
+    },
+    {
+      "id": "qatt-lines",
+      "arabicName": "القَطّ",
+      "englishName": "Stacked strokes",
+      "traditionalName": true,
+      "width": 8,
+      "height": 40,
+      "repeat": "x",
+      "slots": 3,
+      "defaultSlots": [
+        "red",
+        "yellow",
+        "ink"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "band",
+        "border"
+      ],
+      "markup": "<rect width=\"8\" height=\"40\" fill=\"var(--qatt-slot-4, transparent)\"/><rect y=\"0\" width=\"8\" height=\"4\" fill=\"var(--qatt-slot-1, #A8322A)\"/><rect y=\"8\" width=\"8\" height=\"4\" fill=\"var(--qatt-slot-2, #1F1B17)\"/><rect y=\"16\" width=\"8\" height=\"4\" fill=\"var(--qatt-slot-3, #D9A42B)\"/><rect y=\"24\" width=\"8\" height=\"4\" fill=\"var(--qatt-slot-1, #A8322A)\"/><rect y=\"32\" width=\"8\" height=\"4\" fill=\"var(--qatt-slot-2, #1F1B17)\"/>",
+      "variants": [],
+      "note": "",
+      "file": "motifs/qatt-lines.svg"
+    },
+    {
+      "id": "mathalith-makhamis",
+      "arabicName": "المثالث والمخامس",
+      "englishName": "Triple / quintuple lines",
+      "traditionalName": true,
+      "width": 8,
+      "height": 16,
+      "repeat": "x",
+      "slots": 1,
+      "defaultSlots": [
+        "ink"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "band",
+        "border"
+      ],
+      "markup": "<rect width=\"8\" height=\"16\" fill=\"var(--qatt-slot-4, transparent)\"/><rect y=\"3\" width=\"8\" height=\"2\" fill=\"var(--qatt-slot-1, #A8322A)\"/><rect y=\"7\" width=\"8\" height=\"2\" fill=\"var(--qatt-slot-1, #A8322A)\"/><rect y=\"11\" width=\"8\" height=\"2\" fill=\"var(--qatt-slot-1, #A8322A)\"/>",
+      "variants": [
+        {
+          "id": "5",
+          "width": 8,
+          "height": 24,
+          "slots": 1,
+          "markup": "<rect width=\"8\" height=\"24\" fill=\"var(--qatt-slot-4, transparent)\"/><rect y=\"3\" width=\"8\" height=\"2\" fill=\"var(--qatt-slot-1, #A8322A)\"/><rect y=\"7\" width=\"8\" height=\"2\" fill=\"var(--qatt-slot-1, #A8322A)\"/><rect y=\"11\" width=\"8\" height=\"2\" fill=\"var(--qatt-slot-1, #A8322A)\"/><rect y=\"15\" width=\"8\" height=\"2\" fill=\"var(--qatt-slot-1, #A8322A)\"/><rect y=\"19\" width=\"8\" height=\"2\" fill=\"var(--qatt-slot-1, #A8322A)\"/>",
+          "file": "motifs/mathalith-makhamis-5.svg"
+        }
+      ],
+      "note": "",
+      "file": "motifs/mathalith-makhamis.svg"
+    },
+    {
+      "id": "rukun",
+      "arabicName": "الرُّكون",
+      "englishName": "Triangle row",
+      "traditionalName": true,
+      "width": 48,
+      "height": 24,
+      "repeat": "x",
+      "slots": 2,
+      "defaultSlots": [
+        "red",
+        "ink"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "band",
+        "border"
+      ],
+      "markup": "<rect width=\"48\" height=\"24\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M0 24 12 0l12 24z\" fill=\"var(--qatt-slot-1, #A8322A)\"/><path d=\"M24 24 36 0l12 24z\" fill=\"var(--qatt-slot-2, #1F1B17)\"/>",
+      "variants": [],
+      "note": "",
+      "file": "motifs/rukun.svg"
+    },
+    {
+      "id": "banat",
+      "arabicName": "البَنات",
+      "englishName": "Small triangles with sprigs",
+      "traditionalName": true,
+      "width": 16,
+      "height": 24,
+      "repeat": "x",
+      "slots": 2,
+      "defaultSlots": [
+        "red",
+        "green"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "band",
+        "border"
+      ],
+      "markup": "<rect width=\"16\" height=\"24\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M2 24 8 12l6 12z\" fill=\"var(--qatt-slot-1, #A8322A)\"/><path d=\"M8 12V4M8 8 5 5m3 3 3-3\" fill=\"none\" stroke=\"var(--qatt-slot-2, #1F1B17)\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>",
+      "variants": [],
+      "note": "D-021: the sprig stays plant-like (slot-2 green or yellow). Never add a dot or head above it; never describe, stylise or animate it as a figure.",
+      "file": "motifs/banat.svg"
+    },
+    {
+      "id": "balsanah",
+      "arabicName": "البَلْسَنة",
+      "englishName": "Rhombus chain",
+      "traditionalName": true,
+      "width": 24,
+      "height": 24,
+      "repeat": "xy",
+      "slots": 2,
+      "defaultSlots": [
+        "blue",
+        "yellow"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "band",
+        "background"
+      ],
+      "markup": "<rect width=\"24\" height=\"24\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M12 0 24 12 12 24 0 12z\" fill=\"var(--qatt-slot-1, #A8322A)\"/><path d=\"M12 6l6 6-6 6-6-6z\" fill=\"var(--qatt-slot-2, #1F1B17)\"/>",
+      "variants": [],
+      "note": "",
+      "file": "motifs/balsanah.svg"
+    },
+    {
+      "id": "amshat",
+      "arabicName": "الأمشاط",
+      "englishName": "Comb teeth",
+      "traditionalName": true,
+      "width": 8,
+      "height": 24,
+      "repeat": "x",
+      "slots": 1,
+      "defaultSlots": [
+        "ink"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "band",
+        "border"
+      ],
+      "markup": "<rect width=\"8\" height=\"24\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M0 0h8v4H5.5v16h-3V4H0z\" fill=\"var(--qatt-slot-1, #A8322A)\"/>",
+      "variants": [
+        {
+          "id": "alternate",
+          "width": 16,
+          "height": 24,
+          "slots": 2,
+          "markup": "<rect width=\"16\" height=\"24\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M0 0h16v4H0z\" fill=\"var(--qatt-slot-1, #A8322A)\"/><path d=\"M2.5 4h3v16h-3z\" fill=\"var(--qatt-slot-1, #A8322A)\"/><path d=\"M10.5 4h3v16h-3z\" fill=\"var(--qatt-slot-2, #1F1B17)\"/>",
+          "file": "motifs/amshat-alternate.svg"
+        }
+      ],
+      "note": "Comb form is inferred from the name + 'parallel lines' definition; no source drawing.",
+      "file": "motifs/amshat.svg"
+    },
+    {
+      "id": "taadheeq",
+      "arabicName": "التَّعذيق",
+      "englishName": "Triangle with three-point crown",
+      "traditionalName": true,
+      "width": 24,
+      "height": 32,
+      "repeat": "x",
+      "slots": 2,
+      "defaultSlots": [
+        "red",
+        "yellow"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "band",
+        "corner"
+      ],
+      "markup": "<rect width=\"24\" height=\"32\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M2 32 12 12l10 20z\" fill=\"var(--qatt-slot-1, #A8322A)\"/><g fill=\"var(--qatt-slot-2, #1F1B17)\"><path d=\"M12 12V3m0 9L6 5m6 7 6-7\" fill=\"none\" stroke=\"var(--qatt-slot-2, #1F1B17)\" stroke-width=\"2\" stroke-linecap=\"round\"/><circle cx=\"12\" cy=\"3\" r=\"1.6\"/><circle cx=\"6\" cy=\"5\" r=\"1.6\"/><circle cx=\"18\" cy=\"5\" r=\"1.6\"/></g>",
+      "variants": [],
+      "note": "",
+      "file": "motifs/taadheeq.svg"
+    },
+    {
+      "id": "mahareeb",
+      "arabicName": "المَحاريب",
+      "englishName": "Niche arches",
+      "traditionalName": true,
+      "width": 24,
+      "height": 32,
+      "repeat": "x",
+      "slots": 2,
+      "defaultSlots": [
+        "ink",
+        "yellow"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "band",
+        "border",
+        "corner"
+      ],
+      "markup": "<rect width=\"24\" height=\"32\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M2 32V14L12 2l10 12v18z\" fill=\"var(--qatt-slot-1, #A8322A)\"/><path d=\"M6 32V16l6-7.5 6 7.5v16z\" fill=\"var(--qatt-slot-2, #1F1B17)\"/>",
+      "variants": [],
+      "note": "",
+      "file": "motifs/mahareeb.svg"
+    },
+    {
+      "id": "sankroli",
+      "arabicName": "سَنكرولي",
+      "englishName": "Nested niches",
+      "traditionalName": true,
+      "width": 24,
+      "height": 32,
+      "repeat": "x",
+      "slots": 3,
+      "defaultSlots": [
+        "red",
+        "ink",
+        "yellow"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "band",
+        "background"
+      ],
+      "markup": "<rect width=\"24\" height=\"32\" fill=\"var(--qatt-slot-4, transparent)\"/><g fill=\"none\" stroke-width=\"2\"><path d=\"M2 32V14L12 2l10 12v18\" stroke=\"var(--qatt-slot-1, #A8322A)\"/><path d=\"M6 32V16l6-8 6 8v16\" stroke=\"var(--qatt-slot-2, #1F1B17)\"/><path d=\"M10 32V18l2-3 2 3v14\" stroke=\"var(--qatt-slot-3, #D9A42B)\"/></g>",
+      "variants": [],
+      "note": "",
+      "file": "motifs/sankroli.svg"
+    },
+    {
+      "id": "shabakah",
+      "arabicName": "الشَّبَكة",
+      "englishName": "Single-colour grid",
+      "traditionalName": true,
+      "width": 16,
+      "height": 16,
+      "repeat": "xy",
+      "slots": 1,
+      "defaultSlots": [
+        "ink"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "background"
+      ],
+      "markup": "<rect width=\"16\" height=\"16\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M0 0h8v8H0zm8 8h8v8H8z\" fill=\"var(--qatt-slot-1, #A8322A)\"/>",
+      "variants": [
+        {
+          "id": "lattice",
+          "width": 16,
+          "height": 16,
+          "slots": 1,
+          "markup": "<rect width=\"16\" height=\"16\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M-2-2 18 18M18-2-2 18\" fill=\"none\" stroke=\"var(--qatt-slot-1, #A8322A)\" stroke-width=\"1.5\"/>",
+          "file": "motifs/shabakah-lattice.svg"
+        }
+      ],
+      "note": "Lattice: diagonals run past the tile corners so the clipped strokes meet without gaps.",
+      "file": "motifs/shabakah.svg"
+    },
+    {
+      "id": "hanash",
+      "arabicName": "الحَنَش",
+      "englishName": "Serpentine zigzag",
+      "traditionalName": true,
+      "width": 12,
+      "height": 12,
+      "repeat": "x",
+      "slots": 1,
+      "defaultSlots": [
+        "red"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "band",
+        "border"
+      ],
+      "markup": "<rect width=\"12\" height=\"12\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M-6 2l6 8 6-8 6 8 6-8\" fill=\"none\" stroke=\"var(--qatt-slot-1, #A8322A)\" stroke-width=\"2.5\" stroke-linejoin=\"miter\"/>",
+      "variants": [
+        {
+          "id": "wave",
+          "width": 24,
+          "height": 12,
+          "slots": 1,
+          "markup": "<rect width=\"24\" height=\"12\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M-12 6Q-6 12 0 6T12 6 24 6 36 6\" fill=\"none\" stroke=\"var(--qatt-slot-1, #A8322A)\" stroke-width=\"2.5\"/>",
+          "file": "motifs/hanash-wave.svg"
+        }
+      ],
+      "note": "",
+      "file": "motifs/hanash.svg"
+    },
+    {
+      "id": "khatmah",
+      "arabicName": "الخَتْمة",
+      "englishName": "Closing square",
+      "traditionalName": true,
+      "width": 24,
+      "height": 24,
+      "repeat": "none",
+      "slots": 3,
+      "defaultSlots": [
+        "ink",
+        "red",
+        "yellow"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": true,
+      "uses": [
+        "corner",
+        "cap"
+      ],
+      "markup": "<rect width=\"24\" height=\"24\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M0 0h24v24H0zm3 3v18h18V3z\" fill=\"var(--qatt-slot-1, #A8322A)\" fill-rule=\"evenodd\"/><path d=\"M12 5l7 7-7 7-7-7z\" fill=\"var(--qatt-slot-2, #1F1B17)\"/><path d=\"M10 10h4v4h-4z\" fill=\"var(--qatt-slot-3, #D9A42B)\"/>",
+      "variants": [],
+      "note": "",
+      "file": "motifs/khatmah.svg"
+    },
+    {
+      "id": "sawtooth",
+      "arabicName": "المنشار",
+      "englishName": "Sawtooth (descriptive)",
+      "traditionalName": false,
+      "width": 24,
+      "height": 24,
+      "repeat": "x",
+      "slots": 1,
+      "defaultSlots": [
+        "ink"
+      ],
+      "mirror": false,
+      "flipInRtl": false,
+      "projectExtension": false,
+      "aboutVocabulary": false,
+      "uses": [
+        "band"
+      ],
+      "markup": "<rect width=\"24\" height=\"24\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M0 24 24 0v24z\" fill=\"var(--qatt-slot-1, #A8322A)\"/>",
+      "variants": [
+        {
+          "id": "alternate",
+          "width": 48,
+          "height": 24,
+          "slots": 2,
+          "markup": "<rect width=\"48\" height=\"24\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M0 24 24 0v24z\" fill=\"var(--qatt-slot-1, #A8322A)\"/><path d=\"M24 24 48 0v24z\" fill=\"var(--qatt-slot-2, #1F1B17)\"/>",
+          "file": "motifs/sawtooth-alternate.svg"
+        }
+      ],
+      "note": "Descriptive name, not a traditional term; excluded from About vocabulary chips. Directional: render identically in LTR and RTL (D-007).",
+      "file": "motifs/sawtooth.svg"
+    },
+    {
+      "id": "stepped",
+      "arabicName": "المدرّج",
+      "englishName": "Stepped (descriptive)",
+      "traditionalName": false,
+      "width": 24,
+      "height": 24,
+      "repeat": "x",
+      "slots": 1,
+      "defaultSlots": [
+        "red"
+      ],
+      "mirror": true,
+      "flipInRtl": false,
+      "projectExtension": true,
+      "aboutVocabulary": false,
+      "uses": [
+        "band"
+      ],
+      "markup": "<rect width=\"24\" height=\"24\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M0 24v-4h4v-4h4v-4h2V8h4v4h2v4h4v4h4v4z\" fill=\"var(--qatt-slot-1, #A8322A)\"/>",
+      "variants": [],
+      "note": "Project extension (terraces), not documented in Al-Qatt sources. Always show docs.patterns.extensionLabel; never in About vocabulary chips; never styled as a wall band beside traditional bands (D-020).",
+      "file": "motifs/stepped.svg"
+    }
+  ]
+}

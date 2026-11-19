@@ -204,3 +204,36 @@ Same keys as `site-copy.ar.md`. `{…}` = placeholder. Facts on the About page a
 | `seo.component.description` | {description} Install it with a single shadcn command. |
 | `seo.404.title` | Page not found — Qatt |
 | `seo.404.description` | We couldn't find this page. Head back home or search the docs. |
+
+## docs (Phase 2 additions) — keys requested by UX/UI (site-ia.md §11)
+
+| key | Text |
+|---|---|
+| `docs.gettingStarted.baseNote` | Version 1 supports the base-nova style (built on Base UI) only. Radix support may come in a later release. |
+| `docs.gettingStarted.overwriteWarning` | Heads-up: restyled components replace their files in `components/ui/`. Commit your changes to git before installing. |
+| `docs.gettingStarted.namespace.title` | Optional: set up the `@qatt` namespace |
+| `docs.gettingStarted.namespace.body` | Add the Qatt registry to `components.json` to use the short `@qatt/…` name instead of the full URL. Full URLs work either way. |
+| `docs.install.pm.label` | Package manager |
+| `docs.preview.dir.label` | Preview direction |
+| `docs.preview.dir.rtl` | Right to left |
+| `docs.preview.dir.ltr` | Left to right |
+| `docs.preview.theme.label` | Preview theme |
+| `docs.preview.viewport.mobile` | Mobile |
+| `docs.preview.viewport.tablet` | Tablet |
+| `docs.preview.viewport.desktop` | Desktop |
+| `docs.v0.caveat` | v0 shows the component's structure only, without Qatt's colours, fonts and patterns. |
+| `docs.gallery.filter.all` | All |
+| `docs.gallery.filter.ornament` | Ornamental |
+| `docs.gallery.filter.core` | Core |
+| `docs.theme.pigments.title` | Pigments |
+| `docs.theme.tokens.title` | Colour tokens |
+| `docs.theme.fonts.title` | Typefaces |
+| `docs.theme.slots.title` | Motif colour slots |
+| `docs.theme.decorativeOnly` | Decoration only |
+| `docs.theme.textSafe` | Safe for text |
+| `docs.theme.contrast` | Contrast |
+| `docs.theme.copyCss` | Copy CSS |
+| `docs.patterns.descriptiveLabel` | Descriptive name, not a traditional term |
+| `docs.patterns.extensionLabel` | Project extension — not documented in Al-Qatt Al-Asiri |
+| `docs.theme.darkNote` *(Heritage addition)* | Dark mode is our own interpretation: Al-Qatt Al-Asiri is painted on a white gypsum ground. |
+| `docs.theme.pigments.blueNote` *(Heritage addition)* | Sources disagree on the traditional source of the blue; the name is a label, not a claim. |

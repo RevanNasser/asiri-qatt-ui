@@ -39,3 +39,17 @@ Decisions and conflict resolutions: `docs/agents/decisions.md`.
 - UX/UI: `design-tokens.md`, `tokens.css`, `component-specs.md`, `site-ia.md`, `motifs.json`, 20 SVG tiles (15 motifs + 5 variants). All pairs pass WCAG 2.2 AA (computed table in design-tokens §4); motifs render seamlessly in light/dark/mirrored.
 - Fonts (OFL): IBM Plex Sans Arabic (body), Readex Pro (display), IBM Plex Mono (code).
 - Decisions D-011…D-014. Heritage review of motifs + new copy keys started (gate condition).
+
+### 2026-11-19 — Phase 3 gate PASSED
+- Commit `b0f22a4`. Next 16.4.6 + Fumadocs 16.19 (Base UI build) + shadcn 4.23 base-nova, rtl. Arabic at `/`.
+- Registry: `qatt-font`, `qatt-theme`, `qatt-utils`, `use-direction`, `qatt-divider`. Pipeline: `registry.json` template with `{{REGISTRY_URL}}` → `.registry/` → `shadcn build` → `public/r`.
+- Gate evidence: `pnpm test:install` — fresh `shadcn create -t next --rtl` app, all 5 items installed via `@qatt` namespace AND direct URL, no physical classes, `tsc` + `next build` pass. Orchestrator re-ran typecheck + unit tests (8/8 green).
+- Backlog experiments confirmed D-003 (direct-URL installs fail with `@qatt/x` or relative deps).
+- Disk now 1.8 GB free; install-flow fixture costs ~1 GB while running. Watching.
+- Phase 4 track 1 started (tokens swap + restyled shadcn components) while Heritage finishes motif review; motif ornaments follow on approval.
+
+### 2026-11-19 — Phase 2 gate PASSED
+- Heritage approved all 20 motif tiles (rendered in light/dark bands): faithful, original, no caricature. Review: `docs/agents/heritage/phase2-review.md`.
+- Copy fixed (Base UI), 29 new copy keys added (ar + en). Pigment names marked as labels; blue's source flagged as disputed.
+- D-019…D-022 (renumbered: Developer had already used D-015…D-017). UX/UI applied non-blocking follow-ups (kaff dark default, banat rule, gypsum-surface rule, typography label).
+- UX/UI follow-ups done: kaff dark defaults (red band + ink line), banat rule, `--qatt-surface-gypsum` + `data-qatt-surface="gypsum"` scope (AA inside), «الخطوط الطباعية», `stepped` flagged `projectExtension`.

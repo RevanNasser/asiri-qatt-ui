@@ -205,3 +205,38 @@ Every factual claim on the "About" page is backed by a source from `heritage-bri
 | `seo.component.description` | {description} ثبِّتوه بأمر واحد عبر shadcn. |
 | `seo.404.title` | الصفحة غير موجودة — قَطّ |
 | `seo.404.description` | لم نجد هذه الصفحة. عودوا إلى الرئيسية أو ابحثوا في التوثيق. |
+
+## docs (إضافات المرحلة الثانية) — مفاتيح طلبها وكيل تجربة المستخدم (site-ia.md §11)
+
+| key | النص |
+|---|---|
+| `docs.gettingStarted.baseNote` | يدعم الإصدار الأول نمط <bdi>base-nova</bdi> المبنيّ على <bdi>Base UI</bdi> فقط. وقد يُضاف دعم <bdi>Radix</bdi> في إصدارٍ لاحق. |
+| `docs.gettingStarted.overwriteWarning` | تنبيه: المكوّنات المُعاد تصميمها تحلّ محلّ ملفاتها في <bdi dir="ltr">components/ui/</bdi>. احفظوا تعديلاتكم في git قبل التثبيت. |
+| `docs.gettingStarted.namespace.title` | اختياري: إعداد النطاق <bdi dir="ltr">@qatt</bdi> |
+| `docs.gettingStarted.namespace.body` | أضيفوا سجلّ قَطّ إلى <bdi dir="ltr">components.json</bdi> لتكتبوا الأوامر بالاسم المختصر <bdi dir="ltr">@qatt/…</bdi> بدل الرابط الكامل. والروابط الكاملة تعمل في الحالتين. |
+| `docs.install.pm.label` | مدير الحزم |
+| `docs.preview.dir.label` | اتجاه المعاينة |
+| `docs.preview.dir.rtl` | من اليمين إلى اليسار |
+| `docs.preview.dir.ltr` | من اليسار إلى اليمين |
+| `docs.preview.theme.label` | سمة المعاينة |
+| `docs.preview.viewport.mobile` | جوّال |
+| `docs.preview.viewport.tablet` | جهاز لوحي |
+| `docs.preview.viewport.desktop` | سطح المكتب |
+| `docs.v0.caveat` | يعرض <bdi>v0</bdi> بنية المكوّن فقط، من دون ألوان قَطّ وخطوطه ونقوشه. |
+| `docs.gallery.filter.all` | الكلّ |
+| `docs.gallery.filter.ornament` | زخرفية |
+| `docs.gallery.filter.core` | أساسية |
+| `docs.theme.pigments.title` | الأصباغ |
+| `docs.theme.tokens.title` | رموز الألوان |
+| `docs.theme.fonts.title` | الخطوط الطباعية |
+| `docs.theme.slots.title` | النقوش وخاناتها اللونية |
+| `docs.theme.decorativeOnly` | للزخرفة فقط |
+| `docs.theme.textSafe` | صالحٌ للنص |
+| `docs.theme.contrast` | التباين |
+| `docs.theme.copyCss` | انسخ <bdi>CSS</bdi> |
+| `docs.patterns.descriptiveLabel` | اسمٌ وصفي، لا اسمٌ تقليدي |
+| `docs.patterns.extensionLabel` | إضافةٌ من المشروع، غير موثّقة في القطّ العسيري |
+| `docs.theme.darkNote` *(إضافة من وكيل التراث)* | الوضع الداكن اجتهادٌ منّا، فالقطّ العسيري يُرسم على أرضيةٍ بيضاء من الجصّ. |
+| `docs.theme.pigments.blueNote` *(إضافة من وكيل التراث)* | تختلف المصادر في أصل اللون الأزرق التقليدي، والاسم هنا للتسمية لا للتوثيق. |
+
+ملاحظة: «الخطوط الطباعية» لا «الخطوط» وحدها، كي لا تلتبس بخطوط النقوش (القطّ نفسه خطوط).

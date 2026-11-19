@@ -1,0 +1,15 @@
+/*
+ * Qatt UI (قَطّ) — design tokens
+ * Generated from docs/agents/ux-ui (tokens.py source in the UX/UI scratchpad). Do not hand-edit values
+ * without re-running the contrast check; see design-tokens.md for the WCAG 2.2 table.
+ *
+ * Light  = white gypsum wall (جصّ) with bold painted accents.
+ * Dark   = "night majlis" — UX/UI interpretation (a lamplit guest room after dark). NOT a heritage claim.
+ * Pigment values (--qatt-*) are approximate, project interpretation (motif-catalog.md §Palette).
+ *
+ * Usage in a Tailwind v4 + shadcn project: paste below `@import "tailwindcss";` (or let the
+ * qatt-theme registry item merge cssVars). The @theme inline block exposes bg-qatt-red, etc.
+ */
+
+@custom-variant dark (&:is(.dark *));
+

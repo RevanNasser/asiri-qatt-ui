@@ -1,0 +1,310 @@
+/*
+ * Qatt UI (قَطّ) — design tokens
+ * Generated from docs/agents/ux-ui (tokens.py source in the UX/UI scratchpad). Do not hand-edit values
+ * without re-running the contrast check; see design-tokens.md for the WCAG 2.2 table.
+ *
+ * Light  = white gypsum wall (جصّ) with bold painted accents.
+ * Dark   = "night majlis" — UX/UI interpretation (a lamplit guest room after dark). NOT a heritage claim.
+ * Pigment values (--qatt-*) are approximate, project interpretation (motif-catalog.md §Palette).
+ *
+ * Usage in a Tailwind v4 + shadcn project: paste below `@import "tailwindcss";` (or let the
+ * qatt-theme registry item merge cssVars). The @theme inline block exposes bg-qatt-red, etc.
+ */
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.375rem;
+  --background: oklch(0.972 0.012 85);
+  --foreground: oklch(0.22 0.014 55);
+  --card: oklch(0.99 0.006 85);
+  --card-foreground: oklch(0.22 0.014 55);
+  --popover: oklch(0.99 0.006 85);
+  --popover-foreground: oklch(0.22 0.014 55);
+  --primary: oklch(0.5 0.163 31);
+  --primary-foreground: oklch(0.985 0.008 85);
+  --secondary: oklch(0.925 0.05 88);
+  --secondary-foreground: oklch(0.27 0.03 60);
+  --muted: oklch(0.935 0.014 80);
+  --muted-foreground: oklch(0.47 0.022 60);
+  --accent: oklch(0.93 0.028 250);
+  --accent-foreground: oklch(0.33 0.085 255);
+  --destructive: oklch(0.5 0.19 18);
+  --destructive-foreground: oklch(0.985 0.008 85);
+  --border: oklch(0.875 0.02 75);
+  --input: oklch(0.6 0.02 65);
+  --ring: oklch(0.48 0.12 252);
+  --chart-1: oklch(0.5 0.163 31);
+  --chart-2: oklch(0.47 0.11 252);
+  --chart-3: oklch(0.62 0.13 75);
+  --chart-4: oklch(0.52 0.11 135);
+  --chart-5: oklch(0.6 0.15 48);
+  --sidebar: oklch(0.952 0.015 82);
+  --sidebar-foreground: oklch(0.22 0.014 55);
+  --sidebar-primary: oklch(0.5 0.163 31);
+  --sidebar-primary-foreground: oklch(0.985 0.008 85);
+  --sidebar-accent: oklch(0.915 0.022 80);
+  --sidebar-accent-foreground: oklch(0.22 0.014 55);
+  --sidebar-border: oklch(0.875 0.02 75);
+  --sidebar-ring: oklch(0.48 0.12 252);
+  /* Qatt pigment evocations (approximate, project interpretation) */
+  --qatt-white: oklch(0.953 0.016 86.4);
+  --qatt-red: oklch(0.494 0.155 28.1);
+  --qatt-yellow: oklch(0.749 0.142 82.9);
+  --qatt-black: oklch(0.225 0.01 67.3);
+  --qatt-blue: oklch(0.46 0.096 252.7);
+  --qatt-green: oklch(0.539 0.11 137.2);
+  --qatt-orange: oklch(0.635 0.152 47.8);
+  --qatt-brown: oklch(0.589 0.078 68);
+  --qatt-jiss: var(--qatt-white);
+  /* role: structural line colour — charcoal on the day wall, lamplit gypsum on the night wall */
+  --qatt-ink: var(--qatt-black);
+  --shadow-painted: 0 3px 0 0 oklch(0.22 0.014 55 / 0.9);
+}
+
+.dark {
+  --background: oklch(0.185 0.012 55);
+  --foreground: oklch(0.93 0.016 85);
+  --card: oklch(0.22 0.013 55);
+  --card-foreground: oklch(0.93 0.016 85);
+  --popover: oklch(0.245 0.014 55);
+  --popover-foreground: oklch(0.93 0.016 85);
+  --primary: oklch(0.68 0.15 33);
+  --primary-foreground: oklch(0.17 0.012 55);
+  --secondary: oklch(0.3 0.04 75);
+  --secondary-foreground: oklch(0.93 0.03 85);
+  --muted: oklch(0.265 0.012 55);
+  --muted-foreground: oklch(0.74 0.02 75);
+  --accent: oklch(0.3 0.045 250);
+  --accent-foreground: oklch(0.91 0.03 250);
+  --destructive: oklch(0.7 0.17 20);
+  --destructive-foreground: oklch(0.17 0.012 55);
+  --border: oklch(0.32 0.014 60);
+  --input: oklch(0.53 0.018 65);
+  --ring: oklch(0.72 0.11 245);
+  --chart-1: oklch(0.68 0.15 33);
+  --chart-2: oklch(0.7 0.1 245);
+  --chart-3: oklch(0.8 0.13 82);
+  --chart-4: oklch(0.72 0.12 135);
+  --chart-5: oklch(0.74 0.14 55);
+  --sidebar: oklch(0.205 0.013 55);
+  --sidebar-foreground: oklch(0.93 0.016 85);
+  --sidebar-primary: oklch(0.68 0.15 33);
+  --sidebar-primary-foreground: oklch(0.17 0.012 55);
+  --sidebar-accent: oklch(0.28 0.016 55);
+  --sidebar-accent-foreground: oklch(0.93 0.016 85);
+  --sidebar-border: oklch(0.32 0.014 60);
+  --sidebar-ring: oklch(0.72 0.11 245);
+  /* Qatt pigment evocations (approximate, project interpretation) */
+  --qatt-white: oklch(0.88 0.02 85);
+  --qatt-red: oklch(0.62 0.15 31);
+  --qatt-yellow: oklch(0.8 0.13 82);
+  --qatt-black: oklch(0.36 0.014 55);
+  --qatt-blue: oklch(0.62 0.1 250);
+  --qatt-green: oklch(0.66 0.11 135);
+  --qatt-orange: oklch(0.7 0.14 50);
+  --qatt-brown: oklch(0.64 0.07 70);
+  --qatt-jiss: var(--qatt-white);
+  /* role: structural line colour — charcoal on the day wall, lamplit gypsum on the night wall */
+  --qatt-ink: var(--qatt-white);
+  --shadow-painted: 0 3px 0 0 oklch(0 0 0 / 0.55);
+}
+
+/* Gypsum surface (D-019): heritage-presenting sections (About bands, vocabulary chips, theme
+ * 'faithful' swatch row) render on jiss in BOTH modes. Scope with data-qatt-surface="gypsum"
+ * (qatt-pattern surface="gypsum"). Re-declares the light pigments + ink so motifs inside keep
+ * their day-wall colours under .dark, and resets shadcn tokens to light (a light-theme island). Text inside uses --qatt-surface-gypsum-foreground. */
+:root,
+.dark {
+  --qatt-surface-gypsum: oklch(0.953 0.016 86.4);
+  --qatt-surface-gypsum-foreground: oklch(0.22 0.014 55);
+  --qatt-surface-gypsum-muted-foreground: oklch(0.47 0.022 60);
+}
+[data-qatt-surface="gypsum"] {
+  /* a light-theme island: shadcn tokens back to light so controls inside stay AA */
+  --background: oklch(0.972 0.012 85);
+  --foreground: oklch(0.22 0.014 55);
+  --card: oklch(0.99 0.006 85);
+  --card-foreground: oklch(0.22 0.014 55);
+  --popover: oklch(0.99 0.006 85);
+  --popover-foreground: oklch(0.22 0.014 55);
+  --primary: oklch(0.5 0.163 31);
+  --primary-foreground: oklch(0.985 0.008 85);
+  --secondary: oklch(0.925 0.05 88);
+  --secondary-foreground: oklch(0.27 0.03 60);
+  --muted: oklch(0.935 0.014 80);
+  --muted-foreground: oklch(0.47 0.022 60);
+  --accent: oklch(0.93 0.028 250);
+  --accent-foreground: oklch(0.33 0.085 255);
+  --destructive: oklch(0.5 0.19 18);
+  --destructive-foreground: oklch(0.985 0.008 85);
+  --border: oklch(0.875 0.02 75);
+  --input: oklch(0.6 0.02 65);
+  --ring: oklch(0.48 0.12 252);
+  --chart-1: oklch(0.5 0.163 31);
+  --chart-2: oklch(0.47 0.11 252);
+  --chart-3: oklch(0.62 0.13 75);
+  --chart-4: oklch(0.52 0.11 135);
+  --chart-5: oklch(0.6 0.15 48);
+  --sidebar: oklch(0.952 0.015 82);
+  --sidebar-foreground: oklch(0.22 0.014 55);
+  --sidebar-primary: oklch(0.5 0.163 31);
+  --sidebar-primary-foreground: oklch(0.985 0.008 85);
+  --sidebar-accent: oklch(0.915 0.022 80);
+  --sidebar-accent-foreground: oklch(0.22 0.014 55);
+  --sidebar-border: oklch(0.875 0.02 75);
+  --sidebar-ring: oklch(0.48 0.12 252);
+  --qatt-white: oklch(0.953 0.016 86.4);
+  --qatt-red: oklch(0.494 0.155 28.1);
+  --qatt-yellow: oklch(0.749 0.142 82.9);
+  --qatt-black: oklch(0.225 0.01 67.3);
+  --qatt-blue: oklch(0.46 0.096 252.7);
+  --qatt-green: oklch(0.539 0.11 137.2);
+  --qatt-orange: oklch(0.635 0.152 47.8);
+  --qatt-brown: oklch(0.589 0.078 68);
+  --qatt-ink: var(--qatt-black);
+  --qatt-slot-1: var(--qatt-red);
+  --qatt-slot-2: var(--qatt-ink);
+  --qatt-slot-3: var(--qatt-yellow);
+  --qatt-slot-4: transparent;
+  background-color: var(--qatt-surface-gypsum);
+  color: var(--qatt-surface-gypsum-foreground);
+  color-scheme: light;
+}
+
+/* Motif colour slots. Every motif SVG paints with var(--qatt-slot-N, <fallback hex>).
+ * slot-1 = catalog "A", slot-2 = "B", slot-3 = "C", slot-4 = ground (transparent by default).
+ * Re-declared on .dark so a nested dark subtree recomputes them. Components override per instance
+ * via inline style, e.g. style={{ "--qatt-slot-1": "var(--qatt-blue)" }}. */
+:root,
+.dark {
+  --qatt-slot-1: var(--qatt-red);
+  --qatt-slot-2: var(--qatt-ink);
+  --qatt-slot-3: var(--qatt-yellow);
+  --qatt-slot-4: transparent;
+}
+
+@theme inline {
+  --font-sans: var(--font-plex-arabic), "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-readex), "Readex Pro", var(--font-plex-arabic), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-qatt-white: var(--qatt-white);
+  --color-qatt-jiss: var(--qatt-white);
+  --color-qatt-red: var(--qatt-red);
+  --color-qatt-yellow: var(--qatt-yellow);
+  --color-qatt-black: var(--qatt-black);
+  --color-qatt-ink: var(--qatt-ink);
+  --color-qatt-blue: var(--qatt-blue);
+  --color-qatt-green: var(--qatt-green);
+  --color-qatt-orange: var(--qatt-orange);
+  --color-qatt-brown: var(--qatt-brown);
+
+  --shadow-painted: var(--shadow-painted);
+
+  --animate-qatt-paint: qatt-paint 600ms cubic-bezier(0.3, 0.7, 0.4, 1) both;
+  @keyframes qatt-paint {
+    from { clip-path: inset(0 100% 0 0); } /* LTR: grows from the left (inline-start) */
+    to   { clip-path: inset(0 0 0 0); }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-size: 1rem;
+    line-height: 1.75; /* Arabic body: room for dots and marks above/below */
+    letter-spacing: 0; /* never track Arabic: it breaks joining */
+    font-feature-settings: "kern", "liga", "calt";
+  }
+  :where(h1, h2, h3, h4) {
+    @apply font-heading;
+    line-height: 1.35;
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+  :where(p, li) {
+    text-wrap: pretty;
+  }
+  :where(code, kbd, samp, pre) {
+    @apply font-mono;
+    line-height: 1.6;
+  }
+  /* Code is always left-to-right, even inside RTL pages */
+  :where(pre, .qatt-ltr) {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: start; /* = left, because direction is ltr */
+  }
+  :lang(en) {
+    line-height: 1.6;
+  }
+}
+
+/* Digits (D-008): Western 0-9 by default. Arabic-Indic is a formatting concern, not CSS —
+ * use formatNumber(n, { numerals: "arab" }) from qatt-utils. Use Tailwind `tabular-nums` in tables/stats. */
+
+/* Paint-stroke reveal for borders/dividers; inline-start origin in both directions */
+@utility qatt-paint-reveal {
+  animation: var(--animate-qatt-paint);
+  &:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) {
+    animation-name: qatt-paint-rtl;
+  }
+}
+@keyframes qatt-paint-rtl {
+  from { clip-path: inset(0 0 0 100%); } /* RTL: grows from the right (inline-start) */
+  to   { clip-path: inset(0 0 0 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qatt-paint-reveal,
+  [data-qatt-motion] {
+    animation: none !important;
+    transition: none !important;
+    clip-path: none !important;
+  }
+}
