@@ -1,7 +1,7 @@
 # Motif Catalog: Qatt UI
 
 Source of truth for pattern artwork in `qatt-pattern`, `qatt-border`, `qatt-divider`, `qatt-frame` and `qatt-corner`.
-Citations `[S#]` refer to the source list in `heritage-brief.md`.
+Citations `[S#]` refer to the source list in `heritage-brief.md`. **[S14]** is AACIA 2024 (Al-Omari), summarised in `source-aacia-2024.md`. Entries marked **[S14 update]** were revised on 2026-11-19. Geometry marked *proposed* still has to be synced into `ux-ui/motifs.json` by UX/UI.
 
 > **Read first.**
 > - **Names** marked `verified` come from the cited sources.
@@ -26,7 +26,7 @@ The hex values are **approximate, project interpretation**: on-screen evocations
 | `--qatt-red` | أحمر المَشقة | Meshiga red | `#A8322A` | Crushed iron-rich red stone (حجر المشقة) with plant resin. Red clay "al-Hamra" with water | verified, secondary [S6, S9, S10] |
 | `--qatt-yellow` | أصفر | Safra yellow | `#D9A42B` | Sulphur powder "safra" from the mountains. Pomegranate peel. Al-hurd (turmeric) | verified, secondary. Plural sources [S6, S10] |
 | `--qatt-black` | أسود الفحم | Charcoal black | `#1F1B17` | Charcoal + resin. Soot from a plate over flame. Tar distilled from wild olive (العتم) | verified, secondary [S6, S9, S10] |
-| `--qatt-blue` | أزرق النيلة | Nila blue | `#2D5A8C` | **Conflicting**: indigo (النيلة) [S10]. Powdered sedimentary rock [S6]. Only with commercial paint [S9] | conflicting |
+| `--qatt-blue` | أزرق النيلة | Nila blue | `#2D5A8C` | **Conflicting**: indigo (النيلة) [S10]. Powdered sedimentary rock [S6]. Only with commercial paint [S9]. White acacia + «زرنيخ أزرق» [S14 p. 297] | conflicting. *Naming note:* «أزرق النيلة» names one disputed source. Prefer the neutral display name «أزرق» in copy (see experience-enhancements §P6). |
 | `--qatt-green` | أخضر البرسيم | Alfalfa green | `#4E7D3A` | Pounded alfalfa (البرسيم), sometimes rubbed on by hand. Qat and other plants | verified, secondary [S6, S9, S10] |
 | `--qatt-orange` | برتقالي | Orange | `#D2692A` | Imported powder mixed with water and resin | verified, secondary [S6] |
 | `--qatt-brown` *(optional)* | بنّي الصمغ | Gum brown | `#9C7448` | Spring sap of the *samgha* (gum) tree. Browns from rocks | verified, secondary [S9], oral testimony |

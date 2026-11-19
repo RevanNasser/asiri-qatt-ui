@@ -2,10 +2,19 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared"
 
 import { t } from "@/lib/site-copy"
 
+/** Top navigation (site-ia §1): brand at inline-start, then the section links. */
 export function baseOptions(): BaseLayoutProps {
   return {
-    nav: { title: t("nav.brand") },
-    // TODO(repo-url): set githubUrl once the public repository exists.
+    nav: { title: <span className="font-heading text-lg font-bold">{t("nav.brand")}</span>, url: "/" },
+    links: [
+      { text: t("nav.home"), url: "/", active: "url", on: "menu" },
+      { text: t("nav.docs"), url: "/docs/getting-started", active: "url" },
+      { text: t("nav.components"), url: "/docs/components", active: "nested-url" },
+      { text: t("nav.blocks"), url: "/docs/blocks", active: "nested-url" },
+      { text: t("nav.theme"), url: "/docs/theme", active: "url" },
+      { text: t("nav.about"), url: "/about", active: "url" },
+    ],
+    // TODO(repo-url): set githubUrl (nav.github) once the public repository exists.
   }
 }
 
@@ -22,6 +31,9 @@ export const fumadocsTranslationsAr: Record<string, string> = {
   "Dark(theme switcher)(aria-label)": t("nav.theme.dark"),
   "System(theme switcher)(aria-label)": t("nav.theme.system"),
   "Theme(site menu)": t("nav.theme"),
+  "Toggle Theme(theme switcher)(aria-label)": t("nav.theme.toggle"),
+  "Toggle Menu(home layout header)(aria-label)": t("nav.menu.open"),
+  "Open Search(search trigger)(aria-label)": t("nav.search.placeholder"),
   "Open Sidebar(aria-label)": t("nav.menu.open"),
   "Open Sidebar(sidebar)(aria-label)": t("nav.menu.open"),
   "Close Sidebar(aria-label)": t("nav.menu.close"),

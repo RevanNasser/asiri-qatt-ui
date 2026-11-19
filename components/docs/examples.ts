@@ -64,3 +64,8 @@ export const examples: Record<string, { component: ComponentType; file: string }
   "qatt-login-demo": { component: QattLoginDemo, file: "qatt/blocks/qatt-login/page.tsx" },
   "qatt-404-demo": { component: Qatt404Demo, file: "qatt/blocks/qatt-404/page.tsx" },
 }
+
+/** Block demos (full-width sections) vs component demos (centred on a small stage). */
+export function isBlockExample(name: string): boolean {
+  return examples[name]?.file.startsWith("qatt/blocks/") ?? false
+}

@@ -80,3 +80,10 @@ Decisions and conflict resolutions: `docs/agents/decisions.md`.
 - Bugs fixed during track 2: reduced-motion reveal (now `motion-safe:` + e2e), blocks use container queries, duplicate pricing ids. D-027 (pricing CTA uses aria-describedby, WCAG 2.5.3).
 - Open: 6 `TODO(ar-copy)` prop rows. Phase 4 gate needs UX/UI review of track 2 + Heritage review of Arabic in situ.
 - Phase 5 (site pages) started in parallel with the reviews.
+
+### 2026-11-19 — Phase 5 site and heritage experience complete
+- Replaced the scaffold landing page with the Arabic-first public site: a dogfooded Qatt hero, feature grid, live component showcase, selected block gallery, Asir landscape illustration, footer, metadata, 404 page, and responsive navigation.
+- Added isolated iframe previews for component and block documentation. Each supports its own RTL/LTR direction and light/dark theme; blocks also support mobile, tablet and desktop widths.
+- Added component filtering, docs galleries, the theme page, `/about`, and `/docs/asir`. The About page keeps heritage motifs on gypsum and links to its sources.
+- Heritage pass: «مرحبا ألف» is used as an occasional welcome without asserting an etymology. The new “من عسير” reading links cover architecture, folk arts and crafts. The 2024 Al-Omari paper informed a clearly labelled original design method (ground → bands → repeated geometry); its survey findings, pigment recipes and local variations are not treated as universal facts.
+- Evidence: `pnpm typecheck`, `pnpm lint`, `pnpm build`, and `pnpm test:e2e` (35/35) pass.

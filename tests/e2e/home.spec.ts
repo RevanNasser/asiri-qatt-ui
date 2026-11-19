@@ -7,12 +7,12 @@ test("home renders Arabic, right-to-left", async ({ page }) => {
   await expect(html).toHaveAttribute("dir", "rtl")
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("واجهاتٌ عربية بروح القطّ العسيري")
   // Arabic text block flows from the right edge.
-  expect(await page.locator("h1").evaluate((el) => getComputedStyle(el).direction)).toBe("rtl")
+  expect(await page.getByRole("heading", { name: "واجهاتٌ عربية بروح القطّ العسيري" }).evaluate((el) => getComputedStyle(el).direction)).toBe("rtl")
 })
 
 test("component page and registry item are served", async ({ page, request }) => {
   await page.goto("/docs/components/qatt-divider")
-  await expect(page.locator('[data-slot="qatt-divider"]').first()).toBeVisible()
+  await expect(page.locator('iframe[title="فاصل قَطّ"]')).toBeVisible()
   const res = await request.get("/r/qatt-theme.json")
   expect(res.ok()).toBe(true)
   expect((await res.json()).type).toBe("registry:theme")
@@ -67,7 +67,7 @@ test("reduced motion: decorative bands render in their final state", async ({ br
   const context = await browser.newContext({ reducedMotion: "reduce" })
   const page = await context.newPage()
   await page.goto("/docs/components/qatt-divider")
-  const band = page.locator('[data-slot="component-preview"] [data-qatt-motion]').first()
+  const band = page.frameLocator('iframe[title="فاصل قَطّ"]').locator('[data-qatt-motion]').first()
   await expect(band).toBeVisible()
   expect(await band.evaluate((el) => getComputedStyle(el).clipPath)).toBe("none")
   await context.close()

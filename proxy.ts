@@ -6,6 +6,6 @@ import { i18n } from "@/lib/i18n"
 export default createI18nMiddleware(i18n)
 
 export const config = {
-  // Skip API routes, Next internals, the static registry (/r/*.json) and any file with an extension.
-  matcher: ["/((?!api|_next/static|_next/image|r/|favicon.ico|.*\\..*).*)"],
+  // Skip API routes, iframe previews (/preview/*), Next internals, the static registry (/r/*.json) and any file with an extension.
+  matcher: ["/((?!api|preview|_next/static|_next/image|r/|favicon.ico|.*\\..*).*)"],
 }

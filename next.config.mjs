@@ -5,6 +5,11 @@ const withMDX = createMDX()
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
+  // Lets a second build/server run beside another one (e.g. NEXT_DIST_DIR=.next-e2e for tests).
+  distDir: process.env.NEXT_DIST_DIR || ".next",
+  async redirects() {
+    return [{ source: "/docs", destination: "/docs/getting-started", permanent: false }]
+  },
   async headers() {
     return [
       {

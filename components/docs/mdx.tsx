@@ -4,6 +4,7 @@ import { Tab, Tabs } from "fumadocs-ui/components/tabs"
 import type { MDXComponents } from "mdx/types"
 
 import { ComponentPreview } from "@/components/docs/component-preview"
+import { BlockGallery, ComponentGallery } from "@/components/docs/gallery"
 import { InstallCommand } from "@/components/docs/install-command"
 import { MotifGallery, WallRecipe } from "@/components/docs/motif-gallery"
 import { PropsTable } from "@/components/docs/props-table"
@@ -17,6 +18,8 @@ export function getMDXComponents(components?: MDXComponents) {
     Tab,
     Tabs,
     ComponentPreview,
+    ComponentGallery,
+    BlockGallery,
     InstallCommand,
     MotifGallery,
     WallRecipe,

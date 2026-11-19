@@ -1,6 +1,6 @@
 # Heritage Brief: Al-Qatt Al-Asiri (القط العسيري)
 
-Prepared by the Asiri Heritage Agent for Qatt UI. Research date: 2026-11-19.
+Prepared by the Asiri Heritage Agent for Qatt UI. Research date: 2026-11-19. **Updated 2026-11-19 with [S14]** (AACIA 2024; summary and page refs in `source-aacia-2024.md`). [S14] is an academic but secondary synthesis, so a claim supported by it alone is tagged `verified, secondary [S14, p. N]`.
 
 **How to read this file:** every factual claim has a status tag.
 - `verified [S#]`: stated by the cited source (source list at the end).
@@ -23,14 +23,16 @@ Prepared by the Asiri Heritage Agent for Qatt UI. Research date: 2026-11-19.
 | 1.6 | The practice strengthens social bonds and solidarity among women in the region, and UNESCO notes "a therapeutic effect on the practitioner". | verified [S2, S3] |
 | 1.7 | Today men and women artists, designers and architects also practise it, and it appears on clothing, accessories and furniture. | verified [S1, S2] |
 | 1.8 | Some residents have set up galleries in their own homes to preserve it. | verified [S1, S2] |
-| 1.9 | The painter is called **al-Qattatah** (القَطّاطة). | verified, secondary [S4, S5] |
+| 1.9 | The painter is called **al-Qattatah** (القَطّاطة). The craft of drawing is called **al-taqteet** (التقطيط). | verified, secondary [S4, S5]. *al-taqteet:* verified, secondary [S14, p. 287] |
 | 1.10 | The name "qatt" comes from the first step of the drawing. Linguistically, *qatt* means cutting crosswise, and it refers to the belt or line drawn across the middle of the wall that divides it into two halves. | verified, secondary [S5]. Arab News glosses *qatt* more loosely as "line, carving or cutting" [S6]. |
-| 1.11 | In some villages the art is also called *al-Zayyan* (الزيان, "adorning the house"). It is also known as *al-Nagsh/Nagash* (النقش). | verified, secondary [S8, S9, S11] |
-| 1.12 | The number and variety of colours, and the complexity of the design, signalled a family's wealth. Poorer homes had simple straight-line designs. | verified, secondary [S4, S5, S9] |
+| 1.11 | In some villages the art is also called *al-Zayyan* (الزيان, "adorning the house"). It is also known as *al-Nagsh/Nagash* (النقش). Elders in Rijal Almaa say «قَط» is a Sarawat word, and that Tihama says «النقش». | verified, secondary [S8, S9, S11]. *Sarawat/Tihama usage:* verified, secondary [S14, p. 290] (reported oral testimony) |
+| 1.12 | The number and variety of colours, and the complexity of the design, signalled a family's wealth. Poorer homes had simple straight-line designs. The density of decoration followed the owner's social standing, and modest homes might have only horizontal lines or the mathalith alone. | verified, secondary [S4, S5, S9, S14 pp. 290, 292–293] |
 | 1.13 | A woman who could not paint her own majlis might hire a painter and pay in kind, for example with honey or ghee. | verified, secondary [S9] (one oral testimony) |
 | 1.14 | Painting a majlis normally took one to two months, depending on the detail. | verified, secondary [S9] |
 | 1.15 | Men did the exterior decoration and women did the interiors. | verified, secondary [S6]. Treat with care: this is a single press source. |
-| 1.16 | The art goes back "thousands of years" / to a specific date. | **unverified**. Do not state an origin date. UNESCO only says "old" or "ancient". Origins are debated: some speakers point to influences from Yemen, India or Africa, and others call it fully local [S9]. |
+| 1.17 | Painting is learned from one's mother or from a gifted woman, and the work is more collective than individual. | verified, secondary [S14, p. 290] (citing Mauger 2009) |
+| 1.18 | The gypsum ground is called «صهرا» locally, and the finished decoration «القطّة». | verified, secondary [S14, pp. 291, 294] |
+| 1.16 | The art goes back "thousands of years" / to a specific date. | **unverified**. Do not state an origin date. [S14, p. 290] also says no date can be fixed. UNESCO only says "old" or "ancient". Origins are debated: some speakers point to influences from Yemen, India or Africa, and others call it fully local [S9]. |
 
 ## 2. Where
 
@@ -39,6 +41,8 @@ Prepared by the Asiri Heritage Agent for Qatt UI. Research date: 2026-11-19.
 | 2.1 | The art belongs to the Asir region of south-western Saudi Arabia. | verified [S2] |
 | 2.2 | It is practised from the highlands (al-Sarawat) down to the Tihama coastal plain, and styles vary between villages and terrains. | verified, secondary [S6, S9, S4] |
 | 2.3 | Places associated with it include Rijal Almaa (رجال ألمع; Saudipedia spells it "Rujal"), the Al-Muftaha village in Abha (an artists' village), the Shahran villages, and the Al-Shat village museum. | verified, secondary [S4, S9] |
+| 2.5 | Regional variation: Shahran favours geometric shapes and simple lines. Qahtan favours simple, spontaneous vases, birds, and geometric and plant forms. The art flourishes especially in Qahtan and Rijal Almaa. | verified, secondary [S14, pp. 290, 301] (citing Aref 2016 and al-Jawahira 2005) |
+| 2.6 | Unit names differ by area: banat = «التنابيت» (Shahran) = «جنود» (Qahtan); aryash = «السعف» (Shahran); hadhiyya = «المحابس / المزولة / المداخل» (Shahran); amariyat = «العمري / التقطيعات / السيور» (Shahran). | verified, secondary [S14, pp. 293–294] |
 | 2.4 | Asir is a mountain region of highlands, terraces and stone-and-mud houses. | general geography. Not a heritage claim, so no citation is needed in copy. |
 
 ## 3. UNESCO recognition
@@ -48,6 +52,7 @@ Prepared by the Asiri Heritage Agent for Qatt UI. Research date: 2026-11-19.
 | 3.1 | The element is officially titled **"Al-Qatt Al-Asiri, female traditional interior wall decoration in Asir, Saudi Arabia"**, nomination file No. **01261**. | verified [S2] |
 | 3.2 | It was inscribed in **2017** on the **Representative List of the Intangible Cultural Heritage of Humanity**, at the 12th session of the Intergovernmental Committee (Jeju Island, Republic of Korea), decision **12.COM 11.B.27**. | verified [S2, S3] |
 | 3.3 | It was included in Saudi Arabia's national heritage inventory in 2016. | verified, secondary (UNESCO decision as summarised by search) [S3]. Re-check the decision text before quoting. |
+| 3.5 | [S14, p. 297] dates the inscription to "January 2018". | **contradicted** by [S2, S3] (decision of December 2017). Keep 2017. Do not cite [S14] for the date. |
 | 3.4 | The Committee invited Saudi Arabia to avoid measures, such as licensing practitioners, that "may limit community access to the practice". | verified [S3]. This is relevant to our ethics stance: the art belongs to its community. |
 
 ## 4. Colour palette and pigments
@@ -58,7 +63,8 @@ Prepared by the Asiri Heritage Agent for Qatt UI. Research date: 2026-11-19.
 |---|---|---|
 | 4.1 | Colours were natural pigments from the surrounding environment: stone and limestone powders, coloured clays, plants and fruits. They were hand-prepared with binders/fixatives (plant resin, gum). | verified, secondary [S6, S7, S10, S11] |
 | 4.2 | Ready-made powder pigments were later imported from neighbouring countries and mixed with water and fixatives. Modern paints came recently. | verified, secondary [S7]. Aramco World says commercial paint arrived "about 70 to 80 years ago" (as of 2013) [S9]. |
-| 4.3 | The core named colours are **red, yellow, black, blue** [S4, S5]. One press source describes a seven-colour palette: primary red, yellow and blue plus green, orange, white and black [S6]. | verified, secondary |
+| 4.3 | The core named colours are **red, yellow, black, blue** [S4, S5]. One press source describes a seven-colour palette: primary red, yellow and blue plus green, orange, white and black [S6]. [S14] frames red, yellow and blue as the main primaries, with green and orange as secondaries. Black is used for the outlines, and green is "one of the most important colours in the region". | verified, secondary [S4, S5, S6, S14 pp. 292, 296–297] |
+| 4.5 | Black lines are drawn first as the main horizontal and vertical structure, and black outlines separate every colour field. The work is strictly two-dimensional. | verified, secondary [S14, pp. 292, 294] |
 | 4.4 | One local custodian says the oldest colours were **black, white and red**, and that more colours came through trade (especially with Aden). | verified, secondary [S9] (one testimony) |
 
 Pigment recipes, colour by colour:
@@ -66,17 +72,17 @@ Pigment recipes, colour by colour:
 | Colour | Traditional source | Status |
 |---|---|---|
 | White (base) | Gypsum (الجص). Arab News says acacia gum is softened in water, pounded and blended with refined gypsum to make a glossy white called **al-Shawit** (الشويط; Arabic spelling unconfirmed). A ceiling white was made from chalk mixed with salt and water. | gypsum: verified [S1, S2, S10]. al-Shawit recipe: verified, secondary [S6]. Chalk + salt: verified, secondary [S9]. |
-| Red | Crushed iron-rich red stone, named **al-meshiga / al-mashqa** (حجر المشقة), mixed with plant resin. Also a local red clay called **al-Hamra** (الحمرا/الحمراء), crushed and mixed with water. Arab News says it was popular on ceilings. | verified, secondary [S6, S9, S10]. "Popular on ceilings": single source [S6]. |
-| Yellow | Natural sulphur powder called **safra** (صفرة), from the mountains. Also pomegranate peel and the plant **al-hurd** (الهرد, i.e. turmeric). | conflicting/plural sources: sulphur [S6], pomegranate peel [S6, S10], hurd [S10]. "Mountain stones" for yellow-gold [S9]. |
-| Black | Charcoal ground with resin. Soot collected on a plate held over a flame. Tar distilled from the trunk of the wild olive (**al-ʿAtm**, العتم), used on doors and window frames. Charcoal was used for the initial sketch lines. | verified, secondary [S6, S9, S10] |
-| Green | Pounded alfalfa (**barseem**, البرسيم), sometimes rubbed directly on the wall. Arab News says it was common on the lower section. Other sources name qat and other plants, and grazing grasses. | verified, secondary [S6, S9, S10] |
-| Blue | **conflicting.** Arab News: a powdered sedimentary rock mixed with water and resin, often around windows [S6]. Al Jazeera, citing a King Saud University study: indigo (**al-nila**, النيلة) [S10]. Aramco World: blue "could not be created from the mountains' bounty" and arrived with commercial paint [S9]. | conflicting |
-| Orange | Historically imported as a powder, then mixed with water and resin. | verified, secondary [S6] |
+| Red | Crushed iron-rich red stone, named **al-meshiga / al-mashqa** (حجر المشقة), mixed with plant resin. Also a local red clay called **al-Hamra** (الحمرا/الحمراء), crushed and mixed with water. Arab News says it was popular on ceilings. [S14] gives another recipe: «حسن» (unidentified) with **مرّ** (myrrh?) and **fried, finely ground rice** to soften the red. | verified, secondary [S6, S9, S10]. "Popular on ceilings": single source [S6]. *Rice/myrrh recipe:* verified, secondary [S14, p. 297]. The term «حسن» is unidentified. |
+| Yellow | Natural sulphur powder called **safra** (صفرة), from the mountains. Also pomegranate peel and the plant **al-hurd** (الهرد, i.e. turmeric). | plural sources, now consistent for the two main ones: sulphur [S6, S14 p. 297], pomegranate peel [S6, S10, S14 p. 297], hurd [S10]. "Mountain stones" for yellow-gold [S9]. → sulphur and pomegranate are **verified, secondary**. |
+| Black | Charcoal ground with resin ([S14, p. 297]: "hearth charcoal with black gum"). Soot collected on a plate held over a flame. Tar distilled from the trunk of the wild olive (**al-ʿAtm**, العتم), used on doors and window frames. Charcoal was used for the initial sketch lines. | verified, secondary [S6, S9, S10] |
+| Green | Pounded alfalfa (**barseem**, البرسيم), sometimes rubbed directly on the wall. Arab News says it was common on the lower section. Other sources name qat and other plants, and grazing grasses. [S14]: "extracted from green plants". | verified, secondary [S6, S9, S10, S14 p. 297] |
+| Blue | **conflicting (now four readings).** Arab News: a powdered sedimentary rock mixed with water and resin, often around windows [S6]. Al Jazeera, citing a King Saud University study: indigo (**al-nila**, النيلة) [S10]. Aramco World: blue "could not be created from the mountains' bounty" and arrived with commercial paint [S9]. AACIA: **«طلح أبيض» (white acacia) + «زرنيخ أزرق»** ("blue arsenic"; the mineral is unidentified) [S14, p. 297]. | conflicting. Do not name a blue source on the site. Say "its origin is disputed between sources". |
+| Orange | Historically imported as a powder, then mixed with water and resin. [S14]: **brought from Yemen** as a powder. | verified, secondary [S6]. *From Yemen:* verified, secondary [S14, p. 297] (citing Maghawi 2004) |
 | Light brown | Sap of the *samgha* (gum) tree in spring. Browns from rocks. | verified, secondary [S9] (oral testimony) |
 
-**Tools:** brushes of sheep's wool, goat-tail hair and feathers, and cloth wrapped on wooden sticks. One brush was kept per colour so the colours did not mix [S10]. Goat-hair brushes are also mentioned [S9]. The status is verified, secondary.
+**Tools:** brushes of sheep's wool, goat-tail hair and feathers, and cloth wrapped on wooden sticks. One brush was kept per colour so the colours did not mix [S10]. Goat-hair brushes are also mentioned [S9, S14 p. 296]. The status is verified, secondary.
 
-**Process (sketch, then fill):** the lady of the house draws the guide lines and places coloured dots that mark each section's colour. Relatives and friends then fill the shapes [S7]. Daughters filled in lines their mother had sketched [S9]. The status is verified, secondary.
+**Process (sketch, then fill):** the lady of the house draws the guide lines and places coloured dots that mark each section's colour. Relatives and friends then fill the shapes [S7]. Daughters filled in lines their mother had sketched [S9]. The status is verified, secondary. Work proceeds **from top to bottom** (Zahra al-Almaʿi, reported) [S14, p. 292], and the main black lines are drawn before the colour [S14, p. 292].
 
 ## 5. Motif vocabulary (summary; full geometry in `motif-catalog.md`)
 
@@ -98,11 +104,24 @@ Pigment recipes, colour by colour:
 - Banat = "young females"
 - Aryash = "plants"
 
-The Aryash definition is **conflicting**: the same page's info box says "Feathers", and *rīsh* (ريش) means feathers in Arabic. We keep the name and mark its form as uncertain.
+**[S14] definitions (p. 293, 295–296; table with illustrations).** These now upgrade or contradict entries above:
+- Banat: a **tree resting on an upward triangle**, at the top of the painting. Its illustration shows sprigs with several branch pairs. → consistent with [S9].
+- **Aryash: plants between the banat triangles** (Shahran name «السعف», fronds). → resolves the plants/feathers conflict in favour of **plants**: verified, secondary [S4 text, S14 pp. 294–295]. The word still means "feathers"; the visual form is plant sprigs.
+- **Mahareeb: horizontal broken lines like successive sea waves**, shown as stacked multicoloured zigzags. → **contradicts** our arch reading, which came from the word ("prayer niche") [S4]. Form: **conflicting** [S4 vs S14 p. 293, 296].
+- **Sankroli: vertical broken lines side by side, usually facing right** ("mahareeb set in parallel"), shown as vertical chevron columns. → **contradicts** our nested-arch reading. Form: **conflicting** [S4 vs S14 p. 293, 296]. It is also **directional**.
+- **Rukun: large adjacent triangles containing various designs.** → resolves Banat vs Rukun: banat are small triangles *with a tree*, and rukun are *large* triangles *filled with inner designs* [S9, S14 p. 296].
+- Balsanah: rhombuses with dots or small circles inside, usually in the hadhiyya or khatam [S14 p. 296].
+- Amshat: **thin parallel lines like comb teeth**, above the hadhiyya or banat [S14 p. 293]. → the comb form is upgraded from interpretation to verified, secondary.
+- Mathalith wal-Makhamis: 3 to 5 horizontal lines **in different colours** around the room, "at the bottom of the painting, as its opening" [S14 p. 293, 296].
+- Shabakah: a net of crossing lines enclosing squares or rhombuses, usually one colour [S14 p. 293, 296]. → consistent with [S4].
+- Taʿdheeq: three dots at the triangle's apex, "like ears of corn", at the end of the banat [S14 p. 292, 296]. → consistent with [S4].
+- **New unit names** [S14 pp. 291–295]: **الختام** (a 30–40 cm band of decorated squares), **الحظية** (a narrow band below the khatam), **العماريات / التقطيعات** (vertical stripes forming the base), **البترة** (the decorated central pillar). See §6.
 
 **Meanings / symbolism:**
 - Banat ("girls"): one practitioner said the small triangles with little trees are called banat, and each triangle was named after a daughter. Verified, secondary, one oral testimony [S9].
 - An art historian (Sharon Parker) suggests that some large triangles represent mountains and that zigzags stand for water and lightning. This is **one scholar's interpretation**, quoted in press [S9]. Cite it as "some researchers suggest…", never as fact.
+- **Balsanah etymology:** named after lentil grains, locally «البلسن» (Khiyar al-Shahri, via Aref 2016). Verified, secondary, oral testimony [S14, p. 292]. This is an etymology, not a symbolic meaning.
+- **Interpretations offered by [S14]** (attribute them, never state them as fact): banat triangles "as if lined-up mountains" (p. 296); aryash "perhaps" reflecting a link between woman and plant as fertility (p. 295); mahareeb "may" resemble rows of worshippers facing the mihrab (p. 296); horizontal lines from terraces and vertical lines from mountains (Zakaria 2019; p. 290, 294). **Policy:** we do not repeat the religious and fertility readings in site copy (guardrail 2 and D-006). Mountains and terraces may be quoted with attribution.
 - All other motifs: **no verified meaning**.
 
 ## 6. Composition rules
@@ -119,8 +138,14 @@ The Aryash definition is **conflicting**: the same page's info box says "Feather
 | 6.8 | In Tihama, parallel lines are separated by small squares. | verified, secondary [S9] |
 | 6.9 | Al-Shabakah, a single-colour interlaced grid, forms the structural foundation of the design. | verified, secondary [S8, S11] |
 | 6.10 | Painted doorframes. Coloured trim (white, blue, yellow) around windows on exteriors. Blue around windows. Tar on doors and window frames. | verified, secondary [S6, S9] |
-| 6.11 | The decoration covers the lower third of interior walls ("الثلث الأخير"). | verified, secondary [S10]. The wording is ambiguous ("last third"), so treat the exact height as uncertain. |
-| 6.12 | Mirror symmetry and fixed band order (e.g. "always triangles above zigzags"). | **unverified**. No source gives a fixed band order. Our components may define one as a *project interpretation*. |
+| 6.11 | The decoration covers the lower third of interior walls ("الثلث الأخير"). | verified, secondary [S10]. The wording is ambiguous ("last third"), so treat the exact height as uncertain. Compare 6.14. |
+| 6.14 | **Three-zone wall:** the top is left empty; the middle, at eye level, carries the bands; the bottom has parallel lines or a solid colour field. | verified, secondary [S14, p. 291] |
+| 6.15 | **Band order (Rijal Almaa type, top → bottom):** aryash/banat with amshat → khatam (row of squares) → hadhiyya → thin rules → amariyat (vertical stripes, the base). The hadhiyya is always below the khatam. | verified, secondary [S14, p. 295, Fig. 4]. One source and one regional type. Present it as "one documented arrangement", not as *the* rule. |
+| 6.16 | The amariyat are vertical in Rijal Almaa and horizontal in Shahran (at most 7 lines). | verified, secondary [S14, p. 293] |
+| 6.17 | Horizontal lines form a belt around the room, and at doors, windows and stairs they turn vertical and then horizontal again. | verified, secondary [S14, pp. 292, 294–295] |
+| 6.18 | The batra (central pillar) is painted like a carpet with every motif type. In Bani Shahran a broad-lined "mihrab" in mid-wall replaces it. | verified, secondary [S14, pp. 291, 295] |
+| 6.19 | The wall facing arriving guests gets a complete composition "like a carpet or a frame". | verified, secondary [S14, p. 291] |
+| 6.12 | Mirror symmetry and a fixed *universal* band order (e.g. "always triangles above zigzags"). | **unverified** as a universal rule. [S14] documents one arrangement (6.15), and the paper itself says practice varies by village. Our components may follow 6.15 and must call it "one documented arrangement". |
 | 6.13 | Painters measured band widths with their fingers. | **unverified**. It appears only in uncited aggregator text. Do not use. |
 
 ## 7. Ethics guardrails (binding for Qatt UI)
@@ -137,9 +162,11 @@ The Aryash definition is **conflicting**: the same page's info box says "Feather
 ## 8. Open questions / uncertainties
 
 - The exact Arabic spelling of "al-Shawit" and the safra yellow pigment needs confirmation.
-- Blue pigment origin is conflicting (local rock vs indigo vs commercial).
-- The visual form of **al-Aryash** is unknown ("plants" vs "feathers").
-- **al-Banat** vs **al-Rukun** are both triangles. Sources do not explain the difference. Aramco World says banat are small triangles *with little trees*.
+- Blue pigment origin is conflicting (local rock vs indigo vs commercial vs white acacia + "blue arsenic" [S14]).
+- ~~The visual form of **al-Aryash** is unknown.~~ Resolved: plants between the banat [S14]. The name still means feathers.
+- ~~**al-Banat** vs **al-Rukun**.~~ Resolved: banat are small triangles with a tree, and rukun are large triangles filled with designs [S9, S14].
+- **New:** the form of **al-Mahareeb** and **Sankroli** is now conflicting (arches from the word [S4] vs zigzags/chevrons drawn in [S14]). A human reviewer should check the Art Jameel book [S12] or field photos before a breaking geometry change.
+- **New:** «حسن» (red) and «زرنيخ أزرق» (blue) in [S14] are unidentified materials.
 - No source gives fixed proportions, band order or canonical colour hex values. All hex values and geometry in `motif-catalog.md` are project interpretation.
 - The academic primary source (Qurban & Al-Qahtani, King Saud University, cited by Al Jazeera [S10]) and the Art Jameel / Factum Arte book (2020) [S12] were not read directly. They are recommended for a future human review.
 
@@ -158,3 +185,4 @@ The Aryash definition is **conflicting**: the same page's info box says "Feather
 - [S11] Arab News, "Saudi artist preserves Al-Qatt Al-Asiri art over decades," 17 May 2025 (Ibrahim Al-Almaai via SPA). https://www.arabnews.pk/node/2601116/saudi-arabia
 - [S12] Art Jameel & Factum Arte Foundation, *Al Qatt Al Asiri Pattern: An Introduction to Traditional Painting from Asir*, 2020 (catalogue page only consulted). https://artjameel.org/publication/al-qatt-al-asiri-pattern/
 - [S13] Arab News, "Saudi Arabia's Al-Qatt Al-Asiri added to the UNESCO list." https://arabnews.com/node/1205626
+- [S14] Al-Omari, Ghaida Ali (غيداء علي العمري). «تأثير زخارف وألوان (القط) الفن العسيري في إبراز هوية الثقافة الاجتماعية للمنطقة الجنوبية» / "The influence of the decorations and colors of (cat) Asiri art in highlighting the identity of the social culture of the southern region." *Journal of Heritage and Design* (مجلة التراث والتصميم), AACIA, Vol. 4, Issue 21, June 2024, pp. 285–308. DOI 10.21608/JSOS.2023.193671.1367. https://aaciaegypt.com/wp-content/uploads/2024/06/The-influence-of-the-decorations-and-colors-of-cat-Asiri-art-in-highlighting-the-identity-of-the-social-culture-of-the-southern-region.-page-285-308.pdf — academic secondary synthesis. See `source-aacia-2024.md`.

@@ -9,7 +9,8 @@
 
 @source "../registry";
 
-@custom-variant dark (&:is(.dark *));
+/* Gypsum islands (data-qatt-surface="gypsum", D-019) are light-theme islands: `dark:` utilities stop at them. */
+@custom-variant dark (&:is(.dark *):not(:is([data-qatt-surface="gypsum"], [data-qatt-surface="gypsum"] *)));
 
 @theme inline {
   --font-sans: var(--font-plex-arabic), "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;

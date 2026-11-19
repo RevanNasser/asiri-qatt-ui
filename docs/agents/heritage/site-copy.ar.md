@@ -35,7 +35,7 @@ Every factual claim on the "About" page is backed by a source from `heritage-bri
 
 | key | النص |
 |---|---|
-| `home.hero.eyebrow` | سجلّ مكوّنات مفتوح المصدر لـ shadcn/ui |
+| `home.hero.eyebrow` | مرحبا ألف · سجلّ مكوّنات مفتوح المصدر لـ shadcn/ui |
 | `home.hero.title` | واجهاتٌ عربية بروح القطّ العسيري |
 | `home.hero.subtitle` | مكوّناتٌ وكتلٌ جاهزة تُكتب من اليمين إلى اليسار أولًا، ونقوشٌ من رسمنا مستوحاة من فنّ نساء عسير في تزيين جدران المجالس. |
 | `home.hero.cta.primary` | ابدأ الآن |
@@ -99,6 +99,15 @@ Every factual claim on the "About" page is backed by a source from `heritage-bri
 | `about.sources.s7` | [أرامكو وورلد — رسّامات المجالس (بالإنجليزية)](https://archive.aramcoworld.com/issue/201304/the.majlis.painters.htm) |
 | `about.sources.s8` | [صحيفة الوطن — مفردات فن القط](https://www.alwatan.com.sa/article/1052556) |
 | `about.sources.s9` | [صحيفة اليوم — توثيق خطوط القط العسيري](https://www.alyaum.com/articles/6594561/) |
+| `about.asir.heading` | من عسير |
+| `about.asir.intro` | للعسير جغرافيا وعمارة وفنونٌ أوسع من القطّ العسيري. هذه روابط للقراءة من مصادرها؛ لا نقدّمها بوصفها نقوشًا في المكتبة. |
+| `about.asir.architecture.title` | العمارة والقرى |
+| `about.asir.architecture.body` | [تعرّفوا إلى عمارة عسير وموادها المحلية عبر هيئة تطوير منطقة عسير](https://www.asda.gov.sa/ar/from-aseer/authenticity/architecture). |
+| `about.asir.folklore.title` | الفنون الشعبية |
+| `about.asir.folklore.body` | [تعرّفوا إلى الفنون الشعبية المتنوعة في المنطقة عبر هيئة تطوير منطقة عسير](https://www.asda.gov.sa/ar/from-aseer/authenticity/folklore). |
+| `about.asir.crafts.title` | الحرف اليدوية |
+| `about.asir.crafts.body` | [اقرأوا عن الحرف اليدوية في منطقة عسير عبر سعوديبيديا](https://saudipedia.com/%D9%82%D8%A7%D8%A6%D9%85%D8%A9-%D8%A7%D9%84%D8%AD%D8%B1%D9%81-%D8%A7%D9%84%D9%8A%D8%AF%D9%88%D9%8A%D8%A9-%D9%81%D9%8A-%D9%85%D9%86%D8%B7%D9%82%D8%A9-%D8%B9%D8%B3%D9%8A%D8%B1). |
+| `about.asir.note` | رسومات قَطّ في هذا الموقع من تصميم المشروع، ولا توثّق جدارًا أو فنانةً أو قريةً بعينها. |
 
 ## docs — التوثيق
 
