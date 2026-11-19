@@ -1,0 +1,49 @@
+---
+title: جدول الأسعار
+description: خطط الأسعار جنبًا إلى جنب مع إبراز الخطة المقترحة.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-pricing.*, docs.props.qatt-pricing.*). */}
+
+خطط الأسعار جنبًا إلى جنب، والخطة المقترحة في بطاقةٍ مؤطّرة تعلوها زخرفة «التعذيق» وشارةٌ تُبرزها.
+
+<Callout>
+المحتوى هنا افتراضيٌّ للعرض: الأسماء والأرقام والأسعار والآراء مختلَقة، فاستبدلوها بمحتواكم.
+</Callout>
+
+<ComponentPreview name="qatt-pricing-demo" />
+
+## التثبيت
+
+<InstallCommand item="qatt-pricing" />
+
+## الاستخدام
+
+الأسعار في المثال افتراضية. مرّروا `period` لإظهار مبدّلٍ بين الشهري والسنوي. واكتبوا العملة بعد الرقم كما في العربية: «99 ر.س».
+
+```tsx
+import { QattPricing } from "@/components/qatt-pricing"
+
+<QattPricing title="…" plans={[{ name: "…", price: 99, features: ["…"], cta: { label: "…", href: "#" } }]} />
+```
+
+
+## الخصائص
+
+<PropsTable
+  rows={[
+    {"name": "title", "type": "string", "description": <span>عنوان القسم، ويُربط به القسم عبر <code dir="ltr">aria-labelledby</code>.</span>},
+    {"name": "subtitle", "type": "string", "description": <span>سطرٌ تمهيدي تحت العنوان.</span>},
+    {"name": "currency", "type": "string", "default": "\"ر.س\"", "description": <span>رمز العملة بعد الرقم. والافتراضي «ر.س».</span>},
+    {"name": "period", "type": "{ monthly, yearly, … }", "description": <span>تسميتا الفترتين الشهرية والسنوية، ووجودهما يُظهر المبدّل.</span>},
+    {"name": "plans", "type": "QattPlan[]", "description": <span>الخطط: الاسم والسعر والمزايا والزرّ، ووصفٌ وشارةٌ اختياريان، و<code dir="ltr">highlighted</code> لإبراز الخطة المقترحة.</span>}
+  ]}
+/>
+
+## ملاحظات الاتجاه
+
+السعر والعملة معزولان في `bdi`، والأرقام بعرضٍ ثابت. وعلامات الصحّ في قائمة المزايا لا تنقلب.
+
+## سهولة الوصول
+
+اسم الخطة عنوان، والخطة المقترحة تُعرف بشارةٍ نصية لا باللون وحده. ولكلّ زرٍّ اسمٌ مقروء يذكر الخطة، مثل «اختر خطة النموّ».

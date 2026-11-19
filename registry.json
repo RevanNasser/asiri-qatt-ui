@@ -505,6 +505,85 @@
           "target": "app/qatt/qatt-feature-grid/page.tsx"
         }
       ]
+    },
+    {
+      "name": "qatt-stats",
+      "type": "registry:block",
+      "title": "Qatt Stats",
+      "description": "Bold figures over a faint balsanah field; Western digits by default, optional count-up.",
+      "categories": ["qatt"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/qatt-utils.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json",
+        "{{REGISTRY_URL}}/r/use-reveal.json"
+      ],
+      "files": [
+        {
+          "path": "registry/qatt/blocks/qatt-stats/qatt-stats.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/qatt/blocks/qatt-stats/page.tsx",
+          "type": "registry:page",
+          "target": "app/qatt/qatt-stats/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "qatt-testimonials",
+      "type": "registry:block",
+      "title": "Qatt Testimonials",
+      "description": "Testimonial cards (figure/blockquote/figcaption) with a decorative quote mark over sankroli.",
+      "categories": ["qatt"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/qatt-utils.json",
+        "{{REGISTRY_URL}}/r/avatar.json",
+        "{{REGISTRY_URL}}/r/card.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+      ],
+      "files": [
+        {
+          "path": "registry/qatt/blocks/qatt-testimonials/qatt-testimonials.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/qatt/blocks/qatt-testimonials/page.tsx",
+          "type": "registry:page",
+          "target": "app/qatt/qatt-testimonials/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "qatt-pricing",
+      "type": "registry:block",
+      "title": "Qatt Pricing",
+      "description": "Pricing plans side by side with a monthly/yearly toggle; the highlighted plan is framed with a taadheeq crest.",
+      "categories": ["qatt"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/qatt-utils.json",
+        "{{REGISTRY_URL}}/r/badge.json",
+        "{{REGISTRY_URL}}/r/button.json",
+        "{{REGISTRY_URL}}/r/card.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json",
+        "{{REGISTRY_URL}}/r/tabs.json"
+      ],
+      "files": [
+        {
+          "path": "registry/qatt/blocks/qatt-pricing/qatt-pricing.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/qatt/blocks/qatt-pricing/page.tsx",
+          "type": "registry:page",
+          "target": "app/qatt/qatt-pricing/page.tsx"
+        }
+      ]
     }
   ]
 }

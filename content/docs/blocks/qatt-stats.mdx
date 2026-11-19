@@ -1,0 +1,49 @@
+---
+title: الأرقام والإحصاءات
+description: أرقامٌ بارزة تحكي الإنجاز بإيجاز.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-stats.*, docs.props.qatt-stats.*). */}
+
+أرقامٌ بارزة تلخّص إنجازكم في سطرٍ واحد، على خلفيةٍ خافتة من «البلسنة».
+
+<Callout>
+المحتوى هنا افتراضيٌّ للعرض: الأسماء والأرقام والأسعار والآراء مختلَقة، فاستبدلوها بمحتواكم.
+</Callout>
+
+<ComponentPreview name="qatt-stats-demo" />
+
+## التثبيت
+
+<InstallCommand item="qatt-stats" />
+
+## الاستخدام
+
+الأرقام في المثال افتراضية، فاستبدلوها بأرقامكم الحقيقية. وتُعرض بالأرقام الغربية افتراضيًا، ويمكن عرضها بالأرقام المشرقية عبر `numerals="arab"` في السياقات الزخرفية.
+
+```tsx
+import { QattStats } from "@/components/qatt-stats"
+
+<QattStats stats={[{ value: 98, suffix: "%", label: "…" }]} />
+```
+
+
+## الخصائص
+
+<PropsTable
+  rows={[
+    {"name": "title", "type": "string", "description": <span>عنوانٌ اختياري للقسم.</span>},
+    {"name": "stats", "type": "{ value, label, prefix?, suffix? }[]", "description": <span>قائمة الأرقام: القيمة والتسمية، وبادئةٌ ولاحقة اختياريتان.</span>},
+    {"name": "numerals", "type": "\"latn\" | \"arab\"", "default": "\"latn\"", "description": <span>نظام الأرقام: <code dir="ltr">latn</code> الغربية (الافتراضي) أو <code dir="ltr">arab</code> المشرقية.</span>},
+    {"name": "background", "type": "MotifId | false", "default": "\"balsanah\"", "description": <span>نقشٌ خافت في الخلفية، أو <code dir="ltr">false</code> لإخفائه. والافتراضي <code dir="ltr">balsanah</code> بشفافيةٍ منخفضة.</span>},
+    {"name": "animate", "type": "boolean", "default": "false", "description": <span>عدٌّ متصاعد حتى القيمة، اختياري، ويتوقّف عند تفعيل تقليل الحركة.</span>}
+  ]}
+/>
+
+## ملاحظات الاتجاه
+
+كلّ قيمةٍ معزولةٌ داخل `bdi` فلا تضطرب علامة النسبة أو الزائد. واكتبوا البادئة واللاحقة كما تُقرآن، مثل «98%».
+
+## سهولة الوصول
+
+القيمة النهائية موجودةٌ في الصفحة من البداية، فتقرؤها التقنيات المساعدة حتى مع العدّ المتحرّك، والعدّ يتوقّف عند تفعيل تقليل الحركة.

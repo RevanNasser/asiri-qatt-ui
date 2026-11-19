@@ -23,6 +23,9 @@ import SeparatorDemo from "@/registry/qatt/examples/separator-demo"
 import QattHeroDemo from "@/registry/qatt/blocks/qatt-hero/page"
 import MajlisWelcomeDemo from "@/registry/qatt/blocks/majlis-welcome/page"
 import QattFeatureGridDemo from "@/registry/qatt/blocks/qatt-feature-grid/page"
+import QattStatsDemo from "@/registry/qatt/blocks/qatt-stats/page"
+import QattTestimonialsDemo from "@/registry/qatt/blocks/qatt-testimonials/page"
+import QattPricingDemo from "@/registry/qatt/blocks/qatt-pricing/page"
 
 /** Live examples rendered by <ComponentPreview name="..." />. `file` (relative to registry/) is shown in the code tab. */
 export const examples: Record<string, { component: ComponentType; file: string }> = {
@@ -49,4 +52,7 @@ export const examples: Record<string, { component: ComponentType; file: string }
   "qatt-hero-demo": { component: QattHeroDemo, file: "qatt/blocks/qatt-hero/page.tsx" },
   "majlis-welcome-demo": { component: MajlisWelcomeDemo, file: "qatt/blocks/majlis-welcome/page.tsx" },
   "qatt-feature-grid-demo": { component: QattFeatureGridDemo, file: "qatt/blocks/qatt-feature-grid/page.tsx" },
+  "qatt-stats-demo": { component: QattStatsDemo, file: "qatt/blocks/qatt-stats/page.tsx" },
+  "qatt-testimonials-demo": { component: QattTestimonialsDemo, file: "qatt/blocks/qatt-testimonials/page.tsx" },
+  "qatt-pricing-demo": { component: QattPricingDemo, file: "qatt/blocks/qatt-pricing/page.tsx" },
 }

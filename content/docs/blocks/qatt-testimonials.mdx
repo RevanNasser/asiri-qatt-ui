@@ -1,0 +1,47 @@
+---
+title: آراء العملاء
+description: شهاداتٌ واقتباسات ممّن جرّبوا وأحبّوا.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-testimonials.*, docs.props.qatt-testimonials.*). */}
+
+شهاداتٌ ممّن جرّبوا منتجكم، في شبكةٍ من البطاقات أو اقتباسٍ واحد كبير، بعلامة اقتباسٍ زخرفية تحفّها «سنكرولي».
+
+<Callout>
+المحتوى هنا افتراضيٌّ للعرض: الأسماء والأرقام والأسعار والآراء مختلَقة، فاستبدلوها بمحتواكم.
+</Callout>
+
+<ComponentPreview name="qatt-testimonials-demo" />
+
+## التثبيت
+
+<InstallCommand item="qatt-testimonials" />
+
+## الاستخدام
+
+الأسماء والآراء في المثال مختلَقة للعرض، فلا تنشروها كما هي، واستعملوا آراءً حقيقية بإذن أصحابها. واكتبوا الاقتباس العربي بين علامتَي التنصيص «…».
+
+```tsx
+import { QattTestimonials } from "@/components/qatt-testimonials"
+
+<QattTestimonials title="…" items={[{ quote: "«…»", name: "…" }]} />
+```
+
+
+## الخصائص
+
+<PropsTable
+  rows={[
+    {"name": "title", "type": "string", "description": <span>عنوان القسم، ويُربط به القسم عبر <code dir="ltr">aria-labelledby</code>.</span>},
+    {"name": "items", "type": "{ quote, name, role?, avatar? }[]", "description": <span>الشهادات: الاقتباس والاسم، والصفة والصورة اختياريتان.</span>},
+    {"name": "layout", "type": "\"grid\" | \"single\"", "default": "\"grid\"", "description": <span>التخطيط: <code dir="ltr">grid</code> شبكة بطاقات، أو <code dir="ltr">single</code> اقتباسٌ واحد كبير.</span>}
+  ]}
+/>
+
+## ملاحظات الاتجاه
+
+علامة الاقتباس الزخرفية في بداية السطر، والاقتباسات الإنجليزية داخل النص العربي تُعزل بـ `bdi`.
+
+## سهولة الوصول
+
+كلّ شهادةٍ `figure` فيها `blockquote` و`figcaption`. وعلامة الاقتباس الكبيرة زخرفية، وللصور الرمزية نصٌّ بديل.

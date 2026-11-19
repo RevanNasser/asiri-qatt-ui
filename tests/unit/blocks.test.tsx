@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react"
+import { act, render, screen, within } from "@testing-library/react"
 import type { ReactElement } from "react"
 import { axe } from "vitest-axe"
 
@@ -60,5 +60,37 @@ describe("qatt-feature-grid", () => {
     const links = screen.getAllByRole("link")
     expect(links.map((l) => l.textContent)).toEqual(["سريعٌ بطبعه"])
     expect(screen.getAllByRole("heading", { level: 3 })).toHaveLength(6)
+  })
+})
+
+describe("qatt-stats", () => {
+  it("shows Western digits by default, isolated in bdi, as a description list", () => {
+    const { container } = inDir("rtl", demo("qatt-stats"))
+    const values = [...container.querySelectorAll("dd bdi")].map((b) => b.textContent)
+    expect(values).toContain("12,000+")
+    expect(values.join("")).not.toMatch(/[٠-٩]/)
+    expect(container.querySelectorAll("dt")).toHaveLength(4)
+  })
+})
+
+describe("qatt-testimonials", () => {
+  it("uses figure / blockquote / figcaption with a decorative mirrored quote mark", () => {
+    const { container } = inDir("rtl", demo("qatt-testimonials"))
+    expect(container.querySelectorAll("figure blockquote")).toHaveLength(3)
+    expect(container.querySelectorAll("figure figcaption")).toHaveLength(3)
+    const mark = container.querySelector("figure > span[aria-hidden='true'] svg.lucide-quote")
+    expect(mark).toHaveClass("rtl:-scale-x-100")
+  })
+})
+
+describe("qatt-pricing", () => {
+  it("toggles the billing period, keeps currency after the number and names the plan for each CTA", async () => {
+    const { container } = inDir("rtl", demo("qatt-pricing"))
+    expect(container.textContent).toContain("99 ر.س")
+    act(() => screen.getByRole("tab", { name: /سنويًا/ }).click())
+    expect(container.textContent).toContain("990 ر.س")
+    const cta = screen.getByRole("link", { name: "اختر هذه الخطة" })
+    expect(document.getElementById(cta.getAttribute("aria-describedby")!)).toHaveTextContent("النموّ")
+    expect(screen.getByText("الأكثر اختيارًا")).toBeInTheDocument()
   })
 })
