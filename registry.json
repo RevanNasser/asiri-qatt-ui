@@ -427,6 +427,84 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "qatt-hero",
+      "type": "registry:block",
+      "title": "Qatt Hero",
+      "description": "Arabic RTL hero: rukun band, eyebrow badge, h1, CTAs, LTR install command with copy, optional arch media.",
+      "categories": ["qatt"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/badge.json",
+        "{{REGISTRY_URL}}/r/button.json",
+        "{{REGISTRY_URL}}/r/qatt-divider.json",
+        "{{REGISTRY_URL}}/r/qatt-frame.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+      ],
+      "files": [
+        {
+          "path": "registry/qatt/blocks/qatt-hero/qatt-hero.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/qatt/blocks/qatt-hero/page.tsx",
+          "type": "registry:page",
+          "target": "app/qatt/qatt-hero/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "majlis-welcome",
+      "type": "registry:block",
+      "title": "Majlis Welcome",
+      "description": "Warm welcome section: banat frieze, heading, body, up to three welcome points, optional arch media.",
+      "categories": ["qatt"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/badge.json",
+        "{{REGISTRY_URL}}/r/button.json",
+        "{{REGISTRY_URL}}/r/qatt-divider.json",
+        "{{REGISTRY_URL}}/r/qatt-frame.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+      ],
+      "files": [
+        {
+          "path": "registry/qatt/blocks/majlis-welcome/majlis-welcome.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/qatt/blocks/majlis-welcome/page.tsx",
+          "type": "registry:page",
+          "target": "app/qatt/majlis-welcome/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "qatt-feature-grid",
+      "type": "registry:block",
+      "title": "Qatt Feature Grid",
+      "description": "Feature grid of painted cards with pigment icon squares over a faint shabakah field.",
+      "categories": ["qatt"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/card.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+      ],
+      "files": [
+        {
+          "path": "registry/qatt/blocks/qatt-feature-grid/qatt-feature-grid.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/qatt/blocks/qatt-feature-grid/page.tsx",
+          "type": "registry:page",
+          "target": "app/qatt/qatt-feature-grid/page.tsx"
+        }
+      ]
     }
   ]
 }

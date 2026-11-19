@@ -1,0 +1,58 @@
+---
+title: الواجهة الرئيسية
+description: واجهةٌ افتتاحية بعنوانٍ بارز وشريطٍ زخرفي ودعوةٍ إلى البدء.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-hero.*, docs.props.qatt-hero.*). */}
+
+الواجهة الافتتاحية للصفحة: شريطٌ من «الركون» في أعلاها، ثم عنوانٌ رئيسي ووصفٌ موجز وزرّان وأمر تثبيتٍ اختياري، ويختمها شريط «القطّ».
+
+<Callout>
+المحتوى هنا افتراضيٌّ للعرض: الأسماء والأرقام والأسعار والآراء مختلَقة، فاستبدلوها بمحتواكم.
+</Callout>
+
+<ComponentPreview name="qatt-hero-demo" />
+
+## التثبيت
+
+<InstallCommand item="qatt-hero" />
+
+## الاستخدام
+
+مرّروا `align="start"` مع `media` لواجهةٍ بعمودين: النص في بداية السطر والوسائط داخل «إطار القوس» في نهايته على الشاشات الكبيرة. واجعلوا الوصف في حدود ستين حرفًا للسطر.
+
+```tsx
+import { QattHero } from "@/components/qatt-hero"
+
+<QattHero
+  title="…"
+  subtitle="…"
+  primaryCta={{ label: "…", href: "/docs" }}
+/>
+```
+
+
+## الخصائص
+
+<PropsTable
+  rows={[
+    {"name": "eyebrow", "type": "string", "description": <span>سطرٌ قصير فوق العنوان، يُعرض في شارة.</span>},
+    {"name": "title", "type": "string", "description": <span>العنوان الرئيسي، ويُعرض في <code dir="ltr">h1</code>.</span>},
+    {"name": "subtitle", "type": "string", "description": <span>وصفٌ موجز تحت العنوان.</span>},
+    {"name": "primaryCta", "type": "QattCta", "description": <span>الزرّ الرئيسي. زرٌّ بنصٍّ ورابط ونمطٍ اختياري (<code dir="ltr">qatt</code> أو <code dir="ltr">default</code> أو <code dir="ltr">outline</code> أو <code dir="ltr">qatt-outline</code>).</span>},
+    {"name": "secondaryCta", "type": "QattCta", "description": <span>الزرّ الثانوي. زرٌّ بنصٍّ ورابط ونمطٍ اختياري (<code dir="ltr">qatt</code> أو <code dir="ltr">default</code> أو <code dir="ltr">outline</code> أو <code dir="ltr">qatt-outline</code>).</span>},
+    {"name": "install", "type": "{ label?, command, copyLabel?, copiedLabel? }", "description": <span>أمر تثبيتٍ يُعرض من اليسار إلى اليمين مع زرّ نسخ، وتسميةٌ اختيارية فوقه.</span>},
+    {"name": "motif", "type": "MotifId", "default": "\"rukun\"", "description": <span>نقش الشريط العلوي. والافتراضي <code dir="ltr">rukun</code>.</span>},
+    {"name": "align", "type": "\"center\" | \"start\"", "default": "\"center\"", "description": <span>محاذاة المحتوى: <code dir="ltr">center</code> (الافتراضي) أو <code dir="ltr">start</code>.</span>},
+    {"name": "media", "type": "ReactNode", "description": <span>صورةٌ أو عنصر يُعرض داخل «إطار القوس» في نهاية السطر على الشاشات الكبيرة.</span>},
+    {"name": "animate", "type": "boolean", "default": "false", "description": <span>يرسم الشريط العلوي تدريجيًا، ويتوقّف عند تفعيل تقليل الحركة.</span>}
+  ]}
+/>
+
+## ملاحظات الاتجاه
+
+الأعمدة تتبع اتجاه الصفحة، وسهم الزرّ الرئيسي ينقلب، وأمر التثبيت يُعرض من اليسار إلى اليمين دائمًا.
+
+## سهولة الوصول
+
+العنوان هو `h1` الوحيد في الصفحة. والرسم المتحرّك اختياري ويتوقّف عند تفعيل تقليل الحركة، وزرّ نسخ الأمر يُعلن «تم النسخ».

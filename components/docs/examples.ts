@@ -20,6 +20,9 @@ import BreadcrumbDemo from "@/registry/qatt/examples/breadcrumb-demo"
 import PaginationDemo from "@/registry/qatt/examples/pagination-demo"
 import AvatarDemo from "@/registry/qatt/examples/avatar-demo"
 import SeparatorDemo from "@/registry/qatt/examples/separator-demo"
+import QattHeroDemo from "@/registry/qatt/blocks/qatt-hero/page"
+import MajlisWelcomeDemo from "@/registry/qatt/blocks/majlis-welcome/page"
+import QattFeatureGridDemo from "@/registry/qatt/blocks/qatt-feature-grid/page"
 
 /** Live examples rendered by <ComponentPreview name="..." />. `file` (relative to registry/) is shown in the code tab. */
 export const examples: Record<string, { component: ComponentType; file: string }> = {
@@ -43,4 +46,7 @@ export const examples: Record<string, { component: ComponentType; file: string }
   "pagination-demo": { component: PaginationDemo, file: "qatt/examples/pagination-demo.tsx" },
   "avatar-demo": { component: AvatarDemo, file: "qatt/examples/avatar-demo.tsx" },
   "separator-demo": { component: SeparatorDemo, file: "qatt/examples/separator-demo.tsx" },
+  "qatt-hero-demo": { component: QattHeroDemo, file: "qatt/blocks/qatt-hero/page.tsx" },
+  "majlis-welcome-demo": { component: MajlisWelcomeDemo, file: "qatt/blocks/majlis-welcome/page.tsx" },
+  "qatt-feature-grid-demo": { component: QattFeatureGridDemo, file: "qatt/blocks/qatt-feature-grid/page.tsx" },
 }

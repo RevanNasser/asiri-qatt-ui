@@ -1,0 +1,49 @@
+---
+title: شبكة المزايا
+description: عرضٌ منظّم للمزايا في شبكةٍ من البطاقات بأيقوناتها.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-feature-grid.*, docs.props.qatt-feature-grid.*). */}
+
+شبكةٌ من البطاقات المرسومة تعرض مزايا منتجكم، لكلّ ميزةٍ أيقونةٌ في مربّعٍ ملوّن على هيئة «الختمة»، وخلفها «الشبكة» بخفوتٍ شديد.
+
+<Callout>
+المحتوى هنا افتراضيٌّ للعرض: الأسماء والأرقام والأسعار والآراء مختلَقة، فاستبدلوها بمحتواكم.
+</Callout>
+
+<ComponentPreview name="qatt-feature-grid-demo" />
+
+## التثبيت
+
+<InstallCommand item="qatt-feature-grid" />
+
+## الاستخدام
+
+ثلاثة أعمدةٍ تناسب ستّ مزايا، وعمودان يناسبان أربعًا. اجعلوا عنوان الميزة كلمتين أو ثلاثًا، ووصفها جملةً واحدة. وإن أعطيتم الميزة `href` صارت البطاقة كلّها قابلةً للنقر عبر رابطٍ واحد في داخلها.
+
+```tsx
+import { QattFeatureGrid } from "@/components/qatt-feature-grid"
+
+<QattFeatureGrid title="…" features={[{ title: "…", body: "…" }]} />
+```
+
+
+## الخصائص
+
+<PropsTable
+  rows={[
+    {"name": "title", "type": "string", "description": <span>عنوان القسم، ويُربط به القسم عبر <code dir="ltr">aria-labelledby</code>.</span>},
+    {"name": "subtitle", "type": "string", "description": <span>سطرٌ تمهيدي تحت العنوان.</span>},
+    {"name": "features", "type": "{ title, body, icon?, href? }[]", "description": <span>قائمة المزايا: عنوانٌ ونصّ، وأيقونةٌ ورابطٌ اختياريان.</span>},
+    {"name": "columns", "type": "2 | 3 | 4", "default": "3", "description": <span>عدد الأعمدة على الشاشات الكبيرة: 2 أو 3 أو 4.</span>},
+    {"name": "background", "type": "MotifId | false", "default": "\"shabakah\"", "description": <span>نقشٌ خافت في الخلفية، أو <code dir="ltr">false</code> لإخفائه. والافتراضي <code dir="ltr">shabakah</code> بشفافية 0.06.</span>}
+  ]}
+/>
+
+## ملاحظات الاتجاه
+
+تُملأ الشبكة من بداية السطر، ولا تنقلب من الأيقونات إلا الاتجاهية.
+
+## سهولة الوصول
+
+عناوين المزايا `h3` تحت عنوان القسم، والأيقونات زخرفية. وفي البطاقة القابلة للنقر رابطٌ واحد اسمه عنوان الميزة.

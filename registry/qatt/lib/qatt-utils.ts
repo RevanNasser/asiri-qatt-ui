@@ -63,3 +63,8 @@ export function isRtlLang(lang: string): boolean {
 export function bidiIsolate(s: string): string {
   return `\u2068${s}\u2069`
 }
+
+/** Fills `{name}` placeholders (site-copy convention), e.g. fillTemplate("© {year} {brand}", { year: 2026, brand }). */
+export function fillTemplate(template: string, vars: Record<string, string | number>): string {
+  return template.replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m))
+}
