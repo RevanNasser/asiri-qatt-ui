@@ -5,6 +5,7 @@ import type { MDXComponents } from "mdx/types"
 
 import { ComponentPreview } from "@/components/docs/component-preview"
 import { InstallCommand } from "@/components/docs/install-command"
+import { MotifGallery } from "@/components/docs/motif-gallery"
 import { PropsTable } from "@/components/docs/props-table"
 
 export function getMDXComponents(components?: MDXComponents) {
@@ -16,6 +17,7 @@ export function getMDXComponents(components?: MDXComponents) {
     Tabs,
     ComponentPreview,
     InstallCommand,
+    MotifGallery,
     PropsTable,
     ...components,
   } satisfies MDXComponents

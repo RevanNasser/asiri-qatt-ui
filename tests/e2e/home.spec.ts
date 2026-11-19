@@ -90,3 +90,10 @@ test("sheet side=start opens from the right in RTL", async ({ page }) => {
   const box = (await sheet.boundingBox())!
   expect(box.x + box.width).toBeGreaterThan((page.viewportSize()!.width ?? 0) - 2)
 })
+
+test("patterns page lists all 15 motifs with heritage labels", async ({ page }) => {
+  await page.goto("/docs/patterns")
+  await expect(page.locator("li[data-motif]")).toHaveCount(15)
+  await expect(page.locator('li[data-motif="stepped"]')).toContainText("إضافةٌ من المشروع، غير موثّقة في القطّ العسيري")
+  await expect(page.locator('li[data-motif="banat"]')).toContainText("يبقى الغصن نباتيًا دائمًا")
+})
