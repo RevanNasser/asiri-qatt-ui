@@ -65,3 +65,11 @@ Decisions and conflict resolutions: `docs/agents/decisions.md`.
 - UX/UI review (`docs/agents/ux-ui/phase4-track1-review.md`): 12/15 approved (some nits); fixes required on button (F1 drop green, F2 hover contrast), sonner (F3 focus), tooltip (F4 arrow sides). D-026.
 - Heritage wrote 71 batch-2 strings (props tables, rtl/a11y notes, sr labels) → `ar-copy-batch2.md` maps key → file:line. Found a11y bug: breadcrumb/pagination "more" sr-only text sits inside `aria-hidden`.
 - Owner freed disk again. Developer resumed: fixes + wire copy + run install-flow, then track 2 (ornaments + blocks).
+
+### 2026-11-19 — Track 1 fixes committed (`7bd1f76`); track 2 started
+- F1–F4 + most nits fixed; breadcrumb/pagination sr labels now announced (tested); all batch-2 Arabic wired, no `TODO(ar-copy)` left. Unit 111/111, lint/typecheck/validate green.
+- Disk: Colima VM images were re-growing and eating space. Per owner's choice, orchestrator cleared stale app-update downloads in `~/Library/Caches/com.todesktop…ShipIt` → 3.4 GB free.
+- Developer: full build + e2e + install-flow for track 1, then track 2 (motif registry, 5 ornaments, deferred ornament variants, 10 blocks). Heritage writing block/ornament copy (batch 3) and fixing the button copy that still mentions green.
+
+### 2026-11-19 — Session restart
+- Previous Claude Code session ended mid-task; Developer (track 2) and Heritage (batch 3) work had not landed (HEAD `7bd1f76`). Both agents resumed from saved transcripts with instructions to commit/write incrementally. Disk 5.3 GB free.
