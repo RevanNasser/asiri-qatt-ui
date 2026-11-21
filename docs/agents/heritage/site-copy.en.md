@@ -408,12 +408,12 @@ Key index: `ar-copy-batch3.md`. Demo content is under `blocks.<id>.*`; doc pages
 | `docs.props.qatt-divider.label` | A short label centred between two bands. |
 | `docs.props.qatt-divider.animate` | Paints the ornament in from inline-start when it appears. Off when reduced motion is on. |
 | `docs.props.qatt-divider.surface` | gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself. |
-| `docs.qatt-frame.intro` | A pointed-arch frame around an image or focal content, standing on a kaff band with khatmah squares at its corners. Its shape draws on the mahareeb motif and its nested arches. |
-| `docs.qatt-frame.nameNote` | In the interface we call it the arch frame: it is a general UI component, and the name describes its shape only. |
-| `docs.qatt-frame.usage` | Put an image with alt text, or short content, inside; the content is clipped to the inner arch. Use outline={3} for three nested arches in the manner of sankroli. The stepped shape is a project extension, so label it wherever you show it. |
+| `docs.qatt-frame.intro` | A frame for an image or focal content. By default it is a rectangular niche surrounded by concentric painted lines, the way doorways and windows are framed in qatt, with a kaff base and khatmah caps at its corners. It can also be an arch inspired by the mahareeb motif and its nested arches. |
+| `docs.qatt-frame.nameNote` | In the interface we call it the arch frame, a general UI component. Its default shape today is the rectangular niche; the arch is a shape you opt into. |
+| `docs.qatt-frame.usage` | Put an image with alt text or short content inside. In the niche shape, content is clipped to the inner rectangle; in the arch shapes, to the inner arch. Set `outline={3}` for three nested arches in the manner of sankroli. The `stepped` shape is a project extension, so say so wherever you show it. |
 | `docs.qatt-frame.rtl` | The frame is symmetric; nothing flips. |
-| `docs.qatt-frame.a11y` | Built on figure and figcaption; the arch drawing is hidden from assistive technology. Give every image alt text, and put explanations in caption, not inside the image. |
-| `docs.props.qatt-frame.shape` | Arch shape: pointed (default), round, or stepped, which is a project extension. |
+| `docs.qatt-frame.a11y` | Built on `figure` and `figcaption`; the frame drawing is hidden from assistive technology. Give every image alt text in `alt`, and put explanations in `caption`, not inside the image. |
+| `docs.props.qatt-frame.shape` | Shape: `niche`, the rectangular niche (default), or an arch: `pointed`, `round`, or `stepped`, which is a project extension. |
 | `docs.props.qatt-frame.outline` | Number of nested arch outlines: 1, 2 (default) or 3. |
 | `docs.props.qatt-frame.colors` | Colours in order: outer arch, inner arch, base. |
 | `docs.props.qatt-frame.base` | Base band motif, default kaff. Set false for no base. |
@@ -708,9 +708,76 @@ Key index: `ar-copy-batch4.md`.
 
 | key | text |
 |---|---|
-| `docs.props.card.ornament` | A 12px decorative strip along the card's top edge, in any Qatt motif. Defaults to `false`, except with `framed`, where it is «al-banat» capped at both ends with «al-khatmah». `stepped` is a project extension. The strip is decorative and hidden from assistive technology. |
+| `docs.props.card.ornament` | A decorative strip on the card's top edge, in any Qatt motif, or `mural` for parallel painted colour lines. Default `false`, except in the `framed` variant, where it is `mural` with khatmah caps at its ends. The `stepped` motif is a project extension. The strip is decorative and hidden from assistive technology. |
 | `docs.props.dialog.ornament` | A 20px decorative frieze along the dialog's top edge: `mahareeb` is a row of «al-mahareeb» pointed arches, and `rukun` is a row of «al-rukun» triangles. The close button moves down below the frieze. The frieze is decorative and hidden from assistive technology. |
 | `docs.props.sheet.ornament` | A 12px decorative strip on the sheet's inner edge (the edge facing the page), in any Qatt motif. A `start` sheet in Arabic opens from the right, so its strip sits on its left. The strip runs vertically on side sheets and horizontally on top and bottom sheets; the artwork itself never mirrors. `stepped` is a project extension. |
 | `docs.props.tabs.indicator` | How the active tab is marked, with the `qatt` variant only: `diamond` is a small painted diamond under the label on horizontal tabs, and `strip` is a 6px «al-balsanah» strip. Inactive tabs are muted. |
 | `docs.props.sonner.ornament` | `hanash` adds a 4px «al-hanash» zigzag on the toast's inline-start edge (the right in Arabic), coloured by type: red for error, blue for info, green for success, orange for warning, and ink otherwise. The icon and text still carry the type, so colour is never the only cue. |
 | `docs.props.separator.motif` | Replaces the triple rules with a 12px band of the chosen motif, horizontal or vertical, e.g. `motif="hanash"`. Works with the `qatt` variant only. `stepped` is a project extension, and «al-khatmah» belongs at ends, not in bands. |
+
+## batch 6 — English for newer keys (2026-11-21, written by the developer; pending Heritage review)
+
+| key | text |
+|---|---|
+| `about.asir.heading` | From Asir |
+| `about.asir.intro` | Asir has a geography, architecture and arts far wider than Al-Qatt Al-Asiri. These are links to read from their sources; we do not offer them as patterns in the library. |
+| `about.asir.architecture.title` | Architecture and villages |
+| `about.asir.architecture.body` | [Learn about Asir's architecture and local materials from the Asir Development Authority (Arabic)](https://www.asda.gov.sa/ar/from-aseer/authenticity/architecture). |
+| `about.asir.folklore.title` | Folk arts |
+| `about.asir.folklore.body` | [Learn about the region's many folk arts from the Asir Development Authority (Arabic)](https://www.asda.gov.sa/ar/from-aseer/authenticity/folklore). |
+| `about.asir.crafts.title` | Handicrafts |
+| `about.asir.crafts.body` | [Read about handicrafts in the Asir region on Saudipedia (Arabic)](https://saudipedia.com/%D9%82%D8%A7%D8%A6%D9%85%D8%A9-%D8%A7%D9%84%D8%AD%D8%B1%D9%81-%D8%A7%D9%84%D9%8A%D8%AF%D9%88%D9%8A%D8%A9-%D9%81%D9%8A-%D9%85%D9%86%D8%B7%D9%82%D8%A9-%D8%B9%D8%B3%D9%8A%D8%B1). |
+| `about.asir.note` | The Qatt artwork on this site is the project's own design; it does not document any particular wall, artist or village. |
+| `about.context.exterior.heading` | The house from outside |
+| `about.context.exterior.body` | Official design guidelines for Asir architecture describe traditional facades as solid stone masses with flat roofs, small rectangular or square openings, and light frames or coloured wooden shutters. We do not present these elements as qatt decoration. |
+| `about.context.exterior.source` | [Asir Escarpment architectural design guidelines (Arabic)](https://architsaudi.dasc.gov.sa/sites/default/files/2026-03/010-ADG_AseerEscarpment_ARABIC_compressed_0.pdf) |
+| `about.context.interior.heading` | The majlis from inside |
+| `about.context.interior.body` | Al-Qatt Al-Asiri is decoration for interior walls. So on this site it appears inside a gypsum panel or a defined band, never on the outside of the house and never as an architectural form. |
+| `about.context.interior.source` | [UNESCO record for Al-Qatt Al-Asiri](https://ich.unesco.org/en/RL/al-qatt-al-asiri-female-traditional-interior-wall-decoration-01261) |
+| `about.context.clothing.heading` | Clothing has its own language |
+| `about.context.clothing.body` | Among the documented women's garments of Asir is the muzannad: a black silk dress embroidered with gold and silver thread, sometimes with green, red and yellow thread. That is embroidery and fabric, not a recipe for carrying its colours or patterns onto a qatt wall. |
+| `about.context.clothing.source` | [Saudipedia: Traditional garments in Aseer Province](https://saudipedia.com/en/traditional-garments-in-aseer-province) |
+| `docs.asir.description` | Context for Al-Qatt Al-Asiri, with starting points for reading about the region's architecture, arts and crafts. |
+| `docs.asir.title` | From Asir |
+| `docs.asir.welcome` | «Marhaba alf» is a warm greeting at the start of a visit. We use it here only as a welcome, without claiming any particular historical meaning; accounts of its origin vary. |
+| `docs.asir.qatt.heading` | Al-Qatt Al-Asiri |
+| `docs.asir.qatt.body` | Al-Qatt Al-Asiri is an art of decorating interior walls, especially the rooms where guests are received. UNESCO describes it as a practice associated with women, passed between generations by watching and doing, and inscribed it on the Representative List of the Intangible Cultural Heritage of Humanity in 2017. |
+| `docs.asir.unescoLink` | UNESCO page for the element |
+| `docs.asir.saudipediaLink` | Saudipedia: Al-Qatt Al-Asiri |
+| `docs.asir.contexts.heading` | Related contexts |
+| `docs.asir.contexts.body` | This library does not represent the region's architecture or its other folk arts, but it offers starting points for reading from their official sources: |
+| `docs.asir.architectureLink` | Local architecture in Asir — Asir Development Authority |
+| `docs.asir.folkloreLink` | Folk arts in Asir — Asir Development Authority |
+| `docs.asir.craftsLink` | Handicrafts in the Asir region — Saudipedia |
+| `docs.asir.inspiration.heading` | How we use inspiration |
+| `docs.asir.inspiration.body` | Qatt's artwork is original design by the project, drawing on a general geometric vocabulary; it does not copy any particular wall, artist's work or village. Use motif names as documented labels where sources exist, and say clearly what is design interpretation. |
+| `docs.asir.interface.heading` | From the wall to the interface |
+| `docs.asir.interface.body` | Ghaida Al-Omari's 2024 study offers a useful reading of qatt as visual structure: a quiet ground, bands that divide the space, then geometric units repeated with rhythm and symmetry. That is the logic Qatt learns from when building a hero, a divider or a pattern background — not a recipe for rebuilding a traditional wall. |
+| `docs.asir.interface.note` | Styles differ between villages and governorates, and the study does not establish an exact date for the art's origin. So we do not impose an order on motifs or meanings on colours, and we cite our sources next to any heritage context. |
+| `docs.asir.sources.heading` | Sources and method |
+| `docs.asir.paperLink` | «The influence of Al-Qatt Al-Asiri motifs and colours in highlighting the social-cultural identity of the southern region» — Ghaida Ali Al-Omari, 2024 (Arabic) |
+| `docs.asir.unescoRecordLink` | UNESCO's official record of Al-Qatt Al-Asiri |
+| `docs.asir.method.note` | The study includes a survey of 111 participants from the southern region, so we treat its contemporary design preferences as findings of that sample, not as a general rule for all of Asir. |
+| `docs.theme.description` | Qatt's colours, fonts and the CSS variables that control them. |
+| `docs.theme.lead` | Qatt's colours evoke the pigments of Asir on a ground of white gypsum. Every colour can be adjusted through CSS variables, in light and dark mode. |
+| `docs.theme.approximation` | Colour values are the project's approximations; they evoke the pigments and do not claim to match them. |
+| `docs.theme.pigments.body` | Pigment names are used as colour labels. The traditional source of the blue in particular is not established across sources, so this theme attributes no source to it. |
+| `docs.theme.pigment.black` | Black |
+| `docs.theme.pigment.green` | Green (decorative) |
+| `docs.theme.tokens.body` | Motifs use the slots `--qatt-slot-1` to `--qatt-slot-4`, so you can recolour them without changing the drawing. Keep text on a background with enough contrast; the green here is for decoration only. |
+| `docs.theme.fonts.body` | The theme ships IBM Plex Sans Arabic for body text, Readex Pro for headings and IBM Plex Mono for code. Install the theme before any component: |
+| `docs.theme.dark.body` | Dark mode is the project's digital interpretation; Al-Qatt Al-Asiri is painted on a white gypsum ground. |
+| `docs.qatt-mural.title` | Qatt Mural |
+| `docs.qatt-mural.description` | Dense, multi-colour bands that fill a space the way qatt fills a majlis wall. |
+| `docs.qatt-mural.intro` | A mural of stacked bands: triangles crowned with sprigs, nested diamonds, squares split by their diagonals into coloured triangles, zigzags, small chequers, and parallel lines between the bands. Saturated colours on a white, gypsum-like ground, edged with black lines and dots. |
+| `docs.qatt-mural.note` | The order of the bands is the project's interpretation, not a picture of any particular wall. |
+| `docs.qatt-mural.usage` | Use `QattMural` as a background that fills a whole section, and place content over it inside `QattNiche` — a white niche framed by concentric painted lines, the way doorways and windows are framed in qatt. Use `QattMuralStrip` for a single band at the top or bottom of a section. |
+| `docs.qatt-mural.rtl` | The bands are symmetric, so nothing flips. |
+| `docs.qatt-mural.a11y` | The mural and strip are decorative and hidden from assistive technology. The niche is an ordinary element whose content is read, and its white ground keeps text contrast in both modes. |
+| `docs.props.qatt-mural.bands` | Bands from top to bottom: a preset name (`wall`, `frieze`, `diamonds`, `squares`, `base`, `lines`) or a list of band names. Defaults: `wall` for the mural, `frieze` for the strip. |
+| `docs.props.qatt-mural.scale` | Drawing scale: each unit equals 1px times this value. Default 1. |
+| `docs.props.qatt-mural.frame` | Thickness of the niche frame: `sm`, `md` (default) or `lg`. Change it per breakpoint with the `--qatt-niche-unit` variable. |
+| `docs.props.qatt-mural.colors` | Colours of the niche frame lines, from the inside out. Default: blue, green, yellow, red. |
+| `docs.props.qatt-divider.mural` | Draws a dense mural strip instead of a single motif, horizontal only: a preset name (`frieze`, `diamonds`, `squares`, `base`, `lines`) or a list of band names. |
+| `docs.props.qatt-divider.muralScale` | Scale of the mural strip. Default 1. |
+| `home.hero.install.setup` | First time? Add the `@qatt` registry to `components.json` |

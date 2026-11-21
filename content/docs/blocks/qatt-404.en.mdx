@@ -1,0 +1,50 @@
+---
+title: Not Found
+description: A gentle 404 page that puts visitors back on the path.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-404.*, docs.props.qatt-404.*). */}
+
+A gentle error page: the code 404 inside an arch frame, a title and short text, routes home and to search, and a row of mahareeb along the base.
+
+<Callout>
+This content is a sample: the names, figures, prices and quotes are made up. Replace them with your own.
+</Callout>
+
+<ComponentPreview name="qatt-404-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-404" />
+
+## Usage
+
+Keep the text short and kind, and never blame the visitor. Offer at least two ways out: home and search.
+
+```tsx
+import { Qatt404 } from "@/components/qatt-404"
+
+<Qatt404 title="…" homeLabel="…" />
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "code", "type": "string", "default": "\"404\"", "description": <span>Error code shown. Default 404.</span>},
+    {"name": "title", "type": "string", "description": <span>Title, rendered as h1.</span>},
+    {"name": "body", "type": "string", "description": <span>Short explanation.</span>},
+    {"name": "homeHref", "type": "string", "default": "\"/\"", "description": <span>Home link. Default /.</span>},
+    {"name": "homeLabel", "type": "string", "description": <span>Home button text.</span>},
+    {"name": "extra", "type": "ReactNode", "description": <span>Extra links or elements, such as search.</span>}
+  ]}
+/>
+
+## Direction notes
+
+The 404 code is isolated in bdi and uses Western digits in both directions.
+
+## Accessible
+
+The h1 is the sentence, not the number, so screen readers state the problem at once. The code and frame are decorative.

@@ -1,0 +1,49 @@
+---
+title: Pricing
+description: Pricing plans side by side, with the recommended plan highlighted.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-pricing.*, docs.props.qatt-pricing.*). */}
+
+Pricing plans side by side; the recommended plan sits in a framed card crowned with a taadheeq ornament and a badge.
+
+<Callout>
+This content is a sample: the names, figures, prices and quotes are made up. Replace them with your own.
+</Callout>
+
+<ComponentPreview name="qatt-pricing-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-pricing" />
+
+## Usage
+
+Prices in the demo are samples. Pass period to show a monthly/yearly toggle. In Arabic the currency follows the number: 99 SAR.
+
+```tsx
+import { QattPricing } from "@/components/qatt-pricing"
+
+<QattPricing title="…" plans={[{ name: "…", price: 99, features: ["…"], cta: { label: "…", href: "#" } }]} />
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "title", "type": "string", "description": <span>Section heading; the section is labelled by it via aria-labelledby.</span>},
+    {"name": "subtitle", "type": "string", "description": <span>Intro line under the title.</span>},
+    {"name": "currency", "type": "string", "default": "\"SAR\"", "description": <span>Currency after the number. Default SAR.</span>},
+    {"name": "period", "type": "{ monthly, yearly, … }", "description": <span>Monthly and yearly labels; providing them shows the toggle.</span>},
+    {"name": "plans", "type": "QattPlan[]", "description": <span>Plans: name, price, features and cta, with optional description and badge; highlighted marks the recommended plan.</span>}
+  ]}
+/>
+
+## Direction notes
+
+Price and currency are isolated in bdi with tabular digits. Check marks in feature lists do not flip.
+
+## Accessible
+
+Plan names are headings; the recommended plan is marked by a text badge, not colour alone. Each button's accessible name includes the plan, e.g. “Choose the Growth plan”.

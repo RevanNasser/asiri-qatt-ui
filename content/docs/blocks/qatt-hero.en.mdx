@@ -1,0 +1,58 @@
+---
+title: Hero
+description: An opening section with a bold headline on a painted qatt wall and a call to get started.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-hero.*, docs.props.qatt-hero.*). */}
+
+The opening section of a page: a rukun band on top, then a main heading, a short subtitle, two buttons and an optional install command, closed by a qatt band.
+
+<Callout>
+This content is a sample: the names, figures, prices and quotes are made up. Replace them with your own.
+</Callout>
+
+<ComponentPreview name="qatt-hero-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-hero" />
+
+## Usage
+
+Pass align="start" with media for a two-column hero: text at inline-start and the media in an arch frame at inline-end on large screens. Keep the subtitle to about 60 characters per line.
+
+```tsx
+import { QattHero } from "@/components/qatt-hero"
+
+<QattHero
+  title="…"
+  subtitle="…"
+  primaryCta={{ label: "…", href: "/docs" }}
+/>
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "eyebrow", "type": "string", "description": <span>Short line above the title, shown in a badge.</span>},
+    {"name": "title", "type": "string", "description": <span>Main heading, rendered as h1.</span>},
+    {"name": "subtitle", "type": "string", "description": <span>Short description below the title.</span>},
+    {"name": "primaryCta", "type": "QattCta", "description": <span>Primary button. A button with label, href and optional variant (qatt, default, outline or qatt-outline).</span>},
+    {"name": "secondaryCta", "type": "QattCta", "description": <span>Secondary button. A button with label, href and optional variant (qatt, default, outline or qatt-outline).</span>},
+    {"name": "install", "type": "{ label?, command, copyLabel?, copiedLabel? }", "description": <span>An install command shown left-to-right with a copy button, plus an optional label.</span>},
+    {"name": "motif", "type": "MotifId", "default": "\"rukun\"", "description": <span>Top band motif. Default rukun.</span>},
+    {"name": "align", "type": "\"center\" | \"start\"", "default": "\"center\"", "description": <span>Content alignment: center (default) or start.</span>},
+    {"name": "media", "type": "ReactNode", "description": <span>Image or element shown in an arch frame at inline-end on large screens.</span>},
+    {"name": "animate", "type": "boolean", "default": "false", "description": <span>Paints the top band in; off under reduced motion.</span>}
+  ]}
+/>
+
+## Direction notes
+
+Columns follow the page direction, the primary button's arrow flips, and the install command is always shown left-to-right.
+
+## Accessible
+
+The title is the page's only h1. The animation is opt-in and stops under reduced motion, and the copy button announces “Copied”.

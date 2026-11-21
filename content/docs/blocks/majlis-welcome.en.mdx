@@ -1,0 +1,57 @@
+---
+title: Majlis Welcome
+description: A warm welcome section that receives visitors the way a guest is received in the majlis.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.majlis-welcome.*, docs.props.majlis-welcome.*). */}
+
+A welcome section that receives visitors the way a guest is received. In the homes of Asir, the woman of the house gives the guest room special care and paints its walls with qatt together with her female relatives. This block draws on that spirit: a banat frieze on top, a warm heading and three welcome points.
+
+<Callout>
+Banat sprigs always stay plant-like: never add a dot or head above them, and never animate them in a way that suggests a figure. Do not attribute meanings to the motifs that no source documents.
+</Callout>
+
+<Callout>
+If your copy mentions Al-Qatt Al-Asiri, say “inspired by” and stick to what is established: it is the art of Asiri women decorating the interior walls of their homes, especially guest rooms, and it was inscribed on UNESCO's Intangible Cultural Heritage list in 2017. Do not give a date for its origin; its origins are debated.
+</Callout>
+
+<Callout>
+This content is a sample: the names, figures, prices and quotes are made up. Replace them with your own.
+</Callout>
+
+<ComponentPreview name="majlis-welcome-demo" />
+
+## Installation
+
+<InstallCommand item="majlis-welcome" />
+
+## Usage
+
+Use it as the first thing people see after signing up, or as an introduction on your home page. Write like a host, not an advert: short sentences, plural address, and promises you keep.
+
+```tsx
+import { MajlisWelcome } from "@/components/majlis-welcome"
+
+<MajlisWelcome title="…" body="…" points={[{ title: "…", body: "…" }]} />
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "title", "type": "string", "description": <span>Section heading; the section is labelled by it via aria-labelledby.</span>},
+    {"name": "body", "type": "string", "description": <span>Welcome text, one or two short paragraphs.</span>},
+    {"name": "points", "type": "{ title, body, icon? }[]", "description": <span>Up to three welcome points, each with a title, body and optional icon.</span>},
+    {"name": "media", "type": "ReactNode", "description": <span>Image or element shown in an arch frame.</span>},
+    {"name": "cta", "type": "QattCta", "description": <span>Optional call to action. A button with label, href and optional variant (qatt, default, outline or qatt-outline).</span>}
+  ]}
+/>
+
+## Direction notes
+
+Media sits at inline-end on large screens, points read from inline-start, and the banat frieze is symmetric so it does not flip.
+
+## Accessible
+
+The section is labelled by its heading, the points are a real list (ul), and the icons and frieze are hidden from assistive technology.

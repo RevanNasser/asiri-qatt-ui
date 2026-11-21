@@ -1,9 +1,9 @@
+import type { Lang } from "@/lib/i18n"
 import { t, type CopyKey } from "@/lib/site-copy"
 import { MOTIF_IDS, MOTIFS, type MotifId } from "@/registry/qatt/lib/qatt-motifs"
 import { Badge } from "@/registry/qatt/ui/badge"
 import { QattMotif, QattMotifTile, QattPattern } from "@/registry/qatt/ui/qatt-pattern"
 
-const k = (key: string) => t(key as CopyKey)
 const has = (key: string) => {
   try {
     return Boolean(t(key as CopyKey))
@@ -33,7 +33,8 @@ function Preview({ id }: { id: MotifId }) {
 }
 
 /** The motif catalogue for the patterns page (names and notes from Heritage copy, D-020/D-021 labels). */
-export function MotifGallery() {
+export function MotifGallery({ lang = "ar" }: { lang?: Lang }) {
+  const k = (key: string) => t(key as CopyKey, lang)
   return (
     <ul className="not-prose grid gap-6 sm:grid-cols-2">
       {MOTIF_IDS.map((id) => {

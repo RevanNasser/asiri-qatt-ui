@@ -106,3 +106,35 @@ test("patterns page lists all 15 motifs with heritage labels", async ({ page }) 
   await expect(page.locator('li[data-motif="stepped"]')).toContainText("إضافةٌ من المشروع، غير موثّقة في القطّ العسيري")
   await expect(page.locator('li[data-motif="banat"]')).toContainText("يبقى الغصن نباتيًا دائمًا")
 })
+
+test.describe("English site", () => {
+  test("home renders English, left-to-right, with localized links", async ({ page }) => {
+    await page.goto("/en")
+    await expect(page.locator("html")).toHaveAttribute("lang", "en")
+    await expect(page.locator("html")).toHaveAttribute("dir", "ltr")
+    await expect(page.locator("#home-title")).toContainText("Arabic-first")
+    const start = page.getByRole("link", { name: "Get started" }).first()
+    await expect(start).toHaveAttribute("href", "/en/docs/getting-started")
+  })
+
+  test("docs pages exist in English", async ({ page }) => {
+    for (const path of ["/en/docs/getting-started", "/en/docs/components/button", "/en/docs/blocks/qatt-hero"]) {
+      const res = await page.goto(path)
+      expect(res?.status(), path).toBe(200)
+      await expect(page.locator("html")).toHaveAttribute("lang", "en")
+    }
+    await expect(page.locator("h1").first()).toHaveText("Hero")
+  })
+
+  test("Arabic stays the unprefixed default", async ({ page }) => {
+    await page.goto("/about")
+    await expect(page.locator("html")).toHaveAttribute("lang", "ar")
+    await expect(page.locator("html")).toHaveAttribute("dir", "rtl")
+  })
+
+  test("unknown English URL is a 404 in English", async ({ page }) => {
+    const res = await page.goto("/en/does-not-exist")
+    expect(res?.status()).toBe(404)
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(/not found/i)
+  })
+})

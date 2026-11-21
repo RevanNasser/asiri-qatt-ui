@@ -1,13 +1,14 @@
 import * as React from "react"
 
+import type { Lang } from "@/lib/i18n"
 import { fill, t, type CopyKey } from "@/lib/site-copy"
 
 /**
  * Renders Heritage copy with its small inline markup:
- * `code` -> <code dir="ltr">, <bdi [dir|lang]>…</bdi> -> <bdi>, [text](url) -> <a>.
+ * `code` -> <code dir="ltr">, <bdi [dir|lang]>…</bdi> -> <bdi>, [text](url) -> <a>, *term* -> <em> (transliterations).
  * English-language links (URL path /en/ or Arabic note "(بالإنجليزية)" in the copy) get hreflang="en".
  */
-const TOKEN = /(`[^`]+`|<bdi(?:\s+(?:dir|lang)="[^"]*")*>.*?<\/bdi>|\[[^\]]+\]\([^)]+\))/g
+const TOKEN = /(`[^`]+`|<bdi(?:\s+(?:dir|lang)="[^"]*")*>.*?<\/bdi>|\[[^\]]+\]\([^)]+\)|\*[A-Za-z][^*]*?[A-Za-z]\*)/g
 
 export function renderCopy(text: string, linkClassName?: string): React.ReactNode[] {
   return text.split(TOKEN).map((part, i) => {
@@ -29,6 +30,9 @@ export function renderCopy(text: string, linkClassName?: string): React.ReactNod
         </bdi>
       )
     }
+    if (/^\*[A-Za-z]/.test(part) && part.endsWith("*")) {
+      return <em key={i}>{part.slice(1, -1)}</em>
+    }
     if (part.startsWith("[")) {
       const m = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(part)!
       const [, label = "", href = ""] = m
@@ -47,10 +51,13 @@ export function Copy({
   k,
   vars,
   linkClassName,
+  lang,
 }: {
   k: CopyKey
   vars?: Record<string, string | number>
   linkClassName?: string
+  /** Required, so no page silently falls back to Arabic. */
+  lang: Lang
 }) {
-  return <>{renderCopy(fill(t(k), vars), linkClassName)}</>
+  return <>{renderCopy(fill(t(k, lang), vars), linkClassName)}</>
 }

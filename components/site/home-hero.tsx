@@ -3,7 +3,8 @@ import Link from "next/link"
 import { InstallCommand } from "@/components/site/install-command"
 import { QattMural, QattNiche } from "@/registry/qatt/ui/qatt-mural"
 import { Copy } from "@/components/site/copy"
-import { t } from "@/lib/site-copy"
+import { localePath, type Lang } from "@/lib/i18n"
+import { copyFor } from "@/lib/site-copy"
 import { buttonVariants } from "@/registry/qatt/ui/button"
 
 /**
@@ -11,7 +12,8 @@ import { buttonVariants } from "@/registry/qatt/ui/button"
  * sit in a plain gypsum niche framed by concentric colour lines. An original project
  * interpretation — it does not reproduce a specific wall.
  */
-export function HomeHero() {
+export function HomeHero({ lang = "ar" }: { lang?: Lang }) {
+  const { t } = copyFor(lang)
   return (
     <section
       aria-labelledby="home-title"
@@ -30,16 +32,33 @@ export function HomeHero() {
             id="home-title"
             className="font-heading text-[2.4rem] leading-[1.2] font-bold tracking-tight text-balance text-qatt-black sm:text-6xl"
           >
-            {t("home.hero.title")}
+            {/* keep hyphenated names such as "Al-Qatt" on one line, without changing the text */}
+            {t("home.hero.title")
+              .split(/(\S*-\S*)/)
+              .map((part, i) =>
+                part.includes("-") ? (
+                  <span key={i} className="whitespace-nowrap">
+                    {part}
+                  </span>
+                ) : (
+                  part
+                ),
+              )}
           </h1>
           <p className="max-w-[52ch] text-lg leading-8 text-pretty text-muted-foreground sm:text-xl sm:leading-9">
             {t("home.hero.subtitle")}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Link href="/docs/getting-started" className={buttonVariants({ variant: "qatt", size: "lg" })}>
+            <Link
+              href={localePath(lang, "/docs/getting-started")}
+              className={buttonVariants({ variant: "qatt", size: "lg" })}
+            >
               {t("home.hero.cta.primary")}
             </Link>
-            <Link href="/docs/components" className={buttonVariants({ variant: "qatt-outline", size: "lg" })}>
+            <Link
+              href={localePath(lang, "/docs/components")}
+              className={buttonVariants({ variant: "qatt-outline", size: "lg" })}
+            >
               {t("home.hero.cta.secondary")}
             </Link>
           </div>
@@ -49,7 +68,10 @@ export function HomeHero() {
             command="pnpm dlx shadcn@latest add @qatt/qatt-theme"
             copyLabel={t("docs.copy.command")}
             copiedLabel={t("docs.copied")}
-            hint={{ label: <Copy k="home.hero.install.setup" />, href: "/docs/getting-started" }}
+            hint={{
+              label: <Copy lang={lang} k="home.hero.install.setup" />,
+              href: localePath(lang, "/docs/getting-started"),
+            }}
           />
         </QattNiche>
       </div>

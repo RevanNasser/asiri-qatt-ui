@@ -3,14 +3,15 @@ import Link from "next/link"
 import { GalleryFilter } from "@/components/docs/gallery-filter"
 import { examples } from "@/components/docs/examples"
 import { source } from "@/lib/source"
+import type { Lang } from "@/lib/i18n"
 import { t } from "@/lib/site-copy"
 import { cn } from "@/lib/utils"
 
 type Kind = "components" | "blocks"
 
-function itemsOf(kind: Kind) {
+function itemsOf(kind: Kind, lang: Lang) {
   return source
-    .getPages("ar")
+    .getPages(lang)
     .filter((p) => p.slugs[0] === kind && p.slugs.length === 2)
     .map((p) => ({
       name: p.slugs[1]!,
@@ -44,8 +45,18 @@ function Thumbnail({ name, kind }: { name: string; kind: Kind }) {
 }
 
 /** Gallery cards: live thumbnail, name (one stretched link) and the one-line glossary description. */
-export function GalleryGrid({ kind, only, headingLevel = 2 }: { kind: Kind; only?: string[]; headingLevel?: 2 | 3 }) {
-  const items = itemsOf(kind).filter((i) => !only || only.includes(i.name))
+export function GalleryGrid({
+  kind,
+  only,
+  headingLevel = 2,
+  lang = "ar",
+}: {
+  kind: Kind
+  only?: string[]
+  headingLevel?: 2 | 3
+  lang?: Lang
+}) {
+  const items = itemsOf(kind, lang).filter((i) => !only || only.includes(i.name))
   const H = headingLevel === 2 ? "h2" : "h3"
   return (
     <ul
@@ -81,20 +92,20 @@ export function GalleryGrid({ kind, only, headingLevel = 2 }: { kind: Kind; only
 }
 
 /** Component gallery with the «الكل / زخرفية / أساسية» filter (site-ia §5). */
-export function ComponentGallery() {
+export function ComponentGallery({ lang = "ar" }: { lang?: Lang }) {
   return (
     <GalleryFilter
       labels={{
-        all: t("docs.gallery.filter.all"),
-        ornament: t("docs.gallery.filter.ornament"),
-        core: t("docs.gallery.filter.core"),
+        all: t("docs.gallery.filter.all", lang),
+        ornament: t("docs.gallery.filter.ornament", lang),
+        core: t("docs.gallery.filter.core", lang),
       }}
     >
-      <GalleryGrid kind="components" />
+      <GalleryGrid kind="components" lang={lang} />
     </GalleryFilter>
   )
 }
 
-export function BlockGallery() {
-  return <GalleryGrid kind="blocks" />
+export function BlockGallery({ lang = "ar" }: { lang?: Lang }) {
+  return <GalleryGrid kind="blocks" lang={lang} />
 }

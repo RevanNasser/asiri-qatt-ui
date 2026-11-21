@@ -1,0 +1,44 @@
+---
+title: Theme
+description: Qatt's colours, fonts and the CSS variables that control them.
+---
+
+# Theme
+
+<p className="lead">Qatt's colours evoke the pigments of Asir on a ground of white gypsum. Every colour can be adjusted through CSS variables, in light and dark mode.</p>
+
+> Colour values are the project's approximations; they evoke the pigments and do not claim to match them.
+
+## Pigments
+
+Pigment names are used as colour labels. The traditional source of the blue in particular is not established across sources, so this theme attributes no source to it.
+
+| Token | Usage |
+| --- | --- |
+| `--qatt-jiss` | Gypsum ground |
+| `--qatt-red` | Red |
+| `--qatt-yellow` | Yellow |
+| `--qatt-black` | Black |
+| `--qatt-blue` | Blue |
+| `--qatt-green` | Green (decorative) |
+
+## CSS variables
+
+```css
+:root {
+  --qatt-jiss: oklch(0.97 0.012 88);
+  --qatt-red: oklch(0.48 0.16 29);
+  --qatt-yellow: oklch(0.76 0.15 83);
+  --qatt-ink: oklch(0.22 0.02 64);
+}
+```
+
+Motifs use the slots `--qatt-slot-1` to `--qatt-slot-4`, so you can recolour them without changing the drawing. Keep text on a background with enough contrast; the green here is for decoration only.
+
+## Typefaces
+
+The theme ships IBM Plex Sans Arabic for body text, Readex Pro for headings and IBM Plex Mono for code. Install the theme before any component:
+
+<InstallCommand item="qatt-theme" />
+
+Dark mode is the project's digital interpretation; Al-Qatt Al-Asiri is painted on a white gypsum ground.

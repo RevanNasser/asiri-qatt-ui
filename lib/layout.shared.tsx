@@ -1,20 +1,24 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared"
 
+import { localePath, type Lang } from "@/lib/i18n"
 import { t } from "@/lib/site-copy"
 
-/** Top navigation (site-ia §1): brand at inline-start, then the section links. */
-export function baseOptions(): BaseLayoutProps {
+/** Top navigation (site-ia §1): brand at inline-start, the section links, and the language switcher. */
+export function baseOptions(lang: Lang = "ar"): BaseLayoutProps {
+  const tr = (key: Parameters<typeof t>[0]) => t(key, lang)
+  const href = (path: string) => localePath(lang, path)
   return {
-    nav: { title: <span className="font-heading text-lg font-bold">{t("nav.brand")}</span>, url: "/" },
+    nav: { title: <span className="font-heading text-lg font-bold">{tr("nav.brand")}</span>, url: href("/") },
+    i18n: true,
     links: [
-      { text: t("nav.home"), url: "/", active: "url", on: "menu" },
-      { text: t("nav.docs"), url: "/docs/getting-started", active: "url" },
-      { text: t("nav.components"), url: "/docs/components", active: "nested-url" },
-      { text: t("nav.blocks"), url: "/docs/blocks", active: "nested-url" },
-      { text: t("nav.theme"), url: "/docs/theme", active: "url" },
-      { text: t("nav.about"), url: "/about", active: "url" },
+      { text: tr("nav.home"), url: href("/"), active: "url", on: "menu" },
+      { text: tr("nav.docs"), url: href("/docs/getting-started"), active: "url" },
+      { text: tr("nav.components"), url: href("/docs/components"), active: "nested-url" },
+      { text: tr("nav.blocks"), url: href("/docs/blocks"), active: "nested-url" },
+      { text: tr("nav.theme"), url: href("/docs/theme"), active: "url" },
+      { text: tr("nav.about"), url: href("/about"), active: "url" },
     ],
-    // TODO(repo-url): set githubUrl (nav.github) once the public repository exists.
+    githubUrl: "https://github.com/RevanNasser/asiri-qatt-ui",
   }
 }
 

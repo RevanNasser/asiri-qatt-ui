@@ -1,0 +1,61 @@
+---
+title: Sheet
+description: A panel that slides in from the edge of the screen and respects reading direction.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
+
+<ComponentPreview name="sheet-demo" />
+
+## Installation
+
+<InstallCommand item="sheet" />
+
+<Callout type="warn">
+Heads-up: restyled components replace their files in <code dir="ltr">components/ui/</code>. Commit your changes to git before installing.
+</Callout>
+
+## Usage
+
+```tsx
+import { Sheet } from "@/components/ui/sheet"
+
+<Sheet>
+  <SheetTrigger render={<Button />}>…</SheetTrigger>
+  <SheetContent side="start">…</SheetContent>
+</Sheet>
+```
+
+## Props
+
+<PropsTable
+  rows={[
+  {
+    "name": "SheetContent side",
+    "type": "\"start\" | \"end\" | \"top\" | \"right\" | \"bottom\" | \"left\"",
+    "default": "\"right\"",
+    "description": <span>start/end are logical: start opens from the right in RTL. Prefer them.</span>
+  },
+  {
+    "name": "showCloseButton",
+    "type": "boolean",
+    "default": "true",
+    "description": <span>Close button at inline-end (the left in Arabic).</span>
+  },
+  {
+    "name": "closeLabel",
+    "type": "string",
+    "default": "\"إغلاق\"",
+    "description": <span>Accessible name of the close button.</span>
+  },
+  {"name": "SheetContent ornament", "type": "MotifId", "description": <Copy k="docs.props.sheet.ornament" />}
+]}
+/>
+
+## Direction notes
+
+start and end resolve to a physical side from the page direction via useDirection(), and the slide animation follows it.
+
+## Accessible
+
+Same as Dialog: a title is required, and focus stays inside the sheet until it closes.

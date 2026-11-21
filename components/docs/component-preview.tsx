@@ -7,10 +7,12 @@ import { examples, isBlockExample } from "@/components/docs/examples"
 import { PreviewFrame, type PreviewLabels } from "@/components/docs/preview-frame"
 import { renderCopy } from "@/components/site/copy"
 import { resolveRegistryUrl } from "@/lib/registry-url"
-import { t } from "@/lib/site-copy"
+import type { Lang } from "@/lib/i18n"
+import { copyFor } from "@/lib/site-copy"
 import { source } from "@/lib/source"
 
-export function previewLabels(): PreviewLabels {
+export function previewLabels(lang: Lang = "ar"): PreviewLabels {
+  const { t } = copyFor(lang)
   return {
     preview: t("docs.tab.preview"),
     code: t("docs.tab.code"),
@@ -34,8 +36,8 @@ export function v0Url(item: string) {
   return `https://v0.dev/chat/api/open?url=${encodeURIComponent(`${resolveRegistryUrl()}/r/${item}.json`)}`
 }
 
-function pageTitle(item: string): string | undefined {
-  const page = source.getPages("ar").find((p) => p.url.endsWith(`/${item}`))
+function pageTitle(item: string, lang: Lang): string | undefined {
+  const page = source.getPages(lang).find((p) => p.url.endsWith(`/${item}`))
   return typeof page?.data.title === "string" ? page.data.title : undefined
 }
 
@@ -43,7 +45,17 @@ function pageTitle(item: string): string | undefined {
  * Preview + code tabs for a live example (components/docs/examples.ts). The preview is an isolated iframe
  * with its own RTL/LTR and light/dark toggles (D-028). `item` enables "Open in v0".
  */
-export async function ComponentPreview({ name, item, title }: { name: string; item?: string; title?: string }) {
+export async function ComponentPreview({
+  name,
+  item,
+  title,
+  lang = "ar",
+}: {
+  name: string
+  item?: string
+  title?: string
+  lang?: Lang
+}) {
   const example = examples[name]
   if (!example) throw new Error(`ComponentPreview: unknown example "${name}"`)
   const code = await fs.readFile(path.join(process.cwd(), "registry", example.file), "utf8")
@@ -52,9 +64,9 @@ export async function ComponentPreview({ name, item, title }: { name: string; it
   return (
     <PreviewFrame
       name={name}
-      title={title ?? pageTitle(registryItem) ?? registryItem}
+      title={title ?? pageTitle(registryItem, lang) ?? registryItem}
       kind={isBlockExample(name) ? "block" : "component"}
-      labels={previewLabels()}
+      labels={previewLabels(lang)}
       v0Url={v0Url(registryItem)}
     >
       <DynamicCodeBlock lang="tsx" code={code.trimEnd()} />

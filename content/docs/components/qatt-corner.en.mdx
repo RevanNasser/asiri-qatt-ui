@@ -1,0 +1,48 @@
+---
+title: Khatmah Corner
+description: A square ornament for corners and ends, shaped like the khatmah that closes a panel.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-corner.*, docs.props.qatt-corner.*). */}
+
+A small ornament for the corner of a card or frame. Its default form is the khatmah, the square that closes a band. One source relates that the khatmah was where the painter showed her own touch.
+
+<ComponentPreview name="qatt-corner-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-corner" />
+
+## Usage
+
+Place it inside an element with position: relative and choose the corner with position. Repeat it four times for all four corners.
+
+```tsx
+import { QattCorner } from "@/components/ui/qatt-corner"
+
+<div className="relative">
+  <QattCorner position="start-start" />
+  …
+</div>
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "position", "type": "\"start-start\" | \"start-end\" | \"end-start\" | \"end-end\"", "default": "\"start-start\"", "description": <span>Logical corner (block, then inline): start-start, start-end, end-start or end-end. Default start-start.</span>},
+    {"name": "motif", "type": "\"khatmah\" | \"taadheeq\" | \"mahareeb\"", "default": "\"khatmah\"", "description": <span>Motif: khatmah (default), taadheeq or mahareeb.</span>},
+    {"name": "colors", "type": "QattColor[]", "description": <span>Colours for the motif's slots, in order: pigment names (red, yellow, ink…) or any CSS colour. Defaults to the motif's colours in motifs.json.</span>},
+    {"name": "size", "type": "\"sm\" | \"md\" | \"lg\" | number", "default": "\"md\"", "description": <span>Size: sm 16px, md 24px (default), lg 32px, or a number.</span>},
+    {"name": "offset", "type": "number", "default": "0", "description": <span>Offset in px outwards; negative moves it inwards. Default 0.</span>}
+  ]}
+/>
+
+## Direction notes
+
+Corners are logical: start-start is top-right in Arabic and top-left in English.
+
+## Accessible
+
+Pure decoration, hidden from assistive technology and not clickable. Make sure it never covers text or a button.

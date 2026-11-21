@@ -1,0 +1,26 @@
+{
+  "title": "Components",
+  "pages": [
+    "qatt-pattern",
+    "qatt-mural",
+    "qatt-divider",
+    "qatt-border",
+    "qatt-frame",
+    "qatt-corner",
+    "button",
+    "badge",
+    "card",
+    "tabs",
+    "dialog",
+    "sheet",
+    "accordion",
+    "input",
+    "select",
+    "sonner",
+    "tooltip",
+    "breadcrumb",
+    "pagination",
+    "avatar",
+    "separator"
+  ]
+}

@@ -1,0 +1,55 @@
+---
+title: Qatt Frame
+description: A frame that holds an image or focal content.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-frame.*, docs.props.qatt-frame.*). */}
+
+A frame for an image or focal content. By default it is a rectangular niche surrounded by concentric painted lines, the way doorways and windows are framed in qatt, with a kaff base and khatmah caps at its corners. It can also be an arch inspired by the mahareeb motif and its nested arches.
+
+<Callout>
+In the interface we call it the arch frame, a general UI component. Its default shape today is the rectangular niche; the arch is a shape you opt into.
+</Callout>
+
+<ComponentPreview name="qatt-frame-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-frame" />
+
+## Usage
+
+Put an image with alt text or short content inside. In the niche shape, content is clipped to the inner rectangle; in the arch shapes, to the inner arch. Set `outline=\{3\}` for three nested arches in the manner of sankroli. The `stepped` shape is a project extension, so say so wherever you show it.
+
+```tsx
+import { QattFrame } from "@/components/ui/qatt-frame"
+
+<QattFrame caption="…">
+  <img src="…" alt="…" />
+</QattFrame>
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "shape", "type": "\"niche\" | \"pointed\" | \"round\" | \"stepped\"", "default": "\"niche\"", "description": <span>Shape: <code dir="ltr">niche</code>, the rectangular niche (default), or an arch: <code dir="ltr">pointed</code>, <code dir="ltr">round</code>, or <code dir="ltr">stepped</code>, which is a project extension.</span>},
+    {"name": "outline", "type": "1 | 2 | 3", "default": "2", "description": <span>Number of nested arch outlines: 1, 2 (default) or 3.</span>},
+    {"name": "colors", "type": "QattColor[]", "default": "[\"red\", \"ink\", \"yellow\"]", "description": <span>Colours in order: outer arch, inner arch, base.</span>},
+    {"name": "base", "type": "MotifId | false", "default": "\"kaff\"", "description": <span>Base band motif, default kaff. Set false for no base.</span>},
+    {"name": "caps", "type": "boolean", "default": "true", "description": <span>Adds khatmah squares at the base corners. Default true.</span>},
+    {"name": "ratio", "type": "number", "default": "3/4", "description": <span>Aspect ratio of the content box. Default 3/4.</span>},
+    {"name": "caption", "type": "ReactNode", "description": <span>Caption rendered in figcaption below the frame.</span>},
+    {"name": "animate", "type": "boolean", "default": "false", "description": <span>Draws the arch stroke in when it appears. Off when reduced motion is on.</span>},
+    {"name": "surface", "type": "\"default\" | \"gypsum\"", "default": "\"default\"", "description": <span>gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself.</span>}
+  ]}
+/>
+
+## Direction notes
+
+The frame is symmetric; nothing flips.
+
+## Accessible
+
+Built on `figure` and `figcaption`; the frame drawing is hidden from assistive technology. Give every image alt text in `alt`, and put explanations in `caption`, not inside the image.

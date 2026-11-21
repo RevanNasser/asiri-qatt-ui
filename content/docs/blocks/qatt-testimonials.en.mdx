@@ -1,0 +1,47 @@
+---
+title: Testimonials
+description: Quotes from people who tried it and loved it.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-testimonials.*, docs.props.qatt-testimonials.*). */}
+
+Testimonials from people who tried your product, as a grid of cards or one large quote, with a decorative quote mark framed by sankroli.
+
+<Callout>
+This content is a sample: the names, figures, prices and quotes are made up. Replace them with your own.
+</Callout>
+
+<ComponentPreview name="qatt-testimonials-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-testimonials" />
+
+## Usage
+
+The names and quotes in the demo are made up; do not publish them. Use real testimonials with permission. Wrap Arabic quotes in «…».
+
+```tsx
+import { QattTestimonials } from "@/components/qatt-testimonials"
+
+<QattTestimonials title="…" items={[{ quote: "«…»", name: "…" }]} />
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "title", "type": "string", "description": <span>Section heading; the section is labelled by it via aria-labelledby.</span>},
+    {"name": "items", "type": "{ quote, name, role?, avatar? }[]", "description": <span>Testimonials: quote and name, with optional role and avatar.</span>},
+    {"name": "layout", "type": "\"grid\" | \"single\"", "default": "\"grid\"", "description": <span>Layout: grid of cards, or single large quote.</span>}
+  ]}
+/>
+
+## Direction notes
+
+The decorative quote mark sits at inline-start; English quotes inside Arabic text are isolated with bdi.
+
+## Accessible
+
+Each testimonial is a figure with blockquote and figcaption. The large quote mark is decorative; avatars have alt text.

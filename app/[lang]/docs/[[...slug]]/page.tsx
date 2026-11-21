@@ -4,6 +4,7 @@ import { DocsBody, DocsDescription, DocsPage, DocsTitle } from "fumadocs-ui/layo
 import { createRelativeLink } from "fumadocs-ui/mdx"
 
 import { getMDXComponents } from "@/components/docs/mdx"
+import type { Lang } from "@/lib/i18n"
 import { source } from "@/lib/source"
 
 export default async function Page({ params }: PageProps<"/[lang]/docs/[[...slug]]">) {
@@ -18,7 +19,7 @@ export default async function Page({ params }: PageProps<"/[lang]/docs/[[...slug
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
-        <MDX components={getMDXComponents({ a: createRelativeLink(source, page) })} />
+        <MDX components={getMDXComponents({ a: createRelativeLink(source, page) }, lang as Lang)} />
       </DocsBody>
     </DocsPage>
   )

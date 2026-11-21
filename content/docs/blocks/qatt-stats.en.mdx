@@ -1,0 +1,49 @@
+---
+title: Stats
+description: Bold numbers that tell the story at a glance.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-stats.*, docs.props.qatt-stats.*). */}
+
+Bold figures that sum up your achievements in one row, over a faint balsanah background.
+
+<Callout>
+This content is a sample: the names, figures, prices and quotes are made up. Replace them with your own.
+</Callout>
+
+<ComponentPreview name="qatt-stats-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-stats" />
+
+## Usage
+
+The figures in the demo are samples; replace them with real ones. Western digits are the default; numerals="arab" shows Arabic-Indic digits for decorative contexts.
+
+```tsx
+import { QattStats } from "@/components/qatt-stats"
+
+<QattStats stats={[{ value: 98, suffix: "%", label: "…" }]} />
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "title", "type": "string", "description": <span>Optional section heading.</span>},
+    {"name": "stats", "type": "{ value, label, prefix?, suffix? }[]", "description": <span>List of figures: value and label, with optional prefix and suffix.</span>},
+    {"name": "numerals", "type": "\"latn\" | \"arab\"", "default": "\"latn\"", "description": <span>Digits: latn Western (default) or arab Arabic-Indic.</span>},
+    {"name": "background", "type": "MotifId | false", "default": "\"balsanah\"", "description": <span>Faint background motif, or false for none. Default balsanah at low opacity.</span>},
+    {"name": "animate", "type": "boolean", "default": "false", "description": <span>Optional count-up to the value; off under reduced motion.</span>}
+  ]}
+/>
+
+## Direction notes
+
+Each value is isolated in bdi so % and + stay in place. Write prefix and suffix as they read, e.g. 98%.
+
+## Accessible
+
+The final value is in the DOM from the start, so assistive technology reads it even with the count-up, and the count-up stops under reduced motion.
