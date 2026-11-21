@@ -30,6 +30,8 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         <DirectionProvider direction={dir}>
           <RootProvider
             dir={dir}
+            // Light (the day wall) is the default; the toggle still offers dark, and a visitor's choice persists.
+            theme={{ defaultTheme: "light" }}
             i18n={{
               locale: lang,
               defaultLanguage: i18n.defaultLanguage,
