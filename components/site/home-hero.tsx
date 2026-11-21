@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { InstallCommand } from "@/components/site/install-command"
 import { QattMural, QattNiche } from "@/registry/qatt/ui/qatt-mural"
-import { resolveRegistryUrl } from "@/lib/registry-url"
+import { Copy } from "@/components/site/copy"
 import { t } from "@/lib/site-copy"
 import { buttonVariants } from "@/registry/qatt/ui/button"
 
@@ -44,11 +44,12 @@ export function HomeHero() {
             </Link>
           </div>
           <InstallCommand
-            className="[&>p]:text-center"
+            className="text-center"
             label={t("home.hero.install.label")}
-            command={`pnpm dlx shadcn@latest add ${resolveRegistryUrl()}/r/qatt-theme.json`}
+            command="pnpm dlx shadcn@latest add @qatt/qatt-theme"
             copyLabel={t("docs.copy.command")}
             copiedLabel={t("docs.copied")}
+            hint={{ label: <Copy k="home.hero.install.setup" />, href: "/docs/getting-started" }}
           />
         </QattNiche>
       </div>

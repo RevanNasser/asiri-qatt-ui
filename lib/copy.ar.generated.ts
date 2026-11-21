@@ -860,4 +860,5 @@ export const arCopy = {
   "docs.props.qatt-divider.mural":
     "يرسم شريطًا كثيفًا من الجدارية بدل النقش الواحد، في الاتجاه الأفقي فقط: اسم ترتيبٍ جاهز (`frieze` و`diamonds` و`squares` و`base` و`lines`) أو قائمةٌ بأسماء الأشرطة.",
   "docs.props.qatt-divider.muralScale": "مقياس شريط الجدارية. والافتراضي 1.",
+  "home.hero.install.setup": "أول مرة؟ أضيفوا النطاق `@qatt` إلى `components.json`",
 } as const

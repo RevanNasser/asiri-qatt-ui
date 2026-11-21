@@ -12,12 +12,15 @@ export function InstallCommand({
   command,
   copyLabel,
   copiedLabel,
+  hint,
   className,
 }: {
   label: string
   command: string
   copyLabel: string
   copiedLabel: string
+  /** Optional small link under the command (e.g. first-time setup). */
+  hint?: { label: React.ReactNode; href: string }
   className?: string
 }) {
   const [copied, setCopied] = React.useState(false)
@@ -48,6 +51,14 @@ export function InstallCommand({
           {copied ? <CheckIcon aria-hidden="true" /> : <CopyIcon aria-hidden="true" />}
         </Button>
       </div>
+      {hint && (
+        <a
+          href={hint.href}
+          className="mt-2 inline-block text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+        >
+          {hint.label}
+        </a>
+      )}
       <span role="status" className="sr-only">
         {copied ? copiedLabel : ""}
       </span>
