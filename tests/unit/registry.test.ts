@@ -1,3 +1,4 @@
+import { resolveRegistryUrl } from "@/lib/registry-url"
 import fs from "node:fs"
 import path from "node:path"
 
@@ -41,5 +42,37 @@ describe("site copy", () => {
       if (key.startsWith("docs.theme.pigment.")) expect(catalog, key).toContain(value)
       else expect(rows.has(`| \`${key}\` | ${value} |`), key).toBe(true)
     }
+  })
+})
+
+describe("resolveRegistryUrl", () => {
+  const env = (vars: Record<string, string>) => vars as unknown as NodeJS.ProcessEnv
+
+  it("prefers an explicit REGISTRY_URL and trims trailing slashes", () => {
+    expect(
+      resolveRegistryUrl(
+        env({ REGISTRY_URL: "https://example.com/", VERCEL_ENV: "production", VERCEL_URL: "x.vercel.app" }),
+      ),
+    ).toBe("https://example.com")
+  })
+
+  it("uses the production domain on Vercel production builds", () => {
+    expect(
+      resolveRegistryUrl(
+        env({
+          VERCEL_ENV: "production",
+          VERCEL_PROJECT_PRODUCTION_URL: "asiri-qatt.rifan.xyz",
+          VERCEL_URL: "x.vercel.app",
+        }),
+      ),
+    ).toBe("https://asiri-qatt.rifan.xyz")
+    expect(resolveRegistryUrl(env({ VERCEL_ENV: "production", VERCEL_URL: "x.vercel.app" }))).toBe(
+      "https://x.vercel.app",
+    )
+  })
+
+  it("uses the preview URL on Vercel previews and localhost elsewhere", () => {
+    expect(resolveRegistryUrl(env({ VERCEL_ENV: "preview", VERCEL_URL: "p.vercel.app" }))).toBe("https://p.vercel.app")
+    expect(resolveRegistryUrl(env({}))).toBe("http://localhost:4000")
   })
 })
