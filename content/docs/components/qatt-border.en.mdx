@@ -1,0 +1,51 @@
+---
+title: Qatt Border
+description: A decorative border around elements, with its triangles and parallel lines.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-border.*, docs.props.qatt-border.*). */}
+
+A decorative edge on one or more sides of your content: a band of motifs that can end in khatmah squares, the way bands are closed on the wall.
+
+<ComponentPreview name="qatt-border-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-border" />
+
+## Usage
+
+Choose the sides with side. The top strip stands upright and the bottom strip is turned over, so the triangles point into the content. Keep at least the strip thickness plus 8px between the strip and the content.
+
+```tsx
+import { QattBorder } from "@/components/ui/qatt-border"
+
+<QattBorder side="block" caps>
+  …
+</QattBorder>
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "side", "type": "\"top\" | \"bottom\" | \"block\" | \"inline\" | \"all\"", "default": "\"block\"", "description": <span>Which sides: top, bottom, block (top and bottom), inline (both sides) or all. Default block.</span>},
+    {"name": "motif", "type": "MotifId", "default": "\"rukun\"", "description": <span>Strip motif. Default rukun.</span>},
+    {"name": "variant", "type": "MotifVariant", "description": <span>An alternate form of the motif, where one exists: 5, alternate, lattice or wave.</span>},
+    {"name": "colors", "type": "QattColor[]", "description": <span>Colours for the motif's slots, in order: pigment names (red, yellow, ink…) or any CSS colour. Defaults to the motif's colours in motifs.json.</span>},
+    {"name": "thickness", "type": "\"sm\" | \"md\" | \"lg\" | number", "default": "\"md\"", "description": <span>Strip height: sm 12px, md 24px (default), lg 40px, or a number.</span>},
+    {"name": "caps", "type": "boolean", "default": "false", "description": <span>Adds khatmah squares at both ends of each strip. Default false.</span>},
+    {"name": "inset", "type": "boolean", "default": "true", "description": <span>Draws the strip inside the box (default) or outside it when false.</span>},
+    {"name": "animate", "type": "boolean", "default": "false", "description": <span>Paints the ornament in from inline-start when it appears. Off when reduced motion is on.</span>},
+    {"name": "surface", "type": "\"default\" | \"gypsum\"", "default": "\"default\"", "description": <span>gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself.</span>}
+  ]}
+/>
+
+## Direction notes
+
+Logical sides, end caps and the paint reveal all follow the page direction. The motif artwork itself never flips.
+
+## Accessible
+
+Pure decoration, hidden from assistive technology. The inner padding stops the strip from covering the focus outline of the elements inside.

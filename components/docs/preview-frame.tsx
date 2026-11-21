@@ -90,11 +90,6 @@ export function PreviewFrame({
     () => true,
     () => false,
   )
-  const pageDir = React.useSyncExternalStore(
-    noopSubscribe,
-    (): Dir => (document.documentElement.dir === "ltr" ? "ltr" : "rtl"),
-    (): Dir => "rtl",
-  )
   const [dir, setDir] = React.useState<Dir | null>(null)
   const [theme, setTheme] = React.useState<Theme | null>(null)
   const [viewport, setViewport] = React.useState<Viewport>("desktop")
@@ -103,7 +98,8 @@ export function PreviewFrame({
   const frame = React.useRef<HTMLIFrameElement>(null)
   const caveatId = React.useId()
 
-  const effDir: Dir = dir ?? pageDir
+  // Examples carry Arabic sample content, so previews open RTL on every page language; LTR is a toggle away.
+  const effDir: Dir = dir ?? "rtl"
   // resolvedTheme is unknown on the server; read it only after mount so hydration matches.
   const effTheme: Theme = theme ?? (mounted && resolvedTheme === "dark" ? "dark" : "light")
   const src = `/preview/${effDir}/${effTheme}/${name}`

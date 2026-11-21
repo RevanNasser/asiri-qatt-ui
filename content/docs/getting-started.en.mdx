@@ -1,0 +1,59 @@
+---
+title: Getting started
+description: Install the Qatt theme and add your first Arabic component to a shadcn/ui project in minutes.
+---
+
+{/* Copy: docs/agents/heritage/site-copy.ar.md (docs.gettingStarted.* incl. baseNote/overwriteWarning/namespace.*, seo.gettingStarted.description). Do not edit Arabic here without the Heritage agent. */}
+
+Welcome. Qatt is a shadcn/ui-compatible registry: not a package you install and forget, but code added to your project that you own. Install the theme first, then add any components and blocks you like.
+
+Requirements: a project set up with shadcn/ui and Tailwind CSS.
+
+Version 1 supports the base-nova style (built on Base UI) only. Radix support may come in a later release.
+
+<Callout type="warn">
+Heads-up: restyled components replace their files in <code dir="ltr">components/ui/</code>. Commit your changes to git before installing.
+</Callout>
+
+<Steps>
+<Step>
+
+### Set up the <bdi dir="ltr">@qatt</bdi> registry
+
+Add the Qatt registry to <code dir="ltr">components.json</code> to use the short <code dir="ltr">@qatt/…</code> name instead of the full URL. Full URLs work either way.
+
+```json title="components.json"
+{
+  "registries": {
+    "@qatt": "https://asiri-qatt.rifan.xyz/r/{name}.json"
+  }
+}
+```
+
+</Step>
+<Step>
+
+### Install the Qatt theme
+
+<InstallCommand item="qatt-theme" />
+
+</Step>
+<Step>
+
+### Set the page direction by adding `dir="rtl"` and `lang="ar"` to the `html` tag
+
+```tsx title="app/layout.tsx"
+<html lang="ar" dir="rtl">
+```
+
+</Step>
+<Step>
+
+### Add your first component
+
+<InstallCommand item="qatt-divider" />
+
+</Step>
+</Steps>
+
+That's it. You're most welcome.

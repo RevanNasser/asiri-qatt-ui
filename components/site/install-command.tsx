@@ -34,7 +34,7 @@ export function InstallCommand({
         <span aria-hidden="true" className="font-mono text-sm text-qatt-red select-none">
           $
         </span>
-        <code className="min-w-0 flex-1 [scrollbar-width:none] overflow-x-auto font-mono text-sm whitespace-nowrap">
+        <code className="min-w-0 flex-1 [scrollbar-width:none] overflow-x-auto text-left font-mono text-sm whitespace-nowrap">
           {command}
         </code>
         <Button

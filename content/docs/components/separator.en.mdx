@@ -1,0 +1,52 @@
+---
+title: Separator
+description: A thin line between elements, horizontal or vertical.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
+
+<ComponentPreview name="separator-demo" />
+
+## Installation
+
+<InstallCommand item="separator" />
+
+<Callout type="warn">
+Heads-up: restyled components replace their files in <code dir="ltr">components/ui/</code>. Commit your changes to git before installing.
+</Callout>
+
+## Usage
+
+```tsx
+import { Separator } from "@/components/ui/separator"
+
+<Separator variant="qatt" />
+```
+
+## Props
+
+<PropsTable
+  rows={[
+  {
+    "name": "variant",
+    "type": "\"default\" | \"qatt\"",
+    "default": "\"default\"",
+    "description": <span>qatt = three thin parallel rules (al-mathalith).</span>
+  },
+  {
+    "name": "orientation",
+    "type": "\"horizontal\" | \"vertical\"",
+    "default": "\"horizontal\"",
+    "description": <span>Direction of the rule: horizontal or vertical.</span>
+  },
+  {"name": "motif", "type": "MotifId", "description": <Copy k="docs.props.separator.motif" />}
+]}
+/>
+
+## Direction notes
+
+Symmetric; identical in both directions.
+
+## Accessible
+
+Keeps Base UI Separator semantics: a decorative separator gets role="none" and is skipped by assistive technology.

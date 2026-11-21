@@ -1,0 +1,50 @@
+---
+title: Footer
+description: A footer with links, copyright and a painted kaff base band.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-footer.*, docs.props.qatt-footer.*). */}
+
+A footer with brand, link columns and copyright, resting on a kaff band the way a wall rests on its base band.
+
+<Callout>
+This content is a sample: the names, figures, prices and quotes are made up. Replace them with your own.
+</Callout>
+
+<ComponentPreview name="qatt-footer-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-footer" />
+
+## Usage
+
+Arrange links in three or four columns of no more than five links each. If you use Qatt ornaments, keep the inspiration note in heritageNote.
+
+```tsx
+import { QattFooter } from "@/components/qatt-footer"
+
+<QattFooter brand="…" columns={[{ title: "…", links: [{ label: "…", href: "#" }] }]} />
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "brand", "type": "ReactNode", "description": <span>Brand: name or logo.</span>},
+    {"name": "tagline", "type": "string", "description": <span>One-line description under the brand.</span>},
+    {"name": "heritageNote", "type": "string", "description": <span>Small note crediting the ornament's inspiration.</span>},
+    {"name": "columns", "type": "{ title, links: { label, href, external? }[] }[]", "description": <span>Link columns: title and links; mark outside links with external.</span>},
+    {"name": "bottom", "type": "ReactNode", "description": <span>Bottom row content, such as copyright and theme toggle.</span>},
+    {"name": "kaff", "type": "boolean", "default": "true", "description": <span>Shows the kaff band at the bottom. Default true.</span>}
+  ]}
+/>
+
+## Direction notes
+
+The brand sits at inline-start with the columns after it. The external-link arrow does not flip.
+
+## Accessible
+
+The footer is a landmark and column titles are real headings. Links that open a new tab say so to screen readers.

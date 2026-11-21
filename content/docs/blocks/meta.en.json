@@ -1,0 +1,15 @@
+{
+  "title": "Blocks",
+  "pages": [
+    "qatt-hero",
+    "majlis-welcome",
+    "qatt-feature-grid",
+    "qatt-stats",
+    "qatt-testimonials",
+    "qatt-pricing",
+    "qatt-cta",
+    "qatt-footer",
+    "qatt-login",
+    "qatt-404"
+  ]
+}

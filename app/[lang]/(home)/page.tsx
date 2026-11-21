@@ -7,7 +7,8 @@ import { GalleryGrid } from "@/components/docs/gallery"
 import { HomeHero } from "@/components/site/home-hero"
 import { QattWallComposition } from "@/components/site/qatt-wall-composition"
 import { pageMetadata } from "@/lib/seo"
-import { plain, t } from "@/lib/site-copy"
+import { localePath, type Lang } from "@/lib/i18n"
+import { copyFor } from "@/lib/site-copy"
 import { source } from "@/lib/source"
 import { QattCta } from "@/registry/qatt/blocks/qatt-cta/qatt-cta"
 import { QattFeatureGrid } from "@/registry/qatt/blocks/qatt-feature-grid/qatt-feature-grid"
@@ -15,11 +16,11 @@ import { buttonVariants } from "@/registry/qatt/ui/button"
 import { QattDivider } from "@/registry/qatt/ui/qatt-divider"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/qatt/ui/tabs"
 
-export const metadata: Metadata = pageMetadata({
-  title: t("seo.home.title"),
-  description: t("seo.home.description"),
-  path: "/",
-})
+export async function generateMetadata({ params }: PageProps<"/[lang]">): Promise<Metadata> {
+  const lang = (await params).lang as Lang
+  const { t } = copyFor(lang)
+  return pageMetadata({ title: t("seo.home.title"), description: t("seo.home.description"), path: "/", lang })
+}
 
 // Showcase tabs (site-ia §3): button, card, dialog, login.
 const SHOWCASE = [
@@ -31,13 +32,15 @@ const SHOWCASE = [
 
 const HIGHLIGHT_BLOCKS = ["qatt-hero", "majlis-welcome", "qatt-pricing"]
 
-export default function HomePage() {
+export default async function HomePage({ params }: PageProps<"/[lang]">) {
+  const lang = (await params).lang as Lang
+  const { t, plain } = copyFor(lang)
   const titleOf = (item: string) =>
-    String(source.getPages("ar").find((p) => p.url.endsWith(`/${item}`))?.data.title ?? item)
+    String(source.getPages(lang).find((p) => p.url.endsWith(`/${item}`))?.data.title ?? item)
 
   return (
     <>
-      <HomeHero />
+      <HomeHero lang={lang} />
 
       <QattFeatureGrid
         title={t("home.value.title")}
@@ -69,18 +72,18 @@ export default function HomePage() {
           </TabsList>
           {SHOWCASE.map((s) => (
             <TabsContent key={s.item} value={s.item} className="min-w-0">
-              <ComponentPreview name={s.example} item={s.item} title={titleOf(s.item)} />
+              <ComponentPreview name={s.example} item={s.item} title={titleOf(s.item)} lang={lang} />
             </TabsContent>
           ))}
         </Tabs>
         <QattDivider label={t("docs.blocks.title")} motif="mathalith-makhamis" />
         <p className="text-muted-foreground">{t("docs.blocks.intro")}</p>
-        <GalleryGrid kind="blocks" only={HIGHLIGHT_BLOCKS} headingLevel={3} />
+        <GalleryGrid kind="blocks" only={HIGHLIGHT_BLOCKS} headingLevel={3} lang={lang} />
         <div className="flex flex-wrap gap-3">
-          <Link href="/docs/components" className={buttonVariants({ variant: "qatt-outline" })}>
+          <Link href={localePath(lang, "/docs/components")} className={buttonVariants({ variant: "qatt-outline" })}>
             {t("home.hero.cta.secondary")}
           </Link>
-          <Link href="/docs/blocks" className={buttonVariants({ variant: "qatt-outline" })}>
+          <Link href={localePath(lang, "/docs/blocks")} className={buttonVariants({ variant: "qatt-outline" })}>
             {t("nav.blocks")}
           </Link>
         </div>
@@ -98,7 +101,7 @@ export default function HomePage() {
               {t("home.story.title")}
             </h2>
             <p className="max-w-[58ch] text-lg leading-8 text-muted-foreground">{t("home.story.body")}</p>
-            <Link href="/about" className={buttonVariants({ variant: "qatt-outline", size: "lg" })}>
+            <Link href={localePath(lang, "/about")} className={buttonVariants({ variant: "qatt-outline", size: "lg" })}>
               {t("home.story.link")}
             </Link>
           </div>
@@ -109,7 +112,7 @@ export default function HomePage() {
       <QattCta
         title={t("home.cta.title")}
         body={t("home.cta.body")}
-        primary={{ label: t("home.cta.button"), href: "/docs/getting-started" }}
+        primary={{ label: t("home.cta.button"), href: localePath(lang, "/docs/getting-started") }}
       />
     </>
   )

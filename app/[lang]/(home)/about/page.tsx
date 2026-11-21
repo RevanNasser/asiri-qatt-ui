@@ -3,16 +3,17 @@ import type { ReactNode } from "react"
 
 import { Copy } from "@/components/site/copy"
 import { pageMetadata } from "@/lib/seo"
-import { t, type CopyKey } from "@/lib/site-copy"
+import type { Lang } from "@/lib/i18n"
+import { copyFor, t as tr, type CopyKey } from "@/lib/site-copy"
 import { MOTIFS } from "@/registry/qatt/lib/qatt-motifs"
 import { QattDivider } from "@/registry/qatt/ui/qatt-divider"
 import { QattMotifTile, QattPattern } from "@/registry/qatt/ui/qatt-pattern"
 
-export const metadata: Metadata = pageMetadata({
-  title: t("seo.about.title"),
-  description: t("seo.about.description"),
-  path: "/about",
-})
+export async function generateMetadata({ params }: PageProps<"/[lang]/about">): Promise<Metadata> {
+  const lang = (await params).lang as Lang
+  const { t } = copyFor(lang)
+  return pageMetadata({ title: t("seo.about.title"), description: t("seo.about.description"), path: "/about", lang })
+}
 
 const SOURCES: CopyKey[] = [
   "about.sources.s1",
@@ -28,17 +29,19 @@ const SOURCES: CopyKey[] = [
 
 const VOCABULARY = Object.values(MOTIFS).filter((motif) => motif.aboutVocabulary)
 
-function StorySection({ heading, children }: { heading: CopyKey; children: ReactNode }) {
+function StorySection({ heading, lang, children }: { heading: CopyKey; lang: Lang; children: ReactNode }) {
   return (
     <section className="grid gap-3 text-start md:grid-cols-[minmax(10rem,1fr)_minmax(0,3fr)] md:gap-8">
-      <h2 className="font-heading text-2xl font-bold">{t(heading)}</h2>
+      <h2 className="font-heading text-2xl font-bold">{tr(heading, lang)}</h2>
       <div className="space-y-4 leading-8 text-muted-foreground">{children}</div>
     </section>
   )
 }
 
 /** Heritage story page (site-ia §9): original project motifs stay on a gypsum ground (D-019). */
-export default function AboutPage() {
+export default async function AboutPage({ params }: PageProps<"/[lang]/about">) {
+  const lang = (await params).lang as Lang
+  const { t } = copyFor(lang)
   return (
     <>
       <QattPattern motif="mathalith-makhamis" surface="gypsum" scale="md" className="min-h-10 sm:min-h-12" />
@@ -50,63 +53,66 @@ export default function AboutPage() {
 
         <QattDivider motif="qatt-lines" surface="gypsum" />
 
-        <StorySection heading="about.what.heading">
+        <StorySection lang={lang} heading="about.what.heading">
           <p>
-            <Copy k="about.what.body" />
+            <Copy lang={lang} k="about.what.body" />
           </p>
           <p>
-            <Copy k="about.what.name" />
-          </p>
-        </StorySection>
-        <StorySection heading="about.where.heading">
-          <p>
-            <Copy k="about.where.body" />
+            <Copy lang={lang} k="about.what.name" />
           </p>
         </StorySection>
-        <StorySection heading="about.context.exterior.heading">
+        <StorySection lang={lang} heading="about.where.heading">
           <p>
-            <Copy k="about.context.exterior.body" />
+            <Copy lang={lang} k="about.where.body" />
+          </p>
+        </StorySection>
+        <StorySection lang={lang} heading="about.context.exterior.heading">
+          <p>
+            <Copy lang={lang} k="about.context.exterior.body" />
           </p>
           <p className="text-sm">
             <Copy
+              lang={lang}
               k="about.context.exterior.source"
               linkClassName="text-foreground underline underline-offset-4 hover:text-primary"
             />
           </p>
         </StorySection>
-        <StorySection heading="about.context.interior.heading">
+        <StorySection lang={lang} heading="about.context.interior.heading">
           <p>
-            <Copy k="about.context.interior.body" />
+            <Copy lang={lang} k="about.context.interior.body" />
           </p>
           <p className="text-sm">
             <Copy
+              lang={lang}
               k="about.context.interior.source"
               linkClassName="text-foreground underline underline-offset-4 hover:text-primary"
             />
           </p>
         </StorySection>
-        <StorySection heading="about.context.clothing.heading">
+        <StorySection lang={lang} heading="about.context.clothing.heading">
           <p>
-            <Copy k="about.context.clothing.body" />
+            <Copy lang={lang} k="about.context.clothing.body" />
           </p>
           <p className="text-sm">
             <Copy
+              lang={lang}
               k="about.context.clothing.source"
               linkClassName="text-foreground underline underline-offset-4 hover:text-primary"
             />
           </p>
         </StorySection>
-        <StorySection heading="about.who.heading">
+        <StorySection lang={lang} heading="about.who.heading">
           <p>
-            <Copy k="about.who.body" />
+            <Copy lang={lang} k="about.who.body" />
           </p>
         </StorySection>
-        <StorySection heading="about.how.heading">
+        <StorySection lang={lang} heading="about.how.heading">
           <p>
-            <Copy k="about.how.body" />
+            <Copy lang={lang} k="about.how.body" />
           </p>
           <p>
-            <Copy k="about.how.vocab" />
+            <Copy lang={lang} k="about.how.vocab" />
           </p>
           <QattPattern surface="gypsum" className="rounded-lg border p-4">
             <div className="grid grid-cols-3 gap-x-3 gap-y-5 sm:grid-cols-5">
@@ -119,33 +125,33 @@ export default function AboutPage() {
             </div>
           </QattPattern>
           <p className="rounded-md border-s-4 border-qatt-yellow bg-muted p-4 text-sm">
-            <Copy k="about.how.note" />
+            <Copy lang={lang} k="about.how.note" />
           </p>
         </StorySection>
-        <StorySection heading="about.unesco.heading">
+        <StorySection lang={lang} heading="about.unesco.heading">
           <p>
-            <Copy k="about.unesco.body" />
+            <Copy lang={lang} k="about.unesco.body" />
           </p>
           <p>
-            <Copy k="about.unesco.official" />
+            <Copy lang={lang} k="about.unesco.official" />
           </p>
         </StorySection>
-        <StorySection heading="about.project.heading">
+        <StorySection lang={lang} heading="about.project.heading">
           <p>
-            <Copy k="about.project.body" />
+            <Copy lang={lang} k="about.project.body" />
           </p>
           <p className="font-medium text-foreground">
-            <Copy k="about.project.inspired" />
+            <Copy lang={lang} k="about.project.inspired" />
           </p>
         </StorySection>
-        <StorySection heading="about.credit.heading">
+        <StorySection lang={lang} heading="about.credit.heading">
           <p>
-            <Copy k="about.credit.body" />
+            <Copy lang={lang} k="about.credit.body" />
           </p>
         </StorySection>
-        <StorySection heading="about.asir.heading">
+        <StorySection lang={lang} heading="about.asir.heading">
           <p>
-            <Copy k="about.asir.intro" />
+            <Copy lang={lang} k="about.asir.intro" />
           </p>
           <div className="grid gap-4 sm:grid-cols-3">
             {(
@@ -158,23 +164,31 @@ export default function AboutPage() {
               <section key={title} className="rounded-lg border bg-card p-4 text-foreground">
                 <h3 className="mb-2 font-heading font-semibold">{t(title)}</h3>
                 <p className="text-sm leading-7 text-muted-foreground">
-                  <Copy k={body} linkClassName="text-foreground underline underline-offset-4 hover:text-primary" />
+                  <Copy
+                    lang={lang}
+                    k={body}
+                    linkClassName="text-foreground underline underline-offset-4 hover:text-primary"
+                  />
                 </p>
               </section>
             ))}
           </div>
           <p className="text-sm">
-            <Copy k="about.asir.note" />
+            <Copy lang={lang} k="about.asir.note" />
           </p>
         </StorySection>
-        <StorySection heading="about.sources.heading">
+        <StorySection lang={lang} heading="about.sources.heading">
           <p>
-            <Copy k="about.sources.intro" />
+            <Copy lang={lang} k="about.sources.intro" />
           </p>
           <ol className="list-decimal space-y-2 pe-5 marker:text-foreground">
             {SOURCES.map((source) => (
               <li key={source}>
-                <Copy k={source} linkClassName="text-foreground underline underline-offset-4 hover:text-primary" />
+                <Copy
+                  lang={lang}
+                  k={source}
+                  linkClassName="text-foreground underline underline-offset-4 hover:text-primary"
+                />
               </li>
             ))}
           </ol>

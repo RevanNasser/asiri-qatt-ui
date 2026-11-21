@@ -1,0 +1,61 @@
+---
+title: Breadcrumb
+description: Shows where you are on the site and takes you back a step.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
+
+<ComponentPreview name="breadcrumb-demo" />
+
+## Installation
+
+<InstallCommand item="breadcrumb" />
+
+<Callout type="warn">
+Heads-up: restyled components replace their files in <code dir="ltr">components/ui/</code>. Commit your changes to git before installing.
+</Callout>
+
+## Usage
+
+```tsx
+import { Breadcrumb } from "@/components/ui/breadcrumb"
+
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">…</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>…</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+## Props
+
+<PropsTable
+  rows={[
+  {
+    "name": "BreadcrumbSeparator separator",
+    "type": "\"chevron\" | \"slash\" | \"khatmah\"",
+    "default": "\"chevron\"",
+    "description": <span>Chevron flips in RTL; khatmah is a small diamond; avoid slash in Arabic.</span>
+  },
+  {
+    "name": "aria-label",
+    "type": "string",
+    "default": "\"مسار التنقّل\"",
+    "description": <span>Landmark name of the nav.</span>
+  }
+]}
+/>
+
+## Direction notes
+
+The chevron flips to point left in Arabic. The slash does not flip and reads oddly in RTL, so we recommend chevron or khatmah for Arabic.
+
+## Accessible
+
+The nav is labelled “Breadcrumb”, and the current page carries aria-current="page".

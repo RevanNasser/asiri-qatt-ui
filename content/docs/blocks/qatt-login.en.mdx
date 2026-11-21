@@ -1,0 +1,51 @@
+---
+title: Sign In
+description: A welcoming sign-in form beside a painted mural panel.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-login.*, docs.props.qatt-login.*). */}
+
+A welcoming sign-in form: fields at inline-start and a decorative sankroli panel with an arch frame at inline-end. On mobile the panel hides and a rukun strip sits above the form.
+
+<Callout>
+This content is a sample: the names, figures, prices and quotes are made up. Replace them with your own.
+</Callout>
+
+<ComponentPreview name="qatt-login-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-login" />
+
+## Usage
+
+Pass onSubmit to receive email and password, and errors to show server errors. Arabic messages are ready; on a failed sign-in, never reveal which field was wrong.
+
+```tsx
+import { QattLogin } from "@/components/qatt-login"
+
+<QattLogin onSubmit={async ({ email, password }) => { /* … */ }} forgotHref="/forgot" signUpHref="/sign-up" />
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "title", "type": "string", "default": "\"Sign in\"", "description": <span>Form heading. Default “Sign in”.</span>},
+    {"name": "description", "type": "string", "description": <span>Welcome line under the heading.</span>},
+    {"name": "onSubmit", "type": "(data) => void | Promise<void>", "description": <span>Called with email and password on submit; loading shows until it resolves.</span>},
+    {"name": "providers", "type": "{ id, label, icon? }[]", "description": <span>External sign-in providers: id, label and icon.</span>},
+    {"name": "forgotHref", "type": "string", "description": <span>Link for “Forgot your password?”.</span>},
+    {"name": "signUpHref", "type": "string", "description": <span>Link for “Create an account”.</span>},
+    {"name": "errors", "type": "{ email?, password?, form? }", "description": <span>Error messages for email, password and the whole form.</span>}
+  ]}
+/>
+
+## Direction notes
+
+Email and password inputs are left-to-right; their labels and error messages stay right-to-left.
+
+## Accessible
+
+Labels are always visible, each error is linked to its field with aria-describedby, and form-level errors are announced in a live region. The show-password button has aria-pressed and an accessible name; the submit button announces loading.

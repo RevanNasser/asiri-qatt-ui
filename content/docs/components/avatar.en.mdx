@@ -1,0 +1,59 @@
+---
+title: Avatar
+description: A user's picture or initials in a neat circle.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
+
+<ComponentPreview name="avatar-demo" />
+
+## Installation
+
+<InstallCommand item="avatar" />
+
+<Callout type="warn">
+Heads-up: restyled components replace their files in <code dir="ltr">components/ui/</code>. Commit your changes to git before installing.
+</Callout>
+
+## Usage
+
+```tsx
+import { Avatar } from "@/components/ui/avatar"
+
+<Avatar ring>
+  <AvatarImage src="…" alt="…" />
+  <AvatarFallback tone="red">…</AvatarFallback>
+</Avatar>
+```
+
+## Props
+
+<PropsTable
+  rows={[
+  {
+    "name": "Avatar ring",
+    "type": "boolean",
+    "default": "false",
+    "description": <span>2px primary ring with a 2px gap.</span>
+  },
+  {
+    "name": "Avatar size",
+    "type": "\"default\" | \"sm\" | \"lg\"",
+    "default": "\"default\"",
+    "description": <span>Size.</span>
+  },
+  {
+    "name": "AvatarFallback tone",
+    "type": "\"red\" | \"blue\" | \"ink\" | \"yellow\" | \"orange\"",
+    "description": <span>Pigment fill with a contrast-safe text colour.</span>
+  }
+]}
+/>
+
+## Direction notes
+
+When avatars overlap, use the logical margin -ms-2 instead of -space-x-2.
+
+## Accessible
+
+Give AvatarImage alt text. Fallback contrast is checked per tone: yellow and orange use charcoal text.

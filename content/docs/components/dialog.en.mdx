@@ -1,0 +1,65 @@
+---
+title: Dialog
+description: A window over the page to confirm an action or enter data.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md (docs.* batch 2) only. */}
+
+<ComponentPreview name="dialog-demo" />
+
+## Installation
+
+<InstallCommand item="dialog" />
+
+<Callout type="warn">
+Heads-up: restyled components replace their files in <code dir="ltr">components/ui/</code>. Commit your changes to git before installing.
+</Callout>
+
+## Usage
+
+```tsx
+import { Dialog } from "@/components/ui/dialog"
+
+<Dialog>
+  <DialogTrigger render={<Button />}>…</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>…</DialogTitle>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
+```
+
+## Props
+
+<PropsTable
+  rows={[
+  {
+    "name": "DialogContent variant",
+    "type": "\"default\" | \"qatt\"",
+    "default": "\"default\"",
+    "description": <span>qatt adds a 2px ink border.</span>
+  },
+  {
+    "name": "showCloseButton",
+    "type": "boolean",
+    "default": "true",
+    "description": <span>Close button at inline-end (the left in Arabic).</span>
+  },
+  {
+    "name": "closeLabel",
+    "type": "string",
+    "default": "\"إغلاق\"",
+    "description": <span>Accessible name of the close button.</span>
+  },
+  {"name": "DialogContent ornament", "type": "\"mahareeb\" | \"rukun\" | false", "default": "false", "description": <Copy k="docs.props.dialog.ornament" />}
+]}
+/>
+
+## Direction notes
+
+The close button sits at inline-end. The footer keeps shadcn's order (cancel, then confirm) aligned to the end, so confirm lands on the left in Arabic, at the end of the reading path.
+
+## Accessible
+
+DialogTitle is required. Initial focus goes to the first field, or to the safe action when confirming something that cannot be undone.

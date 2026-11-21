@@ -1,0 +1,50 @@
+---
+title: Call to Action
+description: A closing band that invites visitors to the next step.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-cta.*, docs.props.qatt-cta.*). */}
+
+A closing band that invites the visitor to the next step, in one colour with a row of taadheeq ornaments.
+
+<Callout>
+This content is a sample: the names, figures, prices and quotes are made up. Replace them with your own.
+</Callout>
+
+<ComponentPreview name="qatt-cta-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-cta" />
+
+## Usage
+
+Place it at the end of the page before the footer, with a short title, one clear call to action and a secondary button if needed.
+
+```tsx
+import { QattCta } from "@/components/qatt-cta"
+
+<QattCta title="…" primary={{ label: "…", href: "#" }} />
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "title", "type": "string", "description": <span>Section heading; the section is labelled by it via aria-labelledby.</span>},
+    {"name": "body", "type": "string", "description": <span>Short line under the title.</span>},
+    {"name": "primary", "type": "QattCta", "description": <span>Primary button. A button with label, href and optional variant (qatt, default, outline or qatt-outline).</span>},
+    {"name": "secondary", "type": "QattCta", "description": <span>Optional secondary button. A button with label, href and optional variant (qatt, default, outline or qatt-outline).</span>},
+    {"name": "tone", "type": "\"red\" | \"ink\" | \"gypsum\"", "default": "\"ink\"", "description": <span>Band colour: ink (default), red or gypsum.</span>},
+    {"name": "motif", "type": "MotifId", "default": "\"taadheeq\"", "description": <span>Ornament row motif. Default taadheeq.</span>}
+  ]}
+/>
+
+## Direction notes
+
+Buttons follow reading order: primary first, at inline-start.
+
+## Accessible
+
+Text on red or ink bands is gypsum and passes contrast; the primary button switches to painted yellow to stay prominent.

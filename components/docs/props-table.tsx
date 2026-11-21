@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 
-import { t } from "@/lib/site-copy"
+import type { Lang } from "@/lib/i18n"
+import { copyFor } from "@/lib/site-copy"
 
 export interface PropRow {
   name: string
@@ -9,7 +10,8 @@ export interface PropRow {
   description?: ReactNode
 }
 
-export function PropsTable({ rows }: { rows: PropRow[] }) {
+export function PropsTable({ rows, lang = "ar" }: { rows: PropRow[]; lang?: Lang }) {
+  const { t } = copyFor(lang)
   return (
     <div className="not-prose overflow-x-auto" data-slot="props-table">
       <table className="w-full text-sm">

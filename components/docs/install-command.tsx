@@ -2,6 +2,7 @@ import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock"
 import { Tab, Tabs } from "fumadocs-ui/components/tabs"
 
 import { resolveRegistryUrl } from "@/lib/registry-url"
+import type { Lang } from "@/lib/i18n"
 import { t } from "@/lib/site-copy"
 
 const RUNNERS = {
@@ -20,13 +21,13 @@ export function installCommands(item: string, registryUrl = resolveRegistryUrl()
 }
 
 /** Install command tabs (pnpm/npm/yarn/bun), each with the @qatt namespace form and the direct URL form. */
-export function InstallCommand({ item }: { item: string }) {
+export function InstallCommand({ item, lang = "ar" }: { item: string; lang?: Lang }) {
   const commands = installCommands(item)
   return (
     <div dir="ltr" className="text-start" data-slot="install-command">
       <Tabs
         items={commands.map((c) => c.pm)}
-        label={<span dir="rtl">{t("docs.install.pm.label")}</span>}
+        label={<span dir={lang === "ar" ? "rtl" : "ltr"}>{t("docs.install.pm.label", lang)}</span>}
         groupId="package-manager"
         persist
       >

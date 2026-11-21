@@ -1,0 +1,57 @@
+---
+title: Qatt Pattern
+description: A repeating decorative background of bands, triangles and diamonds, inspired by the vocabulary of Al-Qatt Al-Asiri.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-pattern.*, docs.props.qatt-pattern.*). */}
+
+A decorative background that repeats one Qatt motif to fill a section, a band or a card. Every motif is our own original drawing, inspired by the geometric vocabulary of Al-Qatt Al-Asiri, never copied from a particular wall.
+
+<Callout>
+On pages that present the heritage itself, use surface="gypsum" or label the dark rendering as our interpretation. Never attribute a meaning to a motif that no source documents.
+</Callout>
+
+<ComponentPreview name="qatt-pattern-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-pattern" />
+
+## Usage
+
+Pick the motif with motif and colour its slots with colors. If you put text over a pattern, place it on a solid card; when the pattern has children it is dimmed automatically to 0.12 in light mode and 0.18 in dark mode.
+
+```tsx
+import { QattPattern } from "@/components/ui/qatt-pattern"
+
+<QattPattern motif="balsanah" className="h-40" />
+<QattPattern motif="shabakah" opacity={0.1}>
+  <Card>…</Card>
+</QattPattern>
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "motif", "type": "MotifId", "default": "\"balsanah\"", "description": <span>The repeated motif. Default balsanah.</span>},
+    {"name": "variant", "type": "MotifVariant", "description": <span>An alternate form of the motif, where one exists: 5, alternate, lattice or wave.</span>},
+    {"name": "colors", "type": "QattColor[]", "default": "motif default slots", "description": <span>Colours for the motif's slots, in order: pigment names (red, yellow, ink…) or any CSS colour. Defaults to the motif's colours in motifs.json.</span>},
+    {"name": "ground", "type": "QattColor", "default": "\"transparent\"", "description": <span>Ground colour behind the motif (slot 4). Transparent by default.</span>},
+    {"name": "scale", "type": "\"sm\" | \"md\" | \"lg\" | \"xl\" | number", "default": "\"md\"", "description": <span>Tile size: sm, md, lg, xl or a number. Default md.</span>},
+    {"name": "opacity", "type": "number", "default": "1", "description": <span>Opacity from 0 to 1. Clamped to 0.12 (light) / 0.18 (dark) when the pattern has children.</span>},
+    {"name": "fade", "type": "\"none\" | \"block-end\" | \"block-start\" | \"radial\"", "default": "\"none\"", "description": <span>Edge fade that keeps the content edge clean: towards block-end, block-start or radial.</span>},
+    {"name": "as", "type": "\"div\" | \"section\" | \"span\"", "default": "\"div\"", "description": <span>Wrapper element: div, section or span.</span>},
+    {"name": "surface", "type": "\"default\" | \"gypsum\"", "default": "\"default\"", "description": <span>gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself.</span>},
+    {"name": "preset", "type": "\"full\"", "description": <span>full renders the wall recipe: a stack of bands of the project's own making, never including stepped.</span>}
+  ]}
+/>
+
+## Direction notes
+
+Motifs do not flip with direction; most are symmetric anyway. Sawtooth keeps the same orientation in both directions.
+
+## Accessible
+
+The pattern is pure decoration: hidden from assistive technology, not clickable and carrying no information. Never let meaning depend on it.

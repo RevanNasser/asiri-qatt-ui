@@ -1,0 +1,53 @@
+---
+title: Qatt Divider
+description: A horizontal band between sections, the way the qatt belt divides a majlis wall.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-divider.*, docs.props.qatt-divider.*). */}
+
+A band that separates two sections, the way the qatt divides a majlis wall. Some documenters say the art takes its name from this belt, drawn crosswise to split the wall in two.
+
+<ComponentPreview name="qatt-divider-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-divider" />
+
+## Usage
+
+Use it between major page sections; pass label to centre a short title between two bands. For small breaks inside cards and lists, separator is enough.
+
+```tsx
+import { QattDivider } from "@/components/ui/qatt-divider"
+
+<QattDivider />
+<QattDivider motif="rukun" thickness="md" label="…" />
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "motif", "type": "MotifId", "default": "\"qatt-lines\"", "description": <span>Band motif. Default qatt-lines; mathalith-makhamis, hanash, rukun, banat and kaff also suit it.</span>},
+    {"name": "variant", "type": "MotifVariant", "description": <span>An alternate form of the motif, where one exists: 5, alternate, lattice or wave.</span>},
+    {"name": "colors", "type": "QattColor[]", "description": <span>Colours for the motif's slots, in order: pigment names (red, yellow, ink…) or any CSS colour. Defaults to the motif's colours in motifs.json.</span>},
+    {"name": "thickness", "type": "\"sm\" | \"md\" | \"lg\" | number", "default": "\"sm\"", "description": <span>Band height: sm 12px (default), md 24px, lg 40px, or a number.</span>},
+    {"name": "orientation", "type": "\"horizontal\" | \"vertical\"", "default": "\"horizontal\"", "description": <span>Horizontal (default) or vertical.</span>},
+    {"name": "decorative", "type": "boolean", "default": "true", "description": <span>Hide from assistive technology. Set to false to expose it as a separator.</span>},
+    {"name": "label", "type": "ReactNode", "description": <span>A short label centred between two bands.</span>},
+    {"name": "animate", "type": "boolean", "default": "false", "description": <span>Paints the ornament in from inline-start when it appears. Off when reduced motion is on.</span>},
+    {"name": "surface", "type": "\"default\" | \"gypsum\"", "default": "\"default\"", "description": <span>gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself.</span>},
+    {"name": "mural", "type": "QattMuralPreset | QattMuralBand[]", "description": <span>Draws a dense mural strip instead of a single motif, horizontal only: a preset name (<code dir="ltr">frieze</code>, <code dir="ltr">diamonds</code>, <code dir="ltr">squares</code>, <code dir="ltr">base</code>, <code dir="ltr">lines</code>) or a list of band names.</span>},
+    {"name": "muralScale", "type": "number", "default": "1", "description": <span>Scale of the mural strip. Default 1.</span>},
+    {"name": "className", "type": "string", "description": <span>Extra classes; the band colour follows currentColor (text-*).</span>}
+  ]}
+/>
+
+## Direction notes
+
+The band is symmetric, the label stays centred in both directions, and the reveal starts at inline-start.
+
+## Accessible
+
+Decorative by default. If it separates content that differs in meaning, set decorative=\{false\} so it is announced as a separator with aria-orientation. The label is ordinary readable text.

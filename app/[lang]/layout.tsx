@@ -6,14 +6,23 @@ import "../globals.css"
 
 import { DirectionProvider } from "@/components/ui/direction"
 import { fontVariables } from "@/lib/fonts"
-import { dirOf, i18n } from "@/lib/i18n"
+import { dirOf, i18n, type Lang } from "@/lib/i18n"
 import { fumadocsTranslationsAr } from "@/lib/layout.shared"
 import { t } from "@/lib/site-copy"
 
-export const metadata: Metadata = {
-  title: { default: t("seo.home.title"), template: `%s — ${t("nav.brand")}` },
-  description: t("seo.home.description"),
+export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Promise<Metadata> {
+  const lang = (await params).lang as Lang
+  return {
+    title: { default: t("seo.home.title", lang), template: `%s — ${t("nav.brand", lang)}` },
+    description: t("seo.home.description", lang),
+  }
 }
+
+/** Language switcher entries: each language named in itself. */
+const LOCALES = [
+  { locale: "ar", name: "العربية" },
+  { locale: "en", name: "English" },
+]
 
 export function generateStaticParams() {
   return i18n.languages.map((lang) => ({ lang }))
@@ -36,7 +45,9 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
               locale: lang,
               defaultLanguage: i18n.defaultLanguage,
               hideLocale: i18n.hideLocale,
-              translations: fumadocsTranslationsAr,
+              locales: LOCALES,
+              // Fumadocs ships English UI strings; Arabic maps onto site copy.
+              translations: lang === "ar" ? fumadocsTranslationsAr : undefined,
             }}
           >
             {children}

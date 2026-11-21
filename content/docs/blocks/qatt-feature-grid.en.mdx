@@ -1,0 +1,49 @@
+---
+title: Feature Grid
+description: Features laid out in a tidy grid of cards with icons.
+---
+
+{/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-feature-grid.*, docs.props.qatt-feature-grid.*). */}
+
+A grid of painted cards presenting your product's features, each with an icon in a coloured khatmah-like square, over a very faint shabakah background.
+
+<Callout>
+This content is a sample: the names, figures, prices and quotes are made up. Replace them with your own.
+</Callout>
+
+<ComponentPreview name="qatt-feature-grid-demo" />
+
+## Installation
+
+<InstallCommand item="qatt-feature-grid" />
+
+## Usage
+
+Three columns suit six features; two suit four. Keep each title to two or three words and the body to one sentence. Giving a feature an href makes the whole card clickable through a single inner link.
+
+```tsx
+import { QattFeatureGrid } from "@/components/qatt-feature-grid"
+
+<QattFeatureGrid title="…" features={[{ title: "…", body: "…" }]} />
+```
+
+
+## Props
+
+<PropsTable
+  rows={[
+    {"name": "title", "type": "string", "description": <span>Section heading; the section is labelled by it via aria-labelledby.</span>},
+    {"name": "subtitle", "type": "string", "description": <span>Intro line under the title.</span>},
+    {"name": "features", "type": "{ title, body, icon?, href? }[]", "description": <span>Feature list: title and body, with optional icon and href.</span>},
+    {"name": "columns", "type": "2 | 3 | 4", "default": "3", "description": <span>Columns on large screens: 2, 3 or 4.</span>},
+    {"name": "background", "type": "MotifId | false", "default": "\"shabakah\"", "description": <span>Faint background motif, or false for none. Default shabakah at 0.06.</span>}
+  ]}
+/>
+
+## Direction notes
+
+The grid fills from inline-start; only directional icons flip.
+
+## Accessible
+
+Feature titles are h3 under the section heading; icons are decorative. A clickable card has one link, named by the feature title.
