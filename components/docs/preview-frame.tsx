@@ -85,7 +85,11 @@ export function PreviewFrame({
 }) {
   const { resolvedTheme } = useTheme()
   // client-only values without setState-in-effect: `mounted` is false during SSR/hydration
-  const mounted = React.useSyncExternalStore(noopSubscribe, () => true, () => false)
+  const mounted = React.useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  )
   const pageDir = React.useSyncExternalStore(
     noopSubscribe,
     (): Dir => (document.documentElement.dir === "ltr" ? "ltr" : "rtl"),
@@ -100,7 +104,8 @@ export function PreviewFrame({
   const caveatId = React.useId()
 
   const effDir: Dir = dir ?? pageDir
-  const effTheme: Theme = theme ?? (resolvedTheme === "dark" ? "dark" : "light")
+  // resolvedTheme is unknown on the server; read it only after mount so hydration matches.
+  const effTheme: Theme = theme ?? (mounted && resolvedTheme === "dark" ? "dark" : "light")
   const src = `/preview/${effDir}/${effTheme}/${name}`
   const frameKey = `${src}#${viewport}`
   const height = measured?.src === frameKey ? Math.max(minHeight, measured.height) : minHeight

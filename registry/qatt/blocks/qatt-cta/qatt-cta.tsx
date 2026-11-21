@@ -4,7 +4,7 @@ import { ArrowRightIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { MotifId } from "@/registry/qatt/lib/qatt-motifs"
 import { buttonVariants } from "@/registry/qatt/ui/button"
-import { QattBand } from "@/registry/qatt/ui/qatt-pattern"
+import { QattMuralStrip } from "@/registry/qatt/ui/qatt-mural"
 
 export type QattCta = { label: string; href: string; variant?: "qatt" | "default" | "outline" | "qatt-outline" }
 
@@ -26,7 +26,7 @@ const TONES = {
   gypsum: "bg-card text-foreground",
 } as const
 
-/** «دعوة إلى العمل»: a closing band in one colour with a crest row. */
+/** «دعوة إلى العمل»: a closing band in one colour between painted friezes. */
 function QattCta({
   title,
   body,
@@ -47,7 +47,7 @@ function QattCta({
       className={cn("@container w-full", TONES[tone], className)}
       {...props}
     >
-      <QattBand motif={motif} thickness={24} colors={onPaint ? ["yellow", "white"] : undefined} />
+      <QattMuralStrip bands="frieze" data-motif={motif} />
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-5 px-4 py-14 text-center sm:px-6">
         <h2 id={id} className="font-heading text-3xl font-bold">
           {title}
@@ -78,6 +78,7 @@ function QattCta({
           )}
         </div>
       </div>
+      <QattMuralStrip bands="lines" />
     </section>
   )
 }

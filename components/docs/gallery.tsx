@@ -25,7 +25,11 @@ function Thumbnail({ name, kind }: { name: string; kind: Kind }) {
   const Example = examples[`${name}-demo`]?.component
   if (!Example) return <div className="h-44" />
   return (
-    <div aria-hidden="true" inert className="pointer-events-none relative h-44 overflow-hidden bg-background select-none">
+    <div
+      aria-hidden="true"
+      inert
+      className="pointer-events-none relative h-44 overflow-hidden bg-background select-none"
+    >
       {kind === "blocks" ? (
         <div className="absolute start-0 top-0 w-[1100px] origin-top-left scale-[0.3] rtl:origin-top-right">
           <Example />
@@ -40,15 +44,7 @@ function Thumbnail({ name, kind }: { name: string; kind: Kind }) {
 }
 
 /** Gallery cards: live thumbnail, name (one stretched link) and the one-line glossary description. */
-export function GalleryGrid({
-  kind,
-  only,
-  headingLevel = 2,
-}: {
-  kind: Kind
-  only?: string[]
-  headingLevel?: 2 | 3
-}) {
+export function GalleryGrid({ kind, only, headingLevel = 2 }: { kind: Kind; only?: string[]; headingLevel?: 2 | 3 }) {
   const items = itemsOf(kind).filter((i) => !only || only.includes(i.name))
   const H = headingLevel === 2 ? "h2" : "h3"
   return (
@@ -64,7 +60,7 @@ export function GalleryGrid({
           key={item.name}
           data-item={item.name}
           data-group={item.name.startsWith("qatt-") ? "ornament" : "core"}
-          className="group/card relative flex list-none flex-col overflow-hidden rounded-lg border-2 border-qatt-ink bg-card shadow-painted group-data-[filter=core]/gallery:data-[group=ornament]:hidden group-data-[filter=ornament]/gallery:data-[group=core]:hidden has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-ring"
+          className="group/card relative flex list-none flex-col overflow-hidden rounded-lg border-2 border-qatt-ink bg-card shadow-painted has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-ring group-data-[filter=ornament]/gallery:data-[group=core]:hidden group-data-[filter=core]/gallery:data-[group=ornament]:hidden"
         >
           <Thumbnail name={item.name} kind={kind} />
           <div className="flex flex-col gap-1 border-t-2 border-qatt-ink p-4 text-start">

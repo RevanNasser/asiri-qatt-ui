@@ -49,13 +49,13 @@
   --sidebar-border: oklch(0.875 0.02 75);
   --sidebar-ring: oklch(0.48 0.12 252);
   /* Qatt pigment evocations (approximate, project interpretation) */
-  --qatt-white: oklch(0.953 0.016 86.4);
-  --qatt-red: oklch(0.494 0.155 28.1);
-  --qatt-yellow: oklch(0.749 0.142 82.9);
-  --qatt-black: oklch(0.225 0.01 67.3);
-  --qatt-blue: oklch(0.46 0.096 252.7);
-  --qatt-green: oklch(0.539 0.11 137.2);
-  --qatt-orange: oklch(0.635 0.152 47.8);
+  --qatt-white: oklch(0.979 0.011 89.7);
+  --qatt-red: oklch(0.54 0.198 29.3);
+  --qatt-yellow: oklch(0.819 0.166 86.9);
+  --qatt-black: oklch(0.197 0.007 78.2);
+  --qatt-blue: oklch(0.451 0.166 262.6);
+  --qatt-green: oklch(0.507 0.13 150);
+  --qatt-orange: oklch(0.672 0.166 53.1);
   --qatt-brown: oklch(0.589 0.078 68);
   --qatt-jiss: var(--qatt-white);
   /* role: structural line colour — charcoal on the day wall, lamplit gypsum on the night wall */
@@ -165,13 +165,13 @@
   --sidebar-accent-foreground: oklch(0.22 0.014 55);
   --sidebar-border: oklch(0.875 0.02 75);
   --sidebar-ring: oklch(0.48 0.12 252);
-  --qatt-white: oklch(0.953 0.016 86.4);
-  --qatt-red: oklch(0.494 0.155 28.1);
-  --qatt-yellow: oklch(0.749 0.142 82.9);
-  --qatt-black: oklch(0.225 0.01 67.3);
-  --qatt-blue: oklch(0.46 0.096 252.7);
-  --qatt-green: oklch(0.539 0.11 137.2);
-  --qatt-orange: oklch(0.635 0.152 47.8);
+  --qatt-white: oklch(0.979 0.011 89.7);
+  --qatt-red: oklch(0.54 0.198 29.3);
+  --qatt-yellow: oklch(0.819 0.166 86.9);
+  --qatt-black: oklch(0.197 0.007 78.2);
+  --qatt-blue: oklch(0.451 0.166 262.6);
+  --qatt-green: oklch(0.507 0.13 150);
+  --qatt-orange: oklch(0.672 0.166 53.1);
   --qatt-brown: oklch(0.589 0.078 68);
   --qatt-ink: var(--qatt-black);
   --qatt-slot-1: var(--qatt-red);

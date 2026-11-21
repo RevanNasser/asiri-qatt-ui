@@ -5,6 +5,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { resolveColor, type MotifId, type QattColor } from "@/registry/qatt/lib/qatt-motifs"
 import { useReveal } from "@/registry/qatt/hooks/use-reveal"
+import { QattNiche } from "@/registry/qatt/ui/qatt-mural"
 import { QattBand, QattMotifTile } from "@/registry/qatt/ui/qatt-pattern"
 
 /** Arch outlines in objectBoundingBox units (0..1). Symmetric, so nothing flips in RTL. */
@@ -16,7 +17,8 @@ const ARCHES = {
 } as const
 
 export interface QattFrameProps extends Omit<React.ComponentProps<"figure">, "children"> {
-  shape?: keyof typeof ARCHES
+  /** "niche" (default): a gypsum window in concentric painted lines. The arches are opt-in. */
+  shape?: "niche" | keyof typeof ARCHES
   /** Number of nested arch outlines (3 ≈ sankroli). */
   outline?: 1 | 2 | 3
   /** [outer, inner, base]; defaults: primary red, ink, yellow. */
@@ -35,11 +37,12 @@ export interface QattFrameProps extends Omit<React.ComponentProps<"figure">, "ch
 }
 
 /**
- * «إطار القوس»: an arch frame around images or focal content. Content is clipped to the inner arch;
+ * «الإطار»: a frame around images or focal content — by default a rectangular niche with
+ * concentric painted lines, as around qatt doorways and windows; optionally an arch. Content is clipped to the inner arch;
  * the drawing is decorative (aria-hidden). Rendered as <figure>/<figcaption>.
  */
 function QattFrame({
-  shape = "pointed",
+  shape = "niche",
   outline = 2,
   colors,
   base = "kaff",
@@ -56,6 +59,40 @@ function QattFrame({
   const ref = React.useRef<SVGSVGElement>(null)
   const shown = useReveal(ref, animate)
   const [outer = "red", inner = "ink", baseColor = "yellow"] = colors ?? []
+  const baseStrip = base && (
+    <div aria-hidden="true" className="relative">
+      <QattBand motif={base} thickness={16} colors={base === "kaff" ? [outer, inner] : undefined} />
+      {caps && (
+        <>
+          <QattMotifTile motif="khatmah" colors={[inner, outer, baseColor]} className="absolute start-0 top-0 size-4" />
+          <QattMotifTile motif="khatmah" colors={[inner, outer, baseColor]} className="absolute end-0 top-0 size-4" />
+        </>
+      )}
+    </div>
+  )
+
+  if (shape === "niche") {
+    return (
+      <figure
+        data-slot="qatt-frame"
+        data-shape="niche"
+        data-qatt-surface={surface === "gypsum" ? "gypsum" : undefined}
+        className={cn("relative m-0 flex flex-col gap-6 p-7", className)}
+        {...props}
+      >
+        <QattNiche
+          frame="sm"
+          className="relative w-full overflow-hidden [&>img]:size-full [&>img]:object-cover"
+          style={{ aspectRatio: String(ratio) }}
+        >
+          {children}
+        </QattNiche>
+        {baseStrip}
+        {caption && <figcaption className="text-sm text-muted-foreground">{caption}</figcaption>}
+      </figure>
+    )
+  }
+
   const path = ARCHES[shape]
   const strokes = [outer, inner, outer].slice(0, outline)
   const INSET = 0.035 // per nested outline, in box units
@@ -110,25 +147,7 @@ function QattFrame({
           ))}
         </svg>
       </div>
-      {base && (
-        <div aria-hidden="true" className="relative">
-          <QattBand motif={base} thickness={16} colors={base === "kaff" ? [outer, inner] : undefined} />
-          {caps && (
-            <>
-              <QattMotifTile
-                motif="khatmah"
-                colors={[inner, outer, baseColor]}
-                className="absolute start-0 top-0 size-4"
-              />
-              <QattMotifTile
-                motif="khatmah"
-                colors={[inner, outer, baseColor]}
-                className="absolute end-0 top-0 size-4"
-              />
-            </>
-          )}
-        </div>
-      )}
+      {baseStrip}
       {caption && <figcaption className="text-sm text-muted-foreground">{caption}</figcaption>}
     </figure>
   )

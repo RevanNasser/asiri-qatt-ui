@@ -7,13 +7,7 @@ import { cn } from "@/lib/utils"
 type Filter = "all" | "ornament" | "core"
 
 /** Filter buttons; the (server-rendered) cards hide themselves with group-data-[filter=…] CSS. */
-export function GalleryFilter({
-  labels,
-  children,
-}: {
-  labels: Record<Filter, string>
-  children: React.ReactNode
-}) {
+export function GalleryFilter({ labels, children }: { labels: Record<Filter, string>; children: React.ReactNode }) {
   const [filter, setFilter] = React.useState<Filter>("all")
   return (
     <div data-filter={filter} className="group/gallery not-prose flex flex-col gap-6">

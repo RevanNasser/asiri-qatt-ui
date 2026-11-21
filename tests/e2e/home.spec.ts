@@ -7,7 +7,11 @@ test("home renders Arabic, right-to-left", async ({ page }) => {
   await expect(html).toHaveAttribute("dir", "rtl")
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("واجهاتٌ عربية بروح القطّ العسيري")
   // Arabic text block flows from the right edge.
-  expect(await page.getByRole("heading", { name: "واجهاتٌ عربية بروح القطّ العسيري" }).evaluate((el) => getComputedStyle(el).direction)).toBe("rtl")
+  expect(
+    await page
+      .getByRole("heading", { name: "واجهاتٌ عربية بروح القطّ العسيري" })
+      .evaluate((el) => getComputedStyle(el).direction),
+  ).toBe("rtl")
 })
 
 test("component page and registry item are served", async ({ page, request }) => {
@@ -20,6 +24,7 @@ test("component page and registry item are served", async ({ page, request }) =>
 
 const COMPONENTS = [
   "qatt-pattern",
+  "qatt-mural",
   "qatt-divider",
   "qatt-border",
   "qatt-frame",
@@ -67,7 +72,7 @@ test("reduced motion: decorative bands render in their final state", async ({ br
   const context = await browser.newContext({ reducedMotion: "reduce" })
   const page = await context.newPage()
   await page.goto("/docs/components/qatt-divider")
-  const band = page.frameLocator('iframe[title="فاصل قَطّ"]').locator('[data-qatt-motion]').first()
+  const band = page.frameLocator('iframe[title="فاصل قَطّ"]').locator("[data-qatt-motion]").first()
   await expect(band).toBeVisible()
   expect(await band.evaluate((el) => getComputedStyle(el).clipPath)).toBe("none")
   await context.close()
@@ -84,11 +89,15 @@ for (const name of COMPONENTS) {
 
 test("sheet side=start opens from the right in RTL", async ({ page }) => {
   await page.goto("/docs/components/sheet")
-  await page.locator('[data-slot="component-preview"] button').first().click()
-  const sheet = page.getByRole("dialog")
+  // Previews render in an isolated iframe (RTL by default); the sheet opens inside it.
+  const iframe = page.locator('[data-slot="component-preview"] iframe').first()
+  const frame = iframe.contentFrame()
+  await frame.locator("button").first().click()
+  const sheet = frame.getByRole("dialog")
   await expect(sheet).toHaveAttribute("data-side", "right")
   const box = (await sheet.boundingBox())!
-  expect(box.x + box.width).toBeGreaterThan((page.viewportSize()!.width ?? 0) - 2)
+  const frameBox = (await iframe.boundingBox())!
+  expect(box.x + box.width).toBeGreaterThan(frameBox.x + frameBox.width - 2)
 })
 
 test("patterns page lists all 15 motifs with heritage labels", async ({ page }) => {

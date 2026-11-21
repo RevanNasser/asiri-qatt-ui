@@ -8,8 +8,7 @@ import { fillTemplate } from "@/registry/qatt/lib/qatt-utils"
 import { Button } from "@/registry/qatt/ui/button"
 import { Input } from "@/registry/qatt/ui/input"
 import { QattDivider } from "@/registry/qatt/ui/qatt-divider"
-import { QattFrame } from "@/registry/qatt/ui/qatt-frame"
-import { QattPattern } from "@/registry/qatt/ui/qatt-pattern"
+import { QattMural, QattNiche } from "@/registry/qatt/ui/qatt-mural"
 
 /** UI strings. Arabic defaults come verbatim from Heritage copy (blocks.qatt-login.*). */
 const DEFAULT_LABELS = {
@@ -110,7 +109,7 @@ function QattLogin({
       className={cn("@container w-full", className)}
       {...props}
     >
-      <QattDivider motif="rukun" thickness="sm" className="my-0 @2xl:hidden" />
+      <QattDivider mural="frieze" className="my-0 @2xl:hidden" />
       <div className="mx-auto grid max-w-5xl gap-10 px-4 py-12 sm:px-6 @2xl:grid-cols-2 @2xl:items-center">
         <div className="flex flex-col gap-6">
           <header className="flex flex-col gap-2 text-start">
@@ -241,15 +240,16 @@ function QattLogin({
         </div>
 
         <div aria-hidden="true" className="hidden @2xl:block">
-          <QattPattern motif="sankroli" scale="sm" className="rounded-lg p-8">
-            <QattFrame outline={3} className="mx-auto w-48">
-              <QattPattern motif="balsanah" className="size-full" />
-            </QattFrame>
-            <div className="mt-4 rounded-md bg-card/90 p-4 text-center">
+          <div
+            data-qatt-surface="gypsum"
+            className="relative isolate grid min-h-[30rem] place-items-center overflow-hidden border-4 border-qatt-black bg-qatt-white px-10 py-14 shadow-[8px_8px_0_var(--qatt-red)]"
+          >
+            <QattMural className="absolute inset-0" />
+            <QattNiche frame="sm" className="relative flex max-w-64 flex-col gap-2 p-6 text-center">
               <p className="font-heading text-xl font-semibold">{L.panelTitle}</p>
               <p className="text-sm text-muted-foreground">{L.panelBody}</p>
-            </div>
-          </QattPattern>
+            </QattNiche>
+          </div>
         </div>
       </div>
     </section>

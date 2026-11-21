@@ -8,6 +8,7 @@ import { QattBorder } from "@/registry/qatt/ui/qatt-border"
 import { QattCorner } from "@/registry/qatt/ui/qatt-corner"
 import { QattDivider } from "@/registry/qatt/ui/qatt-divider"
 import { QattFrame } from "@/registry/qatt/ui/qatt-frame"
+import { QattMural, QattMuralStrip, QattNiche } from "@/registry/qatt/ui/qatt-mural"
 import { QattMotif, QattPattern } from "@/registry/qatt/ui/qatt-pattern"
 
 const DIRS = ["rtl", "ltr"] as const
@@ -22,13 +23,16 @@ function inDir(dir: (typeof DIRS)[number], ui: ReactElement) {
   )
 }
 
-describe.each(["qatt-pattern", "qatt-border", "qatt-divider", "qatt-frame", "qatt-corner"])("%s demo", (name) => {
-  it.each(DIRS)("has no axe violations (%s)", async (dir) => {
-    const Demo = examples[`${name}-demo`]!.component
-    const { container } = inDir(dir, <Demo />)
-    expect(await axe(container)).toHaveNoViolations()
-  })
-})
+describe.each(["qatt-pattern", "qatt-mural", "qatt-border", "qatt-divider", "qatt-frame", "qatt-corner"])(
+  "%s demo",
+  (name) => {
+    it.each(DIRS)("has no axe violations (%s)", async (dir) => {
+      const Demo = examples[`${name}-demo`]!.component
+      const { container } = inDir(dir, <Demo />)
+      expect(await axe(container)).toHaveNoViolations()
+    })
+  },
+)
 
 describe("QattMotif", () => {
   it("is decorative and paints through slot variables", () => {
@@ -95,7 +99,65 @@ describe("QattFrame", () => {
       </QattFrame>,
     )
     expect(getByRole("figure").querySelector("figcaption")).toHaveTextContent("إطار القوس")
+    // default shape: a gypsum niche in concentric painted lines (no arch clip)
+    expect(getByRole("figure")).toHaveAttribute("data-shape", "niche")
+    expect(container.querySelector('[data-slot="qatt-niche"]')).not.toBeNull()
+    expect(container.querySelector("clipPath")).toBeNull()
+    expect(await axe(container)).toHaveNoViolations()
+  })
+
+  it.each(DIRS)("draws an arch when asked (%s)", async (dir) => {
+    const { container, getByRole } = inDir(
+      dir,
+      <QattFrame shape="pointed" caption="إطار القوس">
+        <div>x</div>
+      </QattFrame>,
+    )
+    expect(getByRole("figure")).toHaveAttribute("data-shape", "pointed")
     expect(container.querySelector("clipPath")).not.toBeNull()
+    expect(await axe(container)).toHaveNoViolations()
+  })
+})
+
+describe("QattMural", () => {
+  it.each(DIRS)("mural, strip and divider strip are decorative (%s)", async (dir) => {
+    const { container } = inDir(
+      dir,
+      <div>
+        <QattMural className="h-40" />
+        <QattMuralStrip bands="frieze" />
+        <QattDivider mural="diamonds" />
+      </div>,
+    )
+    const svgs = container.querySelectorAll('[data-slot="qatt-mural"], [data-slot="qatt-mural-strip"]')
+    expect(svgs).toHaveLength(3)
+    svgs.forEach((svg) => {
+      expect(svg).toHaveAttribute("aria-hidden", "true")
+      expect(svg).toHaveAttribute("focusable", "false")
+    })
+    expect(await axe(container)).toHaveNoViolations()
+  })
+
+  it("strip height follows its bands and scale", () => {
+    const { container } = render(
+      <div>
+        <QattMuralStrip bands="lines" />
+        <QattMuralStrip bands="lines" scale={2} />
+      </div>,
+    )
+    const [a, b] = Array.from(container.querySelectorAll<SVGElement>('[data-slot="qatt-mural-strip"]'))
+    const h = parseFloat(a!.style.height)
+    expect(h).toBeGreaterThan(0)
+    expect(parseFloat(b!.style.height)).toBeCloseTo(h * 2)
+  })
+
+  it("niche keeps its content accessible and paints concentric rings", async () => {
+    const { container, getByText } = render(<QattNiche frame="lg">مرحبا</QattNiche>)
+    const niche = container.querySelector<HTMLElement>('[data-slot="qatt-niche"]')!
+    expect(getByText("مرحبا")).toBeVisible()
+    expect(niche.style.getPropertyValue("--qatt-niche-unit")).toBe("5px")
+    // ink + 4 colours + 3 gypsum gaps + ink edge
+    expect(niche.style.boxShadow.split("calc(").length - 1).toBe(9)
     expect(await axe(container)).toHaveNoViolations()
   })
 })

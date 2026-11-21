@@ -2,6 +2,7 @@ import * as React from "react"
 import { ExternalLinkIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { QattMuralStrip } from "@/registry/qatt/ui/qatt-mural"
 import { QattBand } from "@/registry/qatt/ui/qatt-pattern"
 import { Separator } from "@/registry/qatt/ui/separator"
 
@@ -25,7 +26,7 @@ export interface QattFooterProps extends React.ComponentProps<"footer"> {
   externalLabel?: string
 }
 
-/** «تذييل الصفحة»: brand, link columns, copyright line, resting on a kaff band like a wall on its base band. */
+/** «تذييل الصفحة»: brand, link columns, copyright line, resting on a painted diamond band and kaff base. */
 function QattFooter({
   brand,
   tagline,
@@ -82,7 +83,12 @@ function QattFooter({
           </div>
         )}
       </div>
-      {kaff && <QattBand motif="kaff" thickness={24} />}
+      {kaff && (
+        <div aria-hidden="true">
+          <QattMuralStrip bands="diamonds" />
+          <QattBand motif="kaff" thickness={24} />
+        </div>
+      )}
     </footer>
   )
 }

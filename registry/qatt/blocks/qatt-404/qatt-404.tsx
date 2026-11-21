@@ -15,14 +15,14 @@ export interface Qatt404Props extends Omit<React.ComponentProps<"section">, "tit
   extra?: React.ReactNode
 }
 
-/** «صفحة غير موجودة»: the code inside an arch frame (decorative); the h1 is the sentence, not the number. */
+/** «صفحة غير موجودة»: the code inside a painted niche (decorative); the h1 is the sentence, not the number. */
 function Qatt404({ code = "404", title, body, homeHref = "/", homeLabel, extra, className, ...props }: Qatt404Props) {
   const id = React.useId()
   return (
     <section aria-labelledby={id} data-slot="qatt-404" className={cn("@container w-full", className)} {...props}>
       <div className="mx-auto flex max-w-xl flex-col items-center gap-6 px-4 py-14 text-center sm:px-6">
-        <QattFrame aria-hidden="true" className="w-44" base={false} ratio={4 / 5}>
-          <div className="grid size-full place-items-center bg-card">
+        <QattFrame aria-hidden="true" className="w-60" base={false} ratio={4 / 5}>
+          <div className="grid size-full place-items-center bg-qatt-white">
             <bdi dir="ltr" className="font-heading text-6xl font-bold text-primary tabular-nums">
               {code}
             </bdi>
@@ -40,7 +40,7 @@ function Qatt404({ code = "404", title, body, homeHref = "/", homeLabel, extra, 
           )}
           {extra}
         </div>
-        <QattDivider motif="mahareeb" thickness="md" colors={["ink", "yellow"]} className="mt-4" />
+        <QattDivider mural="frieze" className="mt-4" />
       </div>
     </section>
   )

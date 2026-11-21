@@ -5,6 +5,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { formatNumber, type MotifId, type Numerals } from "@/registry/qatt/lib/qatt-utils"
 import { useReveal } from "@/registry/qatt/hooks/use-reveal"
+import { QattMuralStrip } from "@/registry/qatt/ui/qatt-mural"
 import { QattPattern } from "@/registry/qatt/ui/qatt-pattern"
 
 export interface QattStat {
@@ -71,7 +72,7 @@ function QattStats({
   title,
   stats,
   numerals = "latn",
-  background = "balsanah",
+  background = false,
   animate = false,
   note,
   className,
@@ -105,6 +106,7 @@ function QattStats({
       className={cn("@container w-full", className)}
       {...props}
     >
+      <QattMuralStrip bands="diamonds" />
       {background ? (
         <QattPattern motif={background} opacity={0.08}>
           {content}
@@ -112,6 +114,7 @@ function QattStats({
       ) : (
         content
       )}
+      <QattMuralStrip bands="lines" />
     </section>
   )
 }

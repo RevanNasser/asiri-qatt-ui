@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils"
 import { fillTemplate } from "@/registry/qatt/lib/qatt-utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/qatt/ui/avatar"
 import { Card } from "@/registry/qatt/ui/card"
-import { QattMotifTile } from "@/registry/qatt/ui/qatt-pattern"
 
 export interface QattTestimonial {
   /** Write Arabic quotes with «…» inside the text. */
@@ -38,11 +37,13 @@ function Testimonial({
   avatarAlt: string
 }) {
   return (
-    <Card variant="painted" className="h-full">
+    <Card variant="painted" ornament="mural" className="h-full">
       <figure className="m-0 flex h-full flex-col gap-4 px-(--card-spacing)">
-        <span aria-hidden="true" className="relative inline-grid size-12 place-items-center self-start">
-          <QattMotifTile motif="sankroli" className="absolute inset-0 size-full opacity-30" />
-          <QuoteIcon className="relative size-6 text-primary rtl:-scale-x-100" />
+        <span
+          aria-hidden="true"
+          className="relative inline-grid size-12 place-items-center self-start border-2 border-qatt-black bg-qatt-yellow shadow-[3px_3px_0_var(--qatt-red)]"
+        >
+          <QuoteIcon className="relative size-6 text-qatt-black rtl:-scale-x-100" />
         </span>
         <blockquote className={cn("m-0 flex-1", large ? "font-heading text-2xl leading-relaxed" : "text-base")}>
           <p>{item.quote}</p>

@@ -8,7 +8,6 @@ import { formatNumber } from "@/registry/qatt/lib/qatt-utils"
 import { Badge } from "@/registry/qatt/ui/badge"
 import { buttonVariants } from "@/registry/qatt/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/registry/qatt/ui/card"
-import { QattMotifTile } from "@/registry/qatt/ui/qatt-pattern"
 
 export type QattCta = { label: string; href: string; variant?: "qatt" | "default" | "outline" | "qatt-outline" }
 type Price = number | string | { monthly: number | string; yearly: number | string }
@@ -42,7 +41,7 @@ function priceFor(price: Price, period: "monthly" | "yearly"): number | string {
   return typeof price === "object" ? price[period] : price
 }
 
-/** «جدول الأسعار»: plans side by side; the highlighted plan is framed with a taadheeq crest and a text badge. */
+/** «جدول الأسعار»: plans side by side; the highlighted plan is framed in painted lines with a red shadow and a text badge. */
 function QattPricing({
   title,
   subtitle,
@@ -98,15 +97,9 @@ function QattPricing({
             const per = period ? (billing === "monthly" ? period.perMonth : period.perYear) : undefined
             return (
               <li key={plan.name} className="relative flex pt-4">
-                {plan.highlighted && (
-                  <QattMotifTile
-                    motif="taadheeq"
-                    className="absolute start-1/2 top-0 z-10 h-8 w-6 -translate-x-1/2 rtl:translate-x-1/2"
-                  />
-                )}
                 <Card
                   variant={plan.highlighted ? "framed" : "painted"}
-                  className="w-full"
+                  className={cn("w-full", plan.highlighted && "shadow-[6px_6px_0_var(--qatt-red)]")}
                   data-highlighted={plan.highlighted || undefined}
                 >
                   <CardHeader className="gap-2">

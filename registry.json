@@ -154,8 +154,8 @@
       "name": "qatt-divider",
       "type": "registry:ui",
       "title": "Qatt Divider",
-      "description": "A motif band between sections (default qatt-lines), with optional centred label and paint reveal.",
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-pattern.json"],
+      "description": "A motif band between sections (default qatt-lines) or a dense multi-band mural strip, with optional centred label and paint reveal.",
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-pattern.json", "{{REGISTRY_URL}}/r/qatt-mural.json"],
       "files": [
         {
           "path": "registry/qatt/ui/qatt-divider.tsx",
@@ -180,8 +180,12 @@
       "name": "qatt-frame",
       "type": "registry:ui",
       "title": "Qatt Frame",
-      "description": "Arch frame (pointed, round or stepped) that clips images or content, with a kaff base and khatmah caps.",
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-pattern.json", "{{REGISTRY_URL}}/r/use-reveal.json"],
+      "description": "Frame for images or focal content: a gypsum niche with concentric painted lines (default) or an arch (pointed, round, stepped), with a kaff base and khatmah caps.",
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-pattern.json",
+        "{{REGISTRY_URL}}/r/use-reveal.json",
+        "{{REGISTRY_URL}}/r/qatt-mural.json"
+      ],
       "files": [
         {
           "path": "registry/qatt/ui/qatt-frame.tsx",
@@ -198,6 +202,19 @@
       "files": [
         {
           "path": "registry/qatt/ui/qatt-corner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "qatt-mural",
+      "type": "registry:ui",
+      "title": "Qatt Mural",
+      "description": "Dense multi-band qatt wall paint (sprigged triangles, nested diamonds, split squares, zigzags, chequers, colour lines), a one-pass strip, and a gypsum niche framed by concentric painted lines.",
+      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json"],
+      "files": [
+        {
+          "path": "registry/qatt/ui/qatt-mural.tsx",
           "type": "registry:ui"
         }
       ]
@@ -235,7 +252,11 @@
       "type": "registry:ui",
       "title": "Card (Qatt)",
       "description": "Card with a painted variant (2px ink border, flat painted shadow).",
-      "registryDependencies": ["{{REGISTRY_URL}}/r/qatt-theme.json", "{{REGISTRY_URL}}/r/qatt-pattern.json"],
+      "registryDependencies": [
+        "{{REGISTRY_URL}}/r/qatt-theme.json",
+        "{{REGISTRY_URL}}/r/qatt-pattern.json",
+        "{{REGISTRY_URL}}/r/qatt-mural.json"
+      ],
       "files": [
         {
           "path": "registry/qatt/ui/card.tsx",
@@ -432,7 +453,7 @@
       "name": "qatt-hero",
       "type": "registry:block",
       "title": "Qatt Hero",
-      "description": "Arabic RTL hero: rukun band, eyebrow badge, h1, CTAs, LTR install command with copy, optional arch media.",
+      "description": "Arabic RTL hero on a full painted qatt wall: copy in a framed gypsum niche (eyebrow, h1, CTAs, LTR install command with copy), optional framed media, or a plain variant with friezes.",
       "categories": ["qatt"],
       "dependencies": ["lucide-react"],
       "registryDependencies": [
@@ -441,7 +462,8 @@
         "{{REGISTRY_URL}}/r/button.json",
         "{{REGISTRY_URL}}/r/qatt-divider.json",
         "{{REGISTRY_URL}}/r/qatt-frame.json",
-        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+        "{{REGISTRY_URL}}/r/qatt-pattern.json",
+        "{{REGISTRY_URL}}/r/qatt-mural.json"
       ],
       "files": [
         {
@@ -468,7 +490,8 @@
         "{{REGISTRY_URL}}/r/button.json",
         "{{REGISTRY_URL}}/r/qatt-divider.json",
         "{{REGISTRY_URL}}/r/qatt-frame.json",
-        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+        "{{REGISTRY_URL}}/r/qatt-pattern.json",
+        "{{REGISTRY_URL}}/r/qatt-mural.json"
       ],
       "files": [
         {
@@ -492,7 +515,8 @@
       "registryDependencies": [
         "{{REGISTRY_URL}}/r/qatt-theme.json",
         "{{REGISTRY_URL}}/r/card.json",
-        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+        "{{REGISTRY_URL}}/r/qatt-pattern.json",
+        "{{REGISTRY_URL}}/r/qatt-mural.json"
       ],
       "files": [
         {
@@ -517,7 +541,8 @@
         "{{REGISTRY_URL}}/r/qatt-theme.json",
         "{{REGISTRY_URL}}/r/qatt-utils.json",
         "{{REGISTRY_URL}}/r/qatt-pattern.json",
-        "{{REGISTRY_URL}}/r/use-reveal.json"
+        "{{REGISTRY_URL}}/r/use-reveal.json",
+        "{{REGISTRY_URL}}/r/qatt-mural.json"
       ],
       "files": [
         {
@@ -542,8 +567,7 @@
         "{{REGISTRY_URL}}/r/qatt-theme.json",
         "{{REGISTRY_URL}}/r/qatt-utils.json",
         "{{REGISTRY_URL}}/r/avatar.json",
-        "{{REGISTRY_URL}}/r/card.json",
-        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+        "{{REGISTRY_URL}}/r/card.json"
       ],
       "files": [
         {
@@ -569,8 +593,7 @@
         "{{REGISTRY_URL}}/r/qatt-utils.json",
         "{{REGISTRY_URL}}/r/badge.json",
         "{{REGISTRY_URL}}/r/button.json",
-        "{{REGISTRY_URL}}/r/card.json",
-        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+        "{{REGISTRY_URL}}/r/card.json"
       ],
       "files": [
         {
@@ -594,7 +617,7 @@
       "registryDependencies": [
         "{{REGISTRY_URL}}/r/qatt-theme.json",
         "{{REGISTRY_URL}}/r/button.json",
-        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+        "{{REGISTRY_URL}}/r/qatt-mural.json"
       ],
       "files": [
         {
@@ -618,7 +641,9 @@
       "registryDependencies": [
         "{{REGISTRY_URL}}/r/qatt-theme.json",
         "{{REGISTRY_URL}}/r/qatt-pattern.json",
-        "{{REGISTRY_URL}}/r/separator.json"
+        "{{REGISTRY_URL}}/r/separator.json",
+        "{{REGISTRY_URL}}/r/qatt-mural.json",
+        "{{REGISTRY_URL}}/r/qatt-utils.json"
       ],
       "files": [
         {
@@ -645,8 +670,7 @@
         "{{REGISTRY_URL}}/r/button.json",
         "{{REGISTRY_URL}}/r/input.json",
         "{{REGISTRY_URL}}/r/qatt-divider.json",
-        "{{REGISTRY_URL}}/r/qatt-frame.json",
-        "{{REGISTRY_URL}}/r/qatt-pattern.json"
+        "{{REGISTRY_URL}}/r/qatt-mural.json"
       ],
       "files": [
         {

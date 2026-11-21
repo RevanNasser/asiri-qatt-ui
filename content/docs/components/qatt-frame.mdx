@@ -1,14 +1,14 @@
 ---
 title: إطار القوس
-description: إطارٌ على هيئة قوسٍ يحتضن الصور والمحتوى.
+description: إطارٌ يحتضن صورةً أو محتوى بارزًا.
 ---
 
 {/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-frame.*, docs.props.qatt-frame.*). */}
 
-إطارٌ بقوسٍ مدبَّب يحتضن صورةً أو محتوى بارزًا، له قاعدةٌ من شريط «الكفّ» وختمتان في زاويتيها. هيئته مستلهمة من نقش «المحاريب» وأقواسه المتداخلة.
+إطارٌ يحتضن صورةً أو محتوى بارزًا. هيئته الافتراضية كوّةٌ مستطيلة يحيط بها إطارٌ من خطوطٍ ملوّنة متداخلة كما تُؤطَّر الأبواب والنوافذ في القطّ، وله قاعدةٌ من شريط «الكفّ» وختمتان في زاويتيها. ويمكن أن يكون قوسًا مستلهمًا من نقش «المحاريب» وأقواسه المتداخلة.
 
 <Callout>
-نسمّيه في الواجهة «إطار القوس»، فهو مكوّن واجهةٍ عام، والاسم يصف شكله وحده.
+نسمّيه في الواجهة «إطار القوس»، فهو مكوّن واجهةٍ عام. وهيئته الافتراضية اليوم الكوّة المستطيلة، والقوس هيئةٌ تختارونها.
 </Callout>
 
 <ComponentPreview name="qatt-frame-demo" />
@@ -19,7 +19,7 @@ description: إطارٌ على هيئة قوسٍ يحتضن الصور والم�
 
 ## الاستخدام
 
-ضعوا فيه صورةً لها نصٌّ بديل، أو محتوىً قصيرًا، ويُقصّ المحتوى على هيئة القوس الداخلي. واجعلوا `outline=\{3\}` لثلاثة أقواسٍ متداخلة على طريقة «سنكرولي». والهيئة `stepped` إضافةٌ من المشروع، فاذكروا ذلك حيث تعرضونها.
+ضعوا فيه صورةً لها نصٌّ بديل، أو محتوىً قصيرًا. في هيئة الكوّة يُقصّ المحتوى على المستطيل الداخلي، وفي هيئات القوس على القوس الداخلي. واجعلوا `outline=\{3\}` لثلاثة أقواسٍ متداخلة على طريقة «سنكرولي». والهيئة `stepped` إضافةٌ من المشروع، فاذكروا ذلك حيث تعرضونها.
 
 ```tsx
 import { QattFrame } from "@/components/ui/qatt-frame"
@@ -34,7 +34,7 @@ import { QattFrame } from "@/components/ui/qatt-frame"
 
 <PropsTable
   rows={[
-    {"name": "shape", "type": "\"pointed\" | \"round\" | \"stepped\"", "default": "\"pointed\"", "description": <span>هيئة القوس: <code dir="ltr">pointed</code> المدبَّب (الافتراضي)، أو <code dir="ltr">round</code> المستدير، أو <code dir="ltr">stepped</code> المدرّج، وهو إضافةٌ من المشروع.</span>},
+    {"name": "shape", "type": "\"niche\" | \"pointed\" | \"round\" | \"stepped\"", "default": "\"niche\"", "description": <span>الهيئة: <code dir="ltr">niche</code> الكوّة المستطيلة (الافتراضي)، أو قوسٌ <code dir="ltr">pointed</code> مدبَّب، أو <code dir="ltr">round</code> مستدير، أو <code dir="ltr">stepped</code> مدرّج، وهو إضافةٌ من المشروع.</span>},
     {"name": "outline", "type": "1 | 2 | 3", "default": "2", "description": <span>عدد الأقواس المتداخلة: 1 أو 2 (الافتراضي) أو 3.</span>},
     {"name": "colors", "type": "QattColor[]", "default": "[\"red\", \"ink\", \"yellow\"]", "description": <span>الألوان بالترتيب: القوس الخارجي، فالداخلي، فالقاعدة.</span>},
     {"name": "base", "type": "MotifId | false", "default": "\"kaff\"", "description": <span>نقش القاعدة، والافتراضي <code dir="ltr">kaff</code>. واجعلوه <code dir="ltr">false</code> لإطارٍ بلا قاعدة.</span>},
@@ -52,4 +52,4 @@ import { QattFrame } from "@/components/ui/qatt-frame"
 
 ## سهولة الوصول
 
-يُبنى على `figure` و`figcaption`، ورسم القوس مخفيٌّ عن التقنيات المساعدة. أعطوا كلّ صورةٍ نصًّا بديلًا في `alt`، وضعوا الشرح في `caption` لا داخل الصورة.
+يُبنى على `figure` و`figcaption`، ورسم الإطار مخفيٌّ عن التقنيات المساعدة. أعطوا كلّ صورةٍ نصًّا بديلًا في `alt`، وضعوا الشرح في `caption` لا داخل الصورة.

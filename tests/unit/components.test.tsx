@@ -318,7 +318,7 @@ describe("track 2 ornament variants (D-024)", () => {
     )
     expect(container.querySelector('[data-slot="badge"] [data-motif="banat"]')).toHaveAttribute("aria-hidden", "true")
     const card = screen.getByTestId("card")
-    expect(card).toHaveAttribute("data-ornament", "banat")
+    expect(card).toHaveAttribute("data-ornament", "mural")
     expect(card.querySelectorAll('[data-motif="khatmah"]')).toHaveLength(2)
     expect(screen.getByTestId("sep")).toHaveAttribute("data-motif", "hanash")
   })

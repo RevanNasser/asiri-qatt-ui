@@ -4,6 +4,7 @@ import { ArrowRightIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { MotifId } from "@/registry/qatt/lib/qatt-motifs"
 import { Card, CardContent, CardHeader } from "@/registry/qatt/ui/card"
+import { QattMuralStrip } from "@/registry/qatt/ui/qatt-mural"
 import { QattPattern } from "@/registry/qatt/ui/qatt-pattern"
 
 export interface QattFeature {
@@ -104,6 +105,7 @@ function QattFeatureGrid({
       className={cn("@container w-full", className)}
       {...props}
     >
+      <QattMuralStrip bands="lines" />
       {background ? (
         <QattPattern motif={background} opacity={0.06}>
           {grid}

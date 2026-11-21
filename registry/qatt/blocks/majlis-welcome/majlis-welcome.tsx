@@ -5,6 +5,7 @@ import { Badge } from "@/registry/qatt/ui/badge"
 import { buttonVariants } from "@/registry/qatt/ui/button"
 import { QattDivider } from "@/registry/qatt/ui/qatt-divider"
 import { QattFrame } from "@/registry/qatt/ui/qatt-frame"
+import { QattMuralStrip } from "@/registry/qatt/ui/qatt-mural"
 
 export type QattCta = { label: string; href: string; variant?: "qatt" | "default" | "outline" | "qatt-outline" }
 
@@ -20,12 +21,12 @@ export interface MajlisWelcomeProps extends Omit<React.ComponentProps<"section">
   note?: string
 }
 
-/** «ترحيب المجلس»: banat frieze, warm heading and body, up to three welcome points, optional arch media. */
+/** «ترحيب المجلس»: painted frieze, warm heading and body, up to three welcome points, optional framed media. */
 function MajlisWelcome({ eyebrow, title, body, points, media, cta, note, className, ...props }: MajlisWelcomeProps) {
   const id = React.useId()
   return (
     <section aria-labelledby={id} data-slot="majlis-welcome" className={cn("@container w-full", className)} {...props}>
-      <QattDivider motif="banat" thickness="md" className="my-0" />
+      <QattDivider mural="frieze" className="my-0" />
       <div
         className={cn(
           "mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6",
@@ -41,7 +42,11 @@ function MajlisWelcome({ eyebrow, title, body, points, media, cta, note, classNa
           {points && points.length > 0 && (
             <ul className="grid w-full gap-4 @xl:grid-cols-3">
               {points.slice(0, 3).map((point) => (
-                <li key={point.title} className="flex flex-col gap-1 rounded-lg border-2 border-qatt-ink bg-card p-4">
+                <li
+                  key={point.title}
+                  className="flex flex-col gap-1 overflow-hidden border-2 border-qatt-ink bg-card p-4 pt-0 shadow-[4px_4px_0_var(--qatt-red)]"
+                >
+                  <QattMuralStrip bands="lines" className="-mx-4 mb-3 w-[calc(100%+2rem)]" />
                   {point.icon && (
                     <span aria-hidden="true" className="mb-1 text-primary [&_svg]:size-5">
                       {point.icon}

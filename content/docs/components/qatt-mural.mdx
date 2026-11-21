@@ -1,0 +1,49 @@
+---
+title: جدارية قَطّ
+description: أشرطةٌ كثيفة متعددة الألوان تملأ المساحة كما يملأ القطّ جدار المجلس.
+---
+
+{/* Copy: site-copy.ar.md batch 6 keys docs.qatt-mural.*, docs.props.qatt-mural.* (pending Heritage review). */}
+
+جداريةٌ من أشرطةٍ متتالية: مثلثاتٌ تعلوها أغصان، ومعيّناتٌ متداخلة، ومربعاتٌ تقسمها أقطارها إلى مثلثاتٍ ملوّنة، وخطوطٌ متعرّجة، ومربعاتٌ صغيرة، وخطوطٌ متوازية بين الأشرطة. ألوانها مشبعة على أرضيةٍ بيضاء كالجصّ، تحدّها خطوطٌ ونقاطٌ سوداء.
+
+ترتيب الأشرطة اجتهادٌ من المشروع، وليس صورةً لجدارٍ بعينه.
+
+<ComponentPreview name="qatt-mural-demo" />
+
+## التثبيت
+
+<InstallCommand item="qatt-mural" />
+
+## الاستخدام
+
+استعملوا `QattMural` خلفيةً تملأ قسمًا كاملًا، وضعوا المحتوى فوقها داخل `QattNiche`، وهي كوّةٌ بيضاء يحيط بها إطارٌ من خطوطٍ ملوّنة متداخلة كما تُؤطَّر الأبواب والنوافذ في القطّ. واستعملوا `QattMuralStrip` شريطًا واحدًا في رأس القسم أو أسفله.
+
+```tsx
+import { QattMural, QattMuralStrip, QattNiche } from "@/components/ui/qatt-mural"
+
+<section className="relative grid place-items-center px-10 py-16">
+  <QattMural className="absolute inset-0" />
+  <QattNiche className="relative p-8">…</QattNiche>
+</section>
+<QattMuralStrip bands="frieze" />
+```
+
+## الخصائص
+
+<PropsTable
+  rows={[
+    {"name": "bands", "type": "QattMuralPreset | QattMuralBand[]", "default": "\"wall\" / \"frieze\"", "description": <span>الأشرطة من الأعلى إلى الأسفل: اسم ترتيبٍ جاهز (<code dir="ltr">wall</code> و<code dir="ltr">frieze</code> و<code dir="ltr">diamonds</code> و<code dir="ltr">squares</code> و<code dir="ltr">base</code> و<code dir="ltr">lines</code>) أو قائمةٌ بأسماء الأشرطة. والافتراضي <code dir="ltr">wall</code> للجدارية و<code dir="ltr">frieze</code> للشريط.</span>},
+    {"name": "scale", "type": "number", "default": "1", "description": <span>مقياس الرسم، فكلّ وحدةٍ فيه تساوي 1px مضروبًا في هذه القيمة. والافتراضي 1.</span>},
+    {"name": "frame", "type": "\"sm\" | \"md\" | \"lg\"", "default": "\"md\"", "description": <span>سماكة إطار الكوّة: <code dir="ltr">sm</code> أو <code dir="ltr">md</code> (الافتراضي) أو <code dir="ltr">lg</code>. ويمكن تغييرها حسب حجم الشاشة بالمتغيّر <code dir="ltr">--qatt-niche-unit</code>.</span>},
+    {"name": "colors", "type": "string[]", "description": <span>ألوان خطوط إطار الكوّة من الداخل إلى الخارج. والافتراضي الأزرق فالأخضر فالأصفر فالأحمر.</span>}
+  ]}
+/>
+
+## ملاحظات الاتجاه
+
+الأشرطة متناظرة، فلا شيء فيها ينقلب.
+
+## سهولة الوصول
+
+الجدارية والشريط زخرفيّان ولا تقرؤهما التقنيات المساعدة. أما الكوّة فعنصرٌ عادي يُقرأ محتواه، وأرضيتها البيضاء تحفظ تباين النص في الوضعين.

@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import type { MotifId, MotifVariant, QattColor } from "@/registry/qatt/lib/qatt-motifs"
+import { QattMuralStrip, type QattMuralBand, type QattMuralPreset } from "@/registry/qatt/ui/qatt-mural"
 import { QattBand } from "@/registry/qatt/ui/qatt-pattern"
 
 const THICKNESS = { sm: 12, md: 24, lg: 40 } as const
@@ -23,6 +24,13 @@ export interface QattDividerProps extends Omit<React.ComponentProps<"div">, "chi
   animate?: boolean
   /** "gypsum" renders a light-theme island (D-019). */
   surface?: "default" | "gypsum"
+  /**
+   * Draw a dense multi-band mural strip instead of a single motif (horizontal only):
+   * a preset ("frieze", "diamonds", "squares", "base", "lines") or a band list.
+   */
+  mural?: QattMuralPreset | QattMuralBand[]
+  /** Mural strip scale (1 SVG unit = 1px × scale). Default 1. */
+  muralScale?: number
 }
 
 /**
@@ -39,21 +47,26 @@ function QattDivider({
   label,
   animate = false,
   surface = "default",
+  mural,
+  muralScale = 1,
   className,
   ...props
 }: QattDividerProps) {
   const t = typeof thickness === "number" ? thickness : THICKNESS[thickness]
   const vertical = orientation === "vertical"
-  const band = (
-    <QattBand
-      motif={motif}
-      variant={variant}
-      colors={colors}
-      thickness={t}
-      orientation={orientation}
-      animate={animate}
-    />
-  )
+  const band =
+    mural && !vertical ? (
+      <QattMuralStrip bands={mural} scale={muralScale} />
+    ) : (
+      <QattBand
+        motif={motif}
+        variant={variant}
+        colors={colors}
+        thickness={t}
+        orientation={orientation}
+        animate={animate}
+      />
+    )
 
   return (
     <div

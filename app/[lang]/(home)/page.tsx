@@ -4,23 +4,30 @@ import { BlocksIcon, LanguagesIcon, PaletteIcon } from "lucide-react"
 
 import { ComponentPreview } from "@/components/docs/component-preview"
 import { GalleryGrid } from "@/components/docs/gallery"
-import { AsiriThresholdComposition } from "@/components/site/asiri-threshold-composition"
-import { resolveRegistryUrl } from "@/lib/registry-url"
+import { HomeHero } from "@/components/site/home-hero"
+import { QattWallComposition } from "@/components/site/qatt-wall-composition"
 import { pageMetadata } from "@/lib/seo"
 import { plain, t } from "@/lib/site-copy"
 import { source } from "@/lib/source"
-import { MajlisWelcome } from "@/registry/qatt/blocks/majlis-welcome/majlis-welcome"
 import { QattCta } from "@/registry/qatt/blocks/qatt-cta/qatt-cta"
 import { QattFeatureGrid } from "@/registry/qatt/blocks/qatt-feature-grid/qatt-feature-grid"
 import { buttonVariants } from "@/registry/qatt/ui/button"
 import { QattDivider } from "@/registry/qatt/ui/qatt-divider"
-import { QattPattern } from "@/registry/qatt/ui/qatt-pattern"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/qatt/ui/tabs"
 
 export const metadata: Metadata = pageMetadata({
   title: t("seo.home.title"),
   description: t("seo.home.description"),
   path: "/",
 })
+
+// Showcase tabs (site-ia §3): button, card, dialog, login.
+const SHOWCASE = [
+  { example: "button-demo", item: "button" },
+  { example: "card-demo", item: "card" },
+  { example: "dialog-demo", item: "dialog" },
+  { example: "qatt-login-demo", item: "qatt-login" },
+] as const
 
 const HIGHLIGHT_BLOCKS = ["qatt-hero", "majlis-welcome", "qatt-pricing"]
 
@@ -30,35 +37,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section aria-labelledby="home-title" data-qatt-surface="gypsum" className="relative overflow-hidden bg-qatt-jiss">
-        <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(25rem,31rem)] lg:items-center lg:gap-16">
-          <div className="flex min-w-0 flex-col items-start gap-5 text-start">
-            <p className="font-mono text-xs tracking-[0.08em] text-qatt-red sm:text-sm">{t("home.hero.eyebrow")}</p>
-            <h1 id="home-title" className="max-w-[13ch] font-heading text-4xl leading-[1.25] font-bold sm:text-6xl">
-              {t("home.hero.title")}
-            </h1>
-            <p className="max-w-[56ch] text-lg text-muted-foreground">{t("home.hero.subtitle")}</p>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/docs/getting-started" className={buttonVariants({ variant: "qatt", size: "lg" })}>
-                {t("home.hero.cta.primary")}
-              </Link>
-              <Link href="/docs/components" className={buttonVariants({ variant: "qatt-outline", size: "lg" })}>
-                {t("home.hero.cta.secondary")}
-              </Link>
-            </div>
-            <div dir="ltr" className="w-full max-w-xl border border-input bg-card px-3 py-2 text-start">
-              <p dir="rtl" className="mb-1 text-xs font-medium text-foreground">
-                {t("home.hero.install.label")}
-              </p>
-              <code className="block overflow-x-auto font-mono text-sm whitespace-nowrap">
-                {`pnpm dlx shadcn@latest add ${resolveRegistryUrl()}/r/qatt-theme.json`}
-              </code>
-            </div>
-          </div>
-          <AsiriThresholdComposition className="mx-auto w-full max-w-xl lg:max-w-none" />
-        </div>
-        <QattDivider motif="mathalith-makhamis" thickness="sm" className="my-0" />
-      </section>
+      <HomeHero />
 
       <QattFeatureGrid
         title={t("home.value.title")}
@@ -70,14 +49,30 @@ export default function HomePage() {
         ]}
       />
 
-      <section aria-labelledby="showcase-title" className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-14 sm:px-6">
+      <section
+        aria-labelledby="showcase-title"
+        className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-14 sm:px-6"
+      >
         <header className="flex flex-col gap-2 text-start">
           <h2 id="showcase-title" className="font-heading text-3xl font-bold">
             {t("home.showcase.title")}
           </h2>
           <p className="text-lg text-muted-foreground">{t("home.showcase.subtitle")}</p>
         </header>
-        <ComponentPreview name="button-demo" item="button" title={titleOf("button")} />
+        <Tabs defaultValue={SHOWCASE[0].item} className="min-w-0">
+          <TabsList variant="qatt" indicator="strip" className="max-w-full flex-wrap">
+            {SHOWCASE.map((s) => (
+              <TabsTrigger key={s.item} value={s.item}>
+                {titleOf(s.item)}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          {SHOWCASE.map((s) => (
+            <TabsContent key={s.item} value={s.item} className="min-w-0">
+              <ComponentPreview name={s.example} item={s.item} title={titleOf(s.item)} />
+            </TabsContent>
+          ))}
+        </Tabs>
         <QattDivider label={t("docs.blocks.title")} motif="mathalith-makhamis" />
         <p className="text-muted-foreground">{t("docs.blocks.intro")}</p>
         <GalleryGrid kind="blocks" only={HIGHLIGHT_BLOCKS} headingLevel={3} />
@@ -91,12 +86,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      <MajlisWelcome
-        title={t("home.story.title")}
-        body={t("home.story.body")}
-        cta={{ label: t("home.story.link"), href: "/about", variant: "qatt-outline" }}
-        media={<QattPattern motif="sankroli" surface="gypsum" scale="lg" className="size-full" />}
-      />
+      {/* Story: a painted interior wall beside the words (no arch, per the Asir research note). */}
+      <section
+        aria-labelledby="story-title"
+        data-qatt-surface="gypsum"
+        className="border-y-2 border-qatt-ink bg-qatt-jiss"
+      >
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-16 lg:py-20">
+          <div className="flex flex-col items-start gap-5 text-start">
+            <h2 id="story-title" className="font-heading text-3xl font-bold sm:text-4xl">
+              {t("home.story.title")}
+            </h2>
+            <p className="max-w-[58ch] text-lg leading-8 text-muted-foreground">{t("home.story.body")}</p>
+            <Link href="/about" className={buttonVariants({ variant: "qatt-outline", size: "lg" })}>
+              {t("home.story.link")}
+            </Link>
+          </div>
+          <QattWallComposition className="w-full" />
+        </div>
+      </section>
 
       <QattCta
         title={t("home.cta.title")}

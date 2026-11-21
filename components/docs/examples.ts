@@ -2,6 +2,7 @@ import type { ComponentType } from "react"
 
 import QattPatternDemo from "@/registry/qatt/examples/qatt-pattern-demo"
 import QattDividerDemo from "@/registry/qatt/examples/qatt-divider-demo"
+import QattMuralDemo from "@/registry/qatt/examples/qatt-mural-demo"
 import QattBorderDemo from "@/registry/qatt/examples/qatt-border-demo"
 import QattFrameDemo from "@/registry/qatt/examples/qatt-frame-demo"
 import QattCornerDemo from "@/registry/qatt/examples/qatt-corner-demo"
@@ -35,6 +36,7 @@ import Qatt404Demo from "@/registry/qatt/blocks/qatt-404/page"
 export const examples: Record<string, { component: ComponentType; file: string }> = {
   "qatt-pattern-demo": { component: QattPatternDemo, file: "qatt/examples/qatt-pattern-demo.tsx" },
   "qatt-divider-demo": { component: QattDividerDemo, file: "qatt/examples/qatt-divider-demo.tsx" },
+  "qatt-mural-demo": { component: QattMuralDemo, file: "qatt/examples/qatt-mural-demo.tsx" },
   "qatt-border-demo": { component: QattBorderDemo, file: "qatt/examples/qatt-border-demo.tsx" },
   "qatt-frame-demo": { component: QattFrameDemo, file: "qatt/examples/qatt-frame-demo.tsx" },
   "qatt-corner-demo": { component: QattCornerDemo, file: "qatt/examples/qatt-corner-demo.tsx" },
