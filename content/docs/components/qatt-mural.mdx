@@ -35,6 +35,7 @@ import { QattMural, QattMuralStrip, QattNiche } from "@/components/ui/qatt-mural
   rows={[
     {"name": "bands", "type": "QattMuralPreset | QattMuralBand[]", "default": "\"wall\" / \"frieze\"", "description": <span>الأشرطة من الأعلى إلى الأسفل: اسم ترتيبٍ جاهز (<code dir="ltr">wall</code> و<code dir="ltr">frieze</code> و<code dir="ltr">diamonds</code> و<code dir="ltr">squares</code> و<code dir="ltr">base</code> و<code dir="ltr">lines</code>) أو قائمةٌ بأسماء الأشرطة. والافتراضي <code dir="ltr">wall</code> للجدارية و<code dir="ltr">frieze</code> للشريط.</span>},
     {"name": "scale", "type": "number", "default": "1", "description": <span>مقياس الرسم، فكلّ وحدةٍ فيه تساوي 1px مضروبًا في هذه القيمة. والافتراضي 1.</span>},
+    {"name": "animate", "type": "boolean", "default": "false", "description": <span>يرسم الأشرطة شريطًا بعد شريط كأنها تُلوَّن باليد، أول مرة تظهر فيها الجدارية، بدءًا من أول السطر (من اليمين في العربية). ويتوقّف عند تفعيل تقليل الحركة. والافتراضي <code dir="ltr">false</code>.</span>},
     {"name": "frame", "type": "\"sm\" | \"md\" | \"lg\"", "default": "\"md\"", "description": <span>سماكة إطار الكوّة: <code dir="ltr">sm</code> أو <code dir="ltr">md</code> (الافتراضي) أو <code dir="ltr">lg</code>. ويمكن تغييرها حسب حجم الشاشة بالمتغيّر <code dir="ltr">--qatt-niche-unit</code>.</span>},
     {"name": "colors", "type": "string[]", "description": <span>ألوان خطوط إطار الكوّة من الداخل إلى الخارج. والافتراضي الأزرق فالأخضر فالأصفر فالأحمر.</span>}
   ]}

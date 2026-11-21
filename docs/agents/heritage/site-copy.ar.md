@@ -787,6 +787,7 @@ Key index: `ar-copy-batch3.md`. Demo content is under `blocks.<id>.*`; doc pages
 | `docs.props.qatt-mural.bands` | الأشرطة من الأعلى إلى الأسفل: اسم ترتيبٍ جاهز (`wall` و`frieze` و`diamonds` و`squares` و`base` و`lines`) أو قائمةٌ بأسماء الأشرطة. والافتراضي `wall` للجدارية و`frieze` للشريط. |
 | `docs.props.qatt-mural.scale` | مقياس الرسم، فكلّ وحدةٍ فيه تساوي 1px مضروبًا في هذه القيمة. والافتراضي 1. |
 | `docs.props.qatt-mural.frame` | سماكة إطار الكوّة: `sm` أو `md` (الافتراضي) أو `lg`. ويمكن تغييرها حسب حجم الشاشة بالمتغيّر `--qatt-niche-unit`. |
+| `docs.props.qatt-mural.animate` | يرسم الأشرطة شريطًا بعد شريط كأنها تُلوَّن باليد، أول مرة تظهر فيها الجدارية، بدءًا من أول السطر (من اليمين في العربية). ويتوقّف عند تفعيل تقليل الحركة. والافتراضي `false`. |
 | `docs.props.qatt-mural.colors` | ألوان خطوط إطار الكوّة من الداخل إلى الخارج. والافتراضي الأزرق فالأخضر فالأصفر فالأحمر. |
 | `docs.props.qatt-divider.mural` | يرسم شريطًا كثيفًا من الجدارية بدل النقش الواحد، في الاتجاه الأفقي فقط: اسم ترتيبٍ جاهز (`frieze` و`diamonds` و`squares` و`base` و`lines`) أو قائمةٌ بأسماء الأشرطة. |
 | `docs.props.qatt-divider.muralScale` | مقياس شريط الجدارية. والافتراضي 1. |

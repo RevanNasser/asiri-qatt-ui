@@ -1,6 +1,9 @@
+"use client"
+
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { useReveal } from "@/registry/qatt/hooks/use-reveal"
 
 /**
  * Mural: dense, multi-band qatt wall paint.
@@ -277,11 +280,29 @@ function useMuralId() {
   return `qatt-mural-${React.useId().replace(/[^a-zA-Z0-9_-]/g, "")}`
 }
 
+/** Painting animation timing: each band row is brushed across in ROW_MS, the next starts STAGGER_MS later. */
+const PAINT_ROW_MS = 700
+const PAINT_STAGGER_MS = 140
+
+/** Self-contained rules for the paint mask (no global CSS needed by registry consumers). */
+function paintCss(maskId: string) {
+  const row = `#${maskId} [data-qatt-paint-row]`
+  return [
+    `${row}{transform-box:fill-box;transform-origin:left center}`,
+    `[dir="rtl"] ${row}{transform-origin:right center}`,
+    `[data-qatt-paint="idle"] ${row}{transform:scaleX(0)}`,
+    `[data-qatt-paint="run"] ${row}{animation:qatt-mural-paint ${PAINT_ROW_MS}ms cubic-bezier(.55,0,.25,1) var(--qatt-paint-delay) both}`,
+    `@keyframes qatt-mural-paint{from{transform:scaleX(0)}to{transform:scaleX(1)}}`,
+    `@media (prefers-reduced-motion:reduce){${row}{animation:none!important;transform:none!important}}`,
+  ].join("")
+}
+
 function MuralSvg({
   bands,
   scale,
   gap,
   fixedHeight,
+  animate = false,
   className,
   style,
   ...props
@@ -290,16 +311,51 @@ function MuralSvg({
   scale: number
   gap: number
   fixedHeight: boolean
+  animate?: boolean
 }) {
   const id = useMuralId()
+  const maskId = `${id}-paint`
+  const ref = React.useRef<SVGSVGElement>(null)
+  const shown = useReveal(ref, animate)
   const { defs, offsets, height } = layout(bands, gap)
   // A strip draws its bands once, so its last gap is trimmed.
   const tileH = fixedHeight ? height - gap : height
+
+  // How many tile repeats the wall shows, so every visible band row gets painted.
+  const [boxHeight, setBoxHeight] = React.useState(1200)
+  React.useEffect(() => {
+    if (!animate || fixedHeight || !ref.current) return
+    setBoxHeight(ref.current.getBoundingClientRect().height)
+  }, [animate, fixedHeight])
+  const repeats = fixedHeight ? 1 : Math.max(1, Math.ceil(boxHeight / (tileH * scale)))
+  // Once painted, the mask is dropped: the wall stays complete even if the box later grows.
+  const [done, setDone] = React.useState(false)
+  const painting = animate && !done
+  const rows = painting
+    ? Array.from({ length: repeats }, (_, k) =>
+        defs.map((band, i) => ({
+          y: (k * tileH + (offsets[i] ?? 0)) * scale,
+          h: (band.h + gap) * scale,
+        })),
+      ).flat()
+    : []
+  const rowCount = rows.length
+  React.useEffect(() => {
+    if (!animate || !shown) return
+    const reduce =
+      typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    const total = reduce ? 0 : (rowCount - 1) * PAINT_STAGGER_MS + PAINT_ROW_MS + 100
+    const timer = window.setTimeout(() => setDone(true), total)
+    return () => window.clearTimeout(timer)
+  }, [animate, shown, rowCount])
+
   return (
     <svg
+      ref={ref}
       aria-hidden="true"
       focusable="false"
       data-slot={fixedHeight ? "qatt-mural-strip" : "qatt-mural"}
+      data-qatt-paint={animate ? (done ? "done" : shown ? "run" : "idle") : undefined}
       className={cn("pointer-events-none block w-full", !fixedHeight && "h-full", className)}
       style={fixedHeight ? { height: tileH * scale, ...style } : style}
       {...props}
@@ -317,8 +373,28 @@ function MuralSvg({
             <g key={i}>{band.draw(offsets[i] ?? 0)}</g>
           ))}
         </pattern>
+        {painting && (
+          <>
+            <style>{paintCss(maskId)}</style>
+            {/* Band rows are revealed in order, each brushed across from the start of the line. */}
+            <mask id={maskId} maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+              {rows.map((r, j) => (
+                <rect
+                  key={j}
+                  data-qatt-paint-row=""
+                  x="0"
+                  y={r.y}
+                  width="100%"
+                  height={r.h + 0.5}
+                  fill="#fff"
+                  style={{ "--qatt-paint-delay": `${j * PAINT_STAGGER_MS}ms` } as React.CSSProperties}
+                />
+              ))}
+            </mask>
+          </>
+        )}
       </defs>
-      <rect width="100%" height="100%" fill={`url(#${id})`} />
+      <rect width="100%" height="100%" fill={`url(#${id})`} mask={painting ? `url(#${maskId})` : undefined} />
     </svg>
   )
 }
@@ -328,6 +404,11 @@ export interface QattMuralProps extends Omit<React.ComponentProps<"svg">, "child
   bands?: QattMuralPreset | QattMuralBand[]
   /** 1 SVG unit = 1px × scale. Default 1. */
   scale?: number
+  /**
+   * Paint the bands in, one after another, the first time the mural scrolls into view
+   * (from the start of the line: right in RTL). Off with prefers-reduced-motion. Default false.
+   */
+  animate?: boolean
 }
 
 function resolveBands(bands: QattMuralProps["bands"]): QattMuralBand[] {

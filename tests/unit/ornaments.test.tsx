@@ -138,6 +138,23 @@ describe("QattMural", () => {
     expect(await axe(container)).toHaveNoViolations()
   })
 
+  it("animate paints through a row mask, then is off without it", () => {
+    const { container } = render(
+      <div>
+        <QattMural animate className="h-40" />
+        <QattMuralStrip bands="frieze" animate />
+        <QattMural className="h-40" />
+      </div>,
+    )
+    const [wall, strip, still] = Array.from(container.querySelectorAll<SVGElement>("svg[data-slot^='qatt-mural']"))
+    expect(wall).toHaveAttribute("data-qatt-paint")
+    expect(wall!.querySelector("mask [data-qatt-paint-row]")).not.toBeNull()
+    // a frieze strip is lines + triangles + lines: one mask row per band
+    expect(strip!.querySelectorAll("[data-qatt-paint-row]")).toHaveLength(3)
+    expect(still).not.toHaveAttribute("data-qatt-paint")
+    expect(still!.querySelector("mask")).toBeNull()
+  })
+
   it("strip height follows its bands and scale", () => {
     const { container } = render(
       <div>

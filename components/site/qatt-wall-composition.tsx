@@ -16,7 +16,7 @@ export function QattWallComposition({ className }: { className?: string }) {
         className,
       )}
     >
-      <QattMural className="absolute inset-0" />
+      <QattMural animate className="absolute inset-0" />
       <QattNiche frame="sm" className="relative size-[44%]" />
     </div>
   )

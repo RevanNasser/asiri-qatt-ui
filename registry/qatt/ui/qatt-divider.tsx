@@ -56,7 +56,7 @@ function QattDivider({
   const vertical = orientation === "vertical"
   const band =
     mural && !vertical ? (
-      <QattMuralStrip bands={mural} scale={muralScale} />
+      <QattMuralStrip bands={mural} scale={muralScale} animate={animate} />
     ) : (
       <QattBand
         motif={motif}

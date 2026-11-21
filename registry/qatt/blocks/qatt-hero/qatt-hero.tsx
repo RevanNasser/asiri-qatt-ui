@@ -114,7 +114,7 @@ function QattHero({
       {...props}
     >
       {onWall ? (
-        <QattMural className="absolute inset-0" scale={1.25} />
+        <QattMural animate={animate} className="absolute inset-0" scale={1.25} />
       ) : (
         <QattDivider motif={motif} mural="frieze" animate={animate} className="my-0" />
       )}
