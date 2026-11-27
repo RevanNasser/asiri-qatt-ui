@@ -40,6 +40,9 @@ function Thumbnail({ name, kind }: { name: string; kind: Kind }) {
           <Example />
         </div>
       )}
+      <span className="absolute start-2 top-2 rounded-sm border bg-background/95 px-1.5 py-0.5 text-[0.65rem] font-medium text-muted-foreground shadow-sm">
+        {t("docs.gallery.staticPreview")}
+      </span>
     </div>
   )
 }

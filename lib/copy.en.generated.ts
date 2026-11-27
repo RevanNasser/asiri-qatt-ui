@@ -209,13 +209,16 @@ export const enCopy = {
   "docs.preview.dir.rtl": "Right to left",
   "docs.preview.dir.ltr": "Left to right",
   "docs.preview.theme.label": "Preview theme",
+  "docs.preview.viewport.label": "Preview size",
   "docs.preview.viewport.mobile": "Mobile",
   "docs.preview.viewport.tablet": "Tablet",
   "docs.preview.viewport.desktop": "Desktop",
   "docs.v0.caveat": "v0 shows the component's structure only, without Qatt's colours, fonts and patterns.",
+  "docs.v0.open": "Open in v0",
   "docs.gallery.filter.all": "All",
   "docs.gallery.filter.ornament": "Ornamental",
   "docs.gallery.filter.core": "Core",
+  "docs.gallery.staticPreview": "Static component preview",
   "docs.theme.pigments.title": "Pigments",
   "docs.theme.tokens.title": "Colour tokens",
   "docs.theme.fonts.title": "Typefaces",
@@ -342,10 +345,12 @@ export const enCopy = {
   "docs.motifs.taadheeq.name": "Taadheeq (triangle with three-point crown)",
   "docs.motifs.taadheeq.desc":
     "A triangle crowned by three stalks with dots at their tips; some documenters liken them to corn stalks.",
-  "docs.motifs.mahareeb.name": "Mahareeb (niche arches)",
-  "docs.motifs.mahareeb.desc": "Pointed arches side by side, each with a smaller arch inside.",
-  "docs.motifs.sankroli.name": "Sankroli (nested niches)",
-  "docs.motifs.sankroli.desc": "Three arches nested one inside another.",
+  "docs.motifs.mahareeb.name": "Mahareeb",
+  "docs.motifs.mahareeb.desc":
+    "A project rendering using repeated pointed outlines. Sources differ on the traditional form, so this is not presented as a reconstruction.",
+  "docs.motifs.sankroli.name": "Sankroli",
+  "docs.motifs.sankroli.desc":
+    "A project rendering using nested outlines. Sources differ on the traditional form, so this is not presented as a reconstruction.",
   "docs.motifs.shabakah.name": "Shabakah (grid)",
   "docs.motifs.shabakah.desc": "Single-colour squares alternating with the ground in a grid.",
   "docs.motifs.hanash.name": "Hanash (serpentine zigzag)",
@@ -435,11 +440,11 @@ export const enCopy = {
   "docs.props.qatt-divider.surface":
     "gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself.",
   "docs.qatt-frame.intro":
-    "A frame for an image or focal content. By default it is a rectangular niche surrounded by concentric painted lines, the way doorways and windows are framed in qatt, with a kaff base and khatmah caps at its corners. It can also be an arch inspired by the mahareeb motif and its nested arches.",
+    "A frame for an image or focal content. By default it is a rectangular gypsum field surrounded by concentric painted lines. The optional arch shapes are this project's UI interpretation, not a reconstruction of a traditional motif or wall.",
   "docs.qatt-frame.nameNote":
     "In the interface we call it the arch frame, a general UI component. Its default shape today is the rectangular niche; the arch is a shape you opt into.",
   "docs.qatt-frame.usage":
-    "Put an image with alt text or short content inside. In the niche shape, content is clipped to the inner rectangle; in the arch shapes, to the inner arch. Set `outline={3}` for three nested arches in the manner of sankroli. The `stepped` shape is a project extension, so say so wherever you show it.",
+    "Put an image with alt text or short content inside. In the niche shape, content is clipped to the inner rectangle; in the arch shapes, to the inner arch. Set `outline={3}` for three nested outlines. The `stepped` shape is a project extension, so say so wherever you show it.",
   "docs.qatt-frame.rtl": "The frame is symmetric; nothing flips.",
   "docs.qatt-frame.a11y":
     "Built on `figure` and `figcaption`; the frame drawing is hidden from assistive technology. Give every image alt text in `alt`, and put explanations in `caption`, not inside the image.",

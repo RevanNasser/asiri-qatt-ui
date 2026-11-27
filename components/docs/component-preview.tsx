@@ -22,11 +22,13 @@ export function previewLabels(lang: Lang = "ar"): PreviewLabels {
     themeLabel: t("docs.preview.theme.label"),
     light: t("nav.theme.light"),
     dark: t("nav.theme.dark"),
+    viewportLabel: t("docs.preview.viewport.label"),
     viewport: {
       mobile: t("docs.preview.viewport.mobile"),
       tablet: t("docs.preview.viewport.tablet"),
       desktop: t("docs.preview.viewport.desktop"),
     },
+    openInV0: t("docs.v0.open"),
     v0Caveat: renderCopy(t("docs.v0.caveat")),
   }
 }

@@ -22,7 +22,9 @@ export interface PreviewLabels {
   themeLabel: string
   light: string
   dark: string
+  viewportLabel: string
   viewport: Record<Viewport, string>
+  openInV0: string
   v0Caveat: React.ReactNode
 }
 
@@ -129,7 +131,7 @@ export function PreviewFrame({
             {kind === "block" && (
               <Segmented
                 name="viewport"
-                // TODO(ar-copy): docs.preview.viewport.label (group name for the viewport buttons).
+                label={labels.viewportLabel}
                 value={viewport}
                 onChange={setViewport}
                 options={[
@@ -188,18 +190,15 @@ export function PreviewFrame({
               ]}
             />
             {v0Url && (
-              // TODO(ar-copy): docs.v0.open — Arabic label for "Open in v0".
               <a
                 href={v0Url}
                 target="_blank"
                 rel="noreferrer"
-                lang="en"
-                dir="ltr"
                 aria-describedby={caveatId}
                 data-slot="open-in-v0"
                 className="inline-flex h-8 items-center rounded-md border px-2 text-xs font-medium outline-none hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
-                Open in v0
+                {labels.openInV0}
               </a>
             )}
           </div>

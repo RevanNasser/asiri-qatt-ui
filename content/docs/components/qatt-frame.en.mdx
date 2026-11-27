@@ -5,7 +5,7 @@ description: A frame that holds an image or focal content.
 
 {/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-frame.*, docs.props.qatt-frame.*). */}
 
-A frame for an image or focal content. By default it is a rectangular niche surrounded by concentric painted lines, the way doorways and windows are framed in qatt, with a kaff base and khatmah caps at its corners. It can also be an arch inspired by the mahareeb motif and its nested arches.
+A frame for an image or focal content. By default it is a rectangular gypsum field surrounded by concentric painted lines. The frame and its optional arch shapes are this project's UI interpretation; they do not reconstruct a particular wall or establish a traditional use for a motif.
 
 <Callout>
 In the interface we call it the arch frame, a general UI component. Its default shape today is the rectangular niche; the arch is a shape you opt into.
@@ -19,7 +19,7 @@ In the interface we call it the arch frame, a general UI component. Its default 
 
 ## Usage
 
-Put an image with alt text or short content inside. In the niche shape, content is clipped to the inner rectangle; in the arch shapes, to the inner arch. Set `outline=\{3\}` for three nested arches in the manner of sankroli. The `stepped` shape is a project extension, so say so wherever you show it.
+Put an image with alt text or short content inside. In the niche shape, content is clipped to the inner rectangle; in the arch shapes, to the inner arch. Set `outline=\{3\}` for three nested outlines. The `stepped` shape is a project extension, so say so wherever you show it.
 
 ```tsx
 import { QattFrame } from "@/components/ui/qatt-frame"

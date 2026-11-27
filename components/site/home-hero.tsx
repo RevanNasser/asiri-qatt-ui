@@ -1,16 +1,16 @@
 import Link from "next/link"
 
 import { InstallCommand } from "@/components/site/install-command"
-import { QattMural, QattNiche } from "@/registry/qatt/ui/qatt-mural"
+import { QattMuralStrip, QattNiche } from "@/registry/qatt/ui/qatt-mural"
 import { Copy } from "@/components/site/copy"
 import { localePath, type Lang } from "@/lib/i18n"
 import { copyFor } from "@/lib/site-copy"
 import { buttonVariants } from "@/registry/qatt/ui/button"
 
 /**
- * Home hero as a painted majlis wall: dense qatt bands cover the whole wall and the words
- * sit in a plain gypsum niche framed by concentric colour lines. An original project
- * interpretation — it does not reproduce a specific wall.
+ * Home hero as a quiet gypsum field: a single painted frieze frames the words rather than
+ * turning the whole page into a mural. The dense mural stays in its dedicated component demo.
+ * This is an original project interpretation — it does not reproduce a specific wall.
  */
 export function HomeHero({ lang = "ar" }: { lang?: Lang }) {
   const { t } = copyFor(lang)
@@ -20,8 +20,12 @@ export function HomeHero({ lang = "ar" }: { lang?: Lang }) {
       data-qatt-surface="gypsum"
       className="relative isolate overflow-hidden border-b-4 border-qatt-black bg-qatt-white text-foreground"
     >
-      <QattMural className="qatt-wall-layer qatt-wall-step-0 absolute inset-0 sm:hidden" />
-      <QattMural className="qatt-wall-layer qatt-wall-step-0 absolute inset-0 hidden sm:block" scale={1.5} />
+      <QattMuralStrip
+        bands="frieze"
+        className="qatt-wall-layer qatt-wall-step-0 absolute inset-x-0 top-0"
+        scale={1.1}
+      />
+      <QattMuralStrip bands="lines" className="qatt-wall-layer qatt-wall-step-1 absolute inset-x-0 bottom-0" />
 
       <div className="relative mx-auto flex w-full max-w-6xl justify-center px-7 py-20 sm:px-14 sm:py-28 lg:py-32">
         <QattNiche className="qatt-rise flex w-full max-w-[44rem] flex-col items-center gap-6 px-5 py-10 text-center [--qatt-niche-unit:2.5px]! sm:px-12 sm:py-14 sm:[--qatt-niche-unit:4px]!">
