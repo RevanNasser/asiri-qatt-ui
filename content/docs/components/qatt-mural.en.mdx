@@ -1,11 +1,11 @@
 ---
 title: Qatt Mural
-description: Dense, multi-colour bands that fill a space the way qatt fills a majlis wall.
+description: Restrained painted bands for a qatt-inspired interior wall.
 ---
 
 {/* Copy: site-copy.ar.md batch 6 keys docs.qatt-mural.*, docs.props.qatt-mural.* (pending Heritage review). */}
 
-A mural of stacked bands: triangles crowned with sprigs, nested diamonds, squares split by their diagonals into coloured triangles, zigzags, small chequers, and parallel lines between the bands. Saturated colours on a white, gypsum-like ground, edged with black lines and dots.
+A mural made from a small set of wall rhythms: parallel colour lines, sprigged triangles, rhombuses, horizontal broken lines and vertical chevrons. It leaves space between bands so it reads as a painted wall, not a wallpaper pattern.
 
 The order of the bands is the project's interpretation, not a picture of any particular wall.
 
@@ -17,7 +17,7 @@ The order of the bands is the project's interpretation, not a picture of any par
 
 ## Usage
 
-Use `QattMural` as a background that fills a whole section, and place content over it inside `QattNiche` — a white niche framed by concentric painted lines, the way doorways and windows are framed in qatt. Use `QattMuralStrip` for a single band at the top or bottom of a section.
+Use `QattMural` for a dedicated wall composition, not as a default background for every surface. Place content on a quiet gypsum panel. Use `QattMuralStrip` for one purposeful band at the top or bottom of a section.
 
 ```tsx
 import { QattMural, QattMuralStrip, QattNiche } from "@/components/ui/qatt-mural"
@@ -33,7 +33,7 @@ import { QattMural, QattMuralStrip, QattNiche } from "@/components/ui/qatt-mural
 
 <PropsTable
   rows={[
-    {"name": "bands", "type": "QattMuralPreset | QattMuralBand[]", "default": "\"wall\" / \"frieze\"", "description": <span>Bands from top to bottom: a preset name (<code dir="ltr">wall</code>, <code dir="ltr">frieze</code>, <code dir="ltr">diamonds</code>, <code dir="ltr">squares</code>, <code dir="ltr">base</code>, <code dir="ltr">lines</code>) or a list of band names. Defaults: <code dir="ltr">wall</code> for the mural, <code dir="ltr">frieze</code> for the strip.</span>},
+    {"name": "bands", "type": "QattMuralPreset | QattMuralBand[]", "default": "\"wall\" / \"frieze\"", "description": <span>Bands from top to bottom: a preset name (<code dir="ltr">wall</code>, <code dir="ltr">frieze</code>, <code dir="ltr">diamonds</code>, <code dir="ltr">mahareeb</code>, <code dir="ltr">base</code>, <code dir="ltr">lines</code>) or a list of band names. Defaults: <code dir="ltr">wall</code> for the mural, <code dir="ltr">frieze</code> for the strip.</span>},
     {"name": "scale", "type": "number", "default": "1", "description": <span>Drawing scale: each unit equals 1px times this value. Default 1.</span>},
     {"name": "frame", "type": "\"sm\" | \"md\" | \"lg\"", "default": "\"md\"", "description": <span>Thickness of the niche frame: <code dir="ltr">sm</code>, <code dir="ltr">md</code> (default) or <code dir="ltr">lg</code>. Change it per breakpoint with the <code dir="ltr">--qatt-niche-unit</code> variable.</span>},
     {"name": "colors", "type": "string[]", "description": <span>Colours of the niche frame lines, from the inside out. Default: blue, green, yellow, red.</span>}

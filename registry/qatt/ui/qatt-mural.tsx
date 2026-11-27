@@ -4,9 +4,8 @@ import { cn } from "@/lib/utils"
 
 /**
  * Mural: dense, multi-band qatt wall paint.
- * Built from the documented vocabulary (rows of triangles with branch sprigs, nested
- * diamonds, squares split into coloured triangles, zigzags, chequers and parallel colour
- * lines) in saturated pigments on white gypsum with black outlines and dots.
+ * Built from a small, documented vocabulary: parallel colour lines, rows of triangles
+ * with branch sprigs, rhombuses, horizontal broken lines and vertical chevrons.
  * The arrangement is an original project interpretation, not a copy of a specific wall.
  */
 
@@ -14,7 +13,6 @@ const R = "var(--qatt-red)"
 const Y = "var(--qatt-yellow)"
 const G = "var(--qatt-green)"
 const B = "var(--qatt-blue)"
-const O = "var(--qatt-orange)"
 const K = "var(--qatt-black)"
 const W = "var(--qatt-white)"
 
@@ -63,7 +61,6 @@ function triangles(colors: string[]): Band {
                   fill={colors[i % colors.length]}
                   {...LINE}
                 />
-                <circle cx={x + 12} cy={base - 8} r={2} fill={W} stroke={K} strokeWidth={1} />
                 <path
                   d={`M${x + 12} ${apex}V${y + 3}M${x + 12} ${y + 10}l-4.5 -5M${x + 12} ${y + 10}l4.5 -5`}
                   {...LINE}
@@ -71,14 +68,13 @@ function triangles(colors: string[]): Band {
                 />
               </>
             )}
-            <circle cx={x} cy={base - 5} r={1.7} fill={K} />
           </g>
         )
       }),
   }
 }
 
-/** Nested diamonds with dots and small triangles in the gaps («البلسنة»). */
+/** Nested diamonds («البلسنة»). */
 function diamonds(pairs: [string, string][]): Band {
   const p = 32
   const h = 42
@@ -106,9 +102,6 @@ function diamonds(pairs: [string, string][]): Band {
                 />
               </>
             )}
-            <polygon points={`${x - 6},${y} ${x + 6},${y} ${x},${y + 8}`} fill={K} />
-            <polygon points={`${x - 6},${y + h} ${x + 6},${y + h} ${x},${y + h - 8}`} fill={K} />
-            <circle cx={x} cy={cy} r={2} fill={K} />
           </g>
         )
       })
@@ -116,50 +109,8 @@ function diamonds(pairs: [string, string][]): Band {
   }
 }
 
-/** Squares split by their diagonals into four coloured triangles. */
-function splitSquares(colors: string[]): Band {
-  const p = 48
-  const s = 36
-  const h = 44
-  return {
-    h,
-    draw: (y) =>
-      Array.from({ length: TW / p + 1 }, (_, i) => {
-        const x0 = i * p + (p - s) / 2
-        const y0 = y + (h - s) / 2
-        const cx = x0 + s / 2
-        const cy = y0 + s / 2
-        const c = (k: number) => colors[(i + k) % colors.length]
-        return (
-          <g key={i}>
-            {i < TW / p && (
-              <>
-                <polygon points={`${x0},${y0} ${x0 + s},${y0} ${cx},${cy}`} fill={c(0)} {...LINE} />
-                <polygon points={`${x0 + s},${y0} ${x0 + s},${y0 + s} ${cx},${cy}`} fill={c(1)} {...LINE} />
-                <polygon points={`${x0 + s},${y0 + s} ${x0},${y0 + s} ${cx},${cy}`} fill={c(2)} {...LINE} />
-                <polygon points={`${x0},${y0 + s} ${x0},${y0} ${cx},${cy}`} fill={c(3)} {...LINE} />
-                <rect
-                  x={cx - 4}
-                  y={cy - 4}
-                  width={8}
-                  height={8}
-                  fill={W}
-                  {...LINE}
-                  transform={`rotate(45 ${cx} ${cy})`}
-                />
-              </>
-            )}
-            {[y + 11, y + 22, y + 33].map((dy) => (
-              <circle key={dy} cx={i * p} cy={dy} r={1.8} fill={K} />
-            ))}
-          </g>
-        )
-      }),
-  }
-}
-
-/** Parallel zigzags in four colours («الحنش»). */
-function zigzags(colors: string[]): Band {
+/** Horizontal broken waves («المحاريب»). */
+function mahareeb(colors: string[]): Band {
   const step = 12
   const amp = 9
   const gap = 5
@@ -176,43 +127,27 @@ function zigzags(colors: string[]): Band {
   }
 }
 
-/** Two rows of small coloured squares. */
-function chequers(colors: string[]): Band {
-  const s = 12
-  const h = s * 2
+/** Vertical broken lines, usually facing right («سنكرولي»). */
+function sankroli(colors: string[]): Band {
+  const p = 24
+  const h = 42
   return {
     h,
     draw: (y) =>
-      [0, 1].flatMap((row) =>
-        Array.from({ length: TW / s }, (_, col) => {
-          const on = (col + row) % 2 === 0
-          return (
-            <rect
-              key={`${row}-${col}`}
-              x={col * s}
-              y={y + row * s}
-              width={s}
-              height={s}
-              fill={on ? colors[Math.floor(col / 2 + row) % colors.length] : W}
-              stroke={K}
-              strokeWidth={1}
-            />
-          )
-        }),
-      ),
-  }
-}
-
-/** Vertical colour stripes separated by white. */
-function stripes(colors: string[]): Band {
-  const w = 6
-  const h = 30
-  return {
-    h,
-    draw: (y) =>
-      Array.from({ length: TW / (w * 2) }, (_, i) => (
-        <rect key={i} x={i * w * 2} y={y} width={w} height={h} fill={colors[i % colors.length]} />
-      )),
+      Array.from({ length: TW / p }, (_, i) => {
+        const x = i * p + 5
+        const color = colors[i % colors.length]
+        return (
+          <path
+            key={i}
+            d={`M${x} ${y}l12 10-12 10 12 10-12 10`}
+            fill="none"
+            stroke={color}
+            strokeWidth={4}
+            strokeLinejoin="miter"
+          />
+        )
+      }),
   }
 }
 
@@ -229,10 +164,8 @@ const BAND_DEFS = {
     [B, Y],
     [G, R],
   ]),
-  squares: splitSquares([R, Y, G, B]),
-  zigzag: zigzags([R, G, B, Y]),
-  chequers: chequers([R, G, B, Y, O, G, R, B]),
-  stripes: stripes([R, Y, G, B]),
+  mahareeb: mahareeb([R, Y, B]),
+  sankroli: sankroli([R, K, Y, B]),
 } satisfies Record<string, Band>
 
 export type QattMuralBand = keyof typeof BAND_DEFS
@@ -245,22 +178,19 @@ export const QATT_MURAL_PRESETS = {
     "lines-ink",
     "diamonds",
     "lines-short",
-    "squares",
+    "mahareeb",
     "lines",
-    "zigzag",
+    "sankroli",
     "lines-ink",
-    "chequers",
-    "lines",
-    "stripes",
   ],
   /** A crown of sprigged triangles between colour lines. */
   frieze: ["lines", "triangles", "lines"],
   /** Nested diamonds between colour lines. */
   diamonds: ["lines", "diamonds", "lines"],
-  /** Split squares between colour lines. */
-  squares: ["lines", "squares", "lines"],
-  /** A lower wall: zigzags, chequers and colour lines. */
-  base: ["lines", "zigzag", "lines-ink", "chequers", "lines"],
+  /** Horizontal broken lines between colour lines. */
+  mahareeb: ["lines", "mahareeb", "lines"],
+  /** A lower wall of horizontal and vertical broken lines. */
+  base: ["lines", "mahareeb", "lines-ink", "sankroli", "lines"],
   /** Just the parallel colour lines (the «قطّ» belt). */
   lines: ["lines"],
 } satisfies Record<string, QattMuralBand[]>
@@ -344,7 +274,7 @@ function QattMuralStrip({ bands = "frieze", scale = 1, ...props }: QattMuralProp
   return <MuralSvg bands={resolveBands(bands)} scale={scale} gap={GAP} fixedHeight {...props} />
 }
 
-const NICHE_COLORS = [B, G, Y, R] as const
+const NICHE_COLORS = [R, Y, G] as const
 const NICHE_UNIT = { sm: "2.5px", md: "4px", lg: "5px" } as const
 
 export interface QattNicheProps extends React.ComponentProps<"div"> {
@@ -354,7 +284,7 @@ export interface QattNicheProps extends React.ComponentProps<"div"> {
   colors?: string[]
 }
 
-/** Concentric rings: ink, then each colour separated by gypsum, then an ink edge. */
+/** Restrained painted lines: ink, then colour lines separated by gypsum, then an ink edge. */
 function nicheShadow(colors: string[]) {
   const ring = (n: number, c: string) => `0 0 0 calc(var(--qatt-niche-unit) * ${n}) ${c}`
   const rings = [ring(0.5, K)]

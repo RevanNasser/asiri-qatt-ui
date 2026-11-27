@@ -26,7 +26,7 @@ export interface QattDividerProps extends Omit<React.ComponentProps<"div">, "chi
   surface?: "default" | "gypsum"
   /**
    * Draw a dense multi-band mural strip instead of a single motif (horizontal only):
-   * a preset ("frieze", "diamonds", "squares", "base", "lines") or a band list.
+   * a preset ("frieze", "diamonds", "mahareeb", "base", "lines") or a band list.
    */
   mural?: QattMuralPreset | QattMuralBand[]
   /** Mural strip scale (1 SVG unit = 1px × scale). Default 1. */

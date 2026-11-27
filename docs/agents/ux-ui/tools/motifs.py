@@ -64,14 +64,19 @@ motif("taadheeq", "التَّعذيق", "Triangle with three-point crown", 24, 3
       f'<g fill="{S(2)}"><path d="M12 12V3m0 9L6 5m6 7 6-7" fill="none" stroke="{S(2)}" stroke-width="2" stroke-linecap="round"/>'
       f'<circle cx="12" cy="3" r="1.6"/><circle cx="6" cy="5" r="1.6"/><circle cx="18" cy="5" r="1.6"/></g>')
 
-# 9 mahareeb — niche arches
-motif("mahareeb", "المَحاريب", "Niche arches", 24, 32, "x", 2, ["ink", "yellow"], ["band", "border", "corner"],
-      f'<path d="M2 32V14L12 2l10 12v18z" fill="{S(1)}"/><path d="M6 32V16l6-7.5 6 7.5v16z" fill="{S(2)}"/>')
+# 9 mahareeb — horizontal broken wave lines (AACIA 2024, pp. 293, 296)
+motif("mahareeb", "المَحاريب", "Horizontal wave lines", 48, 20, "x", 3, ["red", "yellow", "blue"], ["band", "border"],
+      f'<g fill="none" stroke-width="2.6" stroke-linejoin="miter">'
+      f'<path d="M0 4 6 10 12 4 18 10 24 4 30 10 36 4 42 10 48 4" stroke="{S(1)}"/>'
+      f'<path d="M0 10 6 16 12 10 18 16 24 10 30 16 36 10 42 16 48 10" stroke="{S(2)}"/>'
+      f'<path d="M0 0 6 6 12 0 18 6 24 0 30 6 36 0 42 6 48 0" stroke="{S(3)}"/></g>',
+      mirror=False, note="AACIA 2024 pp. 293, 296 illustrates mahareeb as stacked horizontal broken wave lines, not arches.")
 
-# 10 sankroli — nested niche outlines
-motif("sankroli", "سَنكرولي", "Nested niches", 24, 32, "x", 3, ["red", "ink", "yellow"], ["band", "background"],
-      f'<g fill="none" stroke-width="2"><path d="M2 32V14L12 2l10 12v18" stroke="{S(1)}"/>'
-      f'<path d="M6 32V16l6-8 6 8v16" stroke="{S(2)}"/><path d="M10 32V18l2-3 2 3v14" stroke="{S(3)}"/></g>')
+# 10 sankroli — parallel vertical chevrons, usually facing right (AACIA 2024, pp. 293, 296)
+motif("sankroli", "سَنكرولي", "Parallel vertical chevrons", 36, 32, "x", 3, ["red", "ink", "yellow"], ["band", "background"],
+      f'<g fill="none" stroke-width="3" stroke-linejoin="miter"><path d="M5 0 14 8 5 16 14 24 5 32" stroke="{S(1)}"/>'
+      f'<path d="M16 0 25 8 16 16 25 24 16 32" stroke="{S(2)}"/><path d="M27 0 36 8 27 16 36 24 27 32" stroke="{S(3)}"/></g>',
+      mirror=False, note="AACIA 2024 pp. 293, 296 illustrates sankroli as parallel vertical broken lines, usually facing right. It does not mirror in RTL.")
 
 # 11 shabakah — single-colour grid; lattice drawn as an X extended past the tile so crossings are seamless
 motif("shabakah", "الشَّبَكة", "Single-colour grid", 16, 16, "xy", 1, ["ink"], ["background"],

@@ -3,21 +3,12 @@ import { QattPattern } from "@/registry/qatt/ui/qatt-pattern"
 
 export default function QattFrameDemo() {
   return (
-    <div className="grid w-full max-w-xl grid-cols-3 gap-6">
-      <QattFrame>
+    <div className="grid w-full max-w-xl gap-8 sm:grid-cols-2">
+      <QattFrame caption="إطارٌ هادئ بخطوط الجدار">
         <QattPattern motif="balsanah" className="size-full" />
       </QattFrame>
-      <QattFrame shape="round" outline={3}>
-        <QattPattern motif="sankroli" scale="sm" className="size-full" />
-      </QattFrame>
-      <QattFrame
-        shape="stepped"
-        outline={1}
-        base="mathalith-makhamis"
-        caps={false}
-        caption="المدرّج: إضافةٌ من المشروع، غير موثّقة في القطّ العسيري"
-      >
-        <QattPattern motif="shabakah" className="size-full" />
+      <QattFrame base="mathalith-makhamis" caption="شريطٌ سفلي حين يحتاجه التكوين">
+        <QattPattern motif="mahareeb" scale="sm" className="size-full" />
       </QattFrame>
     </div>
   )

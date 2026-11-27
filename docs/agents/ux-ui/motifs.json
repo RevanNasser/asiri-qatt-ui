@@ -236,36 +236,36 @@
     {
       "id": "mahareeb",
       "arabicName": "المَحاريب",
-      "englishName": "Niche arches",
+      "englishName": "Horizontal wave lines",
       "traditionalName": true,
-      "width": 24,
-      "height": 32,
+      "width": 48,
+      "height": 20,
       "repeat": "x",
-      "slots": 2,
+      "slots": 3,
       "defaultSlots": [
-        "ink",
-        "yellow"
+        "red",
+        "yellow",
+        "blue"
       ],
-      "mirror": true,
+      "mirror": false,
       "flipInRtl": false,
       "projectExtension": false,
       "aboutVocabulary": true,
       "uses": [
         "band",
-        "border",
-        "corner"
+        "border"
       ],
-      "markup": "<rect width=\"24\" height=\"32\" fill=\"var(--qatt-slot-4, transparent)\"/><path d=\"M2 32V14L12 2l10 12v18z\" fill=\"var(--qatt-slot-1, #A8322A)\"/><path d=\"M6 32V16l6-7.5 6 7.5v16z\" fill=\"var(--qatt-slot-2, #1F1B17)\"/>",
+      "markup": "<rect width=\"48\" height=\"20\" fill=\"var(--qatt-slot-4, transparent)\"/><g fill=\"none\" stroke-width=\"2.6\" stroke-linejoin=\"miter\"><path d=\"M0 4 6 10 12 4 18 10 24 4 30 10 36 4 42 10 48 4\" stroke=\"var(--qatt-slot-1, #A8322A)\"/><path d=\"M0 10 6 16 12 10 18 16 24 10 30 16 36 10 42 16 48 10\" stroke=\"var(--qatt-slot-2, #1F1B17)\"/><path d=\"M0 0 6 6 12 0 18 6 24 0 30 6 36 0 42 6 48 0\" stroke=\"var(--qatt-slot-3, #D9A42B)\"/></g>",
       "variants": [],
-      "note": "",
+      "note": "AACIA 2024 pp. 293, 296 illustrates mahareeb as stacked horizontal broken wave lines, not arches.",
       "file": "motifs/mahareeb.svg"
     },
     {
       "id": "sankroli",
       "arabicName": "سَنكرولي",
-      "englishName": "Nested niches",
+      "englishName": "Parallel vertical chevrons",
       "traditionalName": true,
-      "width": 24,
+      "width": 36,
       "height": 32,
       "repeat": "x",
       "slots": 3,
@@ -274,7 +274,7 @@
         "ink",
         "yellow"
       ],
-      "mirror": true,
+      "mirror": false,
       "flipInRtl": false,
       "projectExtension": false,
       "aboutVocabulary": true,
@@ -282,9 +282,9 @@
         "band",
         "background"
       ],
-      "markup": "<rect width=\"24\" height=\"32\" fill=\"var(--qatt-slot-4, transparent)\"/><g fill=\"none\" stroke-width=\"2\"><path d=\"M2 32V14L12 2l10 12v18\" stroke=\"var(--qatt-slot-1, #A8322A)\"/><path d=\"M6 32V16l6-8 6 8v16\" stroke=\"var(--qatt-slot-2, #1F1B17)\"/><path d=\"M10 32V18l2-3 2 3v14\" stroke=\"var(--qatt-slot-3, #D9A42B)\"/></g>",
+      "markup": "<rect width=\"36\" height=\"32\" fill=\"var(--qatt-slot-4, transparent)\"/><g fill=\"none\" stroke-width=\"3\" stroke-linejoin=\"miter\"><path d=\"M5 0 14 8 5 16 14 24 5 32\" stroke=\"var(--qatt-slot-1, #A8322A)\"/><path d=\"M16 0 25 8 16 16 25 24 16 32\" stroke=\"var(--qatt-slot-2, #1F1B17)\"/><path d=\"M27 0 36 8 27 16 36 24 27 32\" stroke=\"var(--qatt-slot-3, #D9A42B)\"/></g>",
       "variants": [],
-      "note": "",
+      "note": "AACIA 2024 pp. 293, 296 illustrates sankroli as parallel vertical broken lines, usually facing right. It does not mirror in RTL.",
       "file": "motifs/sankroli.svg"
     },
     {

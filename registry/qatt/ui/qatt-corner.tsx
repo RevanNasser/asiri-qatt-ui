@@ -9,7 +9,7 @@ const SIZES = { sm: 16, md: 24, lg: 32 } as const
 export interface QattCornerProps extends Omit<React.ComponentProps<"span">, "children"> {
   /** block-inline, logical: "start-start" is top-right in RTL. */
   position?: "start-start" | "start-end" | "end-start" | "end-end"
-  motif?: "khatmah" | "taadheeq" | "mahareeb"
+  motif?: "khatmah" | "taadheeq"
   colors?: QattColor[]
   size?: keyof typeof SIZES | number
   /** px outward (negative = inward). */

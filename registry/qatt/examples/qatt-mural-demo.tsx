@@ -12,7 +12,7 @@ export default function QattMuralDemo() {
           <p className="font-heading text-2xl font-bold">جدارية قَطّ</p>
         </QattNiche>
       </div>
-      <QattMuralStrip bands="squares" />
+      <QattMuralStrip bands="mahareeb" />
     </div>
   )
 }

@@ -1,14 +1,14 @@
 ---
-title: إطار القوس
-description: إطارٌ يحتضن صورةً أو محتوى بارزًا.
+title: الإطار
+description: إطارٌ هادئ لمحتوى أو صورة بارزة: لوحٌ جصيّ مستطيل تحيط به خطوطٌ لونية رفيعة، مستوحى من إيقاع الجدران وإطارات الفتحات.
 ---
 
 {/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-frame.*, docs.props.qatt-frame.*). */}
 
-إطارٌ يحتضن صورةً أو محتوى بارزًا. هيئته الافتراضية كوّةٌ مستطيلة يحيط بها إطارٌ من خطوطٍ ملوّنة متداخلة كما تُؤطَّر الأبواب والنوافذ في القطّ، وله قاعدةٌ من شريط «الكفّ» وختمتان في زاويتيها. ويمكن أن يكون قوسًا مستلهمًا من نقش «المحاريب» وأقواسه المتداخلة.
+إطارٌ هادئ لمحتوى أو صورة بارزة: لوحٌ جصيّ مستطيل تحيط به خطوطٌ لونية رفيعة، مستوحى من إيقاع الجدران وإطارات الفتحات. لا يحوّل المحتوى إلى قوسٍ ولا يضيف زخارفَ في الزوايا بلا وظيفة.
 
 <Callout>
-نسمّيه في الواجهة «إطار القوس»، فهو مكوّن واجهةٍ عام. وهيئته الافتراضية اليوم الكوّة المستطيلة، والقوس هيئةٌ تختارونها.
+هذا مكوّن واجهةٍ عام، لا إعادة رسمٍ لبيتٍ عسيري أو محراب. أضيفوا الشريط السفلي فقط حين يكون جزءًا واضحًا من ترتيب الجدار.
 </Callout>
 
 <ComponentPreview name="qatt-frame-demo" />
@@ -19,7 +19,7 @@ description: إطارٌ يحتضن صورةً أو محتوى بارزًا.
 
 ## الاستخدام
 
-ضعوا فيه صورةً لها نصٌّ بديل، أو محتوىً قصيرًا. في هيئة الكوّة يُقصّ المحتوى على المستطيل الداخلي، وفي هيئات القوس على القوس الداخلي. واجعلوا `outline=\{3\}` لثلاثة أقواسٍ متداخلة على طريقة «سنكرولي». والهيئة `stepped` إضافةٌ من المشروع، فاذكروا ذلك حيث تعرضونها.
+ضعوا فيه صورةً لها نصٌّ بديل، أو محتوىً قصيرًا. الشريط السفلي اختياري، والافتراضي ألا يظهر؛ اختاروه عندما يحتاج التكوين إلى حدٍّ سفلي واضح.
 
 ```tsx
 import { QattFrame } from "@/components/ui/qatt-frame"
@@ -34,14 +34,10 @@ import { QattFrame } from "@/components/ui/qatt-frame"
 
 <PropsTable
   rows={[
-    {"name": "shape", "type": "\"niche\" | \"pointed\" | \"round\" | \"stepped\"", "default": "\"niche\"", "description": <span>الهيئة: <code dir="ltr">niche</code> الكوّة المستطيلة (الافتراضي)، أو قوسٌ <code dir="ltr">pointed</code> مدبَّب، أو <code dir="ltr">round</code> مستدير، أو <code dir="ltr">stepped</code> مدرّج، وهو إضافةٌ من المشروع.</span>},
-    {"name": "outline", "type": "1 | 2 | 3", "default": "2", "description": <span>عدد الأقواس المتداخلة: 1 أو 2 (الافتراضي) أو 3.</span>},
-    {"name": "colors", "type": "QattColor[]", "default": "[\"red\", \"ink\", \"yellow\"]", "description": <span>الألوان بالترتيب: القوس الخارجي، فالداخلي، فالقاعدة.</span>},
-    {"name": "base", "type": "MotifId | false", "default": "\"kaff\"", "description": <span>نقش القاعدة، والافتراضي <code dir="ltr">kaff</code>. واجعلوه <code dir="ltr">false</code> لإطارٍ بلا قاعدة.</span>},
-    {"name": "caps", "type": "boolean", "default": "true", "description": <span>يضع «الختمة» في زاويتَي القاعدة. والافتراضي <code dir="ltr">true</code>.</span>},
+    {"name": "colors", "type": "QattColor[]", "default": "[\"red\", \"yellow\", \"green\"]", "description": <span>ألوان خطوط الإطار، من الداخل إلى الخارج.</span>},
+    {"name": "base", "type": "MotifId | false", "default": "false", "description": <span>شريطٌ سفلي اختياري. الافتراضي <code dir="ltr">false</code> كي لا تُضاف الزخرفة بلا دورٍ في التكوين.</span>},
     {"name": "ratio", "type": "number", "default": "3/4", "description": <span>نسبة عرض المحتوى إلى ارتفاعه. والافتراضي 3/4.</span>},
     {"name": "caption", "type": "ReactNode", "description": <span>شرحٌ يُعرض في <code dir="ltr">figcaption</code> تحت الإطار.</span>},
-    {"name": "animate", "type": "boolean", "default": "false", "description": <span>يرسم خطّ القوس تدريجيًا عند ظهوره، ويتوقّف عند تفعيل تقليل الحركة.</span>},
     {"name": "surface", "type": "\"default\" | \"gypsum\"", "default": "\"default\"", "description": <span>القيمة <code dir="ltr">gypsum</code> تعرض الزخرفة على أرضيةٍ بيضاء كالجصّ بألوانها الفاتحة في الوضعين. وهي لازمةٌ في الصفحات التي تعرض التراث نفسه.</span>}
   ]}
 />

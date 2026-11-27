@@ -411,26 +411,23 @@ Key index: `ar-copy-batch3.md`. Demo content is under `blocks.<id>.*`; doc pages
 | `docs.props.qatt-divider.label` | A short label centred between two bands. |
 | `docs.props.qatt-divider.animate` | Paints the ornament in from inline-start when it appears. Off when reduced motion is on. |
 | `docs.props.qatt-divider.surface` | gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself. |
-| `docs.qatt-frame.intro` | A frame for an image or focal content. By default it is a rectangular gypsum field surrounded by concentric painted lines. The optional arch shapes are this project's UI interpretation, not a reconstruction of a traditional motif or wall. |
-| `docs.qatt-frame.nameNote` | In the interface we call it the arch frame, a general UI component. Its default shape today is the rectangular niche; the arch is a shape you opt into. |
-| `docs.qatt-frame.usage` | Put an image with alt text or short content inside. In the niche shape, content is clipped to the inner rectangle; in the arch shapes, to the inner arch. Set `outline={3}` for three nested outlines. The `stepped` shape is a project extension, so say so wherever you show it. |
+| `docs.qatt-frame.intro` | A quiet frame for an image or focal content: a rectangular gypsum panel with fine painted lines, inspired by the rhythm of walls and opening frames. It does not turn content into an arch or add corner ornaments without a role. |
+| `docs.qatt-frame.description` | A quiet frame for an image or focal content: a rectangular gypsum panel with fine painted lines, inspired by the rhythm of walls and opening frames. |
+| `docs.qatt-frame.nameNote` | This is a general interface component, not a reconstruction of an Asiri house or prayer niche. Add a lower band only when it belongs to the wall composition. |
+| `docs.qatt-frame.usage` | Put an image with alt text or short content inside. A lower band is optional and off by default; choose it only when the composition needs a clear lower edge. |
 | `docs.qatt-frame.rtl` | The frame is symmetric; nothing flips. |
 | `docs.qatt-frame.a11y` | Built on `figure` and `figcaption`; the frame drawing is hidden from assistive technology. Give every image alt text in `alt`, and put explanations in `caption`, not inside the image. |
-| `docs.props.qatt-frame.shape` | Shape: `niche`, the rectangular niche (default), or an arch: `pointed`, `round`, or `stepped`, which is a project extension. |
-| `docs.props.qatt-frame.outline` | Number of nested arch outlines: 1, 2 (default) or 3. |
-| `docs.props.qatt-frame.colors` | Colours in order: outer arch, inner arch, base. |
-| `docs.props.qatt-frame.base` | Base band motif, default kaff. Set false for no base. |
-| `docs.props.qatt-frame.caps` | Adds khatmah squares at the base corners. Default true. |
+| `docs.props.qatt-frame.colors` | Frame-line colours, from inside to outside. |
+| `docs.props.qatt-frame.base` | Optional lower band. Default false so ornament is never added without a compositional role. |
 | `docs.props.qatt-frame.ratio` | Aspect ratio of the content box. Default 3/4. |
 | `docs.props.qatt-frame.caption` | Caption rendered in figcaption below the frame. |
-| `docs.props.qatt-frame.animate` | Draws the arch stroke in when it appears. Off when reduced motion is on. |
 | `docs.props.qatt-frame.surface` | gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself. |
 | `docs.qatt-corner.intro` | A small ornament for the corner of a card or frame. Its default form is the khatmah, the square that closes a band. One source relates that the khatmah was where the painter showed her own touch. |
 | `docs.qatt-corner.usage` | Place it inside an element with position: relative and choose the corner with position. Repeat it four times for all four corners. |
 | `docs.qatt-corner.rtl` | Corners are logical: start-start is top-right in Arabic and top-left in English. |
 | `docs.qatt-corner.a11y` | Pure decoration, hidden from assistive technology and not clickable. Make sure it never covers text or a button. |
 | `docs.props.qatt-corner.position` | Logical corner (block, then inline): start-start, start-end, end-start or end-end. Default start-start. |
-| `docs.props.qatt-corner.motif` | Motif: khatmah (default), taadheeq or mahareeb. |
+| `docs.props.qatt-corner.motif` | Motif: khatmah (default) or taadheeq. |
 | `docs.props.qatt-corner.colors` | Colours for the motif's slots, in order: pigment names (red, yellow, ink…) or any CSS colour. Defaults to the motif's colours in motifs.json. |
 | `docs.props.qatt-corner.size` | Size: sm 16px, md 24px (default), lg 32px, or a number. |
 | `docs.props.qatt-corner.offset` | Offset in px outwards; negative moves it inwards. Default 0. |
@@ -771,16 +768,16 @@ Key index: `ar-copy-batch4.md`.
 | `docs.theme.fonts.body` | This documentation site uses Thmanyah Sans for body text and headings, and IBM Plex Mono for code. The Qatt registry does not redistribute Thmanyah's font files; download them from the official source if you want the same site typography. The installed registry theme continues to use its open-source fonts. Install the theme before any component: |
 | `docs.theme.dark.body` | Dark mode is the project's digital interpretation; Al-Qatt Al-Asiri is painted on a white gypsum ground. |
 | `docs.qatt-mural.title` | Qatt Mural |
-| `docs.qatt-mural.description` | Dense, multi-colour bands that fill a space the way qatt fills a majlis wall. |
-| `docs.qatt-mural.intro` | A mural of stacked bands: triangles crowned with sprigs, nested diamonds, squares split by their diagonals into coloured triangles, zigzags, small chequers, and parallel lines between the bands. Saturated colours on a white, gypsum-like ground, edged with black lines and dots. |
+| `docs.qatt-mural.description` | Restrained painted bands for a qatt-inspired interior wall. |
+| `docs.qatt-mural.intro` | A mural made from a small set of wall rhythms: parallel colour lines, sprigged triangles, rhombuses, horizontal broken lines and vertical chevrons. It leaves space between bands so it reads as a painted wall, not a wallpaper pattern. |
 | `docs.qatt-mural.note` | The order of the bands is the project's interpretation, not a picture of any particular wall. |
-| `docs.qatt-mural.usage` | Use `QattMural` as a background that fills a whole section, and place content over it inside `QattNiche` — a white niche framed by concentric painted lines, the way doorways and windows are framed in qatt. Use `QattMuralStrip` for a single band at the top or bottom of a section. |
+| `docs.qatt-mural.usage` | Use `QattMural` for a dedicated wall composition, not as a default background for every surface. Place content on a quiet gypsum panel. Use `QattMuralStrip` for one purposeful band at the top or bottom of a section. |
 | `docs.qatt-mural.rtl` | The bands are symmetric, so nothing flips. |
 | `docs.qatt-mural.a11y` | The mural and strip are decorative and hidden from assistive technology. The niche is an ordinary element whose content is read, and its white ground keeps text contrast in both modes. |
-| `docs.props.qatt-mural.bands` | Bands from top to bottom: a preset name (`wall`, `frieze`, `diamonds`, `squares`, `base`, `lines`) or a list of band names. Defaults: `wall` for the mural, `frieze` for the strip. |
+| `docs.props.qatt-mural.bands` | Bands from top to bottom: a preset name (`wall`, `frieze`, `diamonds`, `mahareeb`, `base`, `lines`) or a list of band names. Defaults: `wall` for the mural, `frieze` for the strip. |
 | `docs.props.qatt-mural.scale` | Drawing scale: each unit equals 1px times this value. Default 1. |
 | `docs.props.qatt-mural.frame` | Thickness of the niche frame: `sm`, `md` (default) or `lg`. Change it per breakpoint with the `--qatt-niche-unit` variable. |
-| `docs.props.qatt-mural.colors` | Colours of the niche frame lines, from the inside out. Default: blue, green, yellow, red. |
-| `docs.props.qatt-divider.mural` | Draws a dense mural strip instead of a single motif, horizontal only: a preset name (`frieze`, `diamonds`, `squares`, `base`, `lines`) or a list of band names. |
+| `docs.props.qatt-mural.colors` | Colours of the niche frame lines, from the inside out. Default: red, yellow, green. |
+| `docs.props.qatt-divider.mural` | Draws a mural strip instead of a single motif, horizontal only: a preset name (`frieze`, `diamonds`, `mahareeb`, `base`, `lines`) or a list of band names. |
 | `docs.props.qatt-divider.muralScale` | Scale of the mural strip. Default 1. |
 | `home.hero.install.setup` | First time? Add the `@qatt` registry to `components.json` |

@@ -91,7 +91,7 @@ describe("QattBorder", () => {
 })
 
 describe("QattFrame", () => {
-  it.each(DIRS)("is a figure with caption and a hidden drawing (%s)", async (dir) => {
+  it.each(DIRS)("is a quiet panel with caption (%s)", async (dir) => {
     const { container, getByRole } = inDir(
       dir,
       <QattFrame caption="إطار القوس">
@@ -99,22 +99,21 @@ describe("QattFrame", () => {
       </QattFrame>,
     )
     expect(getByRole("figure").querySelector("figcaption")).toHaveTextContent("إطار القوس")
-    // default shape: a gypsum niche in concentric painted lines (no arch clip)
-    expect(getByRole("figure")).toHaveAttribute("data-shape", "niche")
+    expect(getByRole("figure")).toHaveAttribute("data-shape", "panel")
     expect(container.querySelector('[data-slot="qatt-niche"]')).not.toBeNull()
     expect(container.querySelector("clipPath")).toBeNull()
     expect(await axe(container)).toHaveNoViolations()
   })
 
-  it.each(DIRS)("draws an arch when asked (%s)", async (dir) => {
+  it.each(DIRS)("adds a lower band only when asked (%s)", async (dir) => {
     const { container, getByRole } = inDir(
       dir,
-      <QattFrame shape="pointed" caption="إطار القوس">
+      <QattFrame base="mathalith-makhamis" caption="إطار">
         <div>x</div>
       </QattFrame>,
     )
-    expect(getByRole("figure")).toHaveAttribute("data-shape", "pointed")
-    expect(container.querySelector("clipPath")).not.toBeNull()
+    expect(getByRole("figure")).toHaveAttribute("data-shape", "panel")
+    expect(container.querySelector('[data-slot="qatt-band"]')).not.toBeNull()
     expect(await axe(container)).toHaveNoViolations()
   })
 })
@@ -156,8 +155,8 @@ describe("QattMural", () => {
     const niche = container.querySelector<HTMLElement>('[data-slot="qatt-niche"]')!
     expect(getByText("مرحبا")).toBeVisible()
     expect(niche.style.getPropertyValue("--qatt-niche-unit")).toBe("5px")
-    // ink + 4 colours + 3 gypsum gaps + ink edge
-    expect(niche.style.boxShadow.split("calc(").length - 1).toBe(9)
+    // ink + 3 colours + 2 gypsum gaps + ink edge
+    expect(niche.style.boxShadow.split("calc(").length - 1).toBe(7)
     expect(await axe(container)).toHaveNoViolations()
   })
 })

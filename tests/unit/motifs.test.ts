@@ -15,9 +15,9 @@ describe("motif registry (generated from motifs.json)", () => {
     expect(getMotifTile("kaff", "wave")).toBe(MOTIFS.kaff) // unknown variant -> base tile
   })
 
-  it("never flips in RTL; sawtooth is the only non mirror-safe motif; stepped is a project extension", () => {
+  it("never flips in RTL; directional motifs keep their painted orientation; stepped is a project extension", () => {
     for (const id of MOTIF_IDS) expect(MOTIFS[id].flipInRtl).toBe(false)
-    expect(MOTIF_IDS.filter((id) => !MOTIFS[id].mirror)).toEqual(["sawtooth"])
+    expect(MOTIF_IDS.filter((id) => !MOTIFS[id].mirror)).toEqual(["mahareeb", "sankroli", "sawtooth"])
     expect(MOTIF_IDS.filter((id) => MOTIFS[id].projectExtension)).toEqual(["stepped"])
   })
 
