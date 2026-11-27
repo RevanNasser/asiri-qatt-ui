@@ -4,7 +4,7 @@ import { Tabs as TabsPrimitive } from "@base-ui/react/tabs"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
-import { QattBand } from "@/registry/qatt/ui/qatt-pattern"
+import { QattMarker } from "@/registry/qatt/ui/qatt-pattern"
 
 /**
  * Qatt Tabs: shadcn base-nova Tabs + `TabsList variant="qatt"`: the active tab carries a small painted
@@ -64,21 +64,15 @@ function TabsTrigger({ className, children, ...props }: TabsPrimitive.Tab.Props)
         "group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent dark:group-data-[variant=line]/tabs-list:data-active:border-transparent dark:group-data-[variant=line]/tabs-list:data-active:bg-transparent",
         "data-active:text-foreground group-data-[variant=default]/tabs-list:data-active:bg-background dark:group-data-[variant=default]/tabs-list:data-active:border-input dark:group-data-[variant=default]/tabs-list:data-active:bg-input/30",
         "after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-end-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
-        // qatt: painted diamond indicator, centred under the active label (symmetric, no RTL handling needed)
+        // qatt: one shared selection marker, centred under the active label.
         "group-data-[variant=qatt]/tabs-list:text-muted-foreground group-data-[variant=qatt]/tabs-list:data-active:text-foreground",
-        "before:pointer-events-none before:absolute before:start-1/2 before:size-2 before:rotate-45 before:bg-primary before:opacity-0 before:transition-opacity group-data-horizontal/tabs:before:-bottom-2 group-data-horizontal/tabs:before:-ms-1 group-data-vertical/tabs:before:hidden group-data-[variant=qatt]/tabs-list:group-data-[indicator=diamond]/tabs-list:data-active:before:opacity-100",
         "group/tabs-trigger",
         className,
       )}
       {...props}
     >
       {children}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-1 -bottom-2 hidden h-1.5 group-data-[variant=qatt]/tabs-list:group-data-[indicator=strip]/tabs-list:group-data-active/tabs-trigger:block"
-      >
-        <QattBand motif="balsanah" thickness={6} />
-      </span>
+      <QattMarker className="pointer-events-none absolute start-1/2 -bottom-2 hidden -ms-1 group-data-horizontal/tabs:group-data-[variant=qatt]/tabs-list:group-data-active/tabs-trigger:block" />
     </TabsPrimitive.Tab>
   )
 }

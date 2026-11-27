@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 import type { QattColor } from "@/registry/qatt/lib/qatt-motifs"
 import { QattMotifTile } from "@/registry/qatt/ui/qatt-pattern"
 
-const SIZES = { sm: 16, md: 24, lg: 32 } as const
+const SIZES = { sm: 20, md: 24, lg: 32 } as const
 
 export interface QattCornerProps extends Omit<React.ComponentProps<"span">, "children"> {
   /** block-inline, logical: "start-start" is top-right in RTL. */

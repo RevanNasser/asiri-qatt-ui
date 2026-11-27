@@ -23,10 +23,10 @@ const buttonVariantsBase = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:outline-destructive dark:bg-destructive/20 dark:hover:bg-destructive/30",
         link: "text-primary decoration-1 underline-offset-4 hover:underline",
-        qatt: "border-2 border-qatt-ink bg-primary text-primary-foreground shadow-[var(--shadow-painted)] hover:bg-primary/90 active:not-aria-[haspopup]:translate-y-[3px] active:not-aria-[haspopup]:shadow-none",
+        qatt: "relative border-2 border-qatt-ink bg-primary text-primary-foreground after:absolute after:inset-x-1 after:-bottom-1 after:h-0.5 after:bg-qatt-ink after:shadow-[0_2px_0_var(--qatt-red)] hover:bg-primary/90",
         "qatt-outline": "border-2 border-qatt-ink bg-transparent text-foreground hover:bg-secondary",
         painted:
-          "border-2 border-qatt-ink shadow-[var(--shadow-painted)] active:not-aria-[haspopup]:translate-y-[3px] active:not-aria-[haspopup]:shadow-none",
+          "relative border-2 border-qatt-ink after:absolute after:inset-x-1 after:-bottom-1 after:h-0.5 after:bg-qatt-ink after:shadow-[0_2px_0_var(--qatt-red)]",
       },
       tone: {
         red: "",

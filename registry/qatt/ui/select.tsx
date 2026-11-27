@@ -2,13 +2,14 @@
 
 import * as React from "react"
 import { Select as SelectPrimitive } from "@base-ui/react/select"
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react"
+import { ChevronDownIcon, ChevronUpIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { QattMarker } from "@/registry/qatt/ui/qatt-pattern"
 
 /**
  * Qatt Select: shadcn base-nova Select + `SelectTrigger variant="qatt"` (ruled line, like Input qatt).
- * Popup items highlight with `bg-accent` (pale Nila), check indicator at inline-start, logical padding.
+ * Popup items use a warm gypsum/yellow highlight and the shared selection marker.
  */
 const Select = SelectPrimitive.Root
 
@@ -104,7 +105,7 @@ function SelectItem({ className, children, ...props }: SelectPrimitive.Item.Prop
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "relative flex w-full cursor-default items-center gap-1.5 rounded-sm py-1.5 ps-8 pe-2 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground data-highlighted:bg-accent data-highlighted:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "relative flex w-full cursor-default items-center gap-1.5 rounded-sm py-1.5 ps-8 pe-2 text-sm outline-hidden select-none focus:bg-qatt-yellow/25 focus:text-foreground data-highlighted:bg-qatt-yellow/25 data-highlighted:text-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}
@@ -112,7 +113,7 @@ function SelectItem({ className, children, ...props }: SelectPrimitive.Item.Prop
       <SelectPrimitive.ItemIndicator
         render={<span className="pointer-events-none absolute start-2 flex size-4 items-center justify-center" />}
       >
-        <CheckIcon className="pointer-events-none" />
+        <QattMarker />
       </SelectPrimitive.ItemIndicator>
       <SelectPrimitive.ItemText className="flex flex-1 shrink-0 gap-2 whitespace-nowrap">
         {children}

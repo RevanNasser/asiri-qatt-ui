@@ -204,7 +204,7 @@ describe("sonner", () => {
 })
 
 describe("breadcrumb", () => {
-  it("labels the nav in Arabic and flips the chevron in RTL", () => {
+  it("labels the nav in Arabic and uses ink diamond separators", () => {
     const { container } = render(
       <Breadcrumb>
         <BreadcrumbList>
@@ -217,9 +217,9 @@ describe("breadcrumb", () => {
       </Breadcrumb>,
     )
     expect(screen.getByRole("navigation", { name: "مسار التنقّل" })).toBeInTheDocument()
-    const [chevron, khatmah] = container.querySelectorAll('[data-slot="breadcrumb-separator"]')
-    expect(chevron!.querySelector("svg")).toHaveClass("rtl:rotate-180")
-    expect(khatmah!.querySelector("svg")).toBeNull()
+    const [first, second] = container.querySelectorAll('[data-slot="breadcrumb-separator"]')
+    expect(first!.querySelector('[data-slot="qatt-marker"]')).not.toBeNull()
+    expect(second!.querySelector('[data-slot="qatt-marker"]')).not.toBeNull()
   })
 })
 
@@ -319,7 +319,7 @@ describe("track 2 ornament variants (D-024)", () => {
     expect(container.querySelector('[data-slot="badge"] [data-motif="banat"]')).toHaveAttribute("aria-hidden", "true")
     const card = screen.getByTestId("card")
     expect(card).toHaveAttribute("data-ornament", "mural")
-    expect(card.querySelectorAll('[data-motif="khatmah"]')).toHaveLength(2)
+    expect(card.querySelectorAll('[data-motif="khatmah"]')).toHaveLength(0)
     expect(screen.getByTestId("sep")).toHaveAttribute("data-motif", "hanash")
   })
 
@@ -355,7 +355,7 @@ describe("track 2 ornament variants (D-024)", () => {
     expect(dialog.querySelector('[data-motif="rukun"]')).not.toBeNull()
   })
 
-  it("accordion and pagination qatt variants carry an amshat fringe", () => {
+  it("accordion and pagination qatt variants use restrained selected decoration", () => {
     const { container } = render(
       <>
         <Accordion variant="qatt" defaultValue={["a"]}>
@@ -375,16 +375,16 @@ describe("track 2 ornament variants (D-024)", () => {
         </Pagination>
       </>,
     )
-    expect(container.querySelector('[data-slot="accordion-trigger"] [data-motif="amshat"]')).not.toBeNull()
+    expect(container.querySelector('[data-slot="accordion-trigger"] [data-motif="mathalith-makhamis"]')).not.toBeNull()
   })
 
-  it("sonner hanash stripe is opt-in", async () => {
-    inDir("rtl", <Toaster ornament="hanash" />)
+  it("sonner uses a single-colour status bar", async () => {
+    inDir("rtl", <Toaster />)
     act(() => {
       toast("تم النسخ")
     })
     await screen.findByText("تم النسخ")
     const t = document.querySelector("[data-sonner-toast]")!
-    expect(t.className).toContain("before:[mask-image:var(--qatt-toast-ornament)]")
+    expect(t.className).toContain("before:bg-qatt-blue")
   })
 })

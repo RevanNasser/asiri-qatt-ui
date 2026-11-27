@@ -8,7 +8,7 @@ import { QattBand } from "@/registry/qatt/ui/qatt-pattern"
 
 /**
  * Qatt Accordion: shadcn base-nova Accordion + `variant="qatt"` on `Accordion`
- * (2px ink rule under each open trigger, with an amshat comb fringe hanging from it). Trigger is `text-start`, chevron at inline-end.
+ * (a restrained ink-bounded triple rule under each open trigger). Trigger is `text-start`, chevron at inline-end.
  * The chevron is ChevronDown and rotates when open; it is NOT mirrored in RTL.
  */
 function Accordion({
@@ -49,7 +49,7 @@ function AccordionTrigger({ className, children, ...props }: AccordionPrimitive.
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 -bottom-2.5 hidden h-2 group-data-[variant=qatt]/accordion:group-aria-expanded/accordion-trigger:block"
         >
-          <QattBand motif="amshat" thickness={8} />
+          <QattBand motif="mathalith-makhamis" colors={["ink", "red"]} thickness={10} />
         </span>
         <ChevronDownIcon
           data-slot="accordion-trigger-icon"

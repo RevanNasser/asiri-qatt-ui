@@ -3,14 +3,14 @@ import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from "lucide-re
 
 import { cn } from "@/lib/utils"
 import { type Button, buttonVariants } from "@/registry/qatt/ui/button"
-import { QattBand } from "@/registry/qatt/ui/qatt-pattern"
+import { QattMarker } from "@/registry/qatt/ui/qatt-pattern"
 
 /**
  * Qatt Pagination: shadcn base-nova Pagination. Arabic defaults from site-copy: «السابق» / «التالي»
  * (nav.prev / nav.next) and `aria-label` «ترقيم الصفحات» (ar-glossary). Previous sits at inline-start with a
  * chevron pointing to inline-start (flips in RTL). Labels stay available to screen readers on small screens.
  * `variant="qatt"` on `Pagination`: the active page is a solid red paint chip. Western digits, tabular.
- * In the qatt variant an amshat (comb) fringe hangs under the active page (decorative).
+ * In the qatt variant the shared diamond marker sits below the active page.
  */
 function Pagination({
   className,
@@ -57,14 +57,7 @@ function PaginationLink({ className, isActive, size = "icon", children, ...props
       {...props}
     >
       {children}
-      {isActive && (
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-1 -bottom-2.5 hidden h-2 group-data-[variant=qatt]/pagination:block"
-        >
-          <QattBand motif="amshat" thickness={8} />
-        </span>
-      )}
+      {isActive && <QattMarker className="pointer-events-none absolute start-1/2 -bottom-2.5 hidden -ms-1 group-data-[variant=qatt]/pagination:block" />}
     </a>
   )
 }

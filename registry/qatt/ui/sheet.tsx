@@ -53,13 +53,13 @@ function SheetContent({
   side = "right",
   showCloseButton = true,
   closeLabel = "إغلاق",
-  ornament,
+  ornament = "rukun",
   ...props
 }: SheetPrimitive.Popup.Props & {
   side?: PhysicalSide | "start" | "end"
   showCloseButton?: boolean
   closeLabel?: string
-  ornament?: MotifId
+  ornament?: MotifId | false
 }) {
   const startSide = useLogicalSide("start")
   const endSide = useLogicalSide("end")

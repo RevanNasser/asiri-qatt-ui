@@ -201,6 +201,18 @@ export interface QattBandProps extends Omit<QattMotifProps, "scale"> {
   thickness: number
   orientation?: "horizontal" | "vertical"
   animate?: boolean
+  /** Draw thin ink rules around a horizontal painted frieze. */
+  bounded?: boolean
+}
+
+const MIN_BAND_THICKNESS: Partial<Record<MotifId, number>> = {
+  rukun: 12,
+  banat: 12,
+  taadheeq: 12,
+  balsanah: 10,
+  amshat: 12,
+  mahareeb: 12,
+  sankroli: 16,
 }
 
 /** A single motif strip of a given thickness (used by divider, border, frame and component ornaments). */
@@ -210,22 +222,26 @@ function QattBand({
   thickness,
   orientation = "horizontal",
   animate = false,
+  bounded = true,
   className,
   style,
   ...props
 }: QattBandProps) {
   const ref = React.useRef<HTMLSpanElement>(null)
   const shown = useReveal(ref, animate)
-  const tile = getMotifTile(motif, variant)
+  const effectiveMotif = thickness < (MIN_BAND_THICKNESS[motif] ?? 0) ? "mathalith-makhamis" : motif
+  const tile = getMotifTile(effectiveMotif, variant)
   const vertical = orientation === "vertical"
   return (
     <span
       ref={ref}
       data-slot="qatt-band"
       data-qatt-motion={animate ? "" : undefined}
+      data-fallback={effectiveMotif !== motif || undefined}
       className={cn(
         "pointer-events-none block shrink-0",
-        vertical ? "h-full" : "w-full",
+        vertical ? "h-full" : "relative w-full before:absolute before:inset-x-0 before:top-0 before:z-10 before:h-px before:bg-qatt-ink after:absolute after:inset-x-0 after:bottom-0 after:z-10 after:h-px after:bg-qatt-ink",
+        !bounded && "before:hidden after:hidden",
         revealClasses(animate, shown),
         className,
       )}
@@ -233,7 +249,7 @@ function QattBand({
       aria-hidden="true"
     >
       <QattMotif
-        motif={motif}
+        motif={effectiveMotif}
         variant={variant}
         scale={thickness / tile.height}
         rotate={vertical ? 90 : 0}
@@ -243,4 +259,9 @@ function QattBand({
   )
 }
 
-export { QattPattern, QattMotif, QattMotifTile, QattBand }
+/** A single red diamond used consistently for selected/current UI state. */
+function QattMarker({ className, ...props }: React.ComponentProps<"span">) {
+  return <span aria-hidden="true" data-slot="qatt-marker" className={cn("block size-2 rotate-45 bg-qatt-red", className)} {...props} />
+}
+
+export { QattPattern, QattMotif, QattMotifTile, QattBand, QattMarker }

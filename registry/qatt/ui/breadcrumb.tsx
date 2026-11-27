@@ -1,9 +1,10 @@
 import * as React from "react"
 import { mergeProps } from "@base-ui/react/merge-props"
 import { useRender } from "@base-ui/react/use-render"
-import { ChevronRightIcon, MoreHorizontalIcon } from "lucide-react"
+import { MoreHorizontalIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { QattMarker } from "@/registry/qatt/ui/qatt-pattern"
 
 /**
  * Qatt Breadcrumb: shadcn base-nova Breadcrumb. Default `aria-label` «مسار التنقّل» (ar-glossary).
@@ -63,7 +64,7 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
 function BreadcrumbSeparator({
   children,
   className,
-  separator = "chevron",
+  separator = "khatmah",
   ...props
 }: React.ComponentProps<"li"> & { separator?: "chevron" | "slash" | "khatmah" }) {
   return (
@@ -79,9 +80,9 @@ function BreadcrumbSeparator({
         (separator === "slash" ? (
           <span>/</span>
         ) : separator === "khatmah" ? (
-          <span className="mx-0.5 size-1.5 rotate-45 bg-primary" />
+          <QattMarker className="mx-1 size-1.5 bg-qatt-ink" />
         ) : (
-          <ChevronRightIcon className="rtl:rotate-180" />
+          <QattMarker className="mx-1 size-1.5 bg-qatt-ink" />
         ))}
     </li>
   )

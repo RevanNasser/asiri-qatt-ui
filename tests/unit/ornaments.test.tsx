@@ -100,7 +100,7 @@ describe("QattFrame", () => {
     )
     expect(getByRole("figure").querySelector("figcaption")).toHaveTextContent("إطار القوس")
     expect(getByRole("figure")).toHaveAttribute("data-shape", "panel")
-    expect(container.querySelector('[data-slot="qatt-niche"]')).not.toBeNull()
+    expect(container.querySelector('[data-slot="qatt-motif"][data-motif="mathalith-makhamis"]')).not.toBeNull()
     expect(container.querySelector("clipPath")).toBeNull()
     expect(await axe(container)).toHaveNoViolations()
   })
