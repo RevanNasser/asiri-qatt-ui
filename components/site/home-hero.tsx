@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import { InstallCommand } from "@/components/site/install-command"
-import { QattMuralStrip, QattNiche } from "@/registry/qatt/ui/qatt-mural"
+import { QattMuralStrip } from "@/registry/qatt/ui/qatt-mural"
 import { Copy } from "@/components/site/copy"
 import { localePath, type Lang } from "@/lib/i18n"
 import { copyFor } from "@/lib/site-copy"
@@ -20,16 +20,12 @@ export function HomeHero({ lang = "ar" }: { lang?: Lang }) {
       data-qatt-surface="gypsum"
       className="relative isolate overflow-hidden border-b-4 border-qatt-black bg-qatt-white text-foreground"
     >
-      <QattMuralStrip
-        bands="frieze"
-        className="qatt-wall-layer qatt-wall-step-0 absolute inset-x-0 top-0"
-        scale={1.1}
-      />
-      <QattMuralStrip bands="lines" className="qatt-wall-layer qatt-wall-step-1 absolute inset-x-0 bottom-0" />
+      <QattMuralStrip bands="lines" className="qatt-wall-layer absolute inset-x-0 top-0" />
+      <QattMuralStrip bands="frieze" className="qatt-wall-layer absolute inset-x-0 bottom-0" scale={0.9} />
 
-      <div className="relative mx-auto flex w-full max-w-6xl justify-center px-7 py-20 sm:px-14 sm:py-28 lg:py-32">
-        <QattNiche className="qatt-rise flex w-full max-w-[44rem] flex-col items-center gap-6 px-5 py-10 text-center [--qatt-niche-unit:2.5px]! sm:px-12 sm:py-14 sm:[--qatt-niche-unit:4px]!">
-          <p className="inline-flex items-center gap-2 border-y-2 border-qatt-red py-1 text-sm font-medium text-qatt-red">
+      <div className="relative mx-auto flex w-full max-w-6xl justify-center px-7 py-24 sm:px-14 sm:py-32 lg:py-36">
+        <div className="qatt-rise flex w-full max-w-[48rem] flex-col items-center gap-6 text-center">
+          <p className="inline-flex items-center gap-2 border-b-2 border-qatt-red pb-1 text-sm font-medium text-qatt-red">
             {t("home.hero.eyebrow")}
           </p>
           <h1
@@ -77,7 +73,7 @@ export function HomeHero({ lang = "ar" }: { lang?: Lang }) {
               href: localePath(lang, "/docs/getting-started"),
             }}
           />
-        </QattNiche>
+        </div>
       </div>
     </section>
   )

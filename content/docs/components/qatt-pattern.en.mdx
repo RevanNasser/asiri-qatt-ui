@@ -1,11 +1,11 @@
 ---
 title: Qatt Pattern
-description: A repeating decorative background of bands, triangles and diamonds, inspired by the vocabulary of Al-Qatt Al-Asiri.
+description: A quiet edge ornament, inspired by the vocabulary of Al-Qatt Al-Asiri.
 ---
 
 {/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-pattern.*, docs.props.qatt-pattern.*). */}
 
-A decorative background that repeats one Qatt motif to fill a section, a band or a card. Every motif is our own original drawing, inspired by the geometric vocabulary of Al-Qatt Al-Asiri, never copied from a particular wall.
+A quiet ornament rendered as an edge band by default. Full tiling is an explicit option for decorative-only surfaces, never a background for text. Every motif is our own original drawing, inspired by the geometric vocabulary of Al-Qatt Al-Asiri, never copied from a particular wall.
 
 <Callout>
 On pages that present the heritage itself, use surface="gypsum" or label the dark rendering as our interpretation. Never attribute a meaning to a motif that no source documents.
@@ -19,15 +19,13 @@ On pages that present the heritage itself, use surface="gypsum" or label the dar
 
 ## Usage
 
-Pick the motif with motif and colour its slots with colors. If you put text over a pattern, place it on a solid card; when the pattern has children it is dimmed automatically to 0.12 in light mode and 0.18 in dark mode.
+Pick the motif with motif and colour its slots with colors. mode defaults to band; choose tile only for a decorative surface with no content.
 
 ```tsx
 import { QattPattern } from "@/components/ui/qatt-pattern"
 
 <QattPattern motif="balsanah" className="h-40" />
-<QattPattern motif="shabakah" opacity={0.1}>
-  <Card>…</Card>
-</QattPattern>
+<QattPattern mode="tile" motif="shabakah" className="h-40" />
 ```
 
 
@@ -45,6 +43,7 @@ import { QattPattern } from "@/components/ui/qatt-pattern"
     {"name": "as", "type": "\"div\" | \"section\" | \"span\"", "default": "\"div\"", "description": <span>Wrapper element: div, section or span.</span>},
     {"name": "surface", "type": "\"default\" | \"gypsum\"", "default": "\"default\"", "description": <span>gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself.</span>},
     {"name": "preset", "type": "\"full\"", "description": <span>full renders the wall recipe: a stack of bands of the project's own making, never including stepped.</span>}
+    ,{"name": "mode", "type": "\"band\" | \"tile\"", "default": "\"band\"", "description": <span>Rendering mode: band for an edge frieze, or tile for a decorative-only surface. Default band.</span>}
   ]}
 />
 

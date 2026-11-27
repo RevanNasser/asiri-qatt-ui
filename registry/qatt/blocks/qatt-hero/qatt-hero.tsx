@@ -24,7 +24,7 @@ export interface QattHeroProps extends Omit<React.ComponentProps<"section">, "ti
   /** Top band motif. */
   motif?: MotifId
   align?: "center" | "start"
-  /** "mural" (default): the content sits in a gypsum niche on a full painted wall. "plain": friezes only. */
+  /** "plain" (default): content on gypsum with edge friezes. "mural" is an explicit marketing treatment. */
   background?: "mural" | "plain"
   /** Shown in an arch frame at inline-end on large screens (with align="start"). */
   media?: React.ReactNode
@@ -96,7 +96,7 @@ function QattHero({
   motif = "rukun",
   align = "center",
   media,
-  background = "mural",
+  background = "plain",
   animate = false,
   className,
   ...props

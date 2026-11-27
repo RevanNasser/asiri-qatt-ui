@@ -1,11 +1,11 @@
 ---
 title: نقش قَطّ
-description: خلفيةٌ زخرفية متكرّرة من أشرطةٍ ومثلثاتٍ ومعيّنات، مستلهمة من مفردات القطّ العسيري.
+description: زخرفةٌ هادئة عند الحافة، مستلهمة من مفردات القطّ العسيري.
 ---
 
 {/* Copy: ar-glossary.md and site-copy.ar.md only (batch 3 keys docs.qatt-pattern.*, docs.props.qatt-pattern.*). */}
 
-خلفيةٌ زخرفية تتكرّر فيها وحدةٌ واحدة من نقوش قَطّ، فتملأ قسمًا أو شريطًا أو بطاقة. كلّ نقشٍ رسمٌ من اجتهادنا، يستلهم المفردات الهندسية للقطّ العسيري ولا ينسخ جدارًا بعينه.
+زخرفةٌ هادئة تُعرض شريطًا عند حافة المساحة افتراضيًا. أمّا التبليط الكامل فاختيارٌ صريح للأسطح الزخرفية فقط، لا خلفيةً للنص. كلّ نقشٍ رسمٌ من اجتهادنا، يستلهم المفردات الهندسية للقطّ العسيري ولا ينسخ جدارًا بعينه.
 
 <Callout>
 في الصفحات التي تعرض التراث نفسه، استعملوا `surface="gypsum"`، أو نبّهوا إلى أنّ العرض الداكن اجتهادٌ منّا. ولا تنسبوا إلى نقشٍ معنىً لم يوثّقه مصدر.
@@ -19,15 +19,13 @@ description: خلفيةٌ زخرفية متكرّرة من أشرطةٍ ومثل
 
 ## الاستخدام
 
-اختاروا النقش بالخاصية `motif`، ولوّنوا خاناته بالخاصية `colors`. وإن وضعتم نصًّا فوق النقش فضعوه في بطاقةٍ ذات خلفيةٍ صلبة، فالنقش يُخفَّت تلقائيًا إلى 0.12 في الوضع الفاتح و0.18 في الداكن متى كان له محتوى.
+اختاروا النقش بالخاصية `motif`، ولوّنوا خاناته بالخاصية `colors`. القيمة الافتراضية لـ`mode` هي `band`؛ واختاروا `tile` فقط لسطحٍ زخرفي لا يحمل محتوى.
 
 ```tsx
 import { QattPattern } from "@/components/ui/qatt-pattern"
 
 <QattPattern motif="balsanah" className="h-40" />
-<QattPattern motif="shabakah" opacity={0.1}>
-  <Card>…</Card>
-</QattPattern>
+<QattPattern mode="tile" motif="shabakah" className="h-40" />
 ```
 
 
@@ -45,6 +43,7 @@ import { QattPattern } from "@/components/ui/qatt-pattern"
     {"name": "as", "type": "\"div\" | \"section\" | \"span\"", "default": "\"div\"", "description": <span>العنصر الذي يُعرض به الغلاف: <code dir="ltr">div</code> أو <code dir="ltr">section</code> أو <code dir="ltr">span</code>.</span>},
     {"name": "surface", "type": "\"default\" | \"gypsum\"", "default": "\"default\"", "description": <span>القيمة <code dir="ltr">gypsum</code> تعرض الزخرفة على أرضيةٍ بيضاء كالجصّ بألوانها الفاتحة في الوضعين. وهي لازمةٌ في الصفحات التي تعرض التراث نفسه.</span>},
     {"name": "preset", "type": "\"full\"", "description": <span>القيمة <code dir="ltr">full</code> تعرض «تركيبة الجدار»: أشرطةٌ مرتّبة من اجتهاد المشروع، لا يدخلها «المدرّج».</span>}
+    ,{"name": "mode", "type": "\"band\" | \"tile\"", "default": "\"band\"", "description": <span>طريقة العرض: <code dir="ltr">band</code> لشريطٍ عند الحافة، أو <code dir="ltr">tile</code> لتبليط سطحٍ زخرفي خالص. والافتراضي <code dir="ltr">band</code>.</span>}
   ]}
 />
 

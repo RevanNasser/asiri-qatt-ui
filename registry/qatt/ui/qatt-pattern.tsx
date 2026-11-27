@@ -118,6 +118,8 @@ export interface QattPatternProps extends Omit<React.ComponentProps<"div">, "chi
   surface?: "default" | "gypsum"
   /** "full" stacks the catalog wall recipe (project interpretation). */
   preset?: "full"
+  /** A restrained edge band (default) or an explicit full-area tile for decorative-only surfaces. */
+  mode?: "band" | "tile"
   children?: React.ReactNode
 }
 
@@ -128,7 +130,7 @@ const FADES = {
   radial: "radial-gradient(closest-side, black 55%, transparent)",
 } as const
 
-/** Repeating Qatt motif background, optionally behind content. Decorative only. */
+/** Qatt ornament with a restrained edge band by default. Full-area tiling is explicit and decorative only. */
 function QattPattern({
   motif = "balsanah",
   variant,
@@ -140,6 +142,7 @@ function QattPattern({
   as: Comp = "div",
   surface = "default",
   preset,
+  mode = "band",
   className,
   style,
   children,
@@ -158,11 +161,12 @@ function QattPattern({
   return (
     <Comp
       data-slot="qatt-pattern"
-      data-motif={preset ? undefined : motif}
+      data-motif={preset || mode === "band" ? undefined : motif}
       data-preset={preset}
+      data-mode={mode}
       data-qatt-surface={surface === "gypsum" ? "gypsum" : undefined}
       className={cn(
-        "relative isolate block [--qatt-pattern-max:0.12] dark:[--qatt-pattern-max:0.18]",
+        "relative isolate block overflow-hidden bg-qatt-jiss [--qatt-pattern-max:0.12] dark:[--qatt-pattern-max:0.18]",
         !hasChildren && "min-h-16",
         className,
       )}
@@ -186,9 +190,19 @@ function QattPattern({
             </span>
           ))}
         </span>
-      ) : (
+      ) : mode === "tile" ? (
         <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={layerStyle}>
           <QattMotif motif={motif} variant={variant} colors={colors} ground={ground} scale={s} />
+        </span>
+      ) : (
+        <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0" style={layerStyle}>
+          <QattBand
+            motif={motif}
+            variant={variant}
+            colors={colors}
+            ground={ground}
+            thickness={Math.max(12, MOTIFS[motif].height * s)}
+          />
         </span>
       )}
       {hasChildren && <span className="relative z-10 block">{children}</span>}

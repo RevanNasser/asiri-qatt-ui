@@ -374,9 +374,10 @@ export const enCopy = {
   "docs.patterns.preset.fullNote":
     "A band order of the project's own making, from kaff at the bottom to hanash at the top. It does not depict any particular wall.",
   "docs.qatt-pattern.intro":
-    "A decorative background that repeats one Qatt motif to fill a section, a band or a card. Every motif is our own original drawing, inspired by the geometric vocabulary of Al-Qatt Al-Asiri, never copied from a particular wall.",
+    "A quiet ornament rendered as an edge band by default. Full tiling is an explicit option for decorative-only surfaces, never a background for text. Every motif is our own original drawing, inspired by the geometric vocabulary of Al-Qatt Al-Asiri, never copied from a particular wall.",
+  "docs.qatt-pattern.description": "A quiet edge ornament, inspired by the vocabulary of Al-Qatt Al-Asiri.",
   "docs.qatt-pattern.usage":
-    "Pick the motif with motif and colour its slots with colors. If you put text over a pattern, place it on a solid card; when the pattern has children it is dimmed automatically to 0.12 in light mode and 0.18 in dark mode.",
+    "Pick the motif with motif and colour its slots with colors. mode defaults to band; choose tile only for a decorative surface with no content.",
   "docs.qatt-pattern.rtl":
     "Motifs do not flip with direction; most are symmetric anyway. Sawtooth keeps the same orientation in both directions.",
   "docs.qatt-pattern.a11y":
@@ -398,6 +399,8 @@ export const enCopy = {
     "gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself.",
   "docs.props.qatt-pattern.preset":
     "full renders the wall recipe: a stack of bands of the project's own making, never including stepped.",
+  "docs.props.qatt-pattern.mode":
+    "Rendering mode: band for an edge frieze, or tile for a decorative-only surface. Default band.",
   "docs.qatt-border.intro":
     "A decorative edge on one or more sides of your content: a band of motifs that can end in khatmah squares, the way bands are closed on the wall.",
   "docs.qatt-border.usage":
@@ -450,7 +453,7 @@ export const enCopy = {
   "docs.qatt-frame.rtl": "The frame is symmetric; nothing flips.",
   "docs.qatt-frame.a11y":
     "Built on `figure` and `figcaption`; the frame drawing is hidden from assistive technology. Give every image alt text in `alt`, and put explanations in `caption`, not inside the image.",
-  "docs.props.qatt-frame.colors": "Frame-line colours, from inside to outside.",
+  "docs.props.qatt-frame.colors": "Frame-line colours; the component uses ink and one accent only.",
   "docs.props.qatt-frame.base":
     "Optional lower band. Default false so ornament is never added without a compositional role.",
   "docs.props.qatt-frame.ratio": "Aspect ratio of the content box. Default 3/4.",

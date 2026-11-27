@@ -34,7 +34,7 @@ import { QattFrame } from "@/components/ui/qatt-frame"
 
 <PropsTable
   rows={[
-    {"name": "colors", "type": "QattColor[]", "default": "[\"red\", \"yellow\", \"green\"]", "description": <span>Frame-line colours, from inside to outside.</span>},
+    {"name": "colors", "type": "QattColor[]", "default": "[\"ink\", \"red\"]", "description": <span>Frame-line colours; the component uses ink and one accent only.</span>},
     {"name": "base", "type": "MotifId | false", "default": "false", "description": <span>Optional lower band. Default false so ornament is never added without a compositional role.</span>},
     {"name": "ratio", "type": "number", "default": "3/4", "description": <span>Aspect ratio of the content box. Default 3/4.</span>},
     {"name": "caption", "type": "ReactNode", "description": <span>Caption rendered in figcaption below the frame.</span>},

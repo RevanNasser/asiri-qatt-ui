@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils"
 import type { MotifId } from "@/registry/qatt/lib/qatt-motifs"
 import { Card, CardContent, CardHeader } from "@/registry/qatt/ui/card"
 import { QattMuralStrip } from "@/registry/qatt/ui/qatt-mural"
-import { QattPattern } from "@/registry/qatt/ui/qatt-pattern"
 
 export interface QattFeature {
   title: string
@@ -30,15 +29,13 @@ const COLS = {
   3: "@xl:grid-cols-2 @4xl:grid-cols-3",
   4: "@xl:grid-cols-2 @4xl:grid-cols-4",
 } as const
-const TILES = ["bg-qatt-red", "bg-qatt-blue", "bg-qatt-black"] as const
-
-/** «شبكة المزايا»: painted cards with icons in khatmah-like pigment squares over a faint shabakah field. */
+/** «شبكة المزايا»: calm gypsum cards; the shared wall band belongs to the grid, not every icon. */
 function QattFeatureGrid({
   title,
   subtitle,
   features,
   columns = 3,
-  background = "shabakah",
+  background = false,
   moreLabel,
   className,
   ...props
@@ -56,15 +53,15 @@ function QattFeatureGrid({
         {features.map((f, i) => (
           <li key={f.title} className="flex">
             <Card
-              variant="painted"
+              variant="framed"
+              ornament={i === features.length - 1 ? "rukun" : false}
               className="relative w-full has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-ring"
             >
               <CardHeader className="gap-3">
                 <span
                   aria-hidden="true"
                   className={cn(
-                    "grid size-10 place-items-center rounded-sm border-2 border-qatt-ink text-qatt-white [&_svg]:size-5",
-                    TILES[i % TILES.length],
+                    "grid size-8 place-items-center text-qatt-ink [&_svg]:size-5",
                   )}
                 >
                   {f.icon}
@@ -102,17 +99,12 @@ function QattFeatureGrid({
     <section
       aria-labelledby={id}
       data-slot="qatt-feature-grid"
+      data-background={background || undefined}
       className={cn("@container w-full", className)}
       {...props}
     >
       <QattMuralStrip bands="lines" />
-      {background ? (
-        <QattPattern motif={background} opacity={0.06}>
-          {grid}
-        </QattPattern>
-      ) : (
-        grid
-      )}
+      {grid}
     </section>
   )
 }

@@ -34,7 +34,7 @@ import { QattFrame } from "@/components/ui/qatt-frame"
 
 <PropsTable
   rows={[
-    {"name": "colors", "type": "QattColor[]", "default": "[\"red\", \"yellow\", \"green\"]", "description": <span>ألوان خطوط الإطار، من الداخل إلى الخارج.</span>},
+    {"name": "colors", "type": "QattColor[]", "default": "[\"ink\", \"red\"]", "description": <span>ألوان خطوط الإطار، ويستخدم المكوّن الحبر ولونًا مكمّلًا واحدًا فقط.</span>},
     {"name": "base", "type": "MotifId | false", "default": "false", "description": <span>شريطٌ سفلي اختياري. الافتراضي <code dir="ltr">false</code> كي لا تُضاف الزخرفة بلا دورٍ في التكوين.</span>},
     {"name": "ratio", "type": "number", "default": "3/4", "description": <span>نسبة عرض المحتوى إلى ارتفاعه. والافتراضي 3/4.</span>},
     {"name": "caption", "type": "ReactNode", "description": <span>شرحٌ يُعرض في <code dir="ltr">figcaption</code> تحت الإطار.</span>},

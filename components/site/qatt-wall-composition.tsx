@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils"
-import { QattMural, QattNiche } from "@/registry/qatt/ui/qatt-mural"
+import { QattMuralStrip } from "@/registry/qatt/ui/qatt-mural"
 
 /**
- * A framed piece of painted wall: dense qatt bands around a plain gypsum window in concentric
- * painted lines. A project interpretation; it does not reproduce a specific wall.
+ * A quiet wall study: gypsum carries the space, and the painted vocabulary stays at the base.
+ * It is a project interpretation; it does not reproduce a specific wall.
  */
 export function QattWallComposition({ className }: { className?: string }) {
   return (
@@ -12,12 +12,13 @@ export function QattWallComposition({ className }: { className?: string }) {
       data-slot="qatt-wall-composition"
       data-qatt-surface="gypsum"
       className={cn(
-        "relative isolate grid aspect-[4/5] place-items-center overflow-hidden border-4 border-qatt-black bg-qatt-white shadow-[8px_8px_0_var(--qatt-red)]",
+        "relative isolate flex aspect-[4/5] flex-col justify-end overflow-hidden border-2 border-qatt-black bg-qatt-jiss",
         className,
       )}
     >
-      <QattMural className="absolute inset-0" />
-      <QattNiche frame="sm" className="relative size-[44%]" />
+      <div className="absolute inset-x-[14%] top-[17%] h-px bg-qatt-ink/35" />
+      <div className="absolute inset-x-[22%] top-[30%] h-px bg-qatt-ink/20" />
+      <QattMuralStrip bands="base" scale={0.9} />
     </div>
   )
 }
