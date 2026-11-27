@@ -867,7 +867,7 @@ export const enCopy = {
   "docs.theme.tokens.body":
     "Motifs use the slots `--qatt-slot-1` to `--qatt-slot-4`, so you can recolour them without changing the drawing. Keep text on a background with enough contrast; the green here is for decoration only.",
   "docs.theme.fonts.body":
-    "The theme ships IBM Plex Sans Arabic for body text, Readex Pro for headings and IBM Plex Mono for code. Install the theme before any component:",
+    "This documentation site uses Thmanyah Sans for body text and headings, and IBM Plex Mono for code. The Qatt registry does not redistribute Thmanyah's font files; download them from the official source if you want the same site typography. The installed registry theme continues to use its open-source fonts. Install the theme before any component:",
   "docs.theme.dark.body":
     "Dark mode is the project's digital interpretation; Al-Qatt Al-Asiri is painted on a white gypsum ground.",
   "docs.qatt-mural.title": "Qatt Mural",
