@@ -1,17 +1,13 @@
-import { IBM_Plex_Mono, IBM_Plex_Sans_Arabic, Readex_Pro } from "next/font/google"
+import localFont from "next/font/local"
+import { IBM_Plex_Mono } from "next/font/google"
 
-// design-tokens.md §6 (all SIL OFL 1.1). Mirrored by the qatt-font / qatt-font-heading / qatt-font-mono registry items.
-export const plexArabic = IBM_Plex_Sans_Arabic({
-  subsets: ["arabic", "latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-plex-arabic",
-  display: "swap",
-})
-
-export const readex = Readex_Pro({
-  subsets: ["arabic", "latin"],
-  weight: "variable",
-  variable: "--font-readex",
+/** Licensed Thmanyah Sans files supplied for this site. The registry still ships its open-source defaults. */
+export const thmanyahSans = localFont({
+  src: [
+    { path: "../app/fonts/thmanyah-sans-Light.woff2", weight: "300", style: "normal" },
+    { path: "../app/fonts/thmanyah-sans-Regular.woff2", weight: "400", style: "normal" },
+  ],
+  variable: "--font-thmanyah-sans",
   display: "swap",
 })
 
@@ -22,4 +18,4 @@ export const plexMono = IBM_Plex_Mono({
   display: "swap",
 })
 
-export const fontVariables = `${plexArabic.variable} ${readex.variable} ${plexMono.variable}`
+export const fontVariables = `${thmanyahSans.variable} ${plexMono.variable}`

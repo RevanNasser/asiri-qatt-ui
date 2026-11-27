@@ -13,8 +13,8 @@
 @custom-variant dark (&:is(.dark *):not(:is([data-qatt-surface="gypsum"], [data-qatt-surface="gypsum"] *)));
 
 @theme inline {
-  --font-sans: var(--font-plex-arabic), "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-readex), "Readex Pro", var(--font-plex-arabic), ui-sans-serif, sans-serif;
+  --font-sans: var(--font-thmanyah-sans), Tahoma, ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-thmanyah-sans), Tahoma, ui-sans-serif, sans-serif;
   --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
