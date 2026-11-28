@@ -446,6 +446,34 @@ Key index: `ar-copy-batch3.md`. Demo content is under `blocks.<id>.*`; doc pages
 | `docs.props.qatt-pattern.surface` | القيمة `gypsum` تعرض الزخرفة على أرضيةٍ بيضاء كالجصّ بألوانها الفاتحة في الوضعين. وهي لازمةٌ في الصفحات التي تعرض التراث نفسه. |
 | `docs.props.qatt-pattern.preset` | القيمة `full` تعرض «تركيبة الجدار»: أشرطةٌ مرتّبة من اجتهاد المشروع، لا يدخلها «المدرّج». |
 | `docs.props.qatt-pattern.mode` | طريقة العرض: `band` لشريطٍ عند الحافة، أو `tile` لتبليط سطحٍ زخرفي خالص. والافتراضي `band`. |
+| `demo.badge` | واجهة تجريبية |
+| `demo.ready` | جاهز |
+| `demo.hero.title` | مساحةٌ واحدة، مكوّناتٌ متعاونة. |
+| `demo.hero.body` | نموذج صفحة بسيطة يوضح كيف يمكن للمكوّنات أن تخدم المحتوى من دون أن تتنافس معه. |
+| `demo.frame.caption` | واجهةٌ هادئة تُبنى على الجصّ، وتترك الزخرفة عند الحافة. |
+| `demo.card.badge` | مختار |
+| `demo.card.title` | رسالة قصيرة وواضحة |
+| `demo.card.body` | تظهر البطاقة كلوحٍ هادئ، ويأتي الشريط أسفلها بوصفه نهاية للتكوين. |
+| `demo.cta` | ابدأ الآن |
+| `demo.border.title` | حدودٌ مقصودة |
+| `demo.border.body` | تظهر الزخارف في مكانها، لا كخلفيةٍ تملأ اللوحة. |
+| `demo.form.title` | إعداد بسيط |
+| `demo.form.name` | الاسم |
+| `demo.form.placeholder` | اكتب اسمك |
+| `demo.form.tone` | النبرة |
+| `demo.form.quiet` | هادئة |
+| `demo.form.warm` | دافئة |
+| `demo.form.bright` | مضيئة |
+| `demo.form.save` | حفظ الإعداد |
+| `demo.tabs.overview` | نظرة |
+| `demo.tabs.details` | تفاصيل |
+| `demo.accordion.principle` | قاعدة التصميم |
+| `demo.accordion.principle.body` | المحتوى أولًا، والزخرفة شريطٌ واضح عند الحافة. |
+| `demo.accordion.motion` | الحركة |
+| `demo.accordion.motion.body` | تبقى هادئة وتحترم إعداد تقليل الحركة. |
+| `demo.tabs.details.body` | المكوّنات تستخدم الخصائص المنطقية، لذلك تبقى متوازنة في RTL وLTR. |
+| `demo.divider` | نهاية التجربة |
+| `demo.hover` | مرّر المؤشر على أي مساحة لرؤية اسم المكوّن. |
 | `docs.qatt-border.intro` | حدٌّ زخرفي يحيط بالمحتوى من جهةٍ أو أكثر، بشريطٍ من النقوش ينتهي إن شئتم بـ«الختمة» في طرفيه، كما تُختم الأشرطة على الجدار. |
 | `docs.qatt-border.usage` | حدّدوا الجهة بالخاصية `side`. يُرسم الشريط العلوي قائمًا، والسفلي مقلوبًا فتتّجه رؤوس المثلثات نحو المحتوى. واتركوا بين الشريط ومحتوى العنصر مسافةً لا تقلّ عن سماكة الشريط وزيادة 8px. |
 | `docs.qatt-border.rtl` | الجهات المنطقية والختمات في الطرفين وحركة الرسم كلّها تتبع اتجاه الصفحة. أما رسم النقش نفسه فلا ينقلب. |

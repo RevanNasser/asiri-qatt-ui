@@ -10,7 +10,7 @@
     "node": ">=24"
   },
   "scripts": {
-    "dev": "pnpm registry:build && next dev",
+    "dev": "pnpm registry:build && next dev --webpack",
     "build": "pnpm registry:build && next build",
     "start": "next start",
     "registry:gen": "tsx scripts/registry-gen.ts",

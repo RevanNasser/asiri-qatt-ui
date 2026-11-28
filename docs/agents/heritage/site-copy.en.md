@@ -388,6 +388,34 @@ Key index: `ar-copy-batch3.md`. Demo content is under `blocks.<id>.*`; doc pages
 | `docs.props.qatt-pattern.surface` | gypsum shows the ornament on a white gypsum-like ground with its light colours in both modes. Required on pages that present the heritage itself. |
 | `docs.props.qatt-pattern.preset` | full renders the wall recipe: a stack of bands of the project's own making, never including stepped. |
 | `docs.props.qatt-pattern.mode` | Rendering mode: band for an edge frieze, or tile for a decorative-only surface. Default band. |
+| `demo.badge` | Interactive demo |
+| `demo.ready` | Ready |
+| `demo.hero.title` | One space, components working together. |
+| `demo.hero.body` | A simple page model showing how components can serve content without competing with it. |
+| `demo.frame.caption` | A calm interface built on gypsum, with ornament kept at the edge. |
+| `demo.card.badge` | Chosen |
+| `demo.card.title` | A short, clear message |
+| `demo.card.body` | The card appears as a calm panel, with the band below it completing the composition. |
+| `demo.cta` | Start now |
+| `demo.border.title` | Intentional borders |
+| `demo.border.body` | Ornaments appear in their place, never as a background that fills the panel. |
+| `demo.form.title` | A simple setting |
+| `demo.form.name` | Name |
+| `demo.form.placeholder` | Write your name |
+| `demo.form.tone` | Tone |
+| `demo.form.quiet` | Quiet |
+| `demo.form.warm` | Warm |
+| `demo.form.bright` | Bright |
+| `demo.form.save` | Save settings |
+| `demo.tabs.overview` | Overview |
+| `demo.tabs.details` | Details |
+| `demo.accordion.principle` | Design principle |
+| `demo.accordion.principle.body` | Content comes first, with ornament as a clear band at the edge. |
+| `demo.accordion.motion` | Motion |
+| `demo.accordion.motion.body` | It stays calm and respects reduced-motion settings. |
+| `demo.tabs.details.body` | Components use logical properties, so they remain balanced in RTL and LTR. |
+| `demo.divider` | End of the demo |
+| `demo.hover` | Hover any surface to reveal the component name. |
 | `docs.qatt-border.intro` | A decorative edge on one or more sides of your content: a band of motifs that can end in khatmah squares, the way bands are closed on the wall. |
 | `docs.qatt-border.usage` | Choose the sides with side. The top strip stands upright and the bottom strip is turned over, so the triangles point into the content. Keep at least the strip thickness plus 8px between the strip and the content. |
 | `docs.qatt-border.rtl` | Logical sides, end caps and the paint reveal all follow the page direction. The motif artwork itself never flips. |
