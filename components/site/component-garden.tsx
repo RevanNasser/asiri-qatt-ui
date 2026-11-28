@@ -34,61 +34,40 @@ export function ComponentGarden({ labels }: { labels: DemoLabels }) {
   ]
   return (
     <TooltipProvider>
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(17rem,0.65fr)]">
-        <div className="grid gap-6">
-          <NamedSurface name="QattFrame" className="min-h-72">
-            <QattFrame base="rukun" caption={labels.frameCaption}>
-              <div className="flex size-full flex-col justify-between bg-qatt-jiss p-6 sm:p-8">
+      <div className="grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <NamedSurface name="QattFrame" className="h-full">
+            <QattFrame ratio={4 / 3} base="rukun" className="h-full" caption={labels.frameCaption}>
+              <div className="flex size-full flex-col justify-between bg-qatt-jiss p-6">
                 <div className="flex items-center justify-between gap-3">
-                    <Badge variant="qatt">{labels.badge}</Badge>
-                  <Badge variant="pigment" tone="ink">
-                    <CheckIcon aria-hidden="true" className="size-3" /> {labels.ready}
-                  </Badge>
+                  <Badge variant="qatt">{labels.badge}</Badge>
+                  <Badge variant="pigment" tone="ink"><CheckIcon aria-hidden="true" className="size-3" /> {labels.ready}</Badge>
                 </div>
-                <div className="max-w-md space-y-3">
-                  <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl">{labels.heroTitle}</h2>
-                  <p className="text-base leading-7 text-muted-foreground">{labels.heroBody}</p>
+                <div className="space-y-2">
+                  <h2 className="font-heading text-2xl font-bold tracking-tight">{labels.heroTitle}</h2>
+                  <p className="text-sm leading-6 text-muted-foreground">{labels.heroBody}</p>
                 </div>
               </div>
             </QattFrame>
           </NamedSurface>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            <NamedSurface name="Card + Button + Badge">
-              <Card variant="framed" className="h-full">
-                <CardHeader className="gap-3">
-                  <div className="flex items-center justify-between gap-3">
-                    <Badge variant="banat">{labels.cardBadge}</Badge>
-                    <HeartIcon aria-hidden="true" className="size-5 text-qatt-red" />
-                  </div>
-                  <CardTitle>{labels.cardTitle}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-1 flex-col justify-between gap-5 text-muted-foreground">
-                  <p>{labels.cardBody}</p>
-                  <Button variant="qatt" className="w-fit">{labels.cta}</Button>
-                </CardContent>
-              </Card>
-            </NamedSurface>
-
-            <NamedSurface name="QattBorder + QattCorner">
-              <QattBorder side="block" motif="rukun" thickness="sm" caps className="h-full bg-qatt-jiss">
-                <div className="relative flex h-full min-h-56 flex-col justify-between p-6">
-                  <QattCorner position="start-start" size="lg" />
-                  <QattCorner position="end-end" size="lg" />
-                  <MenuIcon aria-hidden="true" className="size-5 text-qatt-ink" />
-                  <div className="space-y-2">
-                    <p className="font-heading text-xl font-semibold">{labels.borderTitle}</p>
-                    <p className="text-sm leading-6 text-muted-foreground">{labels.borderBody}</p>
-                  </div>
+          <NamedSurface name="Card + Button + Badge" className="h-full">
+            <Card variant="framed" className="h-full min-h-72">
+              <CardHeader className="gap-3">
+                <div className="flex items-center justify-between gap-3">
+                  <Badge variant="banat">{labels.cardBadge}</Badge>
+                  <HeartIcon aria-hidden="true" className="size-5 text-qatt-red" />
                 </div>
-              </QattBorder>
-            </NamedSurface>
-          </div>
-        </div>
+                <CardTitle>{labels.cardTitle}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-1 flex-col justify-between gap-5 text-muted-foreground">
+                <p>{labels.cardBody}</p>
+                <Button variant="qatt" className="w-fit">{labels.cta}</Button>
+              </CardContent>
+            </Card>
+          </NamedSurface>
 
-        <div className="grid content-start gap-6">
-          <NamedSurface name="Input + Select">
-            <Card variant="framed">
+          <NamedSurface name="Input + Select" className="h-full">
+            <Card variant="framed" className="h-full min-h-72">
               <CardHeader>
                 <CardTitle>{labels.formTitle}</CardTitle>
               </CardHeader>
@@ -111,8 +90,8 @@ export function ComponentGarden({ labels }: { labels: DemoLabels }) {
             </Card>
           </NamedSurface>
 
-          <NamedSurface name="Tabs + Accordion">
-            <Card variant="framed">
+          <NamedSurface name="Tabs + Accordion" className="h-full">
+            <Card variant="framed" className="h-full min-h-72">
               <CardContent className="pt-1">
                 <Tabs defaultValue="overview" className="gap-4">
                   <TabsList variant="qatt">
@@ -138,12 +117,24 @@ export function ComponentGarden({ labels }: { labels: DemoLabels }) {
               </CardContent>
             </Card>
           </NamedSurface>
-        </div>
-      </div>
 
-      <NamedSurface name="QattDivider" className="mt-8">
-        <QattDivider mural="frieze" label={labels.divider} />
-      </NamedSurface>
+          <NamedSurface name="QattBorder + QattCorner" className="h-full">
+            <QattBorder side="block" motif="rukun" thickness="sm" caps className="h-full min-h-48 bg-qatt-jiss">
+              <div className="relative flex h-full flex-col justify-between p-6">
+                <QattCorner position="start-start" size="lg" />
+                <QattCorner position="end-end" size="lg" />
+                <MenuIcon aria-hidden="true" className="size-5 text-qatt-ink" />
+                <div className="space-y-2">
+                  <p className="font-heading text-xl font-semibold">{labels.borderTitle}</p>
+                  <p className="text-sm leading-6 text-muted-foreground">{labels.borderBody}</p>
+                </div>
+              </div>
+            </QattBorder>
+          </NamedSurface>
+          <NamedSurface name="QattDivider" className="flex min-h-48 items-center rounded-lg border-2 border-qatt-ink bg-qatt-jiss px-6">
+            <QattDivider mural="frieze" label={labels.divider} className="my-0" />
+          </NamedSurface>
+      </div>
     </TooltipProvider>
   )
 }

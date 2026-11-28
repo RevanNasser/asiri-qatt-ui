@@ -25,8 +25,8 @@ export default async function DemoPage({ params }: PageProps<"/[lang]/demo">) {
   return (
     <main className="min-h-screen bg-qatt-jiss">
       <QattDivider mural="frieze" className="my-0" />
-      <section className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 py-14 sm:px-6 sm:py-20">
-        <header className="max-w-2xl space-y-3 text-start">
+      <section className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-14 sm:px-6 sm:py-20">
+        <header className="mx-auto max-w-2xl space-y-3 text-center">
           <p className="font-mono text-sm text-qatt-red">/ demo</p>
           <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl">{t("home.showcase.title")}</h1>
           <p className="text-lg leading-8 text-muted-foreground">{t("home.showcase.subtitle")}</p>
